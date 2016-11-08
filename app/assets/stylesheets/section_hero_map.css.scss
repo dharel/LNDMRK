@@ -1,0 +1,14 @@
+@import "./_base.css.scss";
+//================================
+// hero-map:
+//================================
+.hero-map {
+  background: #01264b; /* Old browsers */
+  background: -moz-linear-gradient(top,  #01264b 0%, #194b92 51%, #9f349c 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #01264b 0%,#194b92 51%,#9f349c 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #01264b 0%,#194b92 51%,#9f349c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01264b', endColorstr='#9f349c',GradientType=0 ); /* IE6-9 */
+  
+  height: 488px;
+  overflow: hidden;
+}

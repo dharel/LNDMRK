@@ -1,12 +1,58 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "_base.css.scss";
+@import "section_hero_map.css.scss";
+@import "section_proj_carousel.css.scss";
+@import "section_how_it_works.css.scss";
+@import "section_statistics.css.scss";
+@import "section_our_story.css.scss";
+@import "section_leadership.css.scss";
+@import "section_partners.css.scss";
+//================================
+//header:=========================
+//================================
+header {
+  background: $white;
+  height: 48px;
 
-$size: 100px;
+  .header-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  a {
+    display: inline-block;
+  }
 
-.box {
-  margin: auto;
-  background-color: #aaa;
-  width: 80%;
-  height: $size;
+  .left-side {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 70%;
+    
+  }
+  .right-side {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 30%;
+  }
+  .header-logo {
+    display: inline-block;
+    height: 20px;
+    width: 60px;
+    overflow: hidden;
+  }
+}
+
+
+
+
+//================================
+//footer:=========================
+//================================
+footer {
+  height: 385px;
+  overflow: hidden;
+  background: $dark-blue;
 }

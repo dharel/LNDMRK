@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:700,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,500);
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+$black: #000;
+$white: #fff;
+$transprnt-white: rgba(255, 255, 255, .5);
+$dark-blue: rgb(1, 38, 75);
+$medium-blue: rgb(80, 195, 202);
+$purple: rgb(146, 39, 143);
+$light-purple: rgb(159, 52, 156);
+$yello: rgb(233, 206, 26);
+$grey: #999;
+
+$bleed-width: 180px;
+$container-width: 1040px;
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  width: $container-width;
+}

@@ -25,3 +25,4 @@ node_modules
 .tags
 .tags1
 .byebug_history
+.jshintrc
