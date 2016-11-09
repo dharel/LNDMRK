@@ -2,8 +2,177 @@
 //================================
 // projects-carousel:
 //================================
-.projects-carousel {
+.assets-carousel {
   height: 300px;
   overflow: hidden;
   background: $white;
+  display: flex;
+  flex-flow: row nowrap;
+  // position: relative;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+}
+
+.base-carousel-arrow {
+  cursor: pointer;
+  flex: 0 0 auto;
+  width: 0; 
+  height: 0; 
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  margin-top: 27px;
+  &.greyed {
+    opacity: .3;
+    cursor: default;
+  }
+}
+
+.carousel-arrow-l {
+  @extend .base-carousel-arrow;
+  margin-left: 15px;
+  margin-right: 0;
+  order: 1;
+  border-right:8px solid $grey;
+}
+
+.carousel-arrow-r {
+  @extend .base-carousel-arrow;
+  margin-left: 0;
+  margin-right: 15px;
+  order: 3;
+  border-left:8px solid $grey;
+}
+
+//assets list
+.carousel-show {
+  height:100%;
+  margin: 0;
+  padding: 0;
+  min-width: 1104px;
+  flex: 1 1 auto;
+  order: 2;
+  overflow: hidden;
+}
+
+.carousel-outer-wrap {
+  height:100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+}
+
+.carousel-inner-wrap {
+  height:100%;
+  width: 2065px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+  text-align: left;
+  vertical-align: top;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  transition: left 0.5s ease-out;
+  margin: 0 -15px;
+}
+
+.asset-block {
+  height: 100%;
+  width: 233px;
+  margin:0;
+  padding:0;
+  text-align: center;
+  h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: $dark-blue;
+    margin: 39px auto 0;
+  }
+  h4 {
+    font-size: 8px;
+    text-transform: uppercase;
+    color: $purple;
+    margin: 4px auto 13px;
+  }
+  .box-wrap {
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: 180px;
+    width: 174px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
+    -moz-box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
+    box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
+    .right-col {
+      width: 58px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      border-right: 2px solid $medium-blue;
+      order: 2;
+      background-color: $white;
+      padding: 15px 0;
+      .risk-letter {
+        color: $medium-blue;
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 18px;
+        text-align: center;
+        border: 1px solid $medium-blue;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+      }
+      .info-title {
+        color: $grey;
+        font-size: 7px;
+      }
+      .info-data {
+        color: $dark-blue;
+        font-size: 12px;
+      }
+    }
+    .image-placer {
+      width: 116px;
+      order: 1;
+      -webkit-box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);
+      -moz-box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);
+      box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);
+      img {
+        background-image: url('http://placekitten.com/116/180');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 100%; width: 100%;
+      }
+      .invest {
+        position: relative;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $dark-blue;
+        bottom: 30px;
+        z-index: 1;
+        display: block;
+        height: 30px;
+        width: 100%;
+        line-height: 20px;
+        background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 65%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 65%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 65%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+      }
+    }
+  }
+
+  
 }

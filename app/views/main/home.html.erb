@@ -19,14 +19,34 @@
   
 </section>
 
-<section class='projects-carousel'>
-  
+<section class='assets-carousel'>
+
+  <div width='19' alt='next assets' class='carousel-arrow-l' ng-click='prevAsset()'
+       ng-class='isFirst() ? "greyed" : ""'></div>
+
+  <div width='19' alt='next assets' class='carousel-arrow-r' ng-click='nextAsset()'
+       ng-class='isLast() ? "greyed" : ""'></div>
+
+  <div class='carousel-show' id='list-outer'>
+    <div class='carousel-outer-wrap' id='list-inner' ng-style='calcedWidth'>
+
+      <div class='carousel-inner-wrap'>
+        <carousel-assets  ng-repeat='asset in assets'
+                          asset='asset'
+                          pagination='pagination'
+                          id='myCarousel'
+                          ng-click='toggleObject($index)'
+                          ng-class='{ chosen: chosenAsset === asset }'></carousel-assets>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <section class='how-it-works'>
   <div class='container'>
     <div class='section-title'></div>
-    <div class='row 4-col'></div>
+    <div class='row col-4'></div>
   </div>
 </section>
 
@@ -39,29 +59,29 @@
 <section class='our-story'>
   <div class='container'>
     <div class='section-title'></div>
-    <div class='row 1-col'></div>
-    <div class='row 3-col'></div>
+    <div class='row col-1'></div>
+    <div class='row col-3'></div>
   </div>
 </section>
 
 <section class='leadership'>
   <div class='container'>
     <div class='section-title'></div>
-    <div class='row 3-col'></div>
+    <div class='row col-3'></div>
   </div>
 </section>
 
 <section class='partners'>
   <div class='container'>
     <div class='section-title'></div>
-    <div class='row 4-col'></div>
+    <div class='row col-4'></div>
   </div>
 </section>
 
 <footer>
   <div class='container'>
-    <div class='row 3-2-col'></div>
-    <div class='row 1-col'></div>
+    <div class='row col-3-2'></div>
+    <div class='row col-1'></div>
   </div>
 </footer>
 
