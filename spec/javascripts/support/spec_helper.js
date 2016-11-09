@@ -14,7 +14,7 @@
   window.mockController = function (controller_name) {
     var scope, controller, module;
 
-    module = angular.mock.module('app');
+    module = angular.mock.module('lndmrk');
     angular.mock.inject(function ($rootScope, $controller) {
       scope = $rootScope.$new();
       controller = $controller(controller_name, {
