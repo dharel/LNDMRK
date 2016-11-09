@@ -1,6 +1,5 @@
 angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($timeout){
   'use strict';
-  console.log('loaded directive');
 
   return {
     restrict: 'E',

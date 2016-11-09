@@ -13,12 +13,12 @@
   align-items: center;
 
   a {
-  text-decoration: none;
-  cursor: default;
-  &:hover {
     text-decoration: none;
+    cursor: default;
+    &:hover {
+      text-decoration: none;
+    }
   }
-}
 }
 
 .base-carousel-arrow {
