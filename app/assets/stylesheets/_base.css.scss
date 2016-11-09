@@ -13,11 +13,16 @@ $bleed-width: 180px;
 $container-width: 1040px;
 
 * {
-  font-family: "proxima-nova", sans-serif;
 }
 
 body {
   background-color: $pale-grey;
+  font-family: "proxima-nova", sans-serif;
+}
+
+section {
+  width: 100%;
+  min-width: 1200px;
 }
 
 a {

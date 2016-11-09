@@ -8,7 +8,7 @@
 }
 .assets-carousel {
 
-  height: 300px;
+  height: 292px;
   overflow: hidden;
   display: flex;
   flex-flow: row nowrap;
@@ -28,11 +28,11 @@
 .base-carousel-arrow {
   cursor: pointer;
   flex: 0 0 auto;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
-  margin-top: 27px;
+  margin-top: 38px;
   &.greyed {
     opacity: .3;
     cursor: default;
@@ -160,7 +160,7 @@
         font-size: 12px;
         text-transform: uppercase;
         color: $dark-blue;
-        bottom: 34px;
+        bottom: 35px;
         z-index: 1;
         display: block;
         height: 30px;

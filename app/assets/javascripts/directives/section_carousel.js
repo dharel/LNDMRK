@@ -70,80 +70,16 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
       };
 
       scope.isLast = function(){
-        // var n;
-        // switch(scope.assetLimit) {
-        //   case 13:
-        //   n = 16;
-        //   break;
-        //   case 12:
-        //   n = 17;
-        //   break;
-        //   case 11:
-        //   n = 18;
-        //   break;
-        //   case 10:
-        //   n = 19;
-        //   break;
-        //   case 9:
-        //   n = 20;
-        //   break;
-        //   case 8:
-        //   n = 21;
-        //   break;
-        //   default:
-        //   n = 21;    
-        // }
         return scope.firstShowed == 5;
-        // return scope.firstShowed == n;
       };
 
-      //====================================responsive width of inner-wrapper in the carousel
       scope.innerLimit = 1105;
 
       var calcWidth = function(currentOuter){
         var outer = currentOuter;
-         //console.log("now the outer width is: ",outer);
-
         scope.innerWidth = currentOuter - 30;
-
-        //  if(outer > 1810) {
-        //   scope.innerWidth = 1810;
-        //   //13;
-        // } else if(outer <= 1810 && outer > 1669) {
-        //   scope.innerWidth = 1669;
-        //   //12;
-        // } else if(outer <= 1669 && outer > 1528) {
-        //   scope.innerWidth = 1528;
-        //   //11;
-        // } else if(outer <= 1528 && outer > 1387) {
-        //   scope.innerWidth = 1387;
-        //   //10;
-        // } else if(outer <= 1387 && outer > 1246) {
-        //   scope.innerWidth = 1246;
-        //   //9;
-        // } else {
-        //   scope.innerWidth = 1105;
-        //   //8;
-        // }
-        // console.log("now the inner width should be: ",scope.innerWidth);
         scope.calcedWidth = {width: scope.innerWidth + 'px'};
       };
-
-      //=====watch the carousel's-widths and make number of showed employees responsive to it
-      // scope.windowWidth = window.innerWidth;
-
-      // var watchWidths = function () {   
-      //   scope.$watch('windowWidth', function() {      
-      //     scope.outerWidth = outerList.offsetWidth;    
-      //     // console.log("watching carousel's-width: ", scope.outerWidth);        
-      //     calcWidth(scope.outerWidth);
-      //   });
-      // };
-      // watchWidths();
-
-      // w.bind('resize',function(){
-      //   scope.$apply(watchWidths);
-      // });
     }
   };
 }]);
