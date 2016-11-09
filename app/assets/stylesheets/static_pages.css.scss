@@ -57,6 +57,15 @@ header {
 
 
 
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  &.1-col {
+    width: 100%;
+  }
+  
+}
+
 
 //================================
 //footer:=========================
@@ -65,4 +74,5 @@ footer {
   height: 550px;
   overflow: hidden;
   background: $dark-blue;
+  color: $white;
 }
