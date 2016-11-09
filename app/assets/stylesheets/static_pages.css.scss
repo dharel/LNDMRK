@@ -12,6 +12,8 @@
 header {
   background: $white;
   height: 48px;
+  width: 1200px;
+  margin: 0 auto;
 
   .header-wrap {
     display: flex;
@@ -23,6 +25,13 @@ header {
     ul, ol, li {
       margin: 0;
       padding: 0;
+      line-height: 26px;
+      a {
+        text-decoration: none;
+      }
+    }
+    li {
+      cursor: pointer;
     }
   }
   a {
@@ -38,7 +47,13 @@ header {
     flex-flow: row nowrap;
     justify-content: flex-start;
     width: 70%;
+    margin-left: 50px;
     
+    .link {
+      display: block;
+      margin-left: 5px;
+      line-height: 55px;
+    }
   }
   .right-side {
     flex: 0 0 auto;
@@ -46,11 +61,29 @@ header {
     flex-flow: row nowrap;
     justify-content: flex-end;
     width: 30%;
+
+    .invest-wrap {
+      display: inline-block;
+      margin-right: 35px;
+      width: 75px;
+      margin-left: -8px;
+      height: 26px;
+      border-radius: 7px;
+      background-color: deeppink;
+      cursor: pointer;
+
+      .invest {
+        width: inherit;
+        display: block;
+        height: inherit;
+        text-decoration: none;
+        line-height: 26px;
+        text-align: center;
+      }
+    }
   }
   .header-logo {
     display: inline-block;
-    height: 20px;
-    width: 60px;
     margin-left: 30px;
   }
 }
@@ -60,10 +93,12 @@ header {
 .row {
   display: flex;
   flex-flow: row nowrap;
-  &.col-1 {
+
+
+  /*&.1-col {
     width: 100%;
   }
-  
+  */
 }
 
 
@@ -75,4 +110,100 @@ footer {
   overflow: hidden;
   background: $dark-blue;
   color: $white;
+
+  .left {
+    width: 660px;
+    height: 280px;
+    float: left;
+
+    .links-container {
+      width: 90%;
+      height: inherit;
+      margin: 0 auto;
+      color: white;
+
+      .column {
+        width: 33.33%;
+        height: inherit;
+        float: left;
+        line-height: 36px;
+        margin-top: 21px;
+        text-align: left;
+        padding-left: 60px;
+
+        .link {
+          cursor: pointer;
+          a {
+            text-decoration: none;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 480px;
+    height: 280px;
+    float: left;
+
+    .contact {
+      width: 90%;
+      height: 65px;
+      margin: 0px auto;
+      margin-top: 30px;
+
+      .contact-info {
+        width: 37%;
+        float: left;
+        text-align: center;
+        line-height: 25px;
+      }
+    }
+
+    .social {
+      width: 100%;
+      height: 85px;
+
+      .social-item {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        float: left;
+        margin-top: 22px;
+        margin-left: 25.5px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        &.facebook {
+          background-image: image-url('footer_social1.png');
+        }
+        &.twitter {
+          background-image: image-url('footer_social2.png');
+        }
+        &.linkdin {
+          background-image: image-url('footer_social3.png');
+        }
+        &.mail {
+          background-image: image-url('footer_social4.png');
+        }
+
+      }
+    }
+  }
+
+  .buttom {
+    float: left;
+    width: 100%;
+    height: 295px;
+
+    .paragraph {
+      width: 83%;
+      margin: 0 auto;
+      margin-top: 4px;
+      line-height: 22px;
+      font-weight: 200;
+      color: lightgrey;
+    }
+  }
 }
