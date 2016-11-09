@@ -9,11 +9,11 @@
   background: linear-gradient(to bottom,  #01264b 0%,#194b92 51%,#9f349c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01264b', endColorstr='#9f349c',GradientType=0 ); /* IE6-9 */
   
-  height: 480px;
+  height: 486px;
   overflow: hidden;
 
   .hero-map-container {
-    width: 460px;
+    width: 458px;
     height: 163px;
     margin: auto;
     margin-top: 190px;
@@ -30,16 +30,16 @@
 
     .filters-container {
       width: inherit;
-      height: 26px;
+      height: 31px;
       margin-top: 29px;
 
       .filter {
         display: inline-block;
-        width: 142px;
+        width: 144px;
         text-align: center;
         height: 23px;
         font-size: 9px;
-        margin: 0 4px;
+        margin: 6px 3px;
         line-height: 23px;
         background-color: white;
         font-weight: bold;
