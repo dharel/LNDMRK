@@ -9,6 +9,110 @@
   background: linear-gradient(to bottom,  #01264b 0%,#194b92 51%,#9f349c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01264b', endColorstr='#9f349c',GradientType=0 ); /* IE6-9 */
   
-  height: 488px;
+  height: 480px;
   overflow: hidden;
+
+  .hero-map-container {
+    width: 460px;
+    height: 163px;
+    margin: auto;
+    margin-top: 190px;
+    text-transform: uppercase;
+    font-family: 'Helvetica';
+    
+    .title {
+      font-size: 22px;
+      line-height: 25px;
+      font-weight: 600;
+      color: white;
+      word-spacing: 1px;
+    }
+
+    .filters-container {
+      width: inherit;
+      height: 26px;
+      margin-top: 29px;
+
+      .filter {
+        display: inline-block;
+        width: 142px;
+        text-align: center;
+        height: 23px;
+        font-size: 9px;
+        margin: 0 4px;
+        line-height: 23px;
+        background-color: white;
+        font-weight: bold;
+        text-shadow: 2px 2px 3px gray;
+        cursor: pointer;
+
+        &.income {
+          color: #F3C206;
+        }
+        &.growth {
+          color: purple;
+        }
+        &.income-growth {
+          color: cyan;
+        }
+
+
+      }
+    }
+
+    .search-container {
+      width: inherit;
+      height: 44px;
+      margin-top: 13px;
+      
+      .search {
+        width: 452px;
+        height: inherit;
+        margin: 0 auto;
+        display: block;
+        opacity: 0.7;
+        padding-left: 15px;
+        font-size: 12px;
+        border: 2px solid white;
+        color: black;
+      }
+    }
+
+    .search-info {
+      width: 87px;
+      height: 106px;
+      margin: 0 auto;
+      margin-top: 24px;
+      color: white;
+
+      .title {
+        font-size: 20px;
+        margin-top: 2px;
+      }
+
+      .subtitle {
+        width: inherit;
+        height: 18px;
+        text-align: center;
+        font-size: 8px;
+        padding-top: 2px;
+      }
+
+      #diamond {
+        width: 5px;
+        height: 5px;
+        transform: rotate(48deg);
+        background-color: white;
+        margin: 0 auto;
+      }
+
+      #line {
+        height: 36px;
+        width: 1px;
+        background-color: white;
+        transform: rotate(180deg);
+        margin: 0 auto;
+      }
+    }
+  }
 }

@@ -3,20 +3,37 @@
 <header>
   <div class='header-wrap'>
   <ul class='left-side'>
-    <li><a href='#'><img class='header-logo' width='140' alt='home page'></a></li>
-    <li><a>how it works?</a></li>
-    <li><a>about</a></li>
-    <li><a>learning</a></li>
+  <!--<img class='header-logo' width='140' alt='home page' src='lndmrk_logo.png'>-->
+    <li><a href='#'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '140', alt: 'LNDMRK') %></a></li> 
+    <li class='link'><a>how it works?</a></li>
+    <li class='link'><a>about</a></li>
+    <li class='link'><a>learning</a></li>
   </ul>
   <ul class='right-side'>
     <li><a>login</a></li>
-    <li><a>invest</a></li>
+    <li class='invest-wrap'><a class='invest'>invest</a></li>
   </ul>
   </div>
 </header>
 
 <section class='hero-map'>
-  
+  <div class='hero-map-container'>
+    <h1 class='title'>invest any amount in any property. worldwide.</h1>
+    <div class='filters-container'>
+      <div class='filter income'>income</div>
+      <div class='filter growth'>growth</div>
+      <div class='filter income-growth'>income & growth</div>
+    </div>
+    <div class='search-container'>
+      <input type="text" class='search' placeholder='Search address, city, state.'>
+    </div>
+    <div class='search-info'>
+      <h1 class='title'>search</h1>
+      <h6 class='subtitle'>or <br> click on the map</h6>
+      <div id='diamond'></div>
+      <div id='line'> </div>
+    </div>
+  </div>
 </section>
 
 <section class='projects-carousel'>

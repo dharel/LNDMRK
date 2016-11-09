@@ -12,6 +12,8 @@
 header {
   background: $white;
   height: 48px;
+  width: 1200px;
+  margin: 0 auto;
 
   .header-wrap {
     display: flex;
@@ -23,6 +25,13 @@ header {
     ul, ol, li {
       margin: 0;
       padding: 0;
+      line-height: 26px;
+      a {
+        text-decoration: none;
+      }
+    }
+    li {
+      cursor: pointer;
     }
   }
   a {
@@ -38,7 +47,13 @@ header {
     flex-flow: row nowrap;
     justify-content: flex-start;
     width: 70%;
+    margin-left: 50px;
     
+    .link {
+      display: block;
+      margin-left: 5px;
+      line-height: 55px;
+    }
   }
   .right-side {
     flex: 0 0 auto;
@@ -46,11 +61,29 @@ header {
     flex-flow: row nowrap;
     justify-content: flex-end;
     width: 30%;
+
+    .invest-wrap {
+      display: inline-block;
+      margin-right: 35px;
+      width: 75px;
+      margin-left: -8px;
+      height: 26px;
+      border-radius: 7px;
+      background-color: deeppink;
+      cursor: pointer;
+
+      .invest {
+        width: inherit;
+        display: block;
+        height: inherit;
+        text-decoration: none;
+        line-height: 26px;
+        text-align: center;
+      }
+    }
   }
   .header-logo {
     display: inline-block;
-    height: 20px;
-    width: 60px;
     margin-left: 30px;
   }
 }
@@ -60,10 +93,11 @@ header {
 .row {
   display: flex;
   flex-flow: row nowrap;
-  &.1-col {
+
+  /*&.1-col {
     width: 100%;
   }
-  
+  */
 }
 
 
