@@ -5,6 +5,7 @@
 
 $black: #000;
 $white: #fff;
+$pale-grey: #FBFBFB;
 $transprnt-white: rgba(255, 255, 255, .5);
 $dark-blue: rgb(1, 38, 75);
 $medium-blue: rgb(80, 195, 202);
@@ -22,6 +23,7 @@ $container-width: 1040px;
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: $pale-grey;
 }
 
 a {
