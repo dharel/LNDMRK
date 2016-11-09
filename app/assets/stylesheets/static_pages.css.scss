@@ -68,8 +68,8 @@ header {
       width: 75px;
       margin-left: -8px;
       height: 26px;
-      border-radius: 7px;
-      background-color: deeppink;
+      border-radius: 3px;
+      background-color: #b13dcc;
       cursor: pointer;
 
       .invest {
@@ -79,6 +79,7 @@ header {
         text-decoration: none;
         line-height: 26px;
         text-align: center;
+        color: white;
       }
     }
   }
