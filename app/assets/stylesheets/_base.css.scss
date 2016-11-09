@@ -16,9 +16,12 @@ $grey: #999;
 $bleed-width: 180px;
 $container-width: 1040px;
 
+* {
+  font-family: 'Roboto', sans-serif;
+}
 
 body {
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
