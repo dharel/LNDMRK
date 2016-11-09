@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo 'docker-compose up -d db'
+docker-compose up -d db
+sleep 5
+echo 'docker-compose build web'
+docker-compose build web
+echo 'docker-compose create web'
+docker-compose create web
+echo 'docker-compose run web .specCI/test_suite.rb'
+docker-compose run web .specCI/test_suite.rb
+echo 'docker-compose down'
+docker-compose down
