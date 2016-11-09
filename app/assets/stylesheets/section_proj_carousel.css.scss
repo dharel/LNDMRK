@@ -2,6 +2,10 @@
 //================================
 // projects-carousel:
 //================================
+.carousel-directive {
+  width: 100%;
+  margin: 0; padding: 0;
+}
 .assets-carousel {
   height: 300px;
   overflow: hidden;

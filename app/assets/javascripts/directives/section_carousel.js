@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('sectionCarousel', ['$timeout', function ($timeout){
+angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', function ($timeout, $window){
   'use strict';
 
   return {
@@ -30,9 +30,10 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout', function ($ti
     link: function (scope, element, attrs) {
       var outerList = document.getElementById("list-outer"),
       innerList = document.getElementById("list-inner"),
-      carouselDiv = document.getElementById("the-wrapper");
+      carouselDiv = document.getElementById("the-wrapper"),
+      w = angular.element($window);
 
-      scope.toggleObject = function (index) {  
+      scope.toggleObject = function (index) {
         scope.assetsIndex = index;
         scope.chosenAsset = scope.assets[scope.assetsIndex];
       };
@@ -56,7 +57,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout', function ($ti
       scope.nextAsset = function() {
         if(scope.isLast() === false) {
           scope.xOffset = scope.xOffset - 141;
-          console.log("xOffset to left is: ", scope.xOffset);
+          // console.log("xOffset to left is: ", scope.xOffset);
           updateCss();
 
           scope.firstShowed++;
