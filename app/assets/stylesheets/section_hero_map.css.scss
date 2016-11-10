@@ -9,52 +9,56 @@
   background: linear-gradient(to bottom,  #01264b 0%,#194b92 51%,#9f349c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01264b', endColorstr='#9f349c',GradientType=0 ); /* IE6-9 */
   
-  height: 482px;
+  height: 350px;
+  // height: 482px;
   overflow: hidden;
 
   .hero-map-container {
-    width: 458px;
-    height: 163px;
-    margin: auto;
-    margin-top: 190px;
+    width: 488px;
+    height: 193px;
+    margin: 119px auto 0;
     text-transform: uppercase;
-    font-family: 'Helvetica';
     
     .title {
-      font-size: 22px;
-      line-height: 25px;
+      padding-left: 2px;
+      font-size: 21px;
+      letter-spacing: 2px;
+      line-height: 31px;
       font-weight: 600;
-      color: white;
       word-spacing: 1px;
+      color: $white;
     }
 
     .filters-container {
       width: inherit;
       height: 31px;
       margin-top: 29px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
 
       .filter {
         display: inline-block;
-        width: 144px;
+        width: 155px;
         text-align: center;
-        height: 23px;
-        font-size: 9px;
-        margin: 6px 3px;
-        line-height: 23px;
-        background-color: white;
+        height: 25px;
+        font-size: 10px;
+        line-height: 28px;
+        color: $white;
         font-weight: bold;
-        text-shadow: 2px 2px 3px gray;
+        text-shadow: 0 1px 3px $grey;
         cursor: pointer;
         letter-spacing: 1px;
 
         &.income {
-          color: #F1C700;
+          background-color: $yello;
         }
         &.growth {
-          color: #8D2C8B;
+          background-color: $purple;
         }
         &.income-growth {
-          color: #0ED7FF;
+          background-color: $medium-blue;
+          letter-spacing: 0.8px;
         }
 
 
@@ -63,32 +67,34 @@
 
     .search-container {
       width: inherit;
-      height: 44px;
-      margin-top: 13px;
+      height: 48px;
+      margin-top: 10px;
       
-      .search {
-        width: 452px;
+      input.search {
+        width: 488px;
         height: inherit;
-        margin: 0 auto;
         display: block;
-        opacity: 0.7;
-        padding-left: 15px;
-        font-size: 12px;
-        border: 2px solid white;
-        color: black;
+        padding-left: 18px;
+        font-size: 13px;
+        letter-spacing: 0.1px;
+        background-color: rgba(255, 255, 255, .7);
+        border: 2px solid $white;
+        color: $white;
       }
+      input.search::-webkit-input-placeholder { color: $white; }
+      input.search::-moz-placeholder { color: $white; }
     }
 
     .search-info {
-      width: 87px;
+      width: 90px;
       height: 106px;
-      margin: 0 auto;
-      margin-top: 24px;
-      color: white;
+      margin: 19px auto 0;
+      color: $white;
 
       .title {
-        font-size: 22px;
-        margin-top: 2px;
+        font-size: 21px;
+        letter-spacing: 1px;
+        padding-left: 0;
       }
 
       .subtitle {
