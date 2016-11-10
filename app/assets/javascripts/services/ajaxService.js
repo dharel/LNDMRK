@@ -3,21 +3,21 @@
 angular.module('lndmrk').service('AjaxService', function ($http) {
   'use strict';
 
-  const ajaxService = {};
+  var ajaxService = {};
 
   /* istanbul ignore next */
-  const ajaxHandler = (method, url, params, onSucc, onErr) => {
-    const header = {
+  var ajaxHandler = function (method, url, params, onSucc, onErr) {
+    var header = {
       method: method,
       url: url,
       params: params
     };
     $http(header)
-      .success((data, status, headers, config) => onSucc(data, status, headers, config))
-      .error((data, status, headers, config) =>  onErr(data, status, headers, config));
+      .success(function (data, status, headers, config) { onSucc(data, status, headers, config) })
+      .error(function (data, status, headers, config) { onErr(data, status, headers, config) });
   }
 
-  ajaxService.getPromise = (method, url, params) => {
+  ajaxService.getPromise = function (method, url, params) {
     return $http({
       method: method,
       url: url,
@@ -25,24 +25,24 @@ angular.module('lndmrk').service('AjaxService', function ($http) {
     });
   };
 
-  ajaxService.sendMsg = (method, url, params, onSucc, onErr) => {
+  ajaxService.sendMsg = function (method, url, params, onSucc, onErr) {
     ajaxHandler(method, url, params, onSucc, onErr);
   };
 
-  const ajaxHandlerMultipart = (url, params, onSucc, onErr) => {
-    const uploadFileToUrl = (file, uploadUrl) => {
-      const fd = new FormData();
+  var ajaxHandlerMultipart = function (url, params, onSucc, onErr) {
+    var uploadFileToUrl = function (file, uploadUrl) {
+      var fd = new FormData();
         fd.append('data', JSON.stringify(file));
         $http.post(uploadUrl, fd, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined}
-        }).success(data => onSucc(data))
-          .error(error => onErr(error));
+        }).success(function (data) { onSucc(data) })
+          .error(function (error)  {onErr(error) });
       };
     uploadFileToUrl(params, url);
   }
 
-  ajaxService.sendMultipartMsg = (url, params, onSucc, onErr) => {
+  ajaxService.sendMultipartMsg = function (url, params, onSucc, onErr) {
     ajaxHandlerMultipart(url, params, onSucc, onErr);
   };
 
