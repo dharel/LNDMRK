@@ -5,4 +5,93 @@
 .partners {
   height: 427px;
   overflow: hidden;
+
+    .line {
+      height: 1px;
+      background-color: #A4A8B3;
+      margin: 0 auto;
+      position: relative;
+      top: 74px;
+    }
+
+    .title {
+      width: 204px;
+      height: 55px;
+      margin: 46px auto;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      z-index: 2;
+      position: relative;
+      line-height: 50px;
+      border: 1px solid $dark-blue;
+      background-color: $white;
+      text-transform: uppercase;
+      color: $dark-blue;
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+    }
+
+    .partners-container {
+      width: 100%;
+      height: 220px;
+      
+      .partner {
+        width: 25%;
+        height: 50%;
+        float: left;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        &.canada {
+          background-image: image-url('Partner_logo_7.png');
+          background-size: 65%;
+          background-position-x: 60px;
+        }
+
+        &.cbre {
+          background-image: image-url('Partner_logo_3.png');
+          background-size: 47%;
+          background-position-x: 60px;
+        }
+
+        &.ey {
+          background-image: image-url('Partner_logo_6.png');
+          background-size: 46%;
+          background-position-x: 78px;
+          background-position-y: -5px;
+        }
+
+        &.deloitte {
+          background-image: image-url('Partner_logo_8.png');
+          background-size: 66%;
+          background-position-x: 55px;
+          background-position-y: -1px;
+        }
+
+        &.pwc {
+          background-image: image-url('LNDMRK_v5-06.png');
+          background-size: 50%;
+          background-position: 40px;
+        }
+
+        &.kpmg {
+          background-image: image-url('Partner_logo_2.png');
+          background-size: 50%;
+          background-position: 56px;
+        }
+
+        &.goldman {
+          background-image: image-url('Partner_logo_4.png');
+          background-size: 50%;
+          background-position: 66px;
+        }
+
+        &.ubs {
+          background-image: image-url('Partner_logo_5.png');
+          background-size: 50%;
+          background-position: 92px;
+        }
+      }
+    }
 }
