@@ -6,16 +6,37 @@
 @import "section_our_story.css.scss";
 @import "section_leadership.css.scss";
 @import "section_partners.css.scss";
+
+.background-homepage {
+  position: absolute;
+  top: 0;
+  height: 572px;
+  z-index: -1;
+
+  .map-image {
+    height: 100%;
+    width: 100%;
+    background:
+      linear-gradient(to bottom, rgba(16,36,71,0) 0%,rgba(41,170,225,.3) 50%, rgba(146,39,142,.9) 100%),
+      url('/map-export2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: normal, soft-light;
+    position: absolute;
+  }
+}
+
 //================================
 //header:=========================
 //================================
 header {
   background: $pale-grey;
   height: 50px;
-  width: 1200px;
   margin: 0 auto;
 
   .header-wrap {
+    width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;

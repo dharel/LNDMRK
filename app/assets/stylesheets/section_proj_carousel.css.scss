@@ -122,7 +122,7 @@
     -moz-box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
     box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
     .right-col {
-      width: 58px;
+      width: 61px;
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
@@ -153,28 +153,25 @@
       }
     }
     .image-placer {
-      width: 116px;
+      width: 124px;
       order: 1;
       .invest {
         position: relative;
         font-size: 12px;
         text-transform: uppercase;
         color: $dark-blue;
-        bottom: 35px;
+        bottom: 41px;
         z-index: 1;
         display: block;
         height: 36px;
         width: 100%;
         line-height: 33px;
-        background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 65%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 65%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 65%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 0.3) 15%,rgba(255, 255, 255, 0.8) 50%, white 79%);
       }
     }
     .image-border {
-      width: 116px;
-      height: 180px;
+      width: 124px;
+      height: 192px;
       position: absolute;
       overflow: hidden;
       -webkit-box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);

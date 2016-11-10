@@ -25,7 +25,7 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
         "</div>" +
 
         "<div class='image-placer'>" +
-          "<img src='{{asset.image}}' width='116' alt='asset'>" +
+          "<img src='{{asset.image}}' width='124' alt='asset'>" +
           "<div class='invest'><span>invest</span></div>" +
         "</div>" +
 
