@@ -100,8 +100,10 @@
     cursor: pointer;
     font-size: 11px;
     text-transform: uppercase;
-    color: $dark-blue;
-    margin: 39px auto 0;
+    color: $white;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin: 33px auto 5px;
   }
   h4 {
     cursor: pointer;
@@ -113,62 +115,79 @@
   .box-wrap {
     cursor: pointer;
     display:flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-between;
-    height: 192px;
-    width: 185px;
+    height: 220px;
+    width: 187px;
     margin: 0 auto;
     -webkit-box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
     -moz-box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
     box-shadow: 0px 1px 14px -1px rgba(153,153,153,1);
-    .right-col {
-      width: 61px;
+    .bottom-row {
+      height: 25px;
+      background-color: $blue;
+      color: $white;
+      text-transform: uppercase;
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 25px;
+      text-align: center;
+    }
+    .row {
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: row nowrap;
       justify-content: space-between;
-      align-items: center;
-      border-right: 2px solid $medium-blue;
-      order: 2;
-      background-color: $white;
-      padding: 15px 0;
-      .risk-letter {
-        color: $medium-blue;
-        text-transform: uppercase;
-        font-size: 10px;
-        line-height: 18px;
-        text-align: center;
-        border: 1px solid $medium-blue;
-        border-radius: 50%;
-        width: 18px;
-        height: 18px;
+      height: calc(220 - 25)px;
+      .right-col {
+        width: 61px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        border-right: 2px solid $medium-blue;
+        order: 2;
+        background-color: $white;
+        padding: 15px 0;
+        .risk-letter {
+          color: $medium-blue;
+          text-transform: uppercase;
+          font-size: 10px;
+          line-height: 18px;
+          text-align: center;
+          border: 1px solid $medium-blue;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+        }
+        .info-title {
+          color: $grey;
+          font-size: 7px;
+        }
+        .info-data {
+          color: $dark-blue;
+          font-size: 12px;
+          font-weight: bold;
+        }
       }
-      .info-title {
-        color: $grey;
-        font-size: 7px;
-      }
-      .info-data {
-        color: $dark-blue;
-        font-size: 12px;
-        font-weight: bold;
+      .image-placer {
+        width: 124px;
+        order: 1;
+        .invest {
+          position: relative;
+          font-size: 12px;
+          text-transform: uppercase;
+          color: $dark-blue;
+          bottom: 41px;
+          z-index: 1;
+          display: block;
+          height: 36px;
+          width: 100%;
+          line-height: 33px;
+          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 0.3) 15%,rgba(255, 255, 255, 0.8) 50%, white 79%);
+        }
       }
     }
-    .image-placer {
-      width: 124px;
-      order: 1;
-      .invest {
-        position: relative;
-        font-size: 12px;
-        text-transform: uppercase;
-        color: $dark-blue;
-        bottom: 41px;
-        z-index: 1;
-        display: block;
-        height: 36px;
-        width: 100%;
-        line-height: 33px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 0.3) 15%,rgba(255, 255, 255, 0.8) 50%, white 79%);
-      }
-    }
+    
     .image-border {
       width: 124px;
       height: 192px;
