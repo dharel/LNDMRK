@@ -41,5 +41,84 @@
     margin-top: 53px;
     line-height: 28px;
   }
+  .row.col-3 {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding-left: 0;
+    margin-top: 118px;
+  }
+  .press-article {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .speech-box {
+    width: 331px;
+    height: 193px;
+    background: $white;
+    position: relative;
+    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+    padding: 27px 31px 14px 27px;
+    line-height: 21px;
+    letter-spacing: 1.2px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    
+    &.speech-box::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -24px;
+      width: 0;
+      height: 0;
+      border-right: 26px solid transparent;
+      border-top: 24px solid $white;
+      border-left: 26px solid transparent;
+      filter: drop-shadow(0 0.5px 2px rgba(0,122,255,0.6));
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 56px;
+      height: 10px;
+      background-color: $white;
+    }
+    p { font-size: 13px; }
+    h5 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
 
+  .paper-name {
+    width: 180px;
+    height: 30px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply, normal;
+  }
+  .tech-crunch {
+    background: url('/logos/paper-01.png'), $pale-grey;
+    margin-top: 47px;
+    @extend .paper-name;      
+  }
+  .forbes {
+    background: url('/logos/paper-02.png'), $pale-grey;
+    margin-top: 43px;
+    @extend .paper-name;
+  }
+  .the-ny-times { 
+    background: url('/logos/paper-03.png'), $pale-grey; 
+    margin-top: 48px;
+    @extend .paper-name;
+  }
 }
