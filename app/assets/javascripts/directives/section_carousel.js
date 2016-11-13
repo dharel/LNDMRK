@@ -10,10 +10,12 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
 
     template: 
     "<section class='assets-carousel'>" +
+      "<div class='carousel-arrow-wrap left'>" +
       "<div width='19' alt='next assets' class='carousel-arrow-l' ng-click='prevAsset()'" +
-           "ng-class='isFirst() ? \"greyed\" : \"\"'></div>" +
+           "ng-class='isFirst() ? \"greyed\" : \"\"'></div></div>" +
+      "<div class='carousel-arrow-wrap right'>" +
       "<div width='19' alt='next assets' class='carousel-arrow-r' ng-click='nextAsset()'" +
-           "ng-class='isLast() ? \"greyed\" : \"\"'></div>" +
+           "ng-class='isLast() ? \"greyed\" : \"\"'></div></div>" +
       "<div class='carousel-show' id='list-outer'>" +
         "<div class='carousel-outer-wrap' id='list-inner' ng-style='calcedWidth'>" +
           "<div class='carousel-inner-wrap' id='the-wrapper'>" +

@@ -7,14 +7,13 @@
   margin: 0; padding: 0;
 }
 .assets-carousel {
-
   height: 292px;
   overflow: hidden;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
+  align-items: flex-start;
+  max-width: 1280px;
   margin: 0 auto;
   a {
     text-decoration: none;
@@ -30,29 +29,31 @@
   flex: 0 0 auto;
   width: 0;
   height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
   margin-top: 38px;
   &.greyed {
     opacity: .3;
     cursor: default;
   }
 }
+.carousel-arrow-wrap {
+  width: 44px;
+  margin-top: 67px;
+  &.left { order: 1;}
+  &.right { order: 3;}
+}
 
 .carousel-arrow-l {
   @extend .base-carousel-arrow;
   margin-left: 15px;
-  margin-right: 0;
-  order: 1;
-  border-right:8px solid $grey;
+  border-right:9px solid $white;
 }
 
 .carousel-arrow-r {
   @extend .base-carousel-arrow;
-  margin-left: 0;
-  margin-right: 15px;
-  order: 3;
-  border-left:8px solid $grey;
+  margin-left: 19px;
+  border-left:9px solid $white;
 }
 
 //assets list
@@ -60,7 +61,8 @@
   height:100%;
   margin: 0;
   padding: 0;
-  min-width: 1104px;
+  width: 1192px;
+  // min-width: 1104px;
   flex: 1 1 auto;
   order: 2;
   overflow: hidden;
@@ -86,14 +88,14 @@
   display: flex;
   justify-content: flex-start;
   transition: left 0.5s ease-out;
-  margin: 0 -15px;
+  margin: 0;
 }
 
 .asset-block {
   cursor: default;
   height: calc(100% - 39px);
-  width: 233px;
-  margin:0;
+  width: 187px;
+  margin: 0 64px 0 0;
   padding:0;
   text-align: center;
   h3 {
@@ -137,9 +139,9 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
-      height: calc(220 - 25)px;
+      height: calc(220 - 25px);
       .right-col {
-        width: 61px;
+        width: calc(187px - 126px);
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-between;
@@ -170,14 +172,14 @@
         }
       }
       .image-placer {
-        width: 124px;
+        width: 126px;
         order: 1;
         .invest {
           position: relative;
           font-size: 12px;
           text-transform: uppercase;
           color: $dark-blue;
-          bottom: 41px;
+          bottom: 40px;
           z-index: 1;
           display: block;
           height: 36px;
@@ -189,8 +191,8 @@
     }
     
     .image-border {
-      width: 124px;
-      height: 192px;
+      width: 126px;
+      height: calc(220 - 25px);
       position: absolute;
       overflow: hidden;
       -webkit-box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);
