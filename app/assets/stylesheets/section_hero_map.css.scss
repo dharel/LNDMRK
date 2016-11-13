@@ -3,35 +3,29 @@
 // hero-map:
 //================================
 .hero-map {
-  // background: #01264b; /* Old browsers */
-  // background: -moz-linear-gradient(top,  #01264b 0%, #194b92 51%, #9f349c 100%); /* FF3.6-15 */
-  // background: -webkit-linear-gradient(top,  #01264b 0%,#194b92 51%,#9f349c 100%); /* Chrome10-25,Safari5.1-6 */
-  // background: linear-gradient(to bottom,  #01264b 0%,#194b92 51%,#9f349c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01264b', endColorstr='#9f349c',GradientType=0 ); /* IE6-9 */
-  
   height: 350px;
-  // height: 482px;
   overflow: hidden;
 
+  .title {
+    padding-left: 2px;
+    font-size: 36px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    word-spacing: 0.5px;
+    color: $white;
+    text-align: center;
+    margin: 128px auto 0;
+    text-shadow: 0 2px 8px rgba(25, 70, 107, .83);
+  }
   .hero-map-container {
     width: 488px;
-    height: 193px;
-    margin: 119px auto 0;
+    margin: -3px auto 0;
     text-transform: uppercase;
-    
-    .title {
-      padding-left: 2px;
-      font-size: 21px;
-      letter-spacing: 2px;
-      line-height: 31px;
-      font-weight: 600;
-      word-spacing: 1px;
-      color: $white;
-    }
 
     .filters-container {
       width: inherit;
-      height: 31px;
+      height: 29px;
       margin-top: 29px;
       display: flex;
       flex-flow: row nowrap;
@@ -39,16 +33,16 @@
 
       .filter {
         display: inline-block;
-        width: 155px;
+        width: 157px;
         text-align: center;
-        height: 25px;
-        font-size: 10px;
-        line-height: 28px;
+        height: 29px;
+        font-size: 11px;
+        line-height: 29px;
         color: $white;
         font-weight: bold;
         text-shadow: 0 1px 3px $grey;
         cursor: pointer;
-        letter-spacing: 1px;
+        letter-spacing: 1.2px;
 
         &.income {
           background-color: $yello;
@@ -58,17 +52,14 @@
         }
         &.income-growth {
           background-color: $medium-blue;
-          letter-spacing: 0.8px;
         }
-
-
       }
     }
 
     .search-container {
       width: inherit;
-      height: 48px;
-      margin-top: 10px;
+      height: 47px;
+      margin-top: 12px;
       
       input.search {
         width: 488px;
@@ -87,14 +78,16 @@
 
     .search-info {
       width: 90px;
-      height: 106px;
-      margin: 19px auto 0;
+      margin: 20px auto 0;
       color: $white;
 
-      .title {
-        font-size: 20.96px;
-        letter-spacing: 1.7px;
-        margin-left: -3px;
+      .search-button {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: 3.5px;
+        margin-left: 2px;
+        cursor: pointer;
+        text-shadow: 0 2px 3px rgba(25, 70, 107, .83);
       }
 
       .subtitle {

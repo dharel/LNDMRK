@@ -3,15 +3,18 @@
 // leadership:
 //================================
 .leadership {
-  height: 750px;
+  height: 763px;
   overflow: hidden;
 
   .line {
     height: 1px;
-    background-color: #A4A8B3;
+    background-color: $grey;
     margin: 0 auto;
     position: relative;
     top: 48px;
+    width: 1192px;
+    transform: translateX(-50%);
+    left: 50%;
   }
 
   .title {
@@ -38,7 +41,7 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 0;
-    margin-top: 72px;
+    margin-top: 75px;
   }
 
   .leader {

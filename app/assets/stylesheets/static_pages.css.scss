@@ -177,8 +177,7 @@ footer {
     .contact {
       width: 90%;
       height: 65px;
-      margin: 0px auto;
-      margin-top: 30px;
+      margin: 26px auto 0;
 
       .contact-info {
         width: 37%;
@@ -231,11 +230,10 @@ footer {
 
     .paragraph {
       width: 90%;
-      margin: 0 auto;
-      margin-top: 4px;
+      margin: -5px auto 0;
       line-height: 22px;
       font-weight: 200;
-      color: lightgrey;
+      color: $pale-grey;
     }
   }
 }

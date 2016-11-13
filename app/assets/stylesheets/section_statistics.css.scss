@@ -5,5 +5,110 @@
 .statistics {
   height: 350px;
   overflow: hidden;
-  background: $medium-blue;
+  background: $turquoise;
+
+  .container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 1192px;
+
+    .column {
+      width: 30%;
+      text-transform: uppercase;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      .pie-area { position: relative;}
+      h1 {
+        color: $white;
+        font-size: 88px;
+        text-shadow: 0 4px 3px rgba(0, 122, 255, 0.5);
+      }
+      h2 {
+        color: $white;
+        font-size: 36px;
+        font-weight: 100;
+        position: absolute;
+        top: 92px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      h3 {
+        color: $dark-blue;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 52px;
+        position: relative;
+        letter-spacing: 1px;
+      }
+      .diamond-base {
+        width: 5px;
+        height: 5px;
+        transform: rotate(48deg);
+        background-color: $white;
+        position: absolute;
+      }
+      h4 {
+        color: $white;
+        font-size: 10px;
+        position: relative;
+        display: inline-block;
+        letter-spacing: 1.5px;
+        &.growth {
+          top: 47px; right: 53px;
+          &::before {
+            content: '';
+            @extend .diamond-base;
+            top: 16px; left: 22px;
+          }
+        }
+        &.income {
+          top: 46px; left: 135px;
+          &::before {
+            content: '';
+            @extend .diamond-base;
+            top: 16px; left: 21px;
+          }
+        }
+        &.income-growth {
+          top: 213px; right: 115px;
+          width: 80px;
+          text-align: center;
+          line-height: 12px;
+          &::before {
+            content: '';
+            @extend .diamond-base;
+            bottom: 33px; left: 39px;
+          }
+        }
+      }
+      .icon {
+        width: 80px;
+        height: 80px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        margin: 38px auto -2px;
+        &.distributed {
+          background-image: image-url('statistics_icon_01.png');
+          
+        }
+        &.portfolio {
+          background-image: image-url('statistics_icon_02.png');
+        }
+      }
+
+      .pie-image {
+        width: 186px;
+        height: 186px;
+        background: image-url('pie-2.png'), image-url('pie-1.png');
+        margin-top: 26px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
 }

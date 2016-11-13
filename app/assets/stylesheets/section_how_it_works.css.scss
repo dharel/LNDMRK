@@ -3,23 +3,25 @@
 // how-it-works:
 //================================
 .how-it-works {
-  height: 700px;
+  height: 472px;
   overflow: hidden;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 29px;
 
   .line {
     height: 1px;
-    background-color: #A4A8B3;
-    margin: 0 auto;
+    background-color: $grey;
     position: relative;
     top: 48px;
+    width: 1192px;
+    transform: translateX(-50%);
+    left: 50%;
   }
 
   .title {
     width: 190px;
     height: 40px;
-    margin: 27px auto;
+    margin: 27px auto 8px;
     text-align: center;
     font-size: 16px;
     font-weight: 700;
@@ -46,31 +48,39 @@
     }
   }
 
+  .row-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between
+  }
   .info {
-    width: 25%;
     height: 360px;
-    float: left;
+    width: 27%;
+    &.exit { width: 19%; }
 
     .image {
       width: 120px;
       height: 120px;
-      margin: 0 auto;
+      margin: 0 auto 16px;
       margin-top: 20px;
       background-repeat: no-repeat;
-      background-size: 100% 100%;
+      background-size: 100%;
+      position: relative;
 
       &.search {
-        background-image: image-url('HowItWorks_1.png');
+        background-image: image-url('icon_1.png');
+        left: 5px;
       }
       &.invest {
-        background-image: image-url('HowItWorks_2.png');
-        background-position-x: 9px;
+        background-image: image-url('icon_2.png');
+        left: 5px;
       }
       &.recieve {
-        background-image: image-url('HowItWorks_3.png');
+        background-image: image-url('icon_3.png');
       }
       &.exit {
-        background-image: image-url('HowItWorks_4.png');
+        background-image: image-url('icon_4.png');
+        left: 7px;
       }
     }
 
@@ -80,6 +90,7 @@
       text-transform: uppercase;
       font-weight: bold;
       color: $dark-blue;
+      font-size: 14px;
     }
 
     .text {

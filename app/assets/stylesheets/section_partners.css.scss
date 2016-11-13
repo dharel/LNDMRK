@@ -3,38 +3,39 @@
 // partners:
 //================================
 .partners {
-  height: 427px;
+  height: 388px;
   overflow: hidden;
 
-    .line {
-      height: 1px;
-      background-color: #A4A8B3;
-      margin: 0 auto;
-      position: relative;
-      top: 74px;
-    }
+  .line {
+    height: 1px;
+    background-color: $grey;
+    margin: 0 auto;
+    position: relative;
+    top: 48px;
+  }
 
-    .title {
-      width: 204px;
-      height: 55px;
-      margin: 46px auto;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      z-index: 2;
-      position: relative;
-      line-height: 50px;
-      border: 1px solid $dark-blue;
-      background-color: $white;
-      text-transform: uppercase;
-      color: $dark-blue;
-      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
-    }
+  .title {
+    width: 190px;
+    height: 40px;
+    margin: 27px auto;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    z-index: 2;
+    position: relative;
+    line-height: 40px;
+    border: 1px solid $dark-blue;
+    background-color: $white;
+    text-transform: uppercase;
+    color: $dark-blue;
+    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+  }
 
     .partners-container {
       width: 100%;
       height: 220px;
+      margin-top: 55px;
       
       .partner {
         width: 25%;
