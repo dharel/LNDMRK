@@ -49,7 +49,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
 
       scope.prevAsset = function() {
         if(scope.xOffset !== 0) {
-          scope.xOffset = scope.xOffset + 233;
+          scope.xOffset = scope.xOffset + 251;
           // console.log("xOffset to left is: ", scope.xOffset);
           updateCss();
 
@@ -59,7 +59,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
 
       scope.nextAsset = function() {
         if(scope.isLast() === false) {
-          scope.xOffset = scope.xOffset - 233;
+          scope.xOffset = scope.xOffset - 251;
           // console.log("xOffset to left is: ", scope.xOffset);
           updateCss();
 
