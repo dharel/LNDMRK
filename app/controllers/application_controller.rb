@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_images
-    @images = Dir.glob('public/map_filters/*')
+    @images = Dir.glob('public/images/*')
   end
 
   def error_handler_wrapper

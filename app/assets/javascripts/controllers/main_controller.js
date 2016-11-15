@@ -25,20 +25,20 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', 
 
     if ((!$scope.mapFilters.income && !$scope.mapFilters.growth && !$scope.mapFilters.incomeGrowth)
       || $scope.mapFilters.income && $scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
-      return {"background-image": "url('map_filters/all-01.png')"};
+      return {"background-image": "url('images/all-01.png')"};
     } else {
       if ($scope.mapFilters.income && $scope.mapFilters.growth) {
-        return {"background-image": "url('map_filters/income&growth-01.png')"};
+        return {"background-image": "url('images/income&growth-01.png')"};
       } else if ($scope.mapFilters.income && $scope.mapFilters.incomeGrowth) {
-        return {"background-image": "url('map_filters/income&income+and_growth-01.png')"};
+        return {"background-image": "url('images/income&income+and_growth-01.png')"};
       } else if ($scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
         return {"background-image": ""};
       } else if ($scope.mapFilters.income) {
-        return {"background-image": "url('map_filters/income_only-01.png')"};
+        return {"background-image": "url('images/income_only-01.png')"};
       } else if ($scope.mapFilters.growth) {
-        return {"background-image": "url('map_filters/growth_only-01.png')"};
+        return {"background-image": "url('images/growth_only-01.png')"};
       } else if ($scope.mapFilters.incomeGrowth) {
-        return {"background-image": "url('map_filters/income_and_growth_only-01.png')"};
+        return {"background-image": "url('images/income_and_growth_only-01.png')"};
       }
     }
   };

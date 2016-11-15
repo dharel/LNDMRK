@@ -125,17 +125,17 @@
     background-blend-mode: multiply, normal;
   }
   .tech-crunch {
-    background: url('/logos/paper-01.png'), $pale-grey;
+    background: url('/images/paper-01.png'), $pale-grey;
     margin-top: 47px;
     @extend .paper-name;      
   }
   .forbes {
-    background: url('/logos/paper-02.png'), $pale-grey;
+    background: url('/images/paper-02.png'), $pale-grey;
     margin-top: 42px;
     @extend .paper-name;
   }
   .the-ny-times { 
-    background: url('/logos/paper-03.png'), $pale-grey; 
+    background: url('/images/paper-03.png'), $pale-grey; 
     margin-top: 49px;
     @extend .paper-name;
   }
