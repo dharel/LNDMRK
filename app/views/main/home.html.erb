@@ -27,9 +27,15 @@
   <h1 class='title'>invest any amount in any property. worldwide.</h1>
   <div class='hero-map-container'>
     <div class='filters-container'>
-      <div class='filter income'>income</div>
-      <div class='filter growth'>growth</div>
-      <div class='filter income-growth'>income & growth</div>
+      <div class='filter income'
+           ng-click='mapFilters.income = !mapFilters.income'
+           ng-class='{"active": mapFilters.income}'>income</div>
+      <div class='filter growth'
+           ng-click='mapFilters.growth = !mapFilters.growth'
+           ng-class='{"active": mapFilters.growth}'>growth</div>
+      <div class='filter income-growth'
+           ng-click='mapFilters.incomeGrowth = !mapFilters.incomeGrowth'
+           ng-class='{"active": mapFilters.incomeGrowth}'>income & growth</div>
     </div>
     <div class='search-container'>
       <input type="text" class='search' placeholder='Search address, city, state.'>

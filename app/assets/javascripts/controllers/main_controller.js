@@ -9,6 +9,11 @@ angular.module('lndmrk').controller('MainController', function ($scope, AjaxServ
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets[0];
     });
-  };
 
+    $scope.mapFilters = {
+      incomeGrowth: false,
+      growth: false,
+      income: false
+    };
+  };
 });
