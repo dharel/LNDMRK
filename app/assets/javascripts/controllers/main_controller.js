@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', function ($scope, AjaxService, carouselAssetsFetch) {
+angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', 'carouselAssetsFetch', function ($scope, AjaxService, carouselAssetsFetch) {
   'use strict';
   
   $scope.carouselAssetsFetch = carouselAssetsFetch;
@@ -15,7 +15,6 @@ angular.module('lndmrk').controller('MainController', function ($scope, AjaxServ
       growth: false,
       income: false
     };
-
   };
 
   $scope.toggleFilter = function (filter) {
@@ -44,4 +43,4 @@ angular.module('lndmrk').controller('MainController', function ($scope, AjaxServ
     }
   };
 
-});
+}]);
