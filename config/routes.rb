@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 root 'main#home'
 
 get '/carousel_assets', to: 'assets#show'
-
 get '/robots.txt', to: 'application#robots'
+get '/dashboard', to: 'main#dashboard'
 
 end
