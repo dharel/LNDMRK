@@ -11,7 +11,6 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    // width: 1192px;
     width: 1154px;
 
     .column {
@@ -65,7 +64,6 @@
       .diamond-base {
         width: 90px;
         height: 7px;
-        // transform: rotate(48deg);
         background-color: $white;
         position: absolute;
         background-image: image-url('statistics_icon-1.png');
@@ -78,33 +76,15 @@
         letter-spacing: 2.5px;
         &.growth {
           top: 22px; right: 79px;
-          // &::before {
-          //   content: '';
-          //   @extend .diamond-base;
-          //   top: 16px; left: 22px;
-          //   transform: rotate(48deg);
-          // }
         }
         &.income {
           top: 24px; left: 169px;
-          // &::before {
-          //   content: '';
-          //   @extend .diamond-base;
-          //   top: 16px; left: 21px;
-          //   transform: rotate(48deg);
-          // }
         }
         &.income-growth {
           top: 188px; right: 227px;
           width: 80px;
           text-align: center;
           line-height: 12px;
-          // &::before {
-          //   content: '';
-          //   @extend .diamond-base;
-          //   bottom: 33px; left: 39px;
-          //   transform: rotate(48deg);
-          // }
         }
       }
       .icon {
@@ -125,7 +105,6 @@
       .pie-image {
         width: 186px;
         height: 186px;
-        // background: image-url('pie-2.png'), image-url('pie-1.png');
         background: image-url('pie-3.png');
         margin-top: 26px;
         position: absolute;

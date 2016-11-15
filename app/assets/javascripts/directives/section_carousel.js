@@ -11,11 +11,17 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
     template: 
     "<section class='assets-carousel'>" +
       "<div class='carousel-arrow-wrap left'>" +
-      "<div width='19' alt='next assets' class='carousel-arrow-l' ng-click='prevAsset()'" +
-           "ng-class='isFirst() ? \"greyed\" : \"\"'></div></div>" +
+        "<div class='arrow-inner-wrap left' ng-click='prevAsset()'" +
+               "ng-class='isFirst() ? \"greyed\" : \"\"'>" +
+          "<div width='19' alt='next assets' class='carousel-arrow-l'></div>" +
+        "</div>" +
+      "</div>" +
       "<div class='carousel-arrow-wrap right'>" +
-      "<div width='19' alt='next assets' class='carousel-arrow-r' ng-click='nextAsset()'" +
-           "ng-class='isLast() ? \"greyed\" : \"\"'></div></div>" +
+        "<div class='arrow-inner-wrap right' ng-click='nextAsset()'" +
+             "ng-class='isLast() ? \"greyed\" : \"\"'>" +
+          "<div width='19' alt='next assets' class='carousel-arrow-r'></div>" +
+        "</div>" +
+      "</div>" +
       "<div class='carousel-show' id='list-outer'>" +
         "<div class='carousel-outer-wrap' id='list-inner' ng-style='calcedWidth'>" +
           "<div class='carousel-inner-wrap' id='the-wrapper'>" +
@@ -49,8 +55,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
 
       scope.prevAsset = function() {
         if(scope.xOffset !== 0) {
-          scope.xOffset = scope.xOffset + 251;
-          // console.log("xOffset to left is: ", scope.xOffset);
+          scope.xOffset = scope.xOffset + 241;
           updateCss();
 
           scope.firstShowed--;
@@ -59,8 +64,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
 
       scope.nextAsset = function() {
         if(scope.isLast() === false) {
-          scope.xOffset = scope.xOffset - 251;
-          // console.log("xOffset to left is: ", scope.xOffset);
+          scope.xOffset = scope.xOffset - 241;
           updateCss();
 
           scope.firstShowed++;

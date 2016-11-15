@@ -31,20 +31,29 @@
   height: 0;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  margin-top: 38px;
-  &.greyed {
-    opacity: .3;
-    cursor: default;
-  }
 }
 .carousel-arrow-wrap {
-  width: 44px;
+  width: 34px;
   margin-top: 67px;
-  // position: absolute;
-  // z-index: 1;
   &.left { order: 1;}
   &.right { order: 3;}
-  // &.right { order: 3; right: 0;}
+}
+.arrow-inner-wrap {
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  margin: 40px auto 0;
+  box-sizing: border-box;
+  padding: 9px;
+  &.right { padding-left: 9px; }
+  &.left { padding-left: 2px; }
+  &.greyed {
+    cursor: default;
+    .base-carousel-arrow {
+      opacity: .3;
+      cursor: default;
+    }
+  }
 }
 
 .carousel-arrow-l {
@@ -55,24 +64,17 @@
 
 .carousel-arrow-r {
   @extend .base-carousel-arrow;
-  margin-left: 19px;
   border-left:9px solid $white;
 }
 
-//assets list
 .carousel-show {
   height:100%;
   margin: 0;
   padding: 0;
-  // width: 1280px;
-  width: 1192px;
-  // min-width: 1104px;
+  width: 1212px;
   flex: 1 1 auto;
-  order: 2;
   overflow: hidden;
-  // position: relative;
-  // left: 0;
-  // z-index: 0;
+  order: 2;
 }
 
 .carousel-outer-wrap {
@@ -102,8 +104,7 @@
   cursor: default;
   height: calc(100% - 39px);
   width: 187px;
-  margin: 0 64px 0 0;
-  // margin: 0 24px 0 40px;
+  margin: 0 24px 0 30px;
   padding:0;
   text-align: center;
   h3 {
@@ -126,11 +127,11 @@
   }
   .asset-box-shadow {
     height: 200px;
-    width: 187px;
     box-shadow: 0 -18px 60px 5px rgba(0, 76, 74, 0.5);
-    // box-shadow: 0 -10px 60px 5px rgba(13, 66, 64, 0.5);
     position: absolute;
-    z-index: 0;
+    width: 167px;
+    margin-left: 10px;
+    z-index: -1;
     pointer-events: none;
   }
   .box-wrap {
@@ -175,7 +176,6 @@
       width: 124px;
       height: 187px;
       pointer-events: none;
-      // rgb(0, 122, 255)
     }
     .row {
       display: flex;
@@ -190,7 +190,6 @@
         flex-flow: column nowrap;
         justify-content: space-between;
         align-items: center;
-        // border-right: 2px solid $medium-blue;
         order: 2;
         background-color: $white;
         padding: 9px 0 18px;
@@ -275,11 +274,9 @@
       height: calc(220 - 25px);
       position: absolute;
       overflow: hidden;
-      -webkit-box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);
-      -moz-box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);
-      box-shadow: 0px 1px 10px 1px rgba(197,214,240,1);
+      -webkit-box-shadow: 0 1px 10px 1px rgba(197,214,240,1);
+      -moz-box-shadow: 0 1px 10px 1px rgba(197,214,240,1);
+      box-shadow: 0 1px 10px 1px rgba(197,214,240,1);
     }
   }
-
-  
 }
