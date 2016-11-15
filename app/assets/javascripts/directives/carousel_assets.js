@@ -11,8 +11,8 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
     "<div class='asset-block'>" +
       "<a href='#'>" +
       "<h3>{{asset.name}}</h3>" +
-      
-      "<div class='box-wrap'>" +
+      "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
+      "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)'>" +
         "<div class='light-blue-shadow'></div>" +
         "<div class='row'>" +
           "<div class='right-col'>" +
@@ -29,7 +29,12 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
           "</div>" +
           "<div class='image-placer'>" +
             "<img src='{{asset.image}}' width='126' alt='asset'>" +
-            "<div class='property-datails'>property<br>details</div>" +
+            "<div class='property-datails'" +
+                 "ng-class='{\"is-hovered\" : isAssetHovered(asset.id)," +
+                 "\"income\" : assignTypeClass(asset.investment_type)=== \"income\", " +
+                 "\"growth\" : assignTypeClass(asset.investment_type)=== \"growth\", " +
+                 "\"income-growth\" : assignTypeClass(asset.investment_type)=== \"income-growth\"}'" +
+                 ">property<br>details</div>" +
           "</div>" +
         "</div>" +
         "<div class='bottom-row'>" +
@@ -43,11 +48,25 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
       "</a>" +
     "</div>",
     link: function (scope, element, attrs) {
+      scope.hovered_asset = '';
+
       if(attrs.ngClick || attrs.href === '' || attrs.href === '#'){
         element.on('click', function(e){
             e.preventDefault();
         });
       }
+
+      scope.hoverAsset = function(asset_id) {
+        scope.hovered_asset = asset_id;
+      };
+
+      scope.unhoverAsset = function(asset_id) {
+        scope.hovered_asset = '';
+      };
+
+      scope.isAssetHovered = function(asset_id) {
+        return asset_id === scope.hovered_asset;
+      };
 
       scope.assignRiskClass = function(risk_letter) {
         switch (risk_letter) {

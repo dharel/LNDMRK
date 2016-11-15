@@ -3,14 +3,14 @@
 // hero-map:
 //================================
 .hero-map {
-  height: 350px;
+  height: 340px;
   overflow: hidden;
 
   .title {
     padding-left: 50px;
     text-align: center;
     font-size: 34px;
-    letter-spacing: 3.15px;
+    letter-spacing: 2.9px;
     word-spacing: 1px;
     font-weight: 900;
     text-transform: uppercase;
@@ -26,7 +26,7 @@
     .filters-container {
       width: inherit;
       height: 29px;
-      margin-top: 29px;
+      margin-top: 28px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
@@ -72,7 +72,7 @@
         padding-left: 18px;
         font-size: 15px;
         line-height: 47px;
-        letter-spacing: 0.1px;
+        letter-spacing: 0;
         background-color: rgba(51, 51, 51, .4);
         border: 1px solid $white;
         color: $white;
