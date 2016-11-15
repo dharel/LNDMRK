@@ -11,7 +11,10 @@
     background-color: $grey;
     margin: 0 auto;
     position: relative;
+    width: 1151px;
     top: 58px;
+    transform: translateX(-50%);
+    left: 50%;
   }
 
   .title {
