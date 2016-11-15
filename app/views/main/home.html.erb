@@ -2,13 +2,12 @@
 
 <section class='background-homepage'>
   <div class='map-image'></div>
-  <div class='map-filter-image'></div>
+  <div class='map-filter-image' ng-style='getFilteredBg()'></div>
 </section>
 
 <header>
   <div class='header-wrap'>
   <ul class='left-side'>
-  <!--<img class='header-logo' width='140' alt='home page' src='lndmrk_logo.png'>-->
     <li><a href='#'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
     <li><a class='link-1'>how it works?</a></li>
     <li><a class='link-2'>about</a></li>

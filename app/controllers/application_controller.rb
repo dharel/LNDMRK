@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   around_action :error_handler_wrapper
 
+  before_action :set_images
+
   def robots
     user_agents = '*'
     disallow = '/'
@@ -21,6 +23,10 @@ class ApplicationController < ActionController::Base
       ].join("\n")
     end
     render plain: res, layout: false, content_type: 'text/plain'
+  end
+
+  def set_images
+    @images = Dir.glob('public/map_filters/*')
   end
 
   def error_handler_wrapper

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LNDMRK</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
- <script src="https://use.typekit.net/ezk0gmh.js"></script>
- <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <head>
+    <title>LNDMRK</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.typekit.net/ezk0gmh.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  </head>
+  <body>
 
-</head>
-<body>
+   <%= yield %>
 
-<%= yield %>
-
-</body>
+   <div style='display: none'>
+    <% @images.each do |image| %>
+      <%= image_tag asset_path "map_filters/#{image.split('/').last}"  %>
+    <% end %>
+   </div>
+  </body>
 </html>
