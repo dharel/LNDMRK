@@ -7,15 +7,15 @@
   overflow: hidden;
 
   .title {
-    padding-left: 2px;
-    font-size: 36px;
-    letter-spacing: 2px;
-    font-weight: 600;
-    text-transform: uppercase;
-    word-spacing: 0.5px;
-    color: $white;
+    padding-left: 50px;
     text-align: center;
-    margin: 128px auto 0;
+    font-size: 34px;
+    letter-spacing: 3.15px;
+    word-spacing: 1px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: $white;
+    margin: 130px auto 0;
     text-shadow: 0 2px 8px rgba(25, 70, 107, .83);
   }
   .hero-map-container {
@@ -66,9 +66,10 @@
         height: inherit;
         display: block;
         padding-left: 18px;
-        font-size: 13px;
+        font-size: 15px;
+        line-height: 47px;
         letter-spacing: 0.1px;
-        background-color: rgba(255, 255, 255, .4);
+        background-color: rgba(51, 51, 51, .4);
         border: 1px solid $white;
         color: $white;
       }
@@ -77,15 +78,15 @@
     }
 
     .search-info {
-      width: 90px;
-      margin: 20px auto 0;
+      width: 110px;
+      margin: 27px auto 0;
       color: $white;
 
       .search-button {
-        font-size: 17px;
+        font-size: 21px;
         font-weight: 600;
-        letter-spacing: 3.5px;
-        margin-left: 2px;
+        letter-spacing: 4px;
+        margin: 0 auto 0 9px;
         cursor: pointer;
         text-shadow: 0 2px 3px rgba(25, 70, 107, .83);
       }

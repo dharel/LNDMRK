@@ -3,10 +3,10 @@
 // how-it-works:
 //================================
 .how-it-works {
-  height: 472px;
+  height: 414px;
   overflow: hidden;
   text-align: center;
-  padding-top: 29px;
+  padding-top: 0;
 
   .line {
     height: 1px;
@@ -32,7 +32,7 @@
     border: 1px solid $dark-blue;
     background-color: $white;
     text-transform: uppercase;
-    color: $dark-blue;
+    color: $dark-turquoise;
     box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
   }
 
@@ -61,26 +61,30 @@
     .image {
       width: 120px;
       height: 120px;
-      margin: 0 auto 16px;
-      margin-top: 20px;
+      // margin: 0 auto 16px;
+      
       background-repeat: no-repeat;
       background-size: 100%;
       position: relative;
 
       &.search {
-        background-image: image-url('icon_1.png');
+        background-image: image-url('icons-1.png');
         left: 5px;
+        margin: 24px auto 1px;
       }
       &.invest {
-        background-image: image-url('icon_2.png');
-        left: 5px;
+        background-image: image-url('icons-2.png');
+        left: 11px;
+        margin: 7px auto 18px;
       }
       &.recieve {
-        background-image: image-url('icon_3.png');
+        background-image: image-url('icons-3.png');
+        margin: 6px auto 19px;
       }
       &.exit {
-        background-image: image-url('icon_4.png');
+        background-image: image-url('icons-4.png');
         left: 7px;
+        margin: 21px auto 4px;
       }
     }
 
@@ -90,7 +94,7 @@
       text-transform: uppercase;
       font-weight: bold;
       color: $dark-blue;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .text {
@@ -99,15 +103,15 @@
       p { 
         margin: 5px; 
         font-weight: lighter;
-        font-size: 15px;
+        font-size: 16px;
         line-height: 26px;
       }
 
       #diamond {
-        width: 5px;
-        height: 5px;
+        width: 7px;
+        height: 7px;
         transform: rotate(48deg);
-        background-color: #FFDA16;
+        background-color: $turquoise;;
         margin: 0 auto;
       }
     }

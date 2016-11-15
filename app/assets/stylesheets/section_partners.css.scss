@@ -28,7 +28,7 @@
     border: 1px solid $dark-blue;
     background-color: $white;
     text-transform: uppercase;
-    color: $dark-blue;
+    color: $dark-turquoise;
     box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
   }
 
@@ -41,57 +41,72 @@
         width: 25%;
         height: 50%;
         float: left;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: 100%;
 
         &.canada {
-          background-image: image-url('Partner_logo_7.png');
+          background: image-url('Partner_logo_7.png'), $pale-grey;
           background-size: 65%;
           background-position-x: 60px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
 
         &.cbre {
-          background-image: image-url('Partner_logo_3.png');
+          background: image-url('Partner_logo_3.png'), $pale-grey;
           background-size: 47%;
           background-position-x: 60px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
 
         &.ey {
-          background-image: image-url('Partner_logo_6.png');
+          background: image-url('Partner_logo_6.png'), $pale-grey;
           background-size: 46%;
           background-position-x: 78px;
           background-position-y: -5px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
 
         &.deloitte {
-          background-image: image-url('Partner_logo_8.png');
+          background: image-url('Partner_logo_8.png'), $pale-grey;
           background-size: 66%;
           background-position-x: 55px;
           background-position-y: -1px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
 
         &.pwc {
-          background-image: image-url('LNDMRK_v5-06.png');
+          background: image-url('LNDMRK_v5-06.png'), $pale-grey;
           background-size: 50%;
           background-position: 40px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
 
         &.kpmg {
-          background-image: image-url('Partner_logo_2.png');
+          background: image-url('Partner_logo_2.png'), $pale-grey;
           background-size: 50%;
           background-position: 56px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
 
         &.goldman {
-          background-image: image-url('Partner_logo_4.png');
+          background: image-url('Partner_logo_4.png'), $pale-grey;
           background-size: 50%;
           background-position: 66px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
 
         &.ubs {
-          background-image: image-url('Partner_logo_5.png');
+          background: image-url('Partner_logo_5.png'), $pale-grey;
           background-size: 50%;
           background-position: 92px;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
         }
       }
     }
