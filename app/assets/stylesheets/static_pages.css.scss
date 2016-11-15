@@ -25,6 +25,15 @@
     background-repeat: no-repeat;
     position: absolute;
   }
+
+  .map-filter-image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-image: image-url('map_filters/all-01.png');
+  }
 }
 
 //================================

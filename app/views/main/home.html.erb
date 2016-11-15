@@ -2,6 +2,7 @@
 
 <section class='background-homepage'>
   <div class='map-image'></div>
+  <div class='map-filter-image'></div>
 </section>
 
 <header>
@@ -28,7 +29,7 @@
   <div class='hero-map-container'>
     <div class='filters-container'>
       <div class='filter income'
-           ng-click='mapFilters.income = !mapFilters.income'
+           ng-click='toggleFilter("income")'
            ng-class='{"active": mapFilters.income}'>income</div>
       <div class='filter growth'
            ng-click='mapFilters.growth = !mapFilters.growth'

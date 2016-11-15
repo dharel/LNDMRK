@@ -15,13 +15,12 @@ angular.module('lndmrk').controller('MainController', function ($scope, AjaxServ
       growth: false,
       income: false
     };
+
   };
 
   $scope.toggleFilter = function (filter) {
     $scope.mapFilters[filter] = !$scope.mapFilters[filter];
-    switch (filter) {
-      
-    }
+    
   };
 
 });
