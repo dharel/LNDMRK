@@ -1,6 +1,6 @@
 /*globals angular, FormData */
 
-angular.module('lndmrk').service('AjaxService', function ($http) {
+angular.module('lndmrk').service('AjaxService', ['$http', function ($http) {
   'use strict';
 
   var ajaxService = {};
@@ -15,7 +15,7 @@ angular.module('lndmrk').service('AjaxService', function ($http) {
     $http(header)
       .success(function (data, status, headers, config) { onSucc(data, status, headers, config) })
       .error(function (data, status, headers, config) { onErr(data, status, headers, config) });
-  }
+  };
 
   ajaxService.getPromise = function (method, url, params) {
     return $http({
@@ -40,11 +40,11 @@ angular.module('lndmrk').service('AjaxService', function ($http) {
           .error(function (error)  {onErr(error) });
       };
     uploadFileToUrl(params, url);
-  }
+  };
 
   ajaxService.sendMultipartMsg = function (url, params, onSucc, onErr) {
     ajaxHandlerMultipart(url, params, onSucc, onErr);
   };
 
   return ajaxService;
-});
+}]);

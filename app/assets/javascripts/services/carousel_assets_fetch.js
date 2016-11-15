@@ -1,4 +1,4 @@
-angular.module('lndmrk').factory('carouselAssetsFetch', function($http){
+angular.module('lndmrk').factory('carouselAssetsFetch', ['$http', function($http){
   'use strict';
 
   function getData(callback){
@@ -11,4 +11,4 @@ angular.module('lndmrk').factory('carouselAssetsFetch', function($http){
     getAssets: getData
   };
 
-});
+}]);
