@@ -11,10 +11,11 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    width: 1192px;
+    // width: 1192px;
+    width: 1154px;
 
     .column {
-      width: 30%;
+      width: 228px;
       text-transform: uppercase;
       display: flex;
       flex-flow: column nowrap;
@@ -29,10 +30,11 @@
       }
       h2 {
         color: $dark-blue;
-        font-size: 36px;
+        font-size: 31px;
+        letter-spacing: 2px;
         font-weight: 100;
         position: absolute;
-        top: 92px;
+        top: 94px;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -41,15 +43,24 @@
         font-size: 15px;
         font-weight: 600;
         text-align: center;
-        margin-top: 52px;
+        margin-top: 51px;
         position: relative;
         letter-spacing: 1px;
       }
       .line {
         position: absolute;
-        &.growth { }
-        &.income { }
-        &.income-growth { }
+        &.growth {
+          top: 63px; right: 174px;
+          transform: rotate(19deg);
+        }
+        &.income {
+          top: 73px; right: -65px;
+          transform: rotate(156deg);
+        }
+        &.income-growth { 
+          top: 173px; right: 144px;
+          transform: rotate(-34deg);
+        }
       }
       .diamond-base {
         width: 90px;
@@ -61,12 +72,12 @@
       }
       h4 {
         color: $dark-blue;
-        font-size: 10px;
+        font-size: 11px;
         position: relative;
         display: inline-block;
-        letter-spacing: 1.5px;
+        letter-spacing: 2.5px;
         &.growth {
-          top: 47px; right: 53px;
+          top: 22px; right: 79px;
           // &::before {
           //   content: '';
           //   @extend .diamond-base;
@@ -75,7 +86,7 @@
           // }
         }
         &.income {
-          top: 46px; left: 135px;
+          top: 24px; left: 169px;
           // &::before {
           //   content: '';
           //   @extend .diamond-base;
@@ -84,7 +95,7 @@
           // }
         }
         &.income-growth {
-          top: 213px; right: 115px;
+          top: 188px; right: 227px;
           width: 80px;
           text-align: center;
           line-height: 12px;
@@ -101,7 +112,7 @@
         height: 80px;
         background-size: 100%;
         background-repeat: no-repeat;
-        margin: 38px auto -2px;
+        margin: 45px auto 2px;
         &.distributed {
           background-image: image-url('statistics_icon-1.png');
           

@@ -7,6 +7,7 @@
   overflow: hidden;
   text-align: center;
   padding-top: 0;
+  .container { width: 1180px;}
 
   .line {
     height: 1px;
@@ -55,14 +56,12 @@
   }
   .info {
     height: 360px;
-    width: 27%;
-    &.exit { width: 19%; }
+    // width: 27%;
+    // &.exit { width: 19%; }
 
     .image {
       width: 120px;
       height: 120px;
-      // margin: 0 auto 16px;
-      
       background-repeat: no-repeat;
       background-size: 100%;
       position: relative;
@@ -101,7 +100,7 @@
       text-align: center;
 
       p { 
-        margin: 5px; 
+        margin: 4px; 
         font-weight: lighter;
         font-size: 16px;
         line-height: 26px;
