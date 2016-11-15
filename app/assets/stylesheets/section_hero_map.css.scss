@@ -52,12 +52,21 @@
 
         &.income {
           background-color: $yello;
+          // &:active {
+          //   background-color: $dark-yello;
+          // }
         }
         &.growth {
           background-color: $purple;
+          // &:active {
+          //   background-color: $dark-purple;
+          // }
         }
         &.income-growth {
           background-color: $medium-blue;
+          // &:active {
+          //   background-color: $dark-medium-blue;
+          // }
         }
       }
     }
