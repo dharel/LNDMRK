@@ -81,6 +81,8 @@ header {
     .link-4 { margin-right: 5px; }
     .link-5 { margin-right: 42px; margin-left: 3px; }
     .link-6 { margin-right: 28px; }
+
+    
   }
 
   .left-side {
@@ -126,6 +128,53 @@ header {
     margin-left: -6px;
     position: relative;
     top: 3px;
+  }
+}
+
+header {
+  .dashboard {
+    
+    .logout {
+      display: inline-block;
+      width: 80px;
+      margin-left: -8px;
+      height: 26px;
+      cursor: pointer;
+      border: 1px solid $turquoise;
+      &:hover { background-color: $dark-turquoise;}
+
+      .link {
+        width: inherit;
+        display: block;
+        height: inherit;
+        text-decoration: none;
+        line-height: 26px;
+        text-align: center;
+        color: $turquoise;
+        letter-spacing: 1px;
+      }
+    }
+
+    .notification {
+      width: 30px;
+      height: 30px;
+      background-image: image-url('dash-notification.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-top: 6px;
+      margin-right: 13px;
+    }
+
+    .user-image {     
+      width: 30px;
+      height: 30px;
+      background-image: image-url('dash-profile.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-top: 6px;
+      margin-right: 10px; 
+    }
+    .user { margin-right: 20px; }
   }
 }
 

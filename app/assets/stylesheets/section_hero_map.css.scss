@@ -46,27 +46,24 @@
         user-select: none;
         -webkit-user-select: none;
 
-        &.active {
-         box-shadow: inset 0 0 8px #000000;
-        }
-
         &.income {
           background-color: $yello;
-          // &:active {
-          //   background-color: $dark-yello;
-          // }
+          
+          &.active {
+           background-color: $dark-yello;
+          }
         }
         &.growth {
           background-color: $purple;
-          // &:active {
-          //   background-color: $dark-purple;
-          // }
+          &.active {
+            background-color: $dark-purple;
+          }
         }
         &.income-growth {
           background-color: $medium-blue;
-          // &:active {
-          //   background-color: $dark-medium-blue;
-          // }
+          &.active {
+            background-color: $dark-medium-blue;
+          }
         }
       }
     }

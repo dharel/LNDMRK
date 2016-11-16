@@ -1,26 +1,69 @@
 <div ng-controller='DashboardController'>
   <header>
-    <div class='header-wrap'>
-    <ul class='left-side'>
-      <li><a href='#'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
-      <li><a class='link-1'>how it works?</a></li>
-      <li><a class='link-2'>about</a></li>
-      <li><a class='link-3'>learning</a></li>
-    </ul>
-    <ul class='right-side'>
-      <li><a class='link-4'>EN</a></li>
-      <span class='v-strip'>|</span>
-      <li><a class='link-5'>HEB</a></li>
-      <li><a class='link-6' href='/dashboard'>login</a></li>
-      <li class='invest-wrap'><a class='invest'>invest</a></li>
-    </ul>
+    <div class='header-wrap dashboard'>
+      <ul class='left-side'>
+        <li><a href='/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
+        <li><a class='link-1'>how it works?</a></li>
+        <li><a class='link-2'>about</a></li>
+        <li><a class='link-3'>learning</a></li>
+      </ul>
+      <ul class='right-side'>
+        <li><a class='notification'></a></li>
+        <li>
+          <a class='user-image'></a>
+        </li>
+        <li><a class='user' href='#'>USER@LNDMRK.COM</a></li>
+        <li class='logout'><a class='link'>LOGOUT</a></li>
+      </ul>
     </div>
   </header>
   <section class='portfolio'>
+    <div class='container'>
 
+
+    </div>
   </section>
 
-  <section class='my-properties'>
-  
+  <section class='myproperties'>
+    <div class='container'>
+      <div class='line'></div>
+      <div class='title'>my properties</div>
+
+      <div class='properties-table'>
+        <div class='headers-wrap'>
+          <div class='header placeholder'></div>
+          <div class='header price'>avarage price from m²</div>
+          <div class='header owned'>m² owned</div>
+          <div class='header value'>total ownership value</div>
+          <div class='header yield'>estimated yield</div>
+          <div class='header rating'>rating</div>
+          <div class='header income'>current monthly income</div>
+          <div class='header value'>debt to value</div>
+          <div class='header gains'>gains from initial investment</div>
+        </div>
+        <div class='row-data' ng-repeat='property in data track by $index'>
+          <div class='data name' ng-class='property.class'>{{property.name}}</div>
+          <div class='data'>{{ calcAvarage('price', property.assets) | currency }}</div>
+          <div class='data'>{{ sumProperty('owned', property.assets) }}</div>
+          <div class='data'>{{ sumProperty('value', property.assets) | currency}}</div>
+          <div class='data'>{{ sumProperty('yield', property.assets) }}%</div>
+          <div class='data'>A4-C1</div>
+          <div class='data'>{{ sumProperty('income', property.assets) }}</div>
+          <div class='data'>50% / $9,356</div>
+          <div class='data'>{{ calcAvarage('gains', property.assets) | currency }}</div>        
+        </div>
+        <div class='row-data sum'>
+          <div class='data name'>sum</div>
+            <div class='data'>{{sumAll('price') | currency }}</div>
+            <div class='data'>{{sumAll('owned')}}</div>
+            <div class='data'>{{sumAll('value') | currency}}</div>
+            <div class='data'>{{sumAll('yield')}}%</div>
+            <div class='data'>asdas</div>
+            <div class='data'>{{sumAll('income')}}</div>
+            <div class='data'>asdasd</div>
+            <div class='data'>{{sumAll('gains') | currency}}</div>  
+        </div>
+      </div>
+    </div>
   </section>
 </div>

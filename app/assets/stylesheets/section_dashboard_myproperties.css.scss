@@ -1,0 +1,104 @@
+@import "./_base.css.scss";
+
+.myproperties {
+  min-height: 386px;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 0;
+  .container { width: 1197px;}
+
+  .line {
+    height: 1px;
+    background-color: $grey;
+    position: relative;
+    top: 24px;
+    width: 1190px;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .title {
+    width: 141px;
+    height: 31px;
+    margin: 7px auto 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    z-index: 2;
+    position: relative;
+    line-height: 31px;
+    border: 1px solid $dark-blue;
+    background-color: $white;
+    text-transform: uppercase;
+    color: $dark-turquoise;
+    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+  }
+
+  .properties-table {
+    width: 100%;
+    height: auto;
+    margin-top: 17px;
+    min-height: 250px;
+
+    .headers-wrap {
+      width: 100%;
+      height: 30px;
+
+      .header {
+        width: 131.5px;
+        height: inherit;
+        display: block;
+        float: left;
+        color: $turquoise;
+        font-size: 9px;
+        font-weight: bold;
+        line-height: 35px;
+        text-align: center;
+
+        &.placeholder { width: 145px; }
+      }
+    }
+
+    .row-data { 
+      width: 100%;
+      height: 35px;
+      background-color: white;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      box-shadow: 0px 0px 5px 1px lightgray;
+
+      &.sum {
+        background-color: $turquoise;
+        
+        .data {
+          color: $white;
+          &.name {
+            background-color: $white;
+            color: black;
+          }
+        }
+      }
+
+      .data {
+        width: 131px;
+        float: left;
+        display: inline-block;
+        line-height: 33px;
+        font-weight: bold;
+
+        &.name {
+          width: 145px;
+          height: inherit;
+          color: white;
+          font-size: 14px;
+
+          &.income { background-color: $yello }
+          &.growth { background-color: $purple }
+          &.income-growth { background-color: $medium-blue }
+        }
+      }
+    }
+  }
+}
