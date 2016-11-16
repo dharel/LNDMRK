@@ -86,6 +86,7 @@ header {
         background-repeat: no-repeat;
         background-size: contain;
         background-image: image-url('Eng_off.png');
+        margin-top: 8px;
        
         &.on {
           background-image: image-url('Eng_on.png');
@@ -101,6 +102,7 @@ header {
         background-repeat: no-repeat;
         background-size: contain;
         background-image: image-url('Heb_off.png');
+        margin-top: 8px;
 
         &.on {
           background-image: image-url('Heb_on.png');
