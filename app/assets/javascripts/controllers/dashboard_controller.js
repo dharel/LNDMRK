@@ -1,4 +1,9 @@
 angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService', function ($scope, AjaxService) {
+  $scope.expanded = {
+    isOpen: false,
+    id: null
+  }
+  
   $scope.data = [
     {
       id: 0,
@@ -146,5 +151,10 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     })($scope.data);
 
     return sum.toFixed(2);
+  };
+
+  $scope.toggleExpanded = function (property) {
+    $scope.expanded.isOpen = !$scope.expanded.isOpen;
+    $scope.expanded.id = $scope.expanded.id !== property.id ? property.id : null;
   };
 }]);

@@ -1,6 +1,6 @@
 /*globals angular, document, JST, window */
 
-var app = angular.module('lndmrk', []);
+var app = angular.module('lndmrk', ['ui.bootstrap']);
 
 angular.element(document).ready(function () {
   'use strict';

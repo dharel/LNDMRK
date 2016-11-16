@@ -29,7 +29,7 @@
       <div class='line'></div>
       <div class='title'>my properties</div>
 
-      <div class='properties-table'>
+      <div class='properties-table' ng-init='show = false'>
         <div class='headers-wrap'>
           <div class='header placeholder'></div>
           <div class='header price'>avarage price from m²</div>
@@ -41,16 +41,33 @@
           <div class='header value'>debt to value</div>
           <div class='header gains'>gains from initial investment</div>
         </div>
-        <div class='row-data' ng-repeat='property in data track by $index'>
-          <div class='data name' ng-class='property.class'>{{property.name}}</div>
-          <div class='data'>{{ calcAvarage('price', property.assets) | currency }}</div>
-          <div class='data'>{{ sumProperty('owned', property.assets) }}</div>
-          <div class='data'>{{ sumProperty('value', property.assets) | currency}}</div>
-          <div class='data'>{{ sumProperty('yield', property.assets) }}%</div>
-          <div class='data'>A4-C1</div>
-          <div class='data'>{{ sumProperty('income', property.assets) }}</div>
-          <div class='data'>50% / $9,356</div>
-          <div class='data'>{{ calcAvarage('gains', property.assets) | currency }}</div>        
+        <div class='data-wrapper' 
+             ng-repeat='property in data track by $index'
+             ng-click='toggleExpanded(property)'>
+          <div class='row-data'>
+            <div class='data name' ng-class='property.class'>{{property.name}}</div>
+            <div class='data'>{{ calcAvarage('price', property.assets) | currency }}</div>
+            <div class='data'>{{ sumProperty('owned', property.assets) }}</div>
+            <div class='data'>{{ sumProperty('value', property.assets) | currency}}</div>
+            <div class='data'>{{ sumProperty('yield', property.assets) }}%</div>
+            <div class='data'>A4-C1</div>
+            <div class='data'>{{ sumProperty('income', property.assets) }}</div>
+            <div class='data'>50% / $9,356</div>
+            <div class='data'>{{ calcAvarage('gains', property.assets) | currency }}</div>
+          </div>
+          <div class='expanded-data-wrap' ng-show='expanded.id === property.id'>
+            <div class='expanded-row-data' ng-repeat='asset in property.assets'>
+              <div class='expanded-data name' ng-class='property.class'>{{asset.name}}</div>
+              <div class='expanded-data'>{{asset.price | currency }}</div>
+              <div class='expanded-data'>{{asset.owned}}</div>
+              <div class='expanded-data'>{{asset.value | currency }}</div>
+              <div class='expanded-data'>{{asset.yield}}%</div>
+              <div class='expanded-data'>{{asset.rating}}</div>
+              <div class='expanded-data'>{{asset.income | currency }}</div>
+              <div class='expanded-data'>{{asset.value | currency }}</div>
+              <div class='expanded-data'>{{asset.gains | currency }}</div>
+            </div>
+          </div>
         </div>
         <div class='row-data sum'>
           <div class='data name'>sum</div>
@@ -58,9 +75,9 @@
             <div class='data'>{{sumAll('owned')}}</div>
             <div class='data'>{{sumAll('value') | currency}}</div>
             <div class='data'>{{sumAll('yield')}}%</div>
-            <div class='data'>asdas</div>
+            <div class='data'>A4-C1</div>
             <div class='data'>{{sumAll('income')}}</div>
-            <div class='data'>asdasd</div>
+            <div class='data'>50% / $9,356</div>
             <div class='data'>{{sumAll('gains') | currency}}</div>  
         </div>
       </div>

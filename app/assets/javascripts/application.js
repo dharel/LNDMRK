@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require angular.min
+//= require angular-animate.min
+//= require ui-bootstrap-tpls-2.2.0.min
 //= require stop-angular-overrides
 //= require main
 //= require_tree .
