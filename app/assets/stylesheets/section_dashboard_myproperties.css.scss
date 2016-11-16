@@ -47,17 +47,21 @@
       height: 30px;
 
       .header {
-        width: 131.5px;
         height: inherit;
         display: block;
         float: left;
         color: $turquoise;
-        font-size: 8px;
+        font-size: 10px;
         font-weight: bold;
         line-height: 35px;
         text-align: center;
 
         &.placeholder { width: 145px; }
+        &.price, &.owned, &.value, &.yield, &.debt {
+          width: 126px;
+        }
+
+        &.rating { width: 80px; }
       }
     }
 
@@ -74,7 +78,7 @@
         background-color: $turquoise;
         
         .data {
-          color: $white;
+          color: $white;         
           &.name {
             background-color: $white;
             color: black;
@@ -83,24 +87,30 @@
       }
 
       .data {
-        width: 131px;
         float: left;
         display: inline-block;
         line-height: 35px;
         font-weight: bold;
         color: $dark-blue;
         font-size: 15px;
+        width: 124px;
 
         &.name {
           width: 145px;
           height: inherit;
           color: white;
-          font-size: 14px;
+          font-size: 13px;
 
           &.income { background-color: $yello }
           &.growth { background-color: $purple }
           &.income-growth { background-color: $medium-blue }
         }
+
+        &.price, &.owned, &.value, &.yield, &.debt {
+          width: 126px;
+        }
+
+        &.rating { width: 80px; }
       }
 
     }
@@ -119,7 +129,7 @@
         cursor: pointer;
 
         .expanded-data {
-          width: 131px;
+          width: 126px;
           float: left;
           display: inline-block;
           line-height: 33px;
@@ -135,9 +145,7 @@
             width: 145px;
           }
         }
-      }
-      
+      }    
     }
-
   }
 }
