@@ -15,7 +15,13 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', 
       growth: false,
       income: false
     };
+
+    $scope.localization = 'en';
   };
+
+  $scope.toggleLocalization = function (val) {
+    $scope.localization = val;
+  }
 
   $scope.toggleFilter = function (filter) {
     $scope.mapFilters[filter] = !$scope.mapFilters[filter];

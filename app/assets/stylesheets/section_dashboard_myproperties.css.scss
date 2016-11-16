@@ -86,8 +86,10 @@
         width: 131px;
         float: left;
         display: inline-block;
-        line-height: 33px;
+        line-height: 35px;
         font-weight: bold;
+        color: $dark-blue;
+        font-size: 15px;
 
         &.name {
           width: 145px;
@@ -123,6 +125,7 @@
           line-height: 33px;
           font-size: 13px;
           line-height: 37px;
+          color: $dark-blue;
 
           &.income { color: $yello }
           &.growth { color: $purple }
