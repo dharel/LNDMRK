@@ -34,6 +34,7 @@
       height: 370px;
       float: left;
       color: white;
+      box-shadow: 0px 0px 10px -2px $turquoise;
 
       .left {
         width: 170px;
@@ -152,6 +153,7 @@
           width: 100%;
           height: 310px;
 
+
           .graph-wrap {
             width: 65px;
             height: 275px;
@@ -166,6 +168,11 @@
               font-size: 10px; 
               font-weight: bold;
               box-shadow: 0px 0px 3px 2px lightgray;
+            }
+            .info {
+              font-size: 10px;
+              margin-top: 19px;
+              color: black;
             }
 
             &#income {
@@ -202,9 +209,53 @@
                 } 
               }
             }
+
+            &#income-growth {
+              .graph {
+                margin-top: 171px;
+                height: 55px;
+
+                .top {
+                  width: inherit;
+                  height: 19%;
+                  background-color: #CDF8FF;
+                }
+
+                .bottom {
+                  width: inherit;
+                  height: 81%;
+                  background-color: #01DCFD;
+                  padding-top: 15px;
+                }
+              }
+
+              .name {
+                white-space: nowrap;
+                text-align: center;
+                left: -10px;
+                position: relative;
+              }
+            }
           }
         }
       }
+    }
+
+    .small {
+      width: 225px;
+      height: 175px;
+      background-color: black;
+      float: left;
+      margin-left: 14px;
+    }
+
+    .analyzing-tool {
+      width: 710px;
+      background-color: black;
+      height: 170px;
+      float: left;
+      margin-left: 14px;
+      margin-top: 25px;
     }
   }
 }
