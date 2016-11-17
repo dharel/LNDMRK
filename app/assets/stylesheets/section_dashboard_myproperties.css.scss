@@ -57,11 +57,6 @@
         text-align: center;
 
         &.placeholder { width: 145px; }
-        &.price, &.owned, &.value, &.yield, &.debt {
-          width: 126px;
-        }
-
-        &.rating { width: 80px; }
       }
     }
 
@@ -105,12 +100,6 @@
           &.growth { background-color: $purple }
           &.income-growth { background-color: $medium-blue }
         }
-
-        &.price, &.owned, &.value, &.yield, &.debt {
-          width: 126px;
-        }
-
-        &.rating { width: 80px; }
       }
 
     }

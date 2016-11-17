@@ -47,6 +47,37 @@
           </div>
           <div class='right'>
             <div class='title'>total portfolio</div>
+            <div class='graph-container'>
+              <div class='graph-wrap' id='income'>
+                <div class='graph'>
+                  <div class='top'>40%</div>
+                  <div class='bottom'>60%</div>
+                </div>
+                <div class='info'>
+                  <div class='name'></div>
+                  <div class='currency'></div>
+                </div>
+              </div>
+              <div class='graph-wrap' id='growth'>
+                <div class='graph'>
+                  <div class='bottom'>100%</div>
+                </div>
+                <div class='info'>
+                  <div class='name'></div>
+                  <div class='currency'></div>
+                </div>
+              </div>
+              <div class='graph-wrap' id='income-growth'>
+                <div class='graph'>
+                  <div class='top'>0%</div>
+                  <div class='bottom'>100%</div>
+                </div>
+                <div class='info'>
+                  <div class='name'></div>
+                  <div class='currency'></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -61,53 +92,53 @@
       <div class='properties-table'>
         <div class='headers-wrap'>
           <div class='header placeholder'></div>
-          <div class='header price'>avarage price from m²</div>
-          <div class='header owned'>m² owned</div>
+          <div class='header price' style='width: 11%'>avarage price from m²</div>
+          <div class='header owned' style='width: 10%'>m² owned</div>
           <div class='header value'>total ownership value</div>
-          <div class='header yield'>estimated yield</div>
-          <div class='header rating' style='width: 100px'>rating</div>
-          <div class='header income'>current monthly income</div>
-          <div class='header debt' style='width: 128px'>debt to value</div>
-          <div class='header gains'>gains from initial investment</div>
+          <div class='header yield' style='width: 10%'>estimated yield</div>
+          <div class='header rating' style='width: 7%'>rating</div>
+          <div class='header income' style='width: 15%'>current monthly income</div>
+          <div class='header debt' style='width: 10%'>debt to value</div>
+          <div class='header gains' style='width: 14%'>gains from initial investment</div>
         </div>
         <div class='data-wrapper' 
              ng-repeat='property in data track by $index'
              ng-click='toggleExpanded(property)'>
           <div class='row-data'>
             <div class='data name' ng-class='property.class'>{{property.name}}</div>
-            <div class='data price'>{{ calcAvarage('price', property.assets) | currency }}</div>
-            <div class='data owned'>{{ sumProperty('owned', property.assets) }}</div>
+            <div class='data price' style='width: 11%'>{{ calcAvarage('price', property.assets) | currency }}</div>
+            <div class='data owned' style='width: 10%'>{{ sumProperty('owned', property.assets) }}</div>
             <div class='data value'>{{ sumProperty('value', property.assets) | currency}}</div>
-            <div class='data yield' style='width: 133px'>{{ sumProperty('yield', property.assets) }}%</div>
-            <div class='data rating' style='width: 98px'>A4-C1</div>
-            <div class='data income' style='width: 138px'>{{ sumProperty('income', property.assets) }}</div>
-            <div class='data debt' style='width: 134px'>50% / $9,356</div>
-            <div class='data gains'>{{ calcAvarage('gains', property.assets) | currency }}</div>
+            <div class='data yield' style='width: 10%'>{{ sumProperty('yield', property.assets) }}%</div>
+            <div class='data rating' style='width: 7%'>A4-C1</div>
+            <div class='data income' style='width: 15%'>{{ sumProperty('income', property.assets) }}</div>
+            <div class='data debt' style='width: 10%'>50% / $9,356</div>
+            <div class='data gains' style='width: 14%'>{{ calcAvarage('gains', property.assets) | currency }}</div>
           </div>
           <div class='expanded-data-wrap' ng-show='expanded.id === property.id'>
             <div class='expanded-row-data' ng-repeat='asset in property.assets'>
               <div class='expanded-data name' ng-class='property.class'>{{asset.name}}</div>
-              <div class='expanded-data '>{{asset.price | currency }}</div>
-              <div class='expanded-data'>{{asset.owned}}</div>
-              <div class='expanded-data' >{{asset.value | currency }}</div>
-              <div class='expanded-data' style='width: 133px'>{{asset.yield}}%</div>
-              <div class='expanded-data' style='width: 100px'>{{asset.rating}}</div>
-              <div class='expanded-data' style='width: 138px'>{{asset.income | currency }}</div>
-              <div class='expanded-data' style='width: 134px'>{{asset.debt | currency }}</div>
-              <div class='expanded-data'>{{asset.gains | currency }}</div>
+              <div class='expanded-data' style='width: 11%'>{{asset.price | currency }}</div>
+              <div class='expanded-data' style='width: 10%'>{{asset.owned}}</div>
+              <div class='expanded-data'>{{asset.value | currency }}</div>
+              <div class='expanded-data' style='width: 10%'>{{asset.yield}}%</div>
+              <div class='expanded-data' style='width: 7%'>{{asset.rating}}</div>
+              <div class='expanded-data' style='width: 15%'>{{asset.income | currency }}</div>
+              <div class='expanded-data' style='width: 10%'>{{asset.debt | currency }}</div>
+              <div class='expanded-data' style='width: 14%'>{{asset.gains | currency }}</div>
             </div>
           </div>
         </div>
         <div class='row-data sum'>
           <div class='data name'>sum</div>
-            <div class='data'>{{sumAll('price') | currency }}</div>
-            <div class='data'>{{sumAll('owned')}}</div>
+            <div class='data' style='width: 11%'>{{sumAll('price') | currency }}</div>
+            <div class='data' style='width: 10%'>{{sumAll('owned')}}</div>
             <div class='data'>{{sumAll('value') | currency}}</div>
-            <div class='data'>{{sumAll('yield')}}%</div>
-            <div class='data'>A4-C1</div>
-            <div class='data'>{{sumAll('income')}}</div>
-            <div class='data'>50% / $9,356</div>
-            <div class='data'>{{sumAll('gains') | currency}}</div>  
+            <div class='data' style='width: 10%'>{{sumAll('yield')}}%</div>
+            <div class='data' style='width: 7%'>A4-C1</div>
+            <div class='data' style='width: 15%'>{{sumAll('income')}}</div>
+            <div class='data' style='width: 10%'>50% / $9,356</div>
+            <div class='data' style='width: 14%'>{{sumAll('gains') | currency}}</div>  
         </div>
       </div>
     </div>
