@@ -9,39 +9,39 @@
   <div class='header-wrap'>
     <ul class='left-side'>
       <li><a href='/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
-      <li><a class='link-1'>how it works?</a></li>
-      <li><a class='link-2'>about</a></li>
-      <li><a class='link-3'>learning</a></li>
+      <li><a class='link-1'><%= t 'how_it_works' %></a></li>
+      <li><a class='link-2'><%= t 'about' %></a></li>
+      <li><a class='link-3'><%= t 'learning' %></a></li>
     </ul>
     <ul class='right-side'>
       <li ng-click='toggleLocalization("en")'><a class='link-4 en' ng-class='localization === "en" ? "on" : ""'></a></li>
       <span class='v-strip'>|</span>
       <li ng-click='toggleLocalization("heb")'><a class='link-5 heb' ng-class='localization === "heb" ? "on" : ""'></a></li>
-      <li><a class='link-6' href='/dashboard'>login</a></li>
-      <li class='invest-wrap'><a class='invest'>invest</a></li>
+      <li><a class='link-6' href='/dashboard'><%= t 'login' %></a></li>
+      <li class='invest-wrap'><a class='invest'><%= t 'invest.title' %></a></li>
     </ul>
   </div>
 </header>
 
 <section class='hero-map'>
-  <h1 class='title'>invest any amount in any property. worldwide.</h1>
+  <h1 class='title'> <%= t 'map_title' %> </h1>
   <div class='hero-map-container'>
     <div class='filters-container'>
       <div class='filter income'
            ng-click='toggleFilter("income")'
-           ng-class='{"active": mapFilters.income}'>income</div>
+           ng-class='{"active": mapFilters.income}'><%= 'income' %></div>
       <div class='filter growth'
            ng-click='mapFilters.growth = !mapFilters.growth'
-           ng-class='{"active": mapFilters.growth}'>growth</div>
+           ng-class='{"active": mapFilters.growth}'><%= 'growth' %></div>
       <div class='filter income-growth'
            ng-click='mapFilters.incomeGrowth = !mapFilters.incomeGrowth'
-           ng-class='{"active": mapFilters.incomeGrowth}'>income & growth</div>
+           ng-class='{"active": mapFilters.incomeGrowth}'><%= 'income_growth' %></div>
     </div>
     <div class='search-container'>
       <input type="text" class='search' placeholder='Search address, city, state.'>
     </div>
     <div class='search-info'>
-      <h1 class='search-button'>search</h1>
+      <h1 class='search-button'><%= 'search' %></h1>
     </div>
   </div>
 </section>
@@ -51,52 +51,46 @@
 <section class='how-it-works'>
   <div class='container'>
     <div class='line'></div>
-    <div class='title'>how it works</div>
+    <div class='title'><%= t 'how_it_works' %></div>
     <div class='row-wrap'>
       <div class='info'>
         <div class='image search'></div>
-        <div class='info-title'>search properties</div>
+        <div class='info-title'><%= t 'search_properties.title' %></div>
         <div class='text'>
-          <p>
-            Evaluate and compare properties' <br>
-            risk and return
-          </p>
+          <p><%= raw t 'search_properties.part_1' %></p>
           <div id='diamond'></div>
-          <p>
-            Place unsolicited bids on any <br>
-            property in the world
-          </p>
+          <p><%= raw t 'search_properties.part_2' %></p>
         </div>
       </div>
       <div class='info'>
         <div class='image invest'></div>
-        <div class='info-title'>invest</div>
+        <div class='info-title'><%= t 'invest.title' %></div>
         <div class='text'>
-          <p>Set bid price</p>
+          <p><%= raw t 'invest.part_1' %></p>
           <div id='diamond'></div>
-          <p>Find slimie properties</p>
+          <p><%= raw t 'invest.part_2' %></p>
           <div id='diamond'></div>
-          <p>Balance and customize you portfolio</p>        
+          <p><%= raw t 'invest.part_3' %></p>        
         </div>
       </div>
       <div class='info'>
         <div class='image recieve'></div>
-        <div class='info-title'>receive income</div>
+        <div class='info-title'><%= t 'recieve_income.title' %>e</div>
         <div class='text'>
-          <p>Direct deposit into your bank <br> account</p>
+          <p><%= raw t 'recieve_income.part_1' %></p>
           <div id='diamond'></div>
-          <p>Get SMS notifications on deposits</p>
+          <p><%= raw t 'recieve_income.part_2' %></p>
           <div id='diamond'></div>
-          <p>Vote on investors' representatives</p>        
+          <p><%= raw t 'recieve_income.part_3' %></p>        
         </div>
       </div>
       <div class='info exit'>
         <div class='image exit'></div>
-        <div class='info-title'>exit</div>
+        <div class='info-title'><%= t 'exit.title' %></div>
         <div class='text'>
-          <p>Set ask price</p>
+          <p><%= raw t 'exit.part_1' %></p>
           <div id='diamond'></div>
-          <p>Get bids</p>     
+          <p><%= raw t 'exit.part_2' %></p>     
         </div>
       </div>
     </div>
@@ -106,7 +100,7 @@
 <section class='statistics'>
   <div class='container'>
     <div class='column'>
-      <h3>income distributed</h3>
+      <h3><%= t 'income_destributed' %></h3>
       <div class='icon distributed'></div>
       <h1>$2,578</h1>
     </div>
@@ -115,16 +109,16 @@
       <div class='pie-area'>
         <div class='pie-image'></div>
         <h2>453M</h2>
-        <h4 class='growth'>growth</h4>
-        <h4 class='income'>income</h4>
-        <h4 class='income-growth'>income & growth</h4>
+        <h4 class='growth'><%= t 'growth' %></h4>
+        <h4 class='income'><%= t 'income' %></h4>
+        <h4 class='income-growth'><%= t 'income_growth' %></h4>
         <%= image_tag('line.png',class: 'line growth', width: '90', alt: '') %>
         <%= image_tag('line.png',class: 'line income', width: '90', alt: '') %>
         <%= image_tag('line.png',class: 'line income-growth', width: '90', alt: '') %>
       </div>
     </div>
     <div class='column'>
-      <h3>average portfolio</h3>
+      <h3><%= t 'average_portfolio' %></h3>
       <div class='icon portfolio'></div>
       <h1>$53,327</h1>
     </div>
@@ -134,7 +128,7 @@
 <section class='our-story'>
   <div class='container'>
     <div class='line'></div>
-    <div class='title'>our story</div>
+    <div class='title'><%= t 'our_story' %></div>
     <div class='row-text'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.
     </div>
