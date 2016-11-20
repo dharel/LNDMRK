@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114145338) do
+ActiveRecord::Schema.define(version: 20161120112733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,17 @@ ActiveRecord::Schema.define(version: 20161114145338) do
   create_table "assets", force: :cascade do |t|
     t.string   "name"
     t.string   "investment_type"
+    t.float    "price",           default: 0.0
+    t.float    "owned",           default: 0.0
+    t.float    "value",           default: 0.0
+    t.float    "yield",           default: 0.0
     t.string   "risk"
-    t.float    "price"
-    t.float    "income"
-    t.float    "yeild"
+    t.float    "income",          default: 0.0
+    t.float    "debt",            default: 0.0
+    t.float    "gains",           default: 0.0
     t.string   "image"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "event_logs", force: :cascade do |t|
@@ -33,6 +37,10 @@ ActiveRecord::Schema.define(version: 20161114145338) do
     t.string   "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "investment_types", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "settings", force: :cascade do |t|

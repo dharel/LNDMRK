@@ -1,14 +1,20 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', 'carouselAssetsFetch', function ($scope, AjaxService, carouselAssetsFetch) {
+angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', function ($scope, AjaxService) {
   'use strict';
   
-  $scope.carouselAssetsFetch = carouselAssetsFetch;
   $scope.init = function() {
-    $scope.carouselAssetsFetch.getAssets(function (data) {    
+
+    var onSucc = function (data) {
       $scope.assets = data;
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets[0];
-    });
+    };
+
+    var onErr = function (err) {
+      console.log('error fetching data: ', err);
+    }
+
+    AjaxService.sendMsg('GET', '/carousel_assets', {}, onSucc, onErr);
 
     $scope.mapFilters = {
       incomeGrowth: false,

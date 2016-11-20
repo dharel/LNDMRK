@@ -1,4 +1,4 @@
-<div ng-controller='DashboardController'>
+<div ng-controller='DashboardController' ng-init='init()'>
   <header>
     <div class='header-wrap dashboard'>
       <ul class='left-side'>
@@ -109,9 +109,7 @@
         <div class='small monthly-income '>
           <div class='title-small'>monthly income</div>
           <div class='subtitle'> prediction </div>
-          <div class='graph'>
-
-          </div>
+          <div class='graph'></div>
         </div>
         <div class='analyzing-tool'>
           <div class='title-small'>analyzing tool</div>
@@ -183,7 +181,7 @@
               <div class='expanded-data' style='width: 10%'>{{asset.owned}}</div>
               <div class='expanded-data'>{{asset.value | currency }}</div>
               <div class='expanded-data' style='width: 10%'>{{asset.yield}}%</div>
-              <div class='expanded-data' style='width: 7%'>{{asset.rating}}</div>
+              <div class='expanded-data' style='width: 7%'>{{asset.risk}}</div>
               <div class='expanded-data' style='width: 15%'>{{asset.income | currency }}</div>
               <div class='expanded-data' style='width: 10%'>{{asset.debt | currency }}</div>
               <div class='expanded-data' style='width: 14%'>{{asset.gains | currency }}</div>
