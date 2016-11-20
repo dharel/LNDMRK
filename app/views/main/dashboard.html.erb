@@ -80,13 +80,63 @@
             </div>
           </div>
         </div>
-        <div class='total-gains small'>
+        <div class='small total-gains '>
+          <div class='title-small'>total gains</div>
+          <div class='graph'>
+            <p class='text'>$13,567</p>
+            <div class='lable-top'>
+              <div class='title'>unrealized</div>
+              <div class='currency'>$5,348</div>
+            </div>
+            <div class='lable-bottom'>
+              <div class='title'>realized</div>
+              <div class='currency'>$7,234</div>
+            </div>  
+          </div>
         </div>
-        <div class='yield small'>
+        <div class='small yield '>
+          <div class='title-small'>yield</div>
+          <div class='graph'>
+            <p class='text'>9%</p>
+            <div class='lable-top'>
+              <div class='title'>growth</div>
+            </div>
+            <div class='lable-bottom'>
+              <div class='title'>income</div>
+            </div>
+          </div>
         </div>
-        <div class='monthly-income small'>
+        <div class='small monthly-income '>
+          <div class='title-small'>monthly income</div>
+          <div class='subtitle'> prediction </div>
         </div>
         <div class='analyzing-tool'>
+          <div class='title-small'>analyzing tool</div>
+          
+          <div class='people-container'>
+            <div ng-repeat='person in analyzingToolData track by $index'
+                 class='person-wrap'>
+              <div class='img' id='image-{{person.id}}'></div>
+              <div class='name'>{{person.name}}</div>
+              <div class='data-wrap'>
+                <div class='data'>
+                  <div class='title'>return</div>
+                  <div class='return'>{{person.return}}%</div>
+                </div>
+                <div class='data'>
+                  <div class='title'>risk</div>                  
+                  <div class='risk' id='risk-{{person.risk}}'>{{person.risk}}</div>
+                </div>                
+              </div>
+              <div class='value'>${{person.value}}</div>
+            </div>
+          </div>
+          <div class='graphs-container'>
+            <div class='graph1'>
+
+            </div>
+            <div class='graph2'><div class='text'>$5,679</div></div>
+          </div>
         </div>
       </div>
     </div>

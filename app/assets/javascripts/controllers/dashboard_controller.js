@@ -136,6 +136,30 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     }
   ];
 
+  $scope.analyzingToolData = [
+    {
+      id: 0,
+      name: 'seth nichols',
+      return: 6,
+      risk: 'c',
+      value: 5000,
+    },
+    {
+      id: 1,
+      name: 'robin elliott',
+      return: 8,
+      risk: 'd',
+      value: 13000
+    },
+    {
+      id: 2,
+      name: 'guy gardner',
+      return: 4.6,
+      risk: 'b',
+      value: 9000
+    }
+  ];
+
   $scope.sumProperty = function (type, collection) {
     return R.sum(R.pluck(type)(collection));
   };
