@@ -13,3 +13,5 @@ Asset.create(
     { name: 'land for investment',  investment_type: 'growth',          risk: 'b', price: '10', income: '20', yeild: '7.1', image: '/images/005.png' }
   ]
 )
+
+Setting.create({key: 'Locale', value: 'en_us'})
