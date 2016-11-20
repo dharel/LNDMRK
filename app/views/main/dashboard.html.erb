@@ -170,7 +170,7 @@
             <div class='data value'>{{ sumProperty('value', property.assets) | currency}}</div>
             <div class='data yield' style='width: 10%'>{{ sumProperty('yield', property.assets) }}%</div>
             <div class='data rating' style='width: 7%'>A4-C1</div>
-            <div class='data income' style='width: 15%'>{{ sumProperty('income', property.assets) }}</div>
+            <div class='data income' style='width: 15%'>{{ sumProperty('income', property.assets) | currency }}</div>
             <div class='data debt' style='width: 10%'>50% / $9,356</div>
             <div class='data gains' style='width: 14%'>{{ calcAvarage('gains', property.assets) | currency }}</div>
           </div>
@@ -195,7 +195,7 @@
             <div class='data'>{{sumAll('value') | currency}}</div>
             <div class='data' style='width: 10%'>{{sumAll('yield')}}%</div>
             <div class='data' style='width: 7%'>A4-C1</div>
-            <div class='data' style='width: 15%'>{{sumAll('income')}}</div>
+            <div class='data' style='width: 15%'>{{sumAll('income') | currency}}</div>
             <div class='data' style='width: 10%'>50% / $9,356</div>
             <div class='data' style='width: 14%'>{{sumAll('gains') | currency}}</div>  
         </div>
