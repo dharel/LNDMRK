@@ -5,11 +5,19 @@
 #
 ##################################################################################
 class MainController < ApplicationController
+
+  before_filter toggleLocale
+
   def home
     render 'home'
   end
 
   def dashboard
     render 'dashboard'
+  end
+
+  def toggleLocale
+    puts params
+    I18n.locale = params[:locale] || I18n.default_lcoale
   end
 end

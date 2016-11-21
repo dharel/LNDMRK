@@ -52,4 +52,7 @@ en:
     part_2: "Get bids"
   income_distributed: "income distributed"
   average_portfolio: "average portfolio"
-  our_story: 'our story'
+  our_story:
+    title: "our story"
+    what_the_press: "what the press is saying"
+    speech_box: "\"LNDMRK has a history of making it easier for ordinary investors to put money to work.\""

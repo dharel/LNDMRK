@@ -26,7 +26,16 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', 
   };
 
   $scope.toggleLocalization = function (val) {
-    $scope.localization = val;
+
+    var onSucc = function (data) {
+      $scope.localization = val;
+    }
+
+    var onErr = function (error) {
+      console.log('toggle localization error: ', error)
+    }
+
+    AjaxService.sendMsg('POST', '/toggleLocale', val, onSucc, onErr);
   }
 
   $scope.toggleFilter = function (filter) {
