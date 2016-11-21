@@ -1,4 +1,4 @@
-<div ng-controller='MainController' ng-init='init()'>
+<div ng-controller='MainController' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
 
 <section class='background-homepage'>
   <div class='map-image'></div>
@@ -38,10 +38,11 @@
            ng-class='{"active": mapFilters.incomeGrowth}' translate>income_growth</div>
     </div>
     <div class='search-container'>
-      <input type="text" class='search' placeholder='Search address, city, state.'>
+      <input type="text" class='search' placeholder='Search address, city, state.' ng-if='localizationSrv.locale === "en"'>
+      <input type="text" class='search he' placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'>
     </div>
     <div class='search-info'>
-      <h1 class='search-button'><%= 'search' %></h1>
+      <h1 class='search-button' translate > search</h1>
     </div>
   </div>
 </section>
