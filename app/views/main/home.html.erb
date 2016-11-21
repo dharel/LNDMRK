@@ -9,33 +9,33 @@
   <div class='header-wrap'>
     <ul class='left-side'>
       <li><a href='/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
-      <li><a class='link-1'><%= t 'how_it_works' %></a></li>
-      <li><a class='link-2'><%= t 'about' %></a></li>
-      <li><a class='link-3'><%= t 'learning' %></a></li>
+      <li><a class='link-1' translate>how_it_works</a></li>
+      <li><a class='link-2' translate>about</a></li>
+      <li><a class='link-3' translate>learning</a></li>
     </ul>
     <ul class='right-side'>
       <li ng-click='toggleLocalization("en")'><a class='link-4 en' ng-class='localization === "en" ? "on" : ""'></a></li>
       <span class='v-strip'>|</span>
-      <li ng-click='toggleLocalization("heb")'><a class='link-5 heb' ng-class='localization === "heb" ? "on" : ""'></a></li>
-      <li><a class='link-6' href='/dashboard'><%= t 'login' %></a></li>
-      <li class='invest-wrap'><a class='invest'><%= t 'invest.title' %></a></li>
+      <li ng-click='toggleLocalization("he")'><a class='link-5 heb' ng-class='localization === "he" ? "on" : ""'></a></li>
+      <li><a class='link-6' href='/dashboard' translate>login</a></li>
+      <li class='invest-wrap'><a class='invest' translate>invest_button</a></li>
     </ul>
   </div>
 </header>
 
 <section class='hero-map'>
-  <h1 class='title'> <%= t 'map_title' %> </h1>
+  <h1 class='title' translate> map_title </h1>
   <div class='hero-map-container'>
     <div class='filters-container'>
       <div class='filter income'
            ng-click='toggleFilter("income")'
-           ng-class='{"active": mapFilters.income}'><%= 'income' %></div>
+           ng-class='{"active": mapFilters.income}' translate> income </div>
       <div class='filter growth'
            ng-click='mapFilters.growth = !mapFilters.growth'
-           ng-class='{"active": mapFilters.growth}'><%= 'growth' %></div>
+           ng-class='{"active": mapFilters.growth}' translate> growth </div>
       <div class='filter income-growth'
            ng-click='mapFilters.incomeGrowth = !mapFilters.incomeGrowth'
-           ng-class='{"active": mapFilters.incomeGrowth}'><%= 'income_growth' %></div>
+           ng-class='{"active": mapFilters.incomeGrowth}' translate>income_growth</div>
     </div>
     <div class='search-container'>
       <input type="text" class='search' placeholder='Search address, city, state.'>
@@ -51,46 +51,46 @@
 <section class='how-it-works'>
   <div class='container'>
     <div class='line'></div>
-    <div class='title'><%= t 'how_it_works' %></div>
+    <div class='title' translate> how_it_works </div>
     <div class='row-wrap'>
       <div class='info'>
         <div class='image search'></div>
-        <div class='info-title'><%= t 'search_properties.title' %></div>
+        <div class='info-title' translate> search_properties.title </div>
         <div class='text'>
-          <p><%= raw t 'search_properties.part_1' %></p>
+          <p translate> search_properties.part_1 </p>
           <div id='diamond'></div>
-          <p><%= raw t 'search_properties.part_2' %></p>
+          <p translate> search_properties.part_2 </p>
         </div>
       </div>
       <div class='info'>
         <div class='image invest'></div>
         <div class='info-title'><%= t 'invest.title' %></div>
         <div class='text'>
-          <p><%= raw t 'invest.part_1' %></p>
+          <p translate> invest.part_1 </p>
           <div id='diamond'></div>
-          <p><%= raw t 'invest.part_2' %></p>
+          <p translate> invest.part_2 </p>
           <div id='diamond'></div>
-          <p><%= raw t 'invest.part_3' %></p>        
+          <p translate> invest.part_3 </p>        
         </div>
       </div>
       <div class='info'>
         <div class='image recieve'></div>
-        <div class='info-title'><%= t 'recieve_income.title' %>e</div>
+        <div class='info-title' translate> recieve_income.title </div>
         <div class='text'>
-          <p><%= raw t 'recieve_income.part_1' %></p>
+          <p translate> recieve_income.part_1 </p>
           <div id='diamond'></div>
-          <p><%= raw t 'recieve_income.part_2' %></p>
+          <p translate> recieve_income.part_2 </p>
           <div id='diamond'></div>
-          <p><%= raw t 'recieve_income.part_3' %></p>        
+          <p translate> recieve_income.part_3 </p>        
         </div>
       </div>
       <div class='info exit'>
         <div class='image exit'></div>
-        <div class='info-title'><%= t 'exit.title' %></div>
+        <div class='info-title' translate> exit.title </div>
         <div class='text'>
-          <p><%= raw t 'exit.part_1' %></p>
+          <p translate> exit.part_1 </p>
           <div id='diamond'></div>
-          <p><%= raw t 'exit.part_2' %></p>     
+          <p translate> exit.part_2 </p>     
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@
 <section class='statistics'>
   <div class='container'>
     <div class='column'>
-      <h3><%= t 'income_destributed' %></h3>
+      <h3 translate> income_destributed </h3>
       <div class='icon distributed'></div>
       <h1>$2,578</h1>
     </div>
@@ -109,16 +109,16 @@
       <div class='pie-area'>
         <div class='pie-image'></div>
         <h2>453M</h2>
-        <h4 class='growth'><%= t 'growth' %></h4>
-        <h4 class='income'><%= t 'income' %></h4>
-        <h4 class='income-growth'><%= t 'income_growth' %></h4>
+        <h4 class='growth' translate> growth </h4>
+        <h4 class='income' translate> income </h4>
+        <h4 class='income-growth' translate> income_growth </h4>
         <%= image_tag('line.png',class: 'line growth', width: '90', alt: '') %>
         <%= image_tag('line.png',class: 'line income', width: '90', alt: '') %>
         <%= image_tag('line.png',class: 'line income-growth', width: '90', alt: '') %>
       </div>
     </div>
     <div class='column'>
-      <h3><%= t 'average_portfolio' %></h3>
+      <h3 translate> average_portfolio </h3>
       <div class='icon portfolio'></div>
       <h1>$53,327</h1>
     </div>
@@ -128,29 +128,29 @@
 <section class='our-story'>
   <div class='container'>
     <div class='line'></div>
-    <div class='title'><%= t 'our_story' %></div>
+    <div class='title' translate> our_story </div>
     <div class='row-text'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.
     </div>
-    <h2>what the press is saying</h2>
+    <h2 translate>our_story.subtitle</h2>
     <ul class='row col-3'>
       <li class='press-article'>
         <div class='speech-box'>
-        <p>"LNDMRK has a history of making it easier for ordinary investors to put money to work.</p>
+        <p translate> speech_box.part_1 </p>
         <h5>oct 22, 2016</h5>
         </div>
         <div class='paper-name tech-crunch'></div>
       </li>
       <li class='press-article'>
         <div class='speech-box'>
-        <p>"LNDMRK is a pioneer in real estate crowdfunding, allowing individuals to directly invest in hotels, apartment buildings and other development projects</p>
+        <p translate>speech_box.part_2</p>
         <h5>nov 1, 2016</h5>
         </div>
         <div class='paper-name forbes'></div>
       </li>
       <li class='press-article'>
         <div class='speech-box'>
-        <p>"What really sets LNDMRK apart is that it backs each and every deal itself.  The quality hasn't gone unnoticed: one of Fundrise's last deals sold out in 20 minutes.</p>
+        <p translate> speech_box.part_3 </p>
         <h5>sep 7, 2016</h5>
         </div>
         <div class='paper-name the-ny-times'></div>
@@ -162,27 +162,27 @@
 <section class='leadership'>
   <div class='container'>
     <div class='line'></div>
-    <div class='title'>leadership</div>
+    <div class='title' translate> leadership.title </div>
     <ul class='row col-3'>
       <li class='leader'>
         <div class='image-01'></div>
         <div class='name'>
           <h2>donald fisher</h2>
-          <h3>chairman of the board</h3>
+          <h3 translate> leadership.chairman </h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-02'></div>
         <div class='name'>
           <h2>caleb rodriquez</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-03'></div>
         <div class='name'>
           <h2>jerome willis</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
 
@@ -190,21 +190,21 @@
         <div class='image-04'></div>
         <div class='name'>
           <h2>greg stephens</h2>
-          <h3>CEO</h3>
+          <h3 translate>leadership.ceo</h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-05'></div>
         <div class='name'>
           <h2>margie hill</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-06'></div>
         <div class='name'>
           <h2>julio cook</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
 
@@ -212,21 +212,21 @@
         <div class='image-07'></div>
         <div class='name'>
           <h2>rene barnett</h2>
-          <h3>corporate council</h3>
+          <h3 translate>leadership.corporate_council</h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-08'></div>
         <div class='name'>
           <h2>brendie williamson</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-09'></div>
         <div class='name'>
           <h2>dana perry</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
 
@@ -234,21 +234,21 @@
         <div class='image-10'></div>
         <div class='name'>
           <h2>nathan wallace</h2>
-          <h3>CFO</h3>
+          <h3 translate>leadership.cfo</h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-11'></div>
         <div class='name'>
           <h2>juan marshall</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
       <li class='leader'>
         <div class='image-12'></div>
         <div class='name'>
           <h2>lester coleman</h2>
-          <h3>board member</h3>
+          <h3 translate>leadership.board_member</h3>
         </div>
       </li>
 
@@ -259,7 +259,7 @@
 <section class='partners'>
   <div class='container'>
     <div class='line'></div>
-    <div class='title'>partners</div>
+    <div class='title' translate>partners.title</div>
     <div class='partners-container'>
       <div class='partner canada'></div>
       <div class='partner cbre'></div>

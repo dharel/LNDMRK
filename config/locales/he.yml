@@ -1,2 +1,50 @@
+
 he:
-  hello: 'שלום'
+  hello: "שלום עולם"
+  how_it_works: "איך זה עובד"
+  about: "אודות"
+  learning: "למידה"
+  login: "התחבר"
+  invest_button: "להשקיע"
+  map_title: "invest any amount in any property. worldwide."
+  income: "income"
+  growth: "growth"
+  income_growth: "income & growth"
+  search_placeholder: "Search address, city, state."
+  search: "search"
+  search_properties: 
+    title: "search properties"
+    part_1: "Evaluate and compare properties' <br> risk and return"
+    part_2: "Place unsolicited bids on any <br> property in the world"
+  invest: 
+    title: "invest"
+    part_1: "Set bid price"
+    part_2: "Find slimie properties"
+    part_3: "Balance and customize you portfolio"
+  recieve_income:
+    title: "receive income"
+    part_1: "Direct deposit into your bank <br> account"
+    part_2: "Get SMS notifications on deposits"
+    part_3: "Vote on investors' representatives"
+  exit: 
+    title: "exit"
+    part_1: "Set ask price"
+    part_2: "Get bids"
+  income_distributed: "income distributed"
+  average_portfolio: "average portfolio"
+  our_story:
+    title: "our story"
+    subtitle: "what the press is saying"
+  speech_box: 
+    part_1: "LNDMRK has a history of making it easier for ordinary investors to put money to work."
+    part_2: "LNDMRK is a pioneer in real estate crowdfunding, allowing individuals to directly invest in hotels, apartment buildings and other development projects."
+    part_3: "What really sets LNDMRK apart is that it backs each and every deal itself.  The quality hasn't gone unnoticed: one of Fundrise's last deals sold out in 20 minutes."
+  leadership:
+    title: "leadership"
+    chainman: "chairman of the board"
+    board_member: "board member"
+    ceo: "ceo"
+    corporate_council: "corporate council"
+    cfo: "cfo"
+  partners:
+    title: "partners"

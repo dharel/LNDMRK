@@ -12,6 +12,8 @@
 //
 //= require angular.min
 //= require angular-animate.min
+//= require angular-translate.min
+//= require angular-translate-loader-static-files.min
 //= require ui-bootstrap-tpls-2.2.0.min
 //= require stop-angular-overrides
 //= require main

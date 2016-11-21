@@ -25,7 +25,7 @@ en:
   about: "about"
   learning: "learning"
   login: "login"
-  invest: "invest"
+  invest_button: "invest"
   map_title: "invest any amount in any property. worldwide."
   income: "income"
   growth: "growth"
@@ -52,4 +52,19 @@ en:
     part_2: "Get bids"
   income_distributed: "income distributed"
   average_portfolio: "average portfolio"
-  our_story: 'our story'
+  our_story:
+    title: "our story"
+    subtitle: "what the press is saying"
+  speech_box: 
+    part_1: "LNDMRK has a history of making it easier for ordinary investors to put money to work."
+    part_2: "LNDMRK is a pioneer in real estate crowdfunding, allowing individuals to directly invest in hotels, apartment buildings and other development projects."
+    part_3: "What really sets LNDMRK apart is that it backs each and every deal itself.  The quality hasn't gone unnoticed: one of Fundrise's last deals sold out in 20 minutes."
+  leadership:
+    title: "leadership"
+    chainman: "chairman of the board"
+    board_member: "board member"
+    ceo: "ceo"
+    corporate_council: "corporate council"
+    cfo: "cfo"
+  partners:
+    title: "partners"

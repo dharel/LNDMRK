@@ -1,13 +1,13 @@
 /*globals angular, document, JST, window */
 
-var app = angular.module('lndmrk', ['ui.bootstrap']);
+var app = angular.module('lndmrk', ['pascalprecht.translate','ui.bootstrap']);
 
 angular.element(document).ready(function () {
   'use strict';
   angular.bootstrap(document, ['lndmrk']);
 });
 
-app.config(['$compileProvider', '$httpProvider', function ($compileProvider, $httpProvider) {
+app.config(['$compileProvider', '$httpProvider','$translateProvider', function ($compileProvider, $httpProvider, $translateProvider) {
   'use strict';
   $compileProvider.debugInfoEnabled(false);
 
@@ -15,6 +15,13 @@ app.config(['$compileProvider', '$httpProvider', function ($compileProvider, $ht
   $httpProvider.defaults.headers.post['X-CSRF-Token'] = csrf_token;
   $httpProvider.defaults.headers.put['X-CSRF-Token'] = csrf_token;
   $httpProvider.defaults.headers.patch['X-CSRF-Token'] = csrf_token;
+
+  //translations: 
+  $translateProvider.useStaticFilesLoader({
+    prefix: 'translations/',
+    suffix: '.json'
+  });
+  $translateProvider.preferredLanguage('en');
 }]);
 
 app.run(function () {

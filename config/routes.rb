@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 root 'main#home'
+
+resources :translations, only: :show
 
 get '/carousel_assets', to: 'assets#show'
 get '/parsed_assets', to: 'assets#parsed_assets'

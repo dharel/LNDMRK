@@ -1,0 +1,40 @@
+{
+  "how_it_works": "how it works",
+  "about": "about",
+  "learning": "learning",
+  "login": "login",
+  "invest_button": "invest",
+  "map_title": "invest any amount in any property. worldwide.",
+  "income": "income",
+  "growth": "growth",
+  "income_growth": "income & growth",
+  "search_placeholder": "Search address, city, state.",
+  "search": "search",
+  "search_properties": {
+    "title": "search properties",
+    "part_1": "Evaluate and compare properties' <br> risk and return",
+    "part_2": "Place unsolicited bids on any <br> property in the world"
+  },
+  "invest": {
+    "title": "invest",
+    "part_1": "Set bid price",
+    "part_2": "Find slimie properties",
+    "part_3": "Balance and customize you portfolio"
+  },
+  "recieve_income": {
+    "title": "receive income",
+    "part_1": "Direct deposit into your bank <br> account",
+    "part_2": "Get SMS notifications on deposits",
+    "part_3": "Vote on investors' representatives"
+  },
+  "exit": {
+    "title": "exit",
+    "part_1": "Set ask price",
+    "part_2": "Get bids"
+  }, 
+  "income_distributed": "income distributed",
+  "average_portfolio": "average portfolio",
+  "our_story": {
+    "title": "out story"
+  }
+}

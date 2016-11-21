@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', function ($scope, AjaxService) {
+angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','$translate', function ($scope, AjaxService, $translate) {
   'use strict';
   
   $scope.init = function() {
@@ -27,6 +27,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService', 
 
   $scope.toggleLocalization = function (val) {
     $scope.localization = val;
+    $translate.use(val)
   }
 
   $scope.toggleFilter = function (filter) {
