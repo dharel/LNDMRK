@@ -1,13 +1,13 @@
 /*globals angular, document, JST, window */
 
-var app = angular.module('lndmrk', ['pascalprecht.translate','ui.bootstrap']);
+var app = angular.module('lndmrk', ['ngRoute', 'pascalprecht.translate','ui.bootstrap']);
 
 angular.element(document).ready(function () {
   'use strict';
   angular.bootstrap(document, ['lndmrk']);
 });
 
-app.config(['$compileProvider', '$httpProvider','$translateProvider', function ($compileProvider, $httpProvider, $translateProvider) {
+app.config(['$compileProvider', '$httpProvider','$routeProvider','$translateProvider', function ($compileProvider, $httpProvider,$routeProvider, $translateProvider) {
   'use strict';
   $compileProvider.debugInfoEnabled(false);
 
@@ -22,6 +22,17 @@ app.config(['$compileProvider', '$httpProvider','$translateProvider', function (
     suffix: '.json'
   });
   $translateProvider.preferredLanguage('en');
+
+  $routeProvider.
+    when('/', {
+      templateUrl: '/home',
+      controller: 'MainController'
+    }).
+    when('/dashboard', {
+      templateUrl: '/dashboard',
+      controller: 'DashboardController'
+    }).otherwise('/')
+
 }]);
 
 app.run(function () {

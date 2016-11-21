@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require angular.min
+//= require angular-route.min
 //= require angular-animate.min
 //= require angular-translate.min
 //= require angular-translate-loader-static-files.min
