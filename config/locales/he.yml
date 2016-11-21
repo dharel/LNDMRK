@@ -29,9 +29,10 @@ he:
   exit: 
     title: "מכור את הנכס"
     part_1: "קבע מחיר מחירה"
-    part_2: "קבח הצעות רכישה"
-  income_distributed: "income distributed"
-  average_portfolio: "average portfolio"
+    part_2: "קבע הצעות רכישה"
+  income_distributed: "הכנסה שחולקה"
+  m_in_lndmrk: "מר בלנדקמרק"
+  average_portfolio: "תיק השקעות ממוצע"
   our_story:
     title: "הסיפור שלנו"
     subtitle: "מהעיתונות"

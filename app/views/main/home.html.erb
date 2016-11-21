@@ -14,9 +14,9 @@
       <li><a class='link-3' translate>learning</a></li>
     </ul>
     <ul class='right-side'>
-      <li ng-click='toggleLocalization("en")'><a class='link-4 en' ng-class='localization === "en" ? "on" : ""'></a></li>
+      <li ng-click='toggleLocalization("en")'><a class='link-4 en' ng-class='localizationSrv.locale === "en" ? "on" : ""'></a></li>
       <span class='v-strip'>|</span>
-      <li ng-click='toggleLocalization("he")'><a class='link-5 heb' ng-class='localization === "he" ? "on" : ""'></a></li>
+      <li ng-click='toggleLocalization("he")'><a class='link-5 heb' ng-class='localizationSrv.locale === "he" ? "on" : ""'></a></li>
       <li><a class='link-6' href='#/dashboard' translate>login</a></li>
       <li class='invest-wrap'><a class='invest' translate>invest_button</a></li>
     </ul>
@@ -100,12 +100,12 @@
 <section class='statistics'>
   <div class='container'>
     <div class='column'>
-      <h3 translate> income_destributed </h3>
+      <h3 translate> income_distributed </h3>
       <div class='icon distributed'></div>
       <h1>$2,578</h1>
     </div>
     <div class='column'>
-      <h3>M&sup2; in lndmrk</h3>
+      <h3 translate>m_in_lndmrk</h3>
       <div class='pie-area'>
         <div class='pie-image'></div>
         <h2>453M</h2>

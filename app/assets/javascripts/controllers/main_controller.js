@@ -1,33 +1,35 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','$translate', function ($scope, AjaxService, $translate) {
+angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','$translate','localizationSrv', function ($scope, AjaxService, $translate, localizationSrv) {
   'use strict';
-  
-  $scope.init = function() {
 
+  $scope.localizationSrv = localizationSrv;
+
+  var getCarousellData = function () {
     var onSucc = function (data) {
       $scope.assets = data;
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets[0];
     };
-
     var onErr = function (err) {
       console.log('error fetching data: ', err);
     }
-
     AjaxService.sendMsg('GET', '/carousel_assets', {}, onSucc, onErr);
-
+  }
+  
+  $scope.init = function() {
+    getCarousellData();
     $scope.mapFilters = {
       incomeGrowth: false,
       growth: false,
       income: false
     };
 
-    $scope.localization = 'en';
+    $scope.localization = $scope.localizationSrv.locale;
   };
 
   $scope.toggleLocalization = function (val) {
-    $scope.localization = val;
-    $translate.use(val)
+    localizationSrv.locale = val;
+    $translate.use(val);
   }
 
   $scope.toggleFilter = function (filter) {

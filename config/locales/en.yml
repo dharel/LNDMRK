@@ -51,6 +51,7 @@ en:
     part_1: "Set ask price"
     part_2: "Get bids"
   income_distributed: "income distributed"
+  m_in_lndmrk: "M² in lndmrk"
   average_portfolio: "average portfolio"
   our_story:
     title: "our story"

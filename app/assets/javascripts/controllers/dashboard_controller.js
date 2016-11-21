@@ -1,4 +1,4 @@
-angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService', function ($scope, AjaxService) {
+angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService', function ($scope, AjaxService, localization) {
   
   $scope.init = function () {
     $scope.expanded = {
