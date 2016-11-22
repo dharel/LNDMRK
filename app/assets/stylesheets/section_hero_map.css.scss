@@ -91,6 +91,9 @@
       }
       input.search::-webkit-input-placeholder { color: $white; }
       input.search::-moz-placeholder { color: $white; }
+      input.search:focus {
+        border: 1px solid $white;
+      }
     }
 
     .search-info {
