@@ -6,6 +6,12 @@
   text-align: center;
   padding-top: 0;
   text-transform: uppercase;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+
   .container { width: 1197px;}
 
   .line {
@@ -13,7 +19,7 @@
     background-color: $grey;
     position: relative;
     top: 24px;
-    width: 1190px;
+    width: 100%;
     transform: translateX(-50%);
     left: 50%;
   }
@@ -28,7 +34,7 @@
     letter-spacing: 1.8px;
     z-index: 2;
     position: relative;
-    line-height: 31px;
+    line-height: 28px;
     border: 1px solid $dark-blue;
     background-color: $white;
     text-transform: uppercase;
@@ -45,13 +51,17 @@
     .headers-wrap {
       width: 100%;
       height: 30px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
 
       .header {
         height: inherit;
         display: block;
         float: left;
         color: $turquoise;
-        font-size: 10px;
+        font-size: 8px;
         font-weight: bold;
         line-height: 35px;
         text-align: center;
@@ -68,6 +78,10 @@
       margin-bottom: 15px;
       cursor: pointer;
       box-shadow: 0px 0px 5px 1px lightgray;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
 
       &.sum {
         background-color: $turquoise;
@@ -82,8 +96,6 @@
       }
 
       .data {
-        float: left;
-        display: inline-block;
         line-height: 35px;
         font-weight: bold;
         color: $dark-blue;
@@ -110,21 +122,28 @@
       margin: 15px 0;
       background-color: $white;
       box-shadow: 0px 0px 5px 1px lightgray;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
 
       .expanded-row-data { 
         width: 100%;
         height: 35px;
         background-color: white;
         cursor: pointer;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
 
         .expanded-data {
-          width: 126px;
-          float: left;
           display: inline-block;
           line-height: 33px;
           font-size: 13px;
           line-height: 37px;
           color: $dark-blue;
+          width: 124px;
 
           &.income { color: $yello }
           &.growth { color: $purple }

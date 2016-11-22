@@ -1,0 +1,82 @@
+.hebrew {
+  direction: rtl;
+  font-family: 'Open Sans Hebrew', sans-serif;
+  header {
+    .left-side, .right-side {
+      a {
+        margin-left: 0;
+      }
+
+      .user {
+        margin-right: 0;
+        margin-left: 20px;
+      }
+
+      .user-image { margin-left:  10px;}
+      .notification { margin-left:  10px;}
+      
+
+      .link-1 { margin-right: 45px; }
+      .link-2 { margin-right: 40px; }
+      .link-3 { margin-right: 42px; }
+      .link-4 { 
+        margin-left: 5px;
+        &.en {
+          height: 20px;
+          width: 20px;        
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: image-url('Eng_off.png');
+          margin-top: 8px;
+        
+          &.on {
+            background-image: image-url('Eng_on.png');
+          }
+        } 
+      }
+      .link-5 { 
+        margin-left: 42px; 
+        margin-right: 3px; 
+        &.heb {
+          width: 20px;
+          height: 20px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: image-url('Heb_off.png');
+          margin-top: 8px;
+
+          &.on {
+            background-image: image-url('Heb_on.png');
+          }
+        } 
+      }
+      .link-6 { margin-left: 28px; }
+      }
+  }
+
+  .statistics {
+
+    .container {
+      .column {
+        .pie-area {
+          .growth { right: 190px; }
+          .income-growth { right: 155px; }
+        }
+      }
+    }
+  }
+
+  .portfolio {
+    .management-wrapper{
+      .right-wide-colum{
+        .top-row {
+          .small{
+            .graph{
+              .lable-bottom { left: 0; }
+            }
+          }
+        }
+      }
+    }
+  }
+}

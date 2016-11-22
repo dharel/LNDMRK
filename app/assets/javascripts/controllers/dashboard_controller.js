@@ -1,5 +1,6 @@
-angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService', function ($scope, AjaxService, localization) {
+angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService','localizationSrv', function ($scope, AjaxService, localizationSrv) {
   
+  $scope.localizationSrv = localizationSrv;
   $scope.init = function () {
     $scope.expanded = {
       isOpen: false,
@@ -19,6 +20,7 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     }
 
     AjaxService.sendMsg('GET', '/parsed_assets', {}, onSucc, onErr);
+    $scope.localization = $scope.localizationSrv.locale;
   }
 
   $scope.analyzingToolData = [

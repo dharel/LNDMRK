@@ -29,6 +29,10 @@
   .management-wrapper {
     width: 100%;
     height: 383px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 
     .total {
       width: 470px;
@@ -36,11 +40,15 @@
       float: left;
       color: white;
       box-shadow: 0px 0px 10px -2px $turquoise;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
 
       .left {
         width: 170px;
         height: inherit;
-        float: left;
+
         .top {
           width: inherit;
           height: 210px;
@@ -140,8 +148,17 @@
       .right {
         width: 300px;
         height: inherit;
-        display: inline-block;
-        float: left;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .right-dara-wrap {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-between;
+          align-items: center;
+        }
 
         .title {
           margin-top: 13px;
@@ -151,9 +168,8 @@
         }
 
         .graph-container {
-          width: 100%;
+          width: 300px;
           height: 310px;
-
 
           .graph-wrap {
             width: 65px;
@@ -190,7 +206,7 @@
                 .bottom {
                   background-color: #F5C501;
                   width: inherit;
-                  height: 60%;
+                  height: 134px;
                   padding-top: 60px;
                 } 
               }
@@ -224,263 +240,290 @@
 
                 .bottom {
                   width: inherit;
-                  height: 81%;
+                  height: 82%;
                   background-color: #01DCFD;
                   padding-top: 15px;
                 }
               }
-
-              .name {
-                white-space: nowrap;
-                text-align: center;
-                left: -10px;
-                position: relative;
-              }
             }
           }
         }
       }
     }
 
-    .small {
-      width: 225px;
-      height: 175px;
-      float: left;
-      margin-left: 14px;
-      box-shadow: 0px 0px 10px -2px $turquoise;
-      color: #102447;
+    .right-wide-colum {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
       
-      .title-small {
-        font-size: 11px;
-        width: 100%;
-        height: 30px;
-        padding-top: 10px;
-        color: $turquoise;
-        font-weight: bold;
-      }
+      .top-row {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 710px;
 
-      .subtitle {
-        font-size: 10px;
-        font-weight: bold;
-      }
-
-      .graph {
-        width: 100%;
-        height: 145px;
-        background-size: 50%;
-        background-repeat: no-repeat;
-        background-position: 50%;
-
-        .text {
-          text-align: center;
-          color: black;
-          position: relative;
-          top: 60px;
-          font-size: 20px;
-          font-weight: bold;
-        }
-
-        .lable-top {
-          width: 60px;
-          font-size: 10px;
-          position: relative;
-          margin-right: 8px;
-          margin-left: auto;
-          .title { font-weight: bold; }
-        }
-
-        .lable-bottom {
-          width: 60px;
-          font-size: 10px;
-          position: relative;
-          top: 55px;
-          .title { font-weight: bold; }
-        }
-      }
-
-
-      &.total-gains {
-        .graph {
-          background-image: image-url('dash-graph-1.png');
-        }
-      }
-
-      &.yield {
-        .graph {
-          background-image: image-url('dash-graph-2.png');
-        }
-      }
-
-      &.monthly-income {
-        .graph {
-          background-image: image-url('dash-graph-4.png');
-          background-size: cover;
-        }
-      }
-    }
-
-    .analyzing-tool {
-      width: 710px;
-      height: 170px;
-      float: left;
-      margin-left: 14px;
-      margin-top: 25px;
-      box-shadow: 0px 0px 10px -2px $turquoise;
-
-      .title-small {
-        font-size: 11px;
-        width: 100%;
-        height: 30px;
-        padding-top: 10px;
-        color: $turquoise;
-        font-weight: bold;
-      }
-
-      .people-container {
-        height: 140px;
-        width: 380px;
-        float: left;
-
-        .person-wrap {
-          width: 105px;
-          height: 105px;
+        .small {
+          width: 225px;
+          height: 175px;
           float: left;
-          margin: 0 10px;
-          margin-top: 30px;
-          position: relative;
           box-shadow: 0px 0px 10px -2px $turquoise;
-
-          .img {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            margin: 0 auto;
-            border-radius: 50px;
-            position: relative;
-            top:-30px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            z-index: 2;
-
-            &#image-0 {
-              background-image: image-url('dash-face-01.png');
-            }
-            &#image-1 {
-              background-image: image-url('dash-face-02.png');
-            }
-            &#image-2 {
-              background-image: image-url('dash-face-03.png');
-            }
-          }
-
-          .name {
-            position: absolute;
-            top: 0;
+          color: #102447;
+      
+          .title-small {
+            font-size: 11px;
             width: 100%;
-            height: 35px;
-            font-size: 9px;
-            padding-top: 22px;
+            height: 30px;
+            padding-top: 10px;
+            color: $turquoise;
             font-weight: bold;
-            background-color: #EEFAFA;
           }
 
-          .data-wrap {
-            width: 100%;
-            height: 50px;
-            margin-top: -15px;
-
-            .data {
-              width: 50%;
-              height: 100%;
-              float: left;
-              line-height: 30px;
-              font-weight: bold;
-              &:first-child {
-                box-shadow: 10px 0px 10px -10px $turquoise;
-              }
-
-              .title {
-                width: 100%;
-                height: 20px;
-                font-size: 8px;
-                font-weight: normal;
-              }
-
-              .return {
-                font-size: 13px;
-                position: relative;
-                top: -3px;
-              }
-
-              .risk {
-                border-radius: 50px;
-                width: 20px;
-                height: 20px;
-                margin: 0 auto;
-                line-height: 20px;
-                position: relative;
-                top: 3px;
-                font-size: 10px;
-
-                &#risk-b {
-                  color: #8AC542;
-                  border: 1px solid #8AC542;
-                }
-
-                &#risk-c {
-                  color: #F6A64A;
-                  border: 1px solid #F6A64A;
-                }
-
-                &#risk-d {
-                  color: #2F9DD5;
-                  border: 1px solid #2F9DD5;
-                }
-              }
-            }
-          }
-
-          .value {
-            height: 20px;
+          .subtitle {
             font-size: 10px;
             font-weight: bold;
-            padding-top: 4px;
-            color: white;
-            background-color: $turquoise;
+          }
+
+          .graph {
+            width: 100%;
+            height: 145px;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            position: relative;
+
+            .text {
+              text-align: center;
+              color: black;
+              position: relative;
+              top: 60px;
+              font-size: 20px;
+              font-weight: bold;
+            }
+
+            .lable-top {
+              width: 60px;
+              font-size: 10px;
+              position: absolute;
+              right: 8px;
+              .title { font-weight: bold; }
+            }
+
+            .lable-bottom {
+              width: 60px;
+              font-size: 10px;
+              position: absolute;
+              top: 95px;
+              .title { font-weight: bold; }
+            }
+          }
+
+
+          &.total-gains {
+            .graph {
+              background-image: image-url('dash-graph-1.png');
+            }
+          }
+
+          &.yield {
+            .graph {
+              background-image: image-url('dash-graph-2.png');
+            }
+          }
+
+          &.monthly-income {
+            .graph {
+              background-image: image-url('dash-graph-4.png');
+              background-size: cover;
+            }
           }
         }
       }
 
-      .graphs-container {
-        height: 140px;
-        float: left;
-        width: 330px;
-
-        .graph1 {
-          height: 100%;
-          width: 185px;
+      .bottom-row {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 710px;
+          
+        .analyzing-tool {
+          width: 710px;
+          height: 170px;
           float: left;
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-image: image-url('dash-graph-3.png');
-          background-position: 7px 17px;
-        }
-        .graph2 {
-          height: 100%;
-          width: 145px;
-          float: left;
-          background-repeat: no-repeat;
-          background-size: 115px;
-          background-image: image-url('dash-graph-1.png');
-          background-position: 12px;
+          margin-top: 25px;
+          box-shadow: 0px 0px 10px -2px $turquoise;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-between;
+          align-items: center;
 
-          .text {
-            position: relative;
-            top: 60px;
+          .title-small {
+            font-size: 11px;
+            width: 100%;
+            height: 30px;
+            padding-top: 10px;
+            color: $turquoise;
             font-weight: bold;
-            font-size: 20px;
-            left: -4px;
           }
+
+          .content-row {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            .people-container {
+              height: 140px;
+              width: 380px;
+              float: left;
+
+              .person-wrap {
+                width: 105px;
+                height: 105px;
+                float: left;
+                margin: 0 10px;
+                margin-top: 30px;
+                position: relative;
+                box-shadow: 0px 0px 10px -2px $turquoise;
+
+                .img {
+                  width: 50px;
+                  height: 50px;
+                  background-color: white;
+                  margin: 0 auto;
+                  border-radius: 50px;
+                  position: relative;
+                  top:-30px;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  z-index: 2;
+
+                  &#image-0 {
+                    background-image: image-url('dash-face-01.png');
+                  }
+                  &#image-1 {
+                    background-image: image-url('dash-face-02.png');
+                  }
+                  &#image-2 {
+                    background-image: image-url('dash-face-03.png');
+                  }
+                }
+
+                .name {
+                  position: absolute;
+                  top: 0;
+                  width: 100%;
+                  height: 35px;
+                  font-size: 9px;
+                  padding-top: 22px;
+                  font-weight: bold;
+                  background-color: #EEFAFA;
+                }
+
+                .data-wrap {
+                  width: 100%;
+                  height: 50px;
+                  margin-top: -15px;
+
+                  .data {
+                    width: 50%;
+                    height: 100%;
+                    float: left;
+                    line-height: 30px;
+                    font-weight: bold;
+                    &:first-child {
+                      box-shadow: 10px 0px 10px -10px $turquoise;
+                    }
+
+                    .title {
+                      width: 100%;
+                      height: 20px;
+                      font-size: 8px;
+                      font-weight: normal;
+                    }
+
+                    .return {
+                      font-size: 13px;
+                      position: relative;
+                      top: -3px;
+                    }
+
+                    .risk {
+                      border-radius: 50px;
+                      width: 20px;
+                      height: 20px;
+                      margin: 0 auto;
+                      line-height: 20px;
+                      position: relative;
+                      top: 3px;
+                      font-size: 10px;
+
+                      &#risk-b {
+                        color: #8AC542;
+                        border: 1px solid #8AC542;
+                      }
+
+                      &#risk-c {
+                        color: #F6A64A;
+                        border: 1px solid #F6A64A;
+                      }
+
+                      &#risk-d {
+                        color: #2F9DD5;
+                        border: 1px solid #2F9DD5;
+                      }
+                    }
+                  }
+                }
+
+                .value {
+                  height: 20px;
+                  font-size: 10px;
+                  font-weight: bold;
+                  padding-top: 4px;
+                  color: white;
+                  background-color: $turquoise;
+                }
+              }
+            }
+
+            .graphs-container {
+              height: 140px;
+              float: left;
+              width: 330px;
+
+              .graph1 {
+                height: 100%;
+                width: 185px;
+                float: left;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: image-url('dash-graph-3.png');
+                background-position: 7px 17px;
+              }
+              .graph2 {
+                height: 100%;
+                width: 145px;
+                float: left;
+                background-repeat: no-repeat;
+                background-size: 115px;
+                background-image: image-url('dash-graph-1.png');
+                background-position: 12px;
+
+                .text {
+                  position: relative;
+                  top: 60px;
+                  font-weight: bold;
+                  font-size: 20px;
+                  left: -4px;
+                }
+              }
+            }
+          }
+
+
         }
       }
     }

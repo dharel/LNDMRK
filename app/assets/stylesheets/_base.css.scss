@@ -27,61 +27,14 @@ $bleed-width: 180px;
 $container-width: 1110px;
 // $container-width: 1192px;
 
+@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+
 * {
 }
 
 body {
   background-color: $pale-grey;
   font-family: "proxima-nova", sans-serif;
-}
-
-.hebrew {
-  direction: rtl;
-
-  header {
-    .left-side, .right-side {
-      a {
-        margin-left: 0;
-      }
-
-      .link-1 { margin-right: 45px; }
-      .link-2 { margin-right: 40px; }
-      .link-3 { margin-right: 42px; }
-      .link-4 { 
-        margin-left: 5px;
-        &.en {
-          height: 20px;
-          width: 20px;        
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-image: image-url('Eng_off.png');
-          margin-top: 8px;
-        
-          &.on {
-            background-image: image-url('Eng_on.png');
-          }
-        } 
-      }
-      .link-5 { 
-        margin-left: 42px; 
-        margin-right: 3px; 
-        &.heb {
-          width: 20px;
-          height: 20px;
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-image: image-url('Heb_off.png');
-          margin-top: 8px;
-
-          &.on {
-            background-image: image-url('Heb_on.png');
-          }
-        } 
-      }
-      .link-6 { margin-left: 28px; }
-      }
-  }
-
 }
 
 section {

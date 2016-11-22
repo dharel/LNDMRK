@@ -34,7 +34,7 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
                  "\"income\" : assignTypeClass(asset.investment_type)=== \"income\", " +
                  "\"growth\" : assignTypeClass(asset.investment_type)=== \"growth\", " +
                  "\"income-growth\" : assignTypeClass(asset.investment_type)=== \"income-growth\"}'" +
-                 ">property<br>details</div>" +
+                 " translate>property_details</div>" +
           "</div>" +
         "</div>" +
         "<div class='bottom-row'>" +
