@@ -162,14 +162,18 @@
 
         .title {
           margin-top: 13px;
-          font-size: 10px;
+          font-size: 11px;
           color: $turquoise;
           font-weight: bold;
         }
 
         .graph-container {
-          width: 300px;
+          width: 270px;
           height: 310px;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
 
           .graph-wrap {
             width: 65px;
@@ -190,6 +194,8 @@
               font-size: 10px;
               margin-top: 19px;
               color: black;
+              
+              .name { font-weight: bold; }
             }
 
             &#income {

@@ -126,7 +126,7 @@
                   <div ng-repeat='person in analyzingToolData track by $index'
                       class='person-wrap'>
                     <div class='img' id='image-{{person.id}}'></div>
-                    <div class='name'>{{person.name}}</div>
+                    <div class='name' translate>{{person.name.replace(' ', '_')}}</div>
                     <div class='data-wrap'>
                       <div class='data'>
                         <div class='title' translate>return</div>
@@ -176,7 +176,7 @@
              ng-repeat='property in data track by $index'
              ng-click='toggleExpanded(property)'>
           <div class='row-data'>
-            <div class='data name' ng-class='property.class'>{{property.name}}</div>
+            <div class='data name' ng-class='property.class' translate>{{property.name === 'income & growth' ?  "income_growth" : property.name}}</div>
             <div class='data price' style='width: 11.1%'>{{ calcAvarage('price', property.assets) | currency }}</div>
             <div class='data owned' style='width: 11.1%'>{{ sumProperty('owned', property.assets) }}</div>
             <div class='data value'>{{ sumProperty('value', property.assets) | currency}}</div>
@@ -201,7 +201,7 @@
           </div>
         </div>
         <div class='row-data sum'>
-          <div class='data name'>sum</div>
+          <div class='data name' translate>sum</div>
             <div class='data' style='width: 11.1%'>{{sumAll('price') | currency }}</div>
             <div class='data' style='width: 11.1%'>{{sumAll('owned')}}</div>
             <div class='data' style='width: 11.1%'>{{sumAll('value') | currency}}</div>
