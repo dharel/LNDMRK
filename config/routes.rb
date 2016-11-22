@@ -11,5 +11,4 @@ get '/carousel_assets', to: 'assets#show'
 get '/parsed_assets', to: 'assets#parsed_assets'
 get '/robots.txt', to: 'application#robots'
 get '/dashboard', to: 'main#dashboard'
-
 end
