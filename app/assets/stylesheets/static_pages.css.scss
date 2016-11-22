@@ -80,7 +80,10 @@ header {
     .link-3 { margin-left: 42px; }
     .link-4 { 
       margin-right: 5px;
-      &.en {
+      &.on {
+        color: $turquoise;
+      }
+      /*&.en {
         height: 20px;
         width: 20px;        
         background-repeat: no-repeat;
@@ -91,12 +94,15 @@ header {
         &.on {
           background-image: image-url('Eng_on.png');
         }
-      } 
+      } */
     }
     .link-5 { 
       margin-right: 42px; 
       margin-left: 3px; 
-      &.heb {
+      &.on {
+        color: $turquoise;
+      }
+      /*&.heb {
         width: 20px;
         height: 20px;
         background-repeat: no-repeat;
@@ -107,7 +113,7 @@ header {
         &.on {
           background-image: image-url('Heb_on.png');
         }
-      } 
+      } */
     }
     .link-6 { margin-right: 28px; }
   }

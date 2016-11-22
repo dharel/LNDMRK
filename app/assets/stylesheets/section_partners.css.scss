@@ -6,15 +6,17 @@
   height: 388px;
   overflow: hidden;
 
+  .container {
+    width: 1180px;
+  }
+
   .line {
     height: 1px;
     background-color: $grey;
     margin: 0 auto;
     position: relative;
-    width: 1151px;
+    width: 100%;
     top: 58px;
-    transform: translateX(-50%);
-    left: 50%;
   }
 
   .title {
