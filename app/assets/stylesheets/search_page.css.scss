@@ -15,6 +15,11 @@
       background: wheat;
       height: calc(100vh - 50px);
       overflow-y: auto;
+      .sort-by-title {
+        font-weight: 600;
+        font-size: 12px;
+        text-align: center;
+      }
     }
     .search-top-panel-container {
       width: 1000px;
