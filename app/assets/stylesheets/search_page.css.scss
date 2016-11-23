@@ -7,11 +7,12 @@
     background: green;
     margin: 0 auto;
     height: 100%;
+    display: flex;
+    flex-direction: row;
     .search-results-right-panel-container {
       width: 280px;
       /*height: 100px;*/
       background: wheat;
-      float: right;
       height: calc(100vh - 50px);
       overflow-y: auto;
     }
@@ -19,12 +20,39 @@
       width: 1000px;
       background-color: blue;
       height: 130px;
+      .top-panel-section-title {
+        color: #102447;
+        font-weight: 600;
+        font-size: 12px;
+      }
       /*height: 100%;*/
       .top-panel-search-properties {
         width: 435px;
         height: 100%;
         float: left;
         background: orange;
+        .top-panel-search-properties-container {
+          width: 376px;
+          margin: 0 auto;
+          .properties-button {
+            width: 118px;
+            border: 1px solid black;
+            display: inline-block;
+            &.left {
+              border-color: #fdc228;
+            }
+            &.middle {
+              border-color: #8c0c69;
+            }
+            &.right {
+              border-color: #1fd6ea;
+              float: right;
+            }
+          }
+          .search-input {
+            width: 100%;
+          }
+        }
       }
       .top-panel-market-type {
         width: 167px;
@@ -43,7 +71,8 @@
       width: 1000px;
       background-color: yellow;
       /*height: 633px;*/
-      height: 100%;
+      /*height: 100%;*/
+      height: calc(100% - 130px);
     }
 
   }
