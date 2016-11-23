@@ -67,25 +67,31 @@
       .top-panel-market-type {
         width: 167px;
         height: 100%;
-        background: #2aaed0;
+        background: white;
         .top-panel-market-type-container {
           width: 120px;
           margin: 0 auto;
           .market-type-checkbox-wrapper {
             .market-type-checkbox-container {
               display: flex;
+              margin-top: 8px;
+              font-size: 12px;
               .market-type-checkbox {
                 background: #1fd6ea;
-                width: 15px;
-                height: 15px;
+                width: 11px;
+                height: 11px;
                 cursor: pointer;
                 text-align: center;
-                line-height: 17px;
+                line-height: 12px;
                 list-style: none;
                 color: white;
-                font-size: 15px;
+                font-size: 9px;
                 display: inline-block;
-                float: left;
+                margin-top: 1px;
+              }
+              .checkbox-text {
+                margin-left: 7px;
+                cursor: pointer;
               }
             }
           }
