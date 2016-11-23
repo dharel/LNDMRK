@@ -7,4 +7,8 @@ class MainController < ApplicationController
   def dashboard
     render 'dashboard'
   end
+
+  def search
+    render 'search'
+  end
 end

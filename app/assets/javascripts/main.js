@@ -32,6 +32,10 @@ app.config(['$compileProvider', '$httpProvider','$routeProvider','$translateProv
       templateUrl: '/dashboard',
       controller: 'DashboardController'
     }).otherwise('/')
+    .when('/search', {
+      templateUrl: '/search',
+      controller: 'SearchController'
+    }).otherwise('/');
 
 }]);
 

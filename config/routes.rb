@@ -6,6 +6,7 @@ resources :translations, only: :show
 
 get '/home', to: 'main#home'
 get '/dashboard', to: 'main#dashboard'
+get '/search', to: 'main#search'
 
 get '/carousel_assets', to: 'assets#show'
 get '/parsed_assets', to: 'assets#parsed_assets'

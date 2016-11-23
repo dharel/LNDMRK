@@ -1,0 +1,33 @@
+<div ng-controller='SearchController' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+  <header>
+    <div class='header-wrap dashboard'>
+      <ul class='left-side'>
+        <li><a href='#/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
+        <li><a class='link-1' translate>how_it_works</a></li>
+        <li><a class='link-2' translate>about</a></li>
+        <li><a class='link-3' translate>learning</a></li>
+      </ul>
+      <ul class='right-side'>
+        <li><a class='notification'></a></li>
+        <li>
+          <a class='user-image'></a>
+        </li>
+        <li><a class='user' href='#'>USER@LNDMRK.COM</a></li>
+        <li class='logout'><a class='link' translate>logout</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="main-wrapper">
+    <div class="data-container">
+      <div class="search-results-right-panel-container">
+        search results
+      </div>
+      <div class="search-top-panel-container">
+        top panel
+      </div>
+      <div class="google-map-container">
+        google maps
+      </div>
+    </div>
+  </section>
+</div>
