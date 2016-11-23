@@ -19,38 +19,48 @@
     .search-top-panel-container {
       width: 1000px;
       background-color: blue;
-      height: 130px;
+      height: 110px;
+      display: flex;
       .top-panel-section-title {
         color: #102447;
         font-weight: 600;
         font-size: 12px;
+        margin-top: 10px;
+        display: flex;
       }
       /*height: 100%;*/
       .top-panel-search-properties {
         width: 435px;
         height: 100%;
-        float: left;
-        background: orange;
+        background: white;
         .top-panel-search-properties-container {
           width: 376px;
           margin: 0 auto;
-          .properties-button {
-            width: 118px;
-            border: 1px solid black;
-            display: inline-block;
-            &.left {
-              border-color: #fdc228;
-            }
-            &.middle {
-              border-color: #8c0c69;
-            }
-            &.right {
-              border-color: #1fd6ea;
-              float: right;
+          .properties-buttons-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            .properties-button {
+              width: 118px;
+              height: 22px;
+              text-align: center;
+              border: 1px solid black;
+              font-size: 10px;
+              padding-top: 4px;
+              &.left {
+                border-color: #fdc228;
+              }
+              &.middle {
+                border-color: #8c0c69;
+              }
+              &.right {
+                border-color: #1fd6ea;
+              }
             }
           }
           .search-input {
             width: 100%;
+            margin-top: 10px;
           }
         }
       }
@@ -58,12 +68,32 @@
         width: 167px;
         height: 100%;
         background: #2aaed0;
-        display: inline-block;
+        .top-panel-market-type-container {
+          width: 120px;
+          margin: 0 auto;
+          .market-type-checkbox-wrapper {
+            .market-type-checkbox-container {
+              display: flex;
+              .market-type-checkbox {
+                background: #1fd6ea;
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+                text-align: center;
+                line-height: 17px;
+                list-style: none;
+                color: white;
+                font-size: 15px;
+                display: inline-block;
+                float: left;
+              }
+            }
+          }
+        }
       }
       .top-panel-property-type {
         width: 398px;
         height: 100%;
-        float: right;
         background: #d434ae;
       }
     }
@@ -72,7 +102,7 @@
       background-color: yellow;
       /*height: 633px;*/
       /*height: 100%;*/
-      height: calc(100% - 130px);
+      height: calc(100% - 110px);
     }
 
   }
