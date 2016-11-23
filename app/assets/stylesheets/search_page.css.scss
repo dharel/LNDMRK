@@ -21,6 +21,23 @@
       /*background-color: blue;*/
       height: 110px;
       display: flex;
+      .search-checkbox {
+        background: #1fd6ea;
+        width: 11px;
+        height: 11px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 12px;
+        list-style: none;
+        color: white;
+        font-size: 9px;
+        display: inline-block;
+        margin-top: 1px;
+      }
+      .search-checkbox-text {
+        margin-left: 7px;
+        cursor: pointer;
+      }
       .separate-line {
         border-left: 1px solid #d6cccc;
         height: 80px;
@@ -81,23 +98,6 @@
               display: flex;
               margin-top: 9px;
               font-size: 12px;
-              .market-type-checkbox {
-                background: #1fd6ea;
-                width: 11px;
-                height: 11px;
-                cursor: pointer;
-                text-align: center;
-                line-height: 12px;
-                list-style: none;
-                color: white;
-                font-size: 9px;
-                display: inline-block;
-                margin-top: 1px;
-              }
-              .checkbox-text {
-                margin-left: 7px;
-                cursor: pointer;
-              }
             }
           }
         }
@@ -105,7 +105,22 @@
       .top-panel-property-type {
         width: 398px;
         height: 100%;
-        background: #d434ae;
+        /*background: #d434ae;*/
+        .top-panel-market-type-container {
+          width: 376px;
+          margin: 0 auto;
+          .propery-type-checkbox-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            .propery-type-checkbox-container {
+              width: 100px;
+              display: inline-block;
+              display: flex;
+              margin-top: 9px;
+              font-size: 12px;
+            }
+          }
+        }
       }
     }
     .google-map-container {

@@ -36,32 +36,29 @@
           <div class="top-panel-market-type">
             <div class="top-panel-market-type-container">
               <div class="top-panel-section-title market">MARKET TYPE</div>
-              <div class="market-type-checkbox-wrapper">
+              <div class="market-type-checkbox-wrapper" ng-repeat="market_type_checkbox in market_type_checkboxes">
                 <div class="market-type-checkbox-container">
-                  <div class="market-type-checkbox" ng-click="market_type_checkbox_prime.checked = !market_type_checkbox_prime.checked">
-                    <span ng-show="market_type_checkbox_prime.checked"><i class="fa fa-check"></i></span>
+                  <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">
+                    <span ng-show="market_type_checkbox.checked"><i class="fa fa-check"></i></span>
                   </div>
-                  <span class="checkbox-text" ng-click="market_type_checkbox_prime.checked = !market_type_checkbox_prime.checked">Prime</span>
-                </div>
-                <div class="market-type-checkbox-container">
-                  <div class="market-type-checkbox" ng-click="market_type_checkbox_fringe.checked = !market_type_checkbox_fringe.checked">
-                    <span ng-show="market_type_checkbox_fringe.checked"><i class="fa fa-check"></i></span>
-                  </div>
-                  <span class="checkbox-text" ng-click="market_type_checkbox_fringe.checked = !market_type_checkbox_prime.checked">Fringe</span>
-                </div>
-                <div class="market-type-checkbox-container">
-                  <div class="market-type-checkbox" ng-click="market_type_checkbox_secondary.checked = !market_type_checkbox_secondary.checked">
-                    <span ng-show="market_type_checkbox_secondary.checked"><i class="fa fa-check"></i></span>
-                  </div>
-                  <span class="checkbox-text" ng-click="market_type_checkbox_secondary.checked = !market_type_checkbox_secondary.checked">Secondary</span>
+                  <span class="search-checkbox-text" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">{{market_type_checkbox.name}}</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="separate-line"></div>
           <div class="top-panel-property-type">
-            <div class="top-panel-section-title property">PROPERTY TYPE</div>
-            property type
+            <div class="top-panel-market-type-container">
+              <div class="top-panel-section-title property">PROPERTY TYPE</div>
+              <div class="propery-type-checkbox-wrapper">
+                <div class="propery-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
+                  <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">
+                    <span ng-show="property_type_checkbox.checked"><i class="fa fa-check"></i></span>
+                  </div>
+                  <span class="search-checkbox-text" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">{{property_type_checkbox.name}}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="google-map-container">
