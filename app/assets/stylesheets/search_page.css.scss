@@ -37,7 +37,8 @@
             font-size: 14px;
             /* font-weight: 600; */
             padding-top: 4px;
-            padding-left: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
           }
           .sort-arrow-down {
             background-image: image-url('expand.png');
@@ -46,6 +47,20 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: #b0e3e8;
+          }
+        }
+        .sort-dropdown-list-container {
+          position: absolute;
+          height: 70px;
+          width: 205px;
+          background: #b0e3e8;
+          overflow: auto;
+          padding-left: 10px;
+          padding-right: 10px;
+          .sort-dropdown-list {
+            font-size: 14px;
+            .sort-option {
+            }
           }
         }
         .search-results-data {

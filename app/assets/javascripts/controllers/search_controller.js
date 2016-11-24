@@ -18,6 +18,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       {name: 'Agriculture', checked: false},
     ];
 
+    $scope.sort_options_list = ["Field1", "Field2", "Field3", "Field4", "Field5", "Field6", "Field7"];
+
+    $scope.show_sort_dropdown_show = false;
+  };
+
+  $scope.showSortDropDown = function () {
+    $scope.show_sort_dropdown = !$scope.show_sort_dropdown;
   };
 
 }]);
