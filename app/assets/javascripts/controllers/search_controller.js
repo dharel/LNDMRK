@@ -62,6 +62,10 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     console.log('$scope.assets_reaults= ', $scope.assets_reaults);
 
     $scope.show_sort_dropdown_show = false;
+
+    $scope.add_to_my_list = {
+      checked: false
+    };
   };
 
   $scope.showSortDropDown = function () {

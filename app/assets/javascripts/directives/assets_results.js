@@ -47,7 +47,14 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
         "<div class='property-button buy'>BUY</div>" +
         "<div class='property-button sell'>SELL</div>" +
       "</div>" +
-    "</div>",
+        "<div class='add-to-my-list-checkbox-container'>" +
+          "<div class='my-list-checkbox' ng-click='add_to_my_list.checked = !add_to_my_list.checked'>" +
+            "<span ng-show='add_to_my_list.checked'><i class='fa fa-check'></i></span>" +
+          "</div>" +
+          "<span class='my-list-checkbox-text'>ADD TO MY LIST</span>" +
+       "</div>" +
+    "</div>" +
+    "<div class='separate-properties'></div>",
     link: function (scope, element, attrs) {
       scope.hovered_asset = '';
 

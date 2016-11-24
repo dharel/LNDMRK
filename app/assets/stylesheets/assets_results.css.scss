@@ -99,14 +99,18 @@
   transition: left 0.5s ease-out;
   margin: 0;
 }
-
+.separate-properties {
+  border-bottom: 1px solid #d6cccc;
+  width: 100%;
+}
 .results-asset-block {
   cursor: default;
   height: calc(100% - 39px);
-  width: 187px;
+  width: 190px;
   /*margin: 0 24px 0 30px;*/
   padding:0;
   text-align: center;
+  padding-bottom: 13px;
   .bottom-row {
     height: 20px;
     width: 190px;
@@ -139,6 +143,32 @@
       position: absolute;
       height: 34px;
       pointer-events: none;
+    }
+  }
+  .add-to-my-list-checkbox-container {
+    display: flex;
+    height: 17px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 12px;
+    .my-list-checkbox {
+      background: #1fd6ea;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 12px;
+      list-style: none;
+      color: white;
+      font-size: 9px;
+      display: inline-block;
+      margin-top: 1px;
+    }
+    .my-list-checkbox-text {
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-top: 2px;
+      cursor: pointer;
     }
   }
   .asset-name {
