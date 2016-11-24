@@ -8,12 +8,12 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
       pagination: '@'
     },
     template:
-    "<div class='asset-block'>" +
+    "<div class='results-asset-block'>" +
       "<a href='#'>" +
-      "<h3>{{asset.name}}</h3>" +
-      "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
+      "<div class='asset-name'>{{asset.name}}</div>" +
+      // "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
       "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)'>" +
-        "<div class='light-blue-shadow'></div>" +
+        // "<div class='light-blue-shadow'></div>" +
         "<div class='row'>" +
           "<div class='right-col'>" +
             "<div class='risk-letter' ng-class='assignRiskClass(asset.risk)'>{{asset.risk}}</div>" +
@@ -29,6 +29,9 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
           "</div>" +
           "<div class='image-placer'>" +
             "<img src='{{asset.image}}' width='126' alt='asset'>" +
+            "<div class='investment-type'" +
+              "ng-class='assignTypeClass(asset.investment_type)'>" +
+              "{{asset.investment_type}}</div>" +
             "<div class='property-datails'" +
                  "ng-class='{\"is-hovered\" : isAssetHovered(asset.id)," +
                  "\"income\" : assignTypeClass(asset.investment_type)=== \"income\", " +
@@ -37,15 +40,13 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
                  " translate>property_details</div>" +
           "</div>" +
         "</div>" +
-        "<div class='bottom-row'>" +
-          "<div class='shadow'></div>" +
-          "<div class='investment-type'" +
-                "ng-class='assignTypeClass(asset.investment_type)'>" +
-                "{{asset.investment_type}} investment</div>" +
-        "</div>" +
         "<div class='image-border'></div>" +
       "</div>" +
       "</a>" +
+      "<div class='bottom-row'>" +
+        "<div class='property-button buy'>BUY</div>" +
+        "<div class='property-button sell'>SELL</div>" +
+      "</div>" +
     "</div>",
     link: function (scope, element, attrs) {
       scope.hovered_asset = '';

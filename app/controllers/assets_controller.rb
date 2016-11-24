@@ -9,7 +9,7 @@ class AssetsController < ApplicationController
     
     types.each do |type|
       type['assets'] = Asset.all.where(investment_type: type['name']).as_json
-    end 
+    end
     
     render json: types
   end

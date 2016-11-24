@@ -17,5 +17,6 @@
 //= require angular-translate-loader-static-files.min
 //= require ui-bootstrap-tpls-2.2.0.min
 //= require stop-angular-overrides
+//= require lodash
 //= require main
 //= require_tree .

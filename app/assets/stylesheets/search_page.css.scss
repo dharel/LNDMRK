@@ -17,7 +17,7 @@
       overflow-y: auto;
       box-shadow: -12px 0px 20px -5px #dff5f7;
       .search-results-right-panel-wrapper {
-        width: 205px;
+        width: 190px;
         margin: 0 auto;
         .sort-by-title {
           font-weight: 600;
@@ -32,7 +32,7 @@
           margin-top: 10px;
           height: 26px;
           .sort-drop-down {
-            width: 180px;
+            width: 165px;
             background: #dff5f7;
             font-size: 14px;
             /* font-weight: 600; */
@@ -52,14 +52,19 @@
         .sort-dropdown-list-container {
           position: absolute;
           height: 70px;
-          width: 205px;
+          width: 190px;
           background: #dff5f7;
           overflow: auto;
           padding-left: 10px;
           padding-right: 10px;
+          z-index: 10;
           .sort-dropdown-list {
             font-size: 14px;
             .sort-option {
+              cursor: pointer;
+            }
+            .sort-option:hover {
+              background-color: #1fd6ea;
             }
           }
         }
@@ -194,7 +199,7 @@
     }
     .google-map-container {
       width: 1000px;
-      background-color: yellow;
+      /*background-color: yellow;*/
       /*height: 633px;*/
       /*height: 100%;*/
       height: calc(100% - 110px);

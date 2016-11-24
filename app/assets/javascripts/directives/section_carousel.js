@@ -8,7 +8,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window', fun
       pagination: '@'
     },
 
-    template: 
+    template:
     "<section class='assets-carousel'>" +
       "<div class='carousel-arrow-wrap left'>" +
         "<div class='arrow-inner-wrap left' ng-click='prevAsset()'" +

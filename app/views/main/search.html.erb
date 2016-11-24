@@ -70,24 +70,19 @@
           <div class="search-results-right-panel-wrapper">
             <div class="sort-by-title">SORT BY</div>
             <div class="sort-drop-down-container" ng-click="show_sort_dropdown_show = !show_sort_dropdown_show">
-              <div class="sort-drop-down">Yield</div>
+              <div class="sort-drop-down">{{sort_option}}</div>
               <div class="sort-arrow-down"></div>
             </div>
             <div class="sort-dropdown-list-container" ng-show="show_sort_dropdown_show">
-              <div class="sort-dropdown-list" ng-repeat="sort_option in sort_options_list">
+              <div class="sort-dropdown-list" ng-repeat="sort_option in sort_options_list" ng-click="sortResult(sort_option)">
                 <div class="sort-option">{{sort_option}}</div>
               </div>
             </div>
             <div class="search-results-data">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
-
-              
+            <div ng-repeat='asset in assets_reaults'>
+            <carousel-assets asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></carousel-assets>
+            <!-- <assets-results asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results> -->
+            </div>
             </div>
 
           </div>
