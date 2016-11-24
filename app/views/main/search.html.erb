@@ -25,9 +25,9 @@
             <div class="top-panel-search-properties-container">
               <div class="top-panel-section-title search">SEARCH PROPERTIES</div>
               <div class="properties-buttons-wrapper">
-                <div class="properties-button left">INCOME</div>
-                <div class="properties-button middle">GROWTH</div>
-                <div class="properties-button right">INCOME & GROWTH</div>
+                <div class="properties-button left" ng-class="{'properties-button-left-selected' : search_properties_income_button}" ng-click="search_properties_income_button = !search_properties_income_button">INCOME</div>
+                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : search_properties_growth_button}" ng-click="search_properties_growth_button = !search_properties_growth_button">GROWTH</div>
+                <div class="properties-button right" ng-class="{'properties-button-right-selected' : search_properties_income_growth_button}" ng-click="search_properties_income_growth_button = !search_properties_income_growth_button">INCOME & GROWTH</div>
               </div>
               <input type="text" class="search-input">
             </div>
@@ -41,7 +41,7 @@
                   <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">
                     <span ng-show="market_type_checkbox.checked"><i class="fa fa-check"></i></span>
                   </div>
-                  <span class="search-checkbox-text" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">{{market_type_checkbox.name}}</span>
+                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">{{market_type_checkbox.name}}</span>
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@
                   <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">
                     <span ng-show="property_type_checkbox.checked"><i class="fa fa-check"></i></span>
                   </div>
-                  <span class="search-checkbox-text" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">{{property_type_checkbox.name}}</span>
+                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : property_type_checkbox.checked}" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">{{property_type_checkbox.name}}</span>
                 </div>
               </div>
             </div>
@@ -80,6 +80,13 @@
             </div>
             <div class="search-results-data">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi metus, sagittis eu diam sed, laoreet vulputate elit. Donec consequat massa consectetur suscipit hendrerit. Duis euismod gravida laoreet. In accumsan sodales sodales. Pellentesque ac dui ut neque vulputate lobortis sit amet vel odio. Etiam semper eu nibh a molestie. Phasellus efficitur sed odio ut lobortis. 
+
               
             </div>
 

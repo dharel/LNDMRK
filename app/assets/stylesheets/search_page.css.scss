@@ -87,8 +87,12 @@
         margin-top: 1px;
       }
       .search-checkbox-text {
-        margin-left: 7px;
+        padding-left: 7px;
+        padding-right: 7px;
         cursor: pointer;
+      }
+      .search-checkbox-text-selected {
+        font-weight: 700;
       }
       .separate-line {
         border-left: 1px solid #d6cccc;
@@ -129,6 +133,21 @@
               &.right {
                 border-color: #1fd6ea;
               }
+            }
+            .properties-button-left-selected {
+              background-color:  #fdc228;
+              color: white;
+              font-weight: 700;
+            }
+            .properties-button-middle-selected {
+              background-color: #8c0c69;
+              color: white;
+              font-weight: 700;
+            }
+            .properties-button-right-selected {
+              background-color: #1fd6ea;
+              color: white;
+              font-weight: 700;
             }
           }
           .search-input {

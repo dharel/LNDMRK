@@ -8,6 +8,10 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       {name: 'Secondary', checked: false},
     ];
 
+    $scope.search_properties_income_button = false;
+    $scope.search_properties_growth_button = false;
+    $scope.search_properties_income_growth_button = false;
+
     $scope.property_type_checkboxes = [
       {name: 'Residential', checked: false},
       {name: 'Private', checked: false},
