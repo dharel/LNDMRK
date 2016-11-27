@@ -6,17 +6,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     var onSucc = function (data) {
       $scope.assets_results = data;
       self.original_data = data;
-      console.log('$scope.assets_results= ', $scope.assets_results);
-      // $scope.assets_reaults = $scope.assets_reaults[0];
-      // $scope.assets_reaults = [];
-      // $scope.assets_reaults.push(data[0]);
-      // $scope.assets_reaults.push(data[1]);
-      // $scope.assets_reaults.push(data[2]);
-      // $scope.assets_reaults.push(data[3]);
-      // $scope.assets_reaults.push(data[4]);
-      // $scope.assets_reaults.push(data[5]);
-      // $scope.assets_reaults.push(data[6]);
-      // $scope.assets_reaults.push(data[7]);
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
     };
@@ -32,7 +21,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     $scope.assets_results = _.sortBy($scope.assets_results, [function (asset) { return asset.name; }]);
   };
 
-  $scope.filterByPropertyType = function () {
+  self.filterByPropertyType = function () {
     var property_type_checked = _.map(_.filter($scope.property_type_checkboxes, function (type) {
       return type.checked === true;
     }), 'name');
@@ -49,14 +38,12 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     });
 
     if (results.length === 0) {
-      $scope.assets_results = self.original_data;
-    } else {
-      $scope.assets_results = results;
+      return self.original_data;
     }
-    $scope.sortResult($scope.sort_option);
+    return results;
   };
 
-  $scope.filterByMarketType = function () {
+  self.filterByMarketType = function () {
     var market_type_checked = _.map(_.filter($scope.market_type_checkboxes, function (type) {
       return type.checked === true;
     }), 'name');
@@ -69,15 +56,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     });
 
     if (results.length === 0) {
-      $scope.assets_results = self.original_data;
-    } else {
-      $scope.assets_results = results;
+      return self.original_data;
     }
-    $scope.sortResult($scope.sort_option);
+    return results;
   };
 
 
-  $scope.filterByInvestmentType = function () {
+  self.filterByInvestmentType = function () {
     var investment_type_checked = _.map(_.filter($scope.investment_type_buttons, function (type) {
       return type.checked === true;
     }), 'name');
@@ -89,10 +74,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     });
 
     if (results.length === 0) {
-      $scope.assets_results = self.original_data;
-    } else {
-      $scope.assets_results = results;
+      return self.original_data;
     }
+    return results;
+  };
+
+  $scope.filterResults = function () {
+    $scope.assets_results = _.intersection(self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
     $scope.sortResult($scope.sort_option);
   };
 
