@@ -11,4 +11,8 @@ class MainController < ApplicationController
   def search
     render 'search'
   end
+
+    def test
+    render 'test'
+  end
 end

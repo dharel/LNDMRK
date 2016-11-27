@@ -25,11 +25,11 @@
             <div class="top-panel-search-properties-container">
               <div class="top-panel-section-title search">SEARCH PROPERTIES</div>
               <div class="properties-buttons-wrapper">
-                <div class="properties-button left" ng-class="{'properties-button-left-selected' : search_properties_income_button}" ng-click="search_properties_income_button = !search_properties_income_button">INCOME</div>
-                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : search_properties_growth_button}" ng-click="search_properties_growth_button = !search_properties_growth_button">GROWTH</div>
-                <div class="properties-button right" ng-class="{'properties-button-right-selected' : search_properties_income_growth_button}" ng-click="search_properties_income_growth_button = !search_properties_income_growth_button">INCOME & GROWTH</div>
+                <div class="properties-button left" ng-class="{'properties-button-left-selected' : search_properties_income_button}" ng-click="search_properties_income_button = !search_properties_income_button ; filterByInvestmentType('income', search_properties_income_button)">INCOME</div>
+                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : search_properties_growth_button}" ng-click="search_properties_growth_button = !search_properties_growth_button ; filterByInvestmentType('growth', search_properties_growth_button)">GROWTH</div>
+                <div class="properties-button right" ng-class="{'properties-button-right-selected' : search_properties_income_growth_button}" ng-click="search_properties_income_growth_button = !search_properties_income_growth_button ; filterByInvestmentType('income&growth', search_properties_income_growth_button)">INCOME & GROWTH</div>
               </div>
-              <input type="text" class="search-input">
+                <div ng-include src="'test'"></div>
             </div>
           </div>
           <div class="separate-line"></div>
@@ -79,7 +79,7 @@
               </div>
             </div>
             <div class="search-results-data">
-            <div ng-repeat='asset in assets_reaults'>
+            <div ng-repeat='asset in assets_results'>
             <carousel-assets asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></carousel-assets>
             <!-- <assets-results asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results> -->
             </div>

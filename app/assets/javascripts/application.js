@@ -20,3 +20,4 @@
 //= require lodash
 //= require main
 //= require_tree .
+//= require_tree ../templates/
