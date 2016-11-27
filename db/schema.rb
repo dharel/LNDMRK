@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127093311) do
+ActiveRecord::Schema.define(version: 20161127134803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161127093311) do
     t.float    "owned",           default: 0.0
     t.float    "value",           default: 0.0
     t.float    "yield",           default: 0.0
-    t.string   "risk"
+    t.string   "rating"
     t.float    "income",          default: 0.0
     t.float    "debt",            default: 0.0
     t.float    "gains",           default: 0.0

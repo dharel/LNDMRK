@@ -5,9 +5,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   var getCarousellData = function () {
     var onSucc = function (data) {
       $scope.assets_results = data;
+      console.log('data= ', data);
       self.original_data = data;
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
+      $scope.sortResult($scope.sort_option);
     };
     var onErr = function (err) {
       console.log('error fetching data: ', err);
@@ -18,7 +20,24 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   $scope.sortResult = function (sort_option) {
     $scope.show_sort_dropdown_show = false;
     $scope.sort_option = sort_option;
-    $scope.assets_results = _.sortBy($scope.assets_results, [function (asset) { return asset.name; }]);
+    if (sort_option === 'Rating') {
+      var sort = {
+          'A+' : 1,
+          'A' : 2,
+          'A-' : 3,
+          'B+' : 4,
+          'B' : 5,
+          'B-' : 6,
+          'C+' : 7,
+          'C' : 8,
+          'C-' : 9,
+        };
+      $scope.assets_results = _.sortBy($scope.assets_results, function (asset) {
+        return sort[asset.rating];
+      });
+      return;
+    }
+    $scope.assets_results = _.orderBy($scope.assets_results, sort_option.toLowerCase(), ['desc']);
   };
 
   self.filterByPropertyType = function () {
@@ -109,10 +128,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       {name: 'Agriculture', checked: false},
     ];
 
-    $scope.sort_options_list = ["Select sort", "Name", "Price", "Field3", "Field4", "Field5", "Field6", "Field7"];
+    $scope.sort_options_list = ["Rating", "Yield"];
 
     $scope.sort_option = $scope.sort_options_list[0];
-
     $scope.show_sort_dropdown_show = false;
 
     $scope.add_to_my_list = {
