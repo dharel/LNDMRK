@@ -118,11 +118,26 @@
 // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      function ConvertDMSToDD(degrees, minutes, seconds, direction) {
+    var dd = Number(degrees) + Number(minutes)/60 + Number(seconds)/(60*60);
+    if (direction == "S" || direction == "W") { dd = dd * -1; }
+    return dd;
+      }
+
+      function ParseDMS(input) {
+          var parts = input.split(/[^\d\w]+/);
+          var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
+          var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
+          return [lat, lng];
+      }
+
+// console.log(ParseDMS("36°57'9' N 110°4'21' W"))
+console.log('ass= ', ParseDMS("49°26'25.4' N 7°41'31.3' E"))
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -33.8688, lng: 151.2195},
-          zoom: 13
+          zoom: 2
         });
         var input = /** @type {!HTMLInputElement} */(
             document.getElementById('pac-input'));
@@ -133,7 +148,24 @@
 
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo('bounds', map);
-
+        var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+        var marker2 = new google.maps.Marker({
+            position: myLatlng,
+            title:"Zvi"
+        });
+        marker2.setMap(map);
+                var myLatlng = new google.maps.LatLng(25.363882,11.044922);
+        var marker3 = new google.maps.Marker({
+            position: myLatlng,
+            title:"Zvi"
+        });
+        marker3.setMap(map);
+                var myLatlng = new google.maps.LatLng(-5.363882,151.044922);
+        var marker4 = new google.maps.Marker({
+            position: myLatlng,
+            title:"Zvi"
+        });
+        marker4.setMap(map);
         var infowindow = new google.maps.InfoWindow();
         var marker = new google.maps.Marker({
           map: map,
@@ -179,21 +211,22 @@
 
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
           infowindow.open(map, marker);
+          
         });
 
         // Sets a listener on a radio button to change the filter type on Places
         // Autocomplete.
-        function setupClickListener(id, types) {
-          var radioButton = document.getElementById(id);
-          radioButton.addEventListener('click', function() {
-            autocomplete.setTypes(types);
-          });
-        }
+        // function setupClickListener(id, types) {
+        //   var radioButton = document.getElementById(id);
+        //   radioButton.addEventListener('click', function() {
+        //     autocomplete.setTypes(types);
+        //   });
+        // // }
 
-        setupClickListener('changetype-all', []);
-        setupClickListener('changetype-address', ['address']);
-        setupClickListener('changetype-establishment', ['establishment']);
-        setupClickListener('changetype-geocode', ['geocode']);
+        // setupClickListener('changetype-all', []);
+        // setupClickListener('changetype-address', ['address']);
+        // setupClickListener('changetype-establishment', ['establishment']);
+        // setupClickListener('changetype-geocode', ['geocode']);
       }
 
 
