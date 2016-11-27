@@ -25,9 +25,9 @@
             <div class="top-panel-search-properties-container">
               <div class="top-panel-section-title search">SEARCH PROPERTIES</div>
               <div class="properties-buttons-wrapper">
-                <div class="properties-button left" ng-class="{'properties-button-left-selected' : search_properties_income_button}" ng-click="search_properties_income_button = !search_properties_income_button ; filterByInvestmentType('income', search_properties_income_button)">INCOME</div>
-                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : search_properties_growth_button}" ng-click="search_properties_growth_button = !search_properties_growth_button ; filterByInvestmentType('growth', search_properties_growth_button)">GROWTH</div>
-                <div class="properties-button right" ng-class="{'properties-button-right-selected' : search_properties_income_growth_button}" ng-click="search_properties_income_growth_button = !search_properties_income_growth_button ; filterByInvestmentType('income&growth', search_properties_income_growth_button)">INCOME & GROWTH</div>
+                <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterByInvestmentType('income', search_properties_income_button)">INCOME</div>
+                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterByInvestmentType('growth', search_properties_growth_button)">GROWTH</div>
+                <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterByInvestmentType('income&growth', search_properties_income_growth_button)">INCOME & GROWTH</div>
               </div>
               <div id="locationField" class="locationField">
                 <input class="autocomplete" id="autocomplete" placeholder="Enter your address"
@@ -42,10 +42,10 @@
               <div class="top-panel-section-title market">MARKET TYPE</div>
               <div class="market-type-checkbox-wrapper" ng-repeat="market_type_checkbox in market_type_checkboxes">
                 <div class="market-type-checkbox-container">
-                  <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">
+                  <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterByMarketType()">
                     <span ng-show="market_type_checkbox.checked"><i class="fa fa-check"></i></span>
                   </div>
-                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">{{market_type_checkbox.name}}</span>
+                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterByMarketType()">{{market_type_checkbox.name}}</span>
                 </div>
               </div>
             </div>
@@ -56,10 +56,10 @@
               <div class="top-panel-section-title property">PROPERTY TYPE</div>
               <div class="propery-type-checkbox-wrapper">
                 <div class="propery-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
-                  <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">
+                  <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterByPropertyType()">
                     <span ng-show="property_type_checkbox.checked"><i class="fa fa-check"></i></span>
                   </div>
-                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : property_type_checkbox.checked}" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">{{property_type_checkbox.name}}</span>
+                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : property_type_checkbox.checked}" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterByPropertyType()">{{property_type_checkbox.name}}</span>
                 </div>
               </div>
             </div>
@@ -119,7 +119,7 @@
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
         {types: ['geocode'],
-        componentRestrictions: {country: 'us'}}); // only US addresses
+        }); // only US addresses
 
     // When the user selects an address from the dropdown, populate the address
     // fields in the form.
