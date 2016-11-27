@@ -5,10 +5,10 @@ angular.module('lndmrk').directive('addressAutocomplete', [ 'dataManagerService'
     restrict: 'E',
     scope: {
     },
-    template: "<div ng-include src=\"'test'\"></div>",
+    template: "address_autocomplete",
     link: function (scope) {
       scope.dataManagerService = dataManagerService;
-      
+
       // scope.deleteZipErrorMessage = function () {
       //   scope.dataManagerService.zip_code_error = false;
       //   scope.dataManagerService.address_error = false;

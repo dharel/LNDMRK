@@ -42,8 +42,8 @@ app.config(['$compileProvider', '$httpProvider','$routeProvider','$translateProv
 
 app.run(['$templateCache', function ($templateCache) {
   'use strict';
-  // var address_autocomplete = 'address_autocomplete';
-  // $templateCache.put('address_autocomplete', JST[address_autocomplete]());
+  var test = 'test';
+  $templateCache.put('test', JST[test]());
 }]);
 
 app.run(function () {

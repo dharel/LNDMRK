@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($timeout) {
+angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($timeout) {
   'use strict';
 
   return {
