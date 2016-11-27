@@ -35,6 +35,8 @@
                        ng-class="{'error': invitationDataManagerService.zip_code_error || invitationDataManagerService.address_error}"></input>
 
               </div> -->
+              <input id="pac-input" class="controls" type="text"
+        placeholder="Enter a location">
 
             </div>
           </div>
@@ -68,9 +70,8 @@
           </div>
         </div>
         <div class="google-map-container">
-                      <input id="pac-input" class="controls" type="text"
-        placeholder="Enter a location">
-    <div id="type-selector" class="controls">
+    
+    <!-- <div id="type-selector" class="controls">
       <input type="radio" name="type" id="changetype-all" checked="checked">
       <label for="changetype-all">All</label>
 
@@ -82,7 +83,7 @@
 
       <input type="radio" name="type" id="changetype-geocode">
       <label for="changetype-geocode">Geocodes</label>
-    </div>
+    </div> -->
           <div id="map" style="width: 100%; height: 100%"></div>
         </div>
       </div>
