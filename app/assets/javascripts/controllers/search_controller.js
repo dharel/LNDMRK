@@ -25,40 +25,36 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     var property_type_checked = _.map(_.filter($scope.property_type_checkboxes, function (type) {
       return type.checked === true;
     }), 'name');
-
-    var results = [];
-    _.forEach(self.original_data, function (value, key) {
-      if (value.property_type !== null) {
-        var splitted_property_name = value.property_type.split(',');
-        var include = _.intersection(property_type_checked, splitted_property_name);
-        if (include.length > 0) {
-          results.push(value);
+    if (property_type_checked.length > 0) {
+      var results = [];
+      _.forEach(self.original_data, function (value, key) {
+        if (value.property_type !== null) {
+          var splitted_property_name = value.property_type.split(',');
+          var include = _.intersection(property_type_checked, splitted_property_name);
+          if (include.length > 0) {
+            results.push(value);
+          }
         }
-      }
-    });
-
-    if (results.length === 0) {
-      return self.original_data;
+      });
+      return results;
     }
-    return results;
+    return self.original_data;
   };
 
   self.filterByMarketType = function () {
     var market_type_checked = _.map(_.filter($scope.market_type_checkboxes, function (type) {
       return type.checked === true;
     }), 'name');
-
-    var results = [];
-    _.forEach(self.original_data, function (value, key) {
-      if (_.includes(market_type_checked, value.market_type)) {
-        results.push(value);
-      }
-    });
-
-    if (results.length === 0) {
-      return self.original_data;
+    if (market_type_checked.length > 0) {
+      var results = [];
+      _.forEach(self.original_data, function (value, key) {
+        if (_.includes(market_type_checked, value.market_type)) {
+          results.push(value);
+        }
+      });
+      return results;
     }
-    return results;
+    return self.original_data;
   };
 
 
@@ -66,17 +62,16 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     var investment_type_checked = _.map(_.filter($scope.investment_type_buttons, function (type) {
       return type.checked === true;
     }), 'name');
-    var results = [];
-    _.forEach(self.original_data, function (value, key) {
-      if (_.includes(investment_type_checked, value.investment_type)) {
-        results.push(value);
-      }
-    });
-
-    if (results.length === 0) {
-      return self.original_data;
+    if (investment_type_checked.length > 0) {
+      var results = [];
+      _.forEach(self.original_data, function (value, key) {
+        if (_.includes(investment_type_checked, value.investment_type)) {
+          results.push(value);
+        }
+      });
+      return results;
     }
-    return results;
+    return self.original_data;
   };
 
   $scope.filterResults = function () {
