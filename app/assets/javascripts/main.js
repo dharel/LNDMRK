@@ -23,19 +23,19 @@ app.config(['$compileProvider', '$httpProvider','$routeProvider','$translateProv
   });
   $translateProvider.preferredLanguage('en');
 
-  // $routeProvider.
-  //   when('/', {
-  //     templateUrl: '/home',
-  //     controller: 'MainController'
-  //   }).
-  //   when('/dashboard', {
-  //     templateUrl: '/dashboard',
-  //     controller: 'DashboardController'
-  //   }).otherwise('/')
-  //   .when('/search', {
-  //     templateUrl: '/search',
-  //     controller: 'SearchController'
-  //   }).otherwise('/');
+  $routeProvider.
+    when('/', {
+      templateUrl: '/home',
+      controller: 'MainController'
+    }).
+    when('/dashboard', {
+      templateUrl: '/dashboard',
+      controller: 'DashboardController'
+    }).
+    when('/search', {
+      templateUrl: '/search?:data',
+      controller: 'SearchController'
+    }).otherwise('/');
 }]);
 
 

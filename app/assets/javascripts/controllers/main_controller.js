@@ -17,11 +17,13 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
   }
   
   $scope.init = function() {
+    $scope.address= '';
     getCarousellData();
     $scope.mapFilters = {
       incomeGrowth: false,
       growth: false,
-      income: false
+      income: false,
+      address: ''
     };
     var locale = localStorage.getItem('locale') || navigator.language;
     if (locale === 'he') {
@@ -31,11 +33,15 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
     }
   };
 
+  $scope.stringifyData = function () {
+    return JSON.stringify($scope.mapFilters);
+  };
+
   $scope.toggleLocalization = function (val) {
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
-  }
+  };
 
   $scope.toggleFilter = function (filter) {
     $scope.mapFilters[filter] = !$scope.mapFilters[filter];
