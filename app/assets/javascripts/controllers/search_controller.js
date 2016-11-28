@@ -2,6 +2,7 @@
 angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService', '$translate', 'localizationSrv', function ($scope, AjaxService, $translate, localizationSrv) {
   'use strict';
   var self = {};
+   self.markers = [];
   var getCarousellData = function () {
     var onSucc = function (data) {
       $scope.assets_results = data;
@@ -9,20 +10,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
-      var myLatLng = {lat: -25.363, lng: 131.044};
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
-      marker.setMap(window.map);
-      // var myLatlng = new google.maps.LatLng(60.104,29.968);
-      // var marker3 = new google.maps.Marker({
-      //   position: myLatlng,
-      //   title:"43432432"
-      // });
-      // marker3.setMap(window.map);
-      // self.setMarkersOnMap();
+      self.setMarkersOnMap();
     };
     var onErr = function (err) {
       console.log('error fetching data: ', err);
@@ -32,26 +20,22 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
 
   self.setMarkersOnMap = function () {
     // Clear out the old markers.
-        markers.forEach(function(marker) {
-          marker.setMap(null);
-        });
-        markers = [];
+    _.forEach($scope.markers, function(marker) {
+      marker.setMap(null);
+    });
+    $scope.markers = [];
+    _.forEach($scope.assets_results, function(value) {
+      if (value.gps !== null && value.gps !== '') {
+        var lat_lon_arr = value.gps.split(',');
+        var myLatlng = new google.maps.LatLng(parseInt(lat_lon_arr[0]),parseInt(lat_lon_arr[1]));
 
-    _.forEach(self.original_data, function(value) {
-      var lat_lon_arr = value.gps.split(',');
-      var myLatlng = new google.maps.LatLng(lat_lon_arr[0],lat_lon_arr[1]);
-      // Create a marker for each place.
-        markers.push(new google.maps.Marker({
+        $scope.markers.push(new google.maps.Marker({
           map: window.map,
-          icon: icon,
-          title: place.name,
+          // icon: icon,
+          title: value.name,
           position: myLatlng
         }));
-      // var marker = new google.maps.Marker({
-      //   position: myLatlng,
-      //   title: value.name
-      // });
-      // marker.setMap(window.map);
+      }
     });
   };
 
@@ -150,11 +134,14 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(self.searchAssetsByAddress(), self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
     $scope.sortResult($scope.sort_option);
+    self.setMarkersOnMap();
+   
   };
 
 
 
   $scope.init = function () {
+    $scope.markers = [];
     getCarousellData();
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: false},
@@ -200,8 +187,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   self.ParseDMS = function(input) {
       // var parts = input.split(/[^\d\w]+/);
       var parts = input.split(/[^\d\w^.]+/) // regex for dms
-      var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
-      var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
+      var lat = self.ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
+      var lng = self.ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
+      console.log('[lat, lng]= ', [lat, lng]);
       return [lat, lng];
   }
 
