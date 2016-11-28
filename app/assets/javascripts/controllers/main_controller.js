@@ -23,8 +23,12 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
       growth: false,
       income: false
     };
-
-    $scope.localization = $scope.localizationSrv.locale;
+    var locale = localStorage.getItem('locale') || navigator.language;
+    if (locale === 'he') {
+      $scope.toggleLocalization('he');
+    } else {
+      $scope.toggleLocalization('en');
+    }
   };
 
   $scope.searchForAsset = function () {
@@ -33,6 +37,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
 
   $scope.toggleLocalization = function (val) {
     localizationSrv.locale = val;
+    localStorage.setItem('locale', val);
     $translate.use(val);
   }
 
