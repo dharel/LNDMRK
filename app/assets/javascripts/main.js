@@ -7,7 +7,7 @@ angular.element(document).ready(function () {
   angular.bootstrap(document, ['lndmrk']);
 });
 
-app.config(['$compileProvider', '$httpProvider','$routeProvider','$translateProvider', function ($compileProvider, $httpProvider,$routeProvider, $translateProvider) {
+app.config(['$compileProvider', '$httpProvider', '$routeProvider','$translateProvider', function ($compileProvider, $httpProvider, $routeProvider, $translateProvider) {
   'use strict';
   $compileProvider.debugInfoEnabled(false);
 
@@ -22,6 +22,15 @@ app.config(['$compileProvider', '$httpProvider','$routeProvider','$translateProv
     suffix: '.json'
   });
   $translateProvider.preferredLanguage('en');
+
+    // $stateProvider
+    // .state("search", {
+    //   url: '/search',
+    //   templateUrl: 'search',
+    //   controller: 'SearchController'
+    // });
+
+
 
   // $routeProvider.
   //   when('/', {

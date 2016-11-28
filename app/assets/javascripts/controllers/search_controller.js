@@ -177,6 +177,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     $scope.add_to_my_list = {
       checked: false
     };
+
   };
 
    self.ConvertDMSToDD = function(degrees, minutes, seconds, direction) {

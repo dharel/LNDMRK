@@ -32,7 +32,10 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
   };
 
   $scope.searchForAsset = function () {
-    $window.location.href = '/search';
+    window.search = document.getElementById('home-pac-input').value;
+    // console.log('window.search= ', window.search);
+    // window.location.href = '/search';
+    $state.go('search');
   };
 
   $scope.toggleLocalization = function (val) {
