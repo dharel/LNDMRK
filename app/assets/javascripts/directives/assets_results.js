@@ -49,9 +49,9 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($time
       "</div>" +
         "<div class='add-to-my-list-checkbox-container'>" +
           "<div class='my-list-checkbox' ng-click='add_to_my_list.checked = !add_to_my_list.checked'>" +
-            "<span ng-show='add_to_my_list.checked'><i class='fa fa-check'></i></span>" +
+            "<span ng-show='add_to_my_list.checked'><i id='add-to-my-list-checkbox' class='fa fa-check'></i></span>" +
           "</div>" +
-          "<span class='my-list-checkbox-text'>ADD TO MY LIST</span>" +
+          "<span class='my-list-checkbox-text' ng-click='add_to_my_list.checked = !add_to_my_list.checked'>ADD TO MY LIST</span>" +
        "</div>" +
     "</div>" +
     "<div class='separate-properties'></div>",
