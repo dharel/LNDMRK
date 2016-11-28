@@ -35,7 +35,7 @@
                        ng-class="{'error': invitationDataManagerService.zip_code_error || invitationDataManagerService.address_error}"></input>
 
               </div> -->
-              <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+              <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Enter a location">
 
             </div>
           </div>
@@ -99,10 +99,13 @@
                 <div class="sort-option">{{sort_option}}</div>
               </div>
             </div>
+            <div class='separate-properties-results-counter'></div>
+            <div class="search-results-count-title">SHOWING <b>{{assets_results.length}}</b> SEARCH RESULTS</div>
+            <div class='separate-properties-results-counter'></div>
             <div class="search-results-data">
-            <div ng-repeat='asset in assets_results'>
-            <assets-results asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
-            </div>
+              <div ng-repeat='asset in assets_results'>
+              <assets-results asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
+              </div>
             </div>
 
           </div>
