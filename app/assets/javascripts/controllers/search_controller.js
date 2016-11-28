@@ -58,6 +58,22 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     $scope.assets_results = _.orderBy($scope.assets_results, sort_option.toLowerCase(), ['desc']);
   };
 
+  $scope.searchAddress = function () {
+    var input = document.getElementById('pac-input');
+    console.log('address= ', input.value);
+  };
+
+  self.searchAssetsByAddress = function () {
+    var address = document.getElementById('pac-input').value.toLowerCase();
+    var results = [];
+    _.forEach(self.original_data, function(asset) {
+      if (asset.address.toLowerCase().includes(address)) {
+        results.push(asset);
+      }
+    });
+    return results;
+  };
+
   self.filterByPropertyType = function () {
     var property_type_checked = _.map(_.filter($scope.property_type_checkboxes, function (type) {
       return type.checked === true;
@@ -112,7 +128,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   };
 
   $scope.filterResults = function () {
-    $scope.assets_results = _.intersection(self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
+    $scope.assets_results = _.intersection(self.searchAssetsByAddress(), self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
     $scope.sortResult($scope.sort_option);
   };
 
