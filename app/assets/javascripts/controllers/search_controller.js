@@ -5,16 +5,34 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   var getCarousellData = function () {
     var onSucc = function (data) {
       $scope.assets_results = data;
-      console.log('data= ', data);
       self.original_data = data;
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
+      // var myLatlng = new google.maps.LatLng(60.104,29.968);
+      // var marker3 = new google.maps.Marker({
+      //   position: myLatlng,
+      //   title:"43432432"
+      // });
+      // marker3.setMap(window.map);
+      self.setMarkersOnMap();
     };
     var onErr = function (err) {
       console.log('error fetching data: ', err);
     };
     AjaxService.sendMsg('GET', '/carousel_assets', {}, onSucc, onErr);
+  };
+
+  self.setMarkersOnMap = function () {
+    _.forEach(self.original_data, function(value) {
+      var lat_lon_arr = value.gps.split(',');
+      var myLatlng = new google.maps.LatLng(lat_lon_arr[0],lat_lon_arr[1]);
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        title: value.name
+      });
+      marker.setMap(window.map);
+    });
   };
 
   $scope.sortResult = function (sort_option) {
@@ -137,6 +155,19 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       checked: false
     };
   };
+
+   self.ConvertDMSToDD = function(degrees, minutes, seconds, direction) {
+    var dd = Number(degrees) + Number(minutes)/60 + Number(seconds)/(60*60);
+    if (direction == "S" || direction == "W") { dd = dd * -1; }
+    return dd;
+  }
+  self.ParseDMS = function(input) {
+      // var parts = input.split(/[^\d\w]+/);
+      var parts = input.split(/[^\d\w^.]+/) // regex for dms
+      var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
+      var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
+      return [lat, lng];
+  }
 
   $scope.showSortDropDown = function () {
     $scope.show_sort_dropdown = !$scope.show_sort_dropdown;

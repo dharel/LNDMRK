@@ -118,115 +118,110 @@
 // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-      function ConvertDMSToDD(degrees, minutes, seconds, direction) {
-    var dd = Number(degrees) + Number(minutes)/60 + Number(seconds)/(60*60);
-    if (direction == "S" || direction == "W") { dd = dd * -1; }
-    return dd;
+
+
+  function initMap() {
+    window.map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 2.811371, lng: 1.757813},
+      zoom: 2
+    });
+
+    // console.log('window.assets_results= ', window.assets_results);
+
+    window.map.setOptions({ minZoom: 2, maxZoom: 15 });
+    var input = /** @type {!HTMLInputElement} */ (document.getElementById('pac-input'));
+    var types = document.getElementById('type-selector');
+    window.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    window.map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', window.map);
+    // var myLatlng = new google.maps.LatLng(22.285556,114.133611);
+    // var marker2 = new google.maps.Marker({
+    //     position: myLatlng,
+    //     title:"Zvi"
+    // });
+    // marker2.setMap(window.map);
+    // var myLatlng = new google.maps.LatLng(40.806873,-73.959672);
+    // var marker3 = new google.maps.Marker({
+    //     position: myLatlng,
+    //     title:"Zvi"
+    // });
+    // marker3.setMap(window.map);
+    // var myLatlng = new google.maps.LatLng(60.104,29.968);
+    // var marker4 = new google.maps.Marker({
+    //     position: myLatlng,
+    //     title:"Zvi"
+    // });
+    // marker4.setMap(window.map);
+    // var myLatlng = new google.maps.LatLng(47.912712,106.923687);
+    // var marker4 = new google.maps.Marker({
+    //     position: myLatlng,
+    //     title:"Zvi"
+    // });
+    // marker4.setMap(window.map);
+    // var infowindow = new google.maps.InfoWindow();
+    // var marker = new google.maps.Marker({
+    //   map: window.map,
+    //   anchorPoint: new google.maps.Point(0, -29)
+    // });
+
+    autocomplete.addListener('place_changed', function() {
+      infowindow.close();
+      marker.setVisible(false);
+      var place = autocomplete.getPlace();
+      if (!place.geometry) {
+        // User entered the name of a Place that was not suggested and
+        // pressed the Enter key, or the Place Details request failed.
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
       }
 
-      function ParseDMS(input) {
-          var parts = input.split(/[^\d\w]+/);
-          var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
-          var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
-          return [lat, lng];
+      // If the place has a geometry, then present it on a map.
+      if (place.geometry.viewport) {
+        window.map.fitBounds(place.geometry.viewport);
+      } else {
+        window.map.setCenter(place.geometry.location);
+        window.map.setZoom(17);  // Why 17? Because it looks good.
+      }
+      marker.setIcon(/** @type {google.maps.Icon} */({
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(35, 35)
+      }));
+      marker.setPosition(place.geometry.location);
+      marker.setVisible(true);
+
+      var address = '';
+      if (place.address_components) {
+        address = [
+          (place.address_components[0] && place.address_components[0].short_name || ''),
+          (place.address_components[1] && place.address_components[1].short_name || ''),
+          (place.address_components[2] && place.address_components[2].short_name || '')
+        ].join(' ');
       }
 
-// console.log(ParseDMS("36°57'9' N 110°4'21' W"))
-console.log('ass= ', ParseDMS("49°26'25.4' N 7°41'31.3' E"))
+      infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+      infowindow.open(window.map, marker);
+      
+    });
 
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 2.811371, lng: 1.757813},
-          zoom: 2
-        });
-        map.setOptions({ minZoom: 1, maxZoom: 15 });
-        var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'));
-        var types = document.getElementById('type-selector');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+    // Sets a listener on a radio button to change the filter type on Places
+    // Autocomplete.
+    // function setupClickListener(id, types) {
+    //   var radioButton = document.getElementById(id);
+    //   radioButton.addEventListener('click', function() {
+    //     autocomplete.setTypes(types);
+    //   });
+    // // }
 
-        var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds', map);
-        var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-        var marker2 = new google.maps.Marker({
-            position: myLatlng,
-            title:"Zvi"
-        });
-        marker2.setMap(map);
-                var myLatlng = new google.maps.LatLng(25.363882,11.044922);
-        var marker3 = new google.maps.Marker({
-            position: myLatlng,
-            title:"Zvi"
-        });
-        marker3.setMap(map);
-                var myLatlng = new google.maps.LatLng(-5.363882,151.044922);
-        var marker4 = new google.maps.Marker({
-            position: myLatlng,
-            title:"Zvi"
-        });
-        marker4.setMap(map);
-        var infowindow = new google.maps.InfoWindow();
-        var marker = new google.maps.Marker({
-          map: map,
-          anchorPoint: new google.maps.Point(0, -29)
-        });
-
-        autocomplete.addListener('place_changed', function() {
-          infowindow.close();
-          marker.setVisible(false);
-          var place = autocomplete.getPlace();
-          if (!place.geometry) {
-            // User entered the name of a Place that was not suggested and
-            // pressed the Enter key, or the Place Details request failed.
-            window.alert("No details available for input: '" + place.name + "'");
-            return;
-          }
-
-          // If the place has a geometry, then present it on a map.
-          if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-          } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(17);  // Why 17? Because it looks good.
-          }
-          marker.setIcon(/** @type {google.maps.Icon} */({
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(35, 35)
-          }));
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
-
-          var address = '';
-          if (place.address_components) {
-            address = [
-              (place.address_components[0] && place.address_components[0].short_name || ''),
-              (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-          }
-
-          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-          infowindow.open(map, marker);
-          
-        });
-
-        // Sets a listener on a radio button to change the filter type on Places
-        // Autocomplete.
-        // function setupClickListener(id, types) {
-        //   var radioButton = document.getElementById(id);
-        //   radioButton.addEventListener('click', function() {
-        //     autocomplete.setTypes(types);
-        //   });
-        // // }
-
-        // setupClickListener('changetype-all', []);
-        // setupClickListener('changetype-address', ['address']);
-        // setupClickListener('changetype-establishment', ['establishment']);
-        // setupClickListener('changetype-geocode', ['geocode']);
-      }
+    // setupClickListener('changetype-all', []);
+    // setupClickListener('changetype-address', ['address']);
+    // setupClickListener('changetype-establishment', ['establishment']);
+    // setupClickListener('changetype-geocode', ['geocode']);
+  }
 
 
 </script>
