@@ -1,3 +1,7 @@
+
+
+
+
 <div ng-controller='MainController' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
 
 <section class='background-homepage'>
@@ -8,7 +12,8 @@
 <header>
   <div class='header-wrap'>
     <ul class='left-side'>
-      <li><a href='#/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
+
+      <li><a href='/#/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
       <li><a class='link-1' translate>how_it_works</a></li>
       <li><a class='link-2' translate>about</a></li>
       <li><a class='link-3' translate>learning</a></li>
@@ -17,7 +22,7 @@
       <li ng-click='toggleLocalization("en")'><a class='link-4' ng-class='{"on": localizationSrv.locale === "en"}'>EN</a></li>
       <span class='v-strip'>|</span>
       <li ng-click='toggleLocalization("he")'><a class='link-5' ng-class='{"on": localizationSrv.locale === "he"}'>HE</a></li>
-      <li><a class='link-6' href='#/dashboard' translate>login</a></li>
+      <li><a class='link-6' href='/#/dashboard' translate>login</a></li>
       <li class='invest-wrap'><a class='invest' translate>invest_button</a></li>
     </ul>
   </div>
@@ -38,14 +43,23 @@
            ng-class='{"active": mapFilters.incomeGrowth}' translate>income_growth</div>
     </div>
     <div class='search-container'>
+
       <!-- <input type="text" class='search' placeholder='Search address, city, state.' ng-if='localizationSrv.locale === "en"'> -->
-      <form ng-submit="searchForAsset()">
+<!--       <form ng-submit="searchForAsset()">
                 <input id="home-pac-input" class="search" type="text" placeholder="Enter a location">
               </form>
-      <input type="text" class='search he' placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'>
+      <input type="text" class='search he' placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'> -->
+
+      <form ng-submit="filterResults()">
+        <input id="home-pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location">
+      </form>
+
+<!--       <input type="text" class='search' placeholder='Search address, city, state.' ng-if='localizationSrv.locale === "en"' ng-model="mapFilters.address"> -->
+      <input type="text" class='search he' placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"' ng-model="mapFilters.address">
+
     </div>
     <div class='search-info'>
-      <h1 class='search-button' translate > search</h1>
+      <a class='search-button' href='/#/search?data={{stringifyData()}}' translate > search</a>
     </div>
   </div>
 </section>
@@ -334,12 +348,10 @@
 
 </div>
 
-
 <script>
 // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
 
   function initMap() {
     // window.map = new google.maps.Map(document.getElementById('map'), {
@@ -357,9 +369,6 @@
       // window.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
       // Bias the SearchBox results towards current map's viewport.
-      // window.map.addListener('bounds_changed', function() {
-      //   searchBox.setBounds(window.map.getBounds());
-      // });
 
       searchBox.addListener('places_changed', function() {
         console.log('changed!!!');
@@ -432,5 +441,7 @@
 
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqoHgS5h-v08X3-YRRQvPQ4lU21b5Dqkw&libraries=places&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAizt18lavB8AIUsAMxlaqefD0nd2nDcWU&libraries=places&callback=initMap"
 async defer></script>
+
+

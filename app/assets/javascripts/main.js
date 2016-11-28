@@ -45,6 +45,19 @@ app.config(['$compileProvider', '$httpProvider', '$routeProvider','$translatePro
   //     templateUrl: '/search',
   //     controller: 'SearchController'
   //   }).otherwise('/');
+  $routeProvider.
+    when('/', {
+      templateUrl: '/home',
+      controller: 'MainController'
+    }).
+    when('/dashboard', {
+      templateUrl: '/dashboard',
+      controller: 'DashboardController'
+    }).
+    when('/search', {
+      templateUrl: '/search?:data',
+      controller: 'SearchController'
+    }).otherwise('/');
 }]);
 
 
@@ -57,3 +70,7 @@ app.run(['$templateCache', function ($templateCache) {
 app.run(function () {
   'use strict';
 });
+
+app.run(['$route', function($route)  {
+  $route.reload();
+}]);

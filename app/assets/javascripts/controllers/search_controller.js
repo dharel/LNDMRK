@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService', '$translate', 'localizationSrv', function ($scope, AjaxService, $translate, localizationSrv) {
+angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService', '$translate', 'localizationSrv','$routeParams', function ($scope, AjaxService, $translate, localizationSrv, $routeParams) {
   'use strict';
   var self = {};
    self.markers = [];
@@ -142,6 +142,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
 
   $scope.init = function () {
     $scope.markers = [];
+    console.log(JSON.parse($routeParams.data));
     getCarousellData();
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: false},
