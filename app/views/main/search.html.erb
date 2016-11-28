@@ -136,12 +136,11 @@ console.log('ass= ', ParseDMS("49°26'25.4' N 7°41'31.3' E"))
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
+          center: {lat: 2.811371, lng: 1.757813},
           zoom: 2
         });
-        var input = /** @type {!HTMLInputElement} */(
-            document.getElementById('pac-input'));
-
+        map.setOptions({ minZoom: 1, maxZoom: 15 });
+        var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'));
         var types = document.getElementById('type-selector');
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
