@@ -54,7 +54,7 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   }
 
   $scope.sumProperty = function (type, collection) {
-    return R.sum(R.pluck(type)(collection));
+    return R.sum(R.pluck(type)(collection)).toFixed(2);
   };
 
   $scope.calcAvarage = function (type, collection) {
