@@ -19,11 +19,26 @@
       .search-results-right-panel-wrapper {
         width: 190px;
         margin: 0 auto;
-        .sort-by-title {
-          font-weight: 600;
-          font-size: 12px;
-          margin-top: 15px;
-          text-align: center;
+        .sort-by {
+          display: flex;
+          justify-content: center;
+          .sort-by-icon {
+            background-image: image-url('sort_by.png');
+            width: 20px;
+            height: 20px;
+            margin-top: 10px;
+            background-size: 26px 26px;
+            margin-right: 5px;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          .sort-by-title {
+            font-weight: 600;
+            font-size: 12px;
+            margin-top: 15px;
+            margin-left: 5px;
+            text-align: center;
+          }
         }
         .sort-drop-down-container {
           display: flex;
@@ -33,7 +48,7 @@
           height: 26px;
           .sort-drop-down {
             width: 165px;
-            background: #dff5f7;
+            background: #bcf4f9;
             font-size: 14px;
             /* font-weight: 600; */
             padding-top: 4px;
@@ -46,25 +61,30 @@
             background-size: 12px 7px;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: #dff5f7;
+            background-color:#bcf4f9;
           }
         }
         .sort-dropdown-list-container {
           position: absolute;
-          height: 70px;
+          height: 58px;
           width: 190px;
-          background: #dff5f7;
+          background: white;
           overflow: auto;
-          padding-left: 10px;
-          padding-right: 10px;
           z-index: 10;
           .sort-dropdown-list {
             font-size: 14px;
+            height: 25px;
+            padding-top: 5px;
             .sort-option {
               cursor: pointer;
+              height: 25px;
+              width: 100%;
+              padding-left: 10px;
+              padding-right: 10px;
+              padding-top: 5px;
             }
             .sort-option:hover {
-              background-color: #1fd6ea;
+              background-color: #dff5f7;
             }
           }
         }
@@ -121,6 +141,7 @@
         font-size: 12px;
         margin-top: 10px;
         display: flex;
+        margin-left: 5px;
       }
       /*height: 100%;*/
       .top-panel-search-properties {
@@ -129,6 +150,31 @@
         .top-panel-search-properties-container {
           width: 376px;
           margin: 0 auto;
+          .search-properties {
+            display: flex;
+            justify-content: space-between;
+            .search-properties-v1 {
+              display: flex;
+            }
+            .clear-all-search {
+              font-size: 11px;
+              font-weight: 600;
+              height: 100%;
+              display: flex;
+              margin-top: 10px;
+              cursor: pointer;
+            }
+            .search-properties-icon {
+              background-image: image-url('search.png');
+              width: 20px;
+              height: 20px;
+              margin-top: 5px;
+              background-size: 30px 30px;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+            
+          }
           .address-autocomplete-input {
             width: 100%;
             margin-top: 10px;
@@ -206,6 +252,18 @@
         .top-panel-market-type-container {
           width: 120px;
           margin: 0 auto;
+          .market-properties {
+            display: flex;
+            .market-properties-icon {
+              background-image: image-url('market.png');
+              width: 20px;
+              height: 20px;
+              margin-top: 5px;
+              background-size: 26px 26px;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+          }
           .market-type-checkbox-wrapper {
             .market-type-checkbox-container {
               display: flex;
@@ -219,9 +277,21 @@
         width: 398px;
         height: 100%;
         /*background: #d434ae;*/
-        .top-panel-market-type-container {
+        .top-panel-property-type-container {
           width: 376px;
           margin: 0 auto;
+          .property-properties {
+            display: flex;
+            .property-properties-icon {
+              background-image: image-url('property.png');
+              width: 20px;
+              height: 20px;
+              margin-top: 5px;
+              background-size: 26px 26px;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+          }
           .propery-type-checkbox-wrapper {
             display: flex;
             flex-wrap: wrap;

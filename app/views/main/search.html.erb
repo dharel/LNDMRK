@@ -23,9 +23,15 @@
         <div class="search-top-panel-container">
           <div class="top-panel-search-properties">
             <div class="top-panel-search-properties-container">
-              <div class="top-panel-section-title search">SEARCH PROPERTIES</div>
+              <div class="search-properties">
+                <div class='search-properties-v1'>
+                  <div class='search-properties-icon'></div>
+                  <div class="top-panel-section-title search">SEARCH PROPERTIES</div>
+                </div>
+                <div class='clear-all-search' ng-click="clearSearch()">CLEAR ALL</div>
+              </div>
               <div class="properties-buttons-wrapper">
-                <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">INCOME</div>
+                <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">MAX DIVIDENDS</div>
                 <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">GROWTH</div>
                 <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">INCOME & GROWTH</div>
               </div>
@@ -43,7 +49,10 @@
           <div class="separate-line"></div>
           <div class="top-panel-market-type">
             <div class="top-panel-market-type-container">
-              <div class="top-panel-section-title market">MARKET TYPE</div>
+              <div class="market-properties">
+                <div class='market-properties-icon'></div>
+                <div class="top-panel-section-title market">MARKET TYPE</div>
+              </div>
               <div class="market-type-checkbox-wrapper" ng-repeat="market_type_checkbox in market_type_checkboxes">
                 <div class="market-type-checkbox-container">
                   <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()">
@@ -56,8 +65,11 @@
           </div>
           <div class="separate-line"></div>
           <div class="top-panel-property-type">
-            <div class="top-panel-market-type-container">
-              <div class="top-panel-section-title property">PROPERTY TYPE</div>
+            <div class="top-panel-property-type-container">
+             <div class="property-properties">
+                <div class='property-properties-icon'></div>
+                <div class="top-panel-section-title property">PROPERTY TYPE</div>
+              </div>
               <div class="propery-type-checkbox-wrapper">
                 <div class="propery-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
                   <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()">
@@ -88,9 +100,12 @@
         </div>
       </div>
       <div class="right-panel-wrapper">
-        <div class="search-results-right-panel-container">
+        <div id='sort' class="search-results-right-panel-container" >
           <div class="search-results-right-panel-wrapper">
-            <div class="sort-by-title">SORT BY</div>
+            <div class="sort-by">
+              <div class='sort-by-icon'></div>
+              <div class="sort-by-title">SORT BY</div>
+            </div>
             <div class="sort-drop-down-container" ng-click="show_sort_dropdown_show = !show_sort_dropdown_show">
               <div class="sort-drop-down">{{sort_option}}</div>
               <div class="sort-arrow-down"></div>

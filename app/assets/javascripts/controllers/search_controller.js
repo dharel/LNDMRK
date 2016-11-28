@@ -47,6 +47,26 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     });
   };
 
+  $scope.clearSearch = function () {
+    _.forEach($scope.property_type_checkboxes, function (value) {
+      value.checked = false
+    });
+    _.forEach($scope.market_type_checkboxes, function (value) {
+      value.checked = false
+    });
+
+    _.forEach($scope.investment_type_buttons, function (value) {
+      value.checked = false
+    });
+
+    $scope.assets_results = self.original_data;
+    self.setMarkersOnMap();
+    window.map.setOptions(
+      { center: {lat: 2.811371, lng: 1.757813}, zoom: 2, mapTypeId: 'roadmap' }
+    );
+
+  };
+
   $scope.sortResult = function (sort_option) {
     $scope.show_sort_dropdown_show = false;
     $scope.sort_option = sort_option;
@@ -72,7 +92,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
 
   $scope.searchAddress = function () {
     var input = document.getElementById('pac-input');
-    console.log('address= ', input.value);
+    // console.log('address= ', input.value);
   };
 
   self.searchAssetsByAddress = function () {
@@ -184,9 +204,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     ];
 
     $scope.investment_type_buttons = [
-      {name: 'income', checked: false},
+      {name: 'max dividens', checked: false},
       {name: 'growth', checked: false},
-      {name: 'income & growth', checked: false},
+      {name: 'max dividens & growth', checked: false},
     ];
 
     $scope.search_properties_income_button = false;
@@ -212,6 +232,17 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       checked: false
     };
 
+    var elem = document.getElementById('sort');
+    angular.element(elem).on('scroll', function () {
+      if ($scope.show_sort_dropdown_show) {
+        $scope.show_sort_dropdown_show = false;
+      }
+    });
+
+  };
+
+  $scope.closeSortBy = function () {
+    // $scope.show_sort_dropdown_show = false
   };
 
    self.ConvertDMSToDD = function(degrees, minutes, seconds, direction) {
