@@ -1,4 +1,4 @@
-angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService','localizationSrv', function ($scope, AjaxService, localizationSrv) {
+angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService','$translate','localizationSrv', function ($scope, AjaxService, $translate, localizationSrv) {
   
   $scope.localizationSrv = localizationSrv;
   $scope.init = function () {
@@ -12,15 +12,12 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
       $scope.data[0].class = 'income';
       $scope.data[1].class = 'income-growth';
       $scope.data[2].class = 'growth';
-      
     };
 
     var onErr = function (err) {
       console.log('error fetching data: ', err);
     }
-
     AjaxService.sendMsg('GET', '/parsed_assets', {}, onSucc, onErr);
-    $scope.localization = $scope.localizationSrv.locale;
   }
 
   $scope.analyzingToolData = [
@@ -46,6 +43,11 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
       value: 9000
     }
   ];
+
+  $scope.toggleLocalization = function (val) {
+    localizationSrv.locale = val;
+    $translate.use(val);
+  }
 
   $scope.sumProperty = function (type, collection) {
     return R.sum(R.pluck(type)(collection));
