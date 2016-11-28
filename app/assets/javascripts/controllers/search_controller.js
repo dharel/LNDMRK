@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService', '$translate', 'localizationSrv','$routeParams', function ($scope, AjaxService, $translate, localizationSrv, $routeParams) {
+angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService', '$translate', 'localizationSrv','$routeParams', '$timeout', function ($scope, AjaxService, $translate, localizationSrv, $routeParams, $timeout) {
   'use strict';
   var self = {};
    self.markers = [];
@@ -10,7 +10,15 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
+      var retrievedObject = localStorage.getItem('address');
+      if (retrievedObject !== null) {
+        window.exist_address =  JSON.parse(retrievedObject).address;
+        document.getElementById('pac-input').value = window.exist_address;
+        $scope.filterResults();
+        return;
+      };
       self.setMarkersOnMap();
+
     };
     var onErr = function (err) {
       console.log('error fetching data: ', err);
@@ -75,6 +83,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
         results.push(asset);
       }
     });
+
     return results;
   };
 
@@ -134,15 +143,39 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(self.searchAssetsByAddress(), self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
     $scope.sortResult($scope.sort_option);
+    // window.fillInAddress();
+    $timeout(function () {
+      google.maps.event.trigger(window.searchBox, 'places_changed');
+    },1000);
     self.setMarkersOnMap();
+    if (window.exist_address !== '') {
+      localStorage.removeItem('address');
+      window.exist_address = '';
+    }
    
   };
+
+  window.clickOnMe = function () {
+    $scope.assets_results = _.intersection(self.searchAssetsByAddress(), self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
+    $scope.sortResult($scope.sort_option);
+    // window.fillInAddress();
+    $timeout(function () {
+      google.maps.event.trigger(window.searchBox, 'places_changed');
+    },1000);
+    self.setMarkersOnMap();
+    if (window.exist_address !== '') {
+      localStorage.removeItem('address');
+      window.exist_address = '';
+    }
+  }
 
 
 
   $scope.init = function () {
     $scope.markers = [];
-    console.log(JSON.parse($routeParams.data));
+    // console.log(JSON.parse($routeParams.data));
+    // console.log('window.test= ', window.location);
+
     getCarousellData();
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: false},

@@ -59,10 +59,12 @@
 
     </div>
     <div class='search-info'>
-      <a class='search-button' href='/#/search?data={{stringifyData()}}' translate > search</a>
+      <!-- <a class='search-button' href='/search?data={{stringifyData()}}' ng-click="searchForAsset()"translate>Search</a> -->
+      <a class='search-button' href='/search' ng-click="searchForAsset()"translate>Search</a>
     </div>
   </div>
 </section>
+      <!-- <div class='search-button' ng-click="searchForAsset()" ui-sref='search' translate > search</div> -->
 
 <section-carousel class='carousel-directive' assets='assets' pagination='pagination'></section-carousel>
 

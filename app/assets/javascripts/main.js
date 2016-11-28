@@ -1,34 +1,29 @@
 /*globals angular, document, JST, window */
 
-var app = angular.module('lndmrk', ['ngRoute', 'pascalprecht.translate','ui.bootstrap']);
+var app = angular.module('lndmrk', ['ngRoute', 'pascalprecht.translate', 'ui.router', 'ui.bootstrap']);
 
 angular.element(document).ready(function () {
   'use strict';
   angular.bootstrap(document, ['lndmrk']);
 });
 
-app.config(['$compileProvider', '$httpProvider', '$routeProvider','$translateProvider', function ($compileProvider, $httpProvider, $routeProvider, $translateProvider) {
-  'use strict';
-  $compileProvider.debugInfoEnabled(false);
+  app.config(['$compileProvider', '$httpProvider','$translateProvider', '$locationProvider', '$routeProvider', function ($compileProvider, $httpProvider, $translateProvider, $locationProvider, $routeProvider) {
+    'use strict';
+    // $locationProvider.html5Mode(true);
+    $httpProvider.defaults.timeout = 5000;
+    $compileProvider.debugInfoEnabled(false);
 
   var csrf_token = document.getElementsByName('csrf-token')[0].content;
   $httpProvider.defaults.headers.post['X-CSRF-Token'] = csrf_token;
   $httpProvider.defaults.headers.put['X-CSRF-Token'] = csrf_token;
   $httpProvider.defaults.headers.patch['X-CSRF-Token'] = csrf_token;
 
-  //translations: 
+    //translations: 
   $translateProvider.useStaticFilesLoader({
     prefix: 'translations/',
     suffix: '.json'
   });
   $translateProvider.preferredLanguage('en');
-
-    // $stateProvider
-    // .state("search", {
-    //   url: '/search',
-    //   templateUrl: 'search',
-    //   controller: 'SearchController'
-    // });
 
 
 
@@ -60,6 +55,27 @@ app.config(['$compileProvider', '$httpProvider', '$routeProvider','$translatePro
     }).otherwise('/');
 }]);
 
+angular.module('lndmrk').config(["$stateProvider", "$urlRouterProvider",
+  function ($stateProvider, $urlRouterProvider) {
+    'use strict';
+    $urlRouterProvider.otherwise("/");
+
+    // $stateProvider
+    //   .state("home", {
+    //     url: '/',
+    //     // abstract: true,
+    //     templateUrl: 'home',
+    //     controller: 'MainController'
+    //   })
+    //   .state("search", {
+    //     url: '/search',
+    //     templateUrl: 'search',
+    //     controller: 'SearchController',
+    //   });
+    
+  }
+  ]);
+
 
 app.run(['$templateCache', function ($templateCache) {
   'use strict';
@@ -71,6 +87,3 @@ app.run(function () {
   'use strict';
 });
 
-app.run(['$route', function($route)  {
-  $route.reload();
-}]);

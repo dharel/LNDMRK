@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','$translate','localizationSrv', function ($scope, AjaxService, $translate, localizationSrv) {
+angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'AjaxService','$translate','localizationSrv', function ($scope, $state, AjaxService, $translate, localizationSrv) {
   'use strict';
 
   $scope.localizationSrv = localizationSrv;
@@ -34,13 +34,23 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
   };
 
   $scope.searchForAsset = function () {
+    var address = {
+      'address': document.getElementById('home-pac-input').value
+    };
+    localStorage.setItem('address', JSON.stringify(address));
     // window.search = document.getElementById('home-pac-input').value;
+    // $state.go('search');
     // // console.log('window.search= ', window.search);
     // // window.location.href = '/search';
     // $state.go('search');
   };
   $scope.stringifyData = function () {
-    return JSON.stringify($scope.mapFilters);
+    console.log('asas= ', document.getElementById('home-pac-input').value);
+    var address_input = {
+      address: document.getElementById('home-pac-input').value
+    };
+
+    return JSON.stringify(address_input);
   };
 
   $scope.toggleLocalization = function (val) {

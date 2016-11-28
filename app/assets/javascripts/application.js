@@ -13,6 +13,7 @@
 //= require angular.min
 //= require angular-route.min
 //= require angular-animate.min
+//= require angular-ui-router 
 //= require angular-translate.min
 //= require angular-translate-loader-static-files.min
 //= require ui-bootstrap-tpls-2.2.0.min
