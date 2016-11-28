@@ -27,6 +27,10 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
     $scope.localization = $scope.localizationSrv.locale;
   };
 
+  $scope.searchForAsset = function () {
+    $window.location.href = '/search';
+  };
+
   $scope.toggleLocalization = function (val) {
     localizationSrv.locale = val;
     $translate.use(val);
