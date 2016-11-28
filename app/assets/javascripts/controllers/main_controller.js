@@ -23,12 +23,13 @@ angular.module('lndmrk').controller('MainController', ['$scope', 'AjaxService','
       growth: false,
       income: false
     };
-
-    $scope.localization = $scope.localizationSrv.locale;
+    var locale = localStorage.getItem('locale');
+    $scope.toggleLocalization(locale || 'en');
   };
 
   $scope.toggleLocalization = function (val) {
     localizationSrv.locale = val;
+    localStorage.setItem('locale', val);
     $translate.use(val);
   }
 
