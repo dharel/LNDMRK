@@ -9,6 +9,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
+      var myLatLng = {lat: -25.363, lng: 131.044};
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+      });
+      marker.setMap(window.map);
       // var myLatlng = new google.maps.LatLng(60.104,29.968);
       // var marker3 = new google.maps.Marker({
       //   position: myLatlng,
