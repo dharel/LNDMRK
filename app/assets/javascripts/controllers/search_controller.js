@@ -15,7 +15,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       //   title:"43432432"
       // });
       // marker3.setMap(window.map);
-      self.setMarkersOnMap();
+      // self.setMarkersOnMap();
     };
     var onErr = function (err) {
       console.log('error fetching data: ', err);
