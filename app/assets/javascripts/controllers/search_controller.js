@@ -24,14 +24,27 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
   };
 
   self.setMarkersOnMap = function () {
+    // Clear out the old markers.
+        markers.forEach(function(marker) {
+          marker.setMap(null);
+        });
+        markers = [];
+
     _.forEach(self.original_data, function(value) {
       var lat_lon_arr = value.gps.split(',');
       var myLatlng = new google.maps.LatLng(lat_lon_arr[0],lat_lon_arr[1]);
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        title: value.name
-      });
-      marker.setMap(window.map);
+      // Create a marker for each place.
+        markers.push(new google.maps.Marker({
+          map: window.map,
+          icon: icon,
+          title: place.name,
+          position: myLatlng
+        }));
+      // var marker = new google.maps.Marker({
+      //   position: myLatlng,
+      //   title: value.name
+      // });
+      // marker.setMap(window.map);
     });
   };
 
