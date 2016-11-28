@@ -186,7 +186,7 @@
           </div>
           <div class='expanded-data-wrap' ng-show='expanded.id === property.id'>
             <div class='expanded-row-data' ng-repeat='asset in property.assets'>
-              <div class='expanded-data name' ng-class='property.class'>{{asset.name}}</div>
+              <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}'>{{asset.name}}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.price | currency }}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.owned}}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.value | currency }}</div>
