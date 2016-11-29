@@ -61,7 +61,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     _.forEach($scope.investment_type_buttons, function (value) {
       value.checked = false
     });
-
+    document.getElementById('pac-input').value = '';
     $scope.assets_results = self.original_data;
     self.setMarkersOnMap();
     window.map.setOptions(
