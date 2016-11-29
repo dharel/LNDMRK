@@ -243,11 +243,12 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
 
     var elem = document.getElementById('sort');
     angular.element(elem).on('scroll', function () {
-      if ($scope.show_sort_dropdown_show) {
-        $scope.show_sort_dropdown_show = false;
-      }
+      $timeout(function () {
+        if ($scope.show_sort_dropdown_show) {
+          $scope.show_sort_dropdown_show = false;
+        }
+      });
     });
-
   };
 
   //Finds y value of given object
