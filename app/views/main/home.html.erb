@@ -51,7 +51,7 @@
       <input type="text" class='search he' placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'> -->
 
       <form ng-submit="filterResults()">
-        <input id="home-pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location">
+        <input id="home-pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location"  ng-if='localizationSrv.locale === "en"' ng-model="mapFilters.address">
       </form>
 
 <!--       <input type="text" class='search' placeholder='Search address, city, state.' ng-if='localizationSrv.locale === "en"' ng-model="mapFilters.address"> -->
