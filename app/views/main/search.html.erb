@@ -119,7 +119,7 @@
             <div class="search-results-count-title">SHOWING <b>{{assets_results.length}}</b> SEARCH RESULTS</div>
             <div class='separate-properties-results-counter'></div>
             <div class="search-results-data">
-              <div ng-repeat='asset in assets_results'>
+              <div ng-repeat='asset in assets_results' id='asset{{asset.id}}'>
               <assets-results asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
               </div>
             </div>
