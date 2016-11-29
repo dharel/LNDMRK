@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService', '$translate', 'localizationSrv','$routeParams', '$timeout', function ($scope, AjaxService, $translate, localizationSrv, $routeParams, $timeout) {
+angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService', '$translate', 'localizationSrv','$routeParams', '$timeout', '$location', '$anchorScroll', function ($scope, AjaxService, $translate, localizationSrv, $routeParams, $timeout, $location, $anchorScroll) {
   'use strict';
   var self = {};
    self.markers = [];
@@ -36,13 +36,16 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       if (value.gps !== null && value.gps !== '') {
         var lat_lon_arr = value.gps.split(',');
         var myLatlng = new google.maps.LatLng(parseInt(lat_lon_arr[0]),parseInt(lat_lon_arr[1]));
-
-        $scope.markers.push(new google.maps.Marker({
+        var marker = new google.maps.Marker({
           map: window.map,
           // icon: icon,
           title: value.name,
           position: myLatlng
-        }));
+        });
+        marker.addListener('click', function() {
+          $scope.testScroll(value.id);
+        });
+        $scope.markers.push(marker);
       }
     });
   };
@@ -193,6 +196,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
 
   $scope.init = function () {
     $scope.markers = [];
+    $location.hash('');
     // console.log(JSON.parse($routeParams.data));
     // console.log('window.test= ', window.location);
 
@@ -240,6 +244,33 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     });
 
   };
+
+  //Finds y value of given object
+function findPos(obj) {
+  var curtop = 0;
+  if (obj.offsetParent) {
+    do {
+      curtop += obj.offsetTop;
+    } while (obj = obj.offsetParent);
+  return [curtop];
+  }
+}
+
+$scope.testScroll = function (id) {
+  // console.log('SCROLL');
+  //Get object
+  $location.hash('asset'+id);
+  var SupportDiv = document.getElementById('asset'+id);
+  // console.log('scroll= ', $("#"+'asset'+id).offset().top);
+  $anchorScroll();
+   // $('#sort').animate({
+   //      // scrollTop: 1100 },
+   //      scrollTop: $("#"+'asset'+id).offset().top + ($("#"+'asset'+id).height())},
+   //      'slow');
+  //Scroll to location of SupportDiv on load
+  // window.scroll(0,findPos(SupportDiv));
+  
+}
 
   $scope.closeSortBy = function () {
     // $scope.show_sort_dropdown_show = false

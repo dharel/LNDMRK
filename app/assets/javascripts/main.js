@@ -77,8 +77,9 @@ angular.module('lndmrk').config(["$stateProvider", "$urlRouterProvider",
   ]);
 
 
-app.run(['$templateCache', function ($templateCache) {
+app.run(['$templateCache', '$anchorScroll', function ($templateCache, $anchorScroll) {
   'use strict';
+   $anchorScroll.yOffset = 100;
   var address_autocomplete = 'address_autocomplete';
   $templateCache.put('address_autocomplete', JST[address_autocomplete]());
 }]);
@@ -86,4 +87,8 @@ app.run(['$templateCache', function ($templateCache) {
 app.run(function () {
   'use strict';
 });
+
+// angular.module('lndmrk').run(['$anchorScroll', function($anchorScroll) {
+//   $anchorScroll.yOffset = 100;   // always scroll by 50 extra pixels
+// }])
 
