@@ -18,6 +18,7 @@
 //= require angular-translate-loader-static-files.min
 //= require ui-bootstrap-tpls-2.2.0.min
 //= require lodash
+//= require angular-google-maps-api.min 
 //= require main
 //= require_tree .
 //= require_tree ../templates/

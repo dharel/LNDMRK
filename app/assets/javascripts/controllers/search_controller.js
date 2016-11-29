@@ -36,9 +36,14 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
       if (value.gps !== null && value.gps !== '') {
         var lat_lon_arr = value.gps.split(',');
         var myLatlng = new google.maps.LatLng(parseInt(lat_lon_arr[0]),parseInt(lat_lon_arr[1]));
+        var pinColor = "102447";
+        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+            new google.maps.Size(71, 71),
+            new google.maps.Point(0,0),
+            new google.maps.Point(17, 34));
         var marker = new google.maps.Marker({
           map: window.map,
-          // icon: icon,
+          icon: icon,
           title: value.name,
           position: myLatlng
         });
@@ -167,9 +172,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     $scope.assets_results = _.intersection(self.searchAssetsByAddress(), self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
     $scope.sortResult($scope.sort_option);
     // window.fillInAddress();
-    $timeout(function () {
-      google.maps.event.trigger(window.searchBox, 'places_changed');
-    },1000);
+    // $timeout(function () {
+    //   google.maps.event.trigger(window.searchBox, 'places_changed');
+    // },1000);
     self.setMarkersOnMap();
     if (window.exist_address !== '') {
       localStorage.removeItem('address');
@@ -182,9 +187,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope', 'AjaxService'
     $scope.assets_results = _.intersection(self.searchAssetsByAddress(), self.filterByInvestmentType(), self.filterByMarketType(), self.filterByPropertyType());
     $scope.sortResult($scope.sort_option);
     // window.fillInAddress();
-    $timeout(function () {
-      google.maps.event.trigger(window.searchBox, 'places_changed');
-    },1000);
+    // $timeout(function () {
+    //   google.maps.event.trigger(window.searchBox, 'places_changed');
+    // },1000);
     self.setMarkersOnMap();
     if (window.exist_address !== '') {
       localStorage.removeItem('address');

@@ -41,8 +41,8 @@
                        ng-class="{'error': invitationDataManagerService.zip_code_error || invitationDataManagerService.address_error}"></input>
 
               </div> -->
-              <form ng-submit="filterResults()">
-                <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Enter a location">
+              <form ng-submit="filterResults()" id='searchForm'>
+                <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state">
               </form>
             </div>
           </div>
@@ -133,11 +133,6 @@
 </div>
 
 <script>
-// This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-
   function initMap() {
     window.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 2.811371, lng: 1.757813},
@@ -145,22 +140,15 @@
       mapTypeId: 'roadmap'
     });
 
-    // console.log('window.assets_results= ', window.assets_results);
-
     window.map.setOptions({ minZoom: 2, maxZoom: 17 });
     // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
       var searchBox = new google.maps.places.SearchBox(input);
-      // window.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-      // Bias the SearchBox results towards current map's viewport.
       window.map.addListener('bounds_changed', function() {
         searchBox.setBounds(window.map.getBounds());
       });
 
       var markers = [];
-      // Listen for the event fired when the user selects a prediction and retrieve
-      // more details for that place.
       searchBox.addListener('places_changed', function() {
         var places = searchBox.getPlaces();
 
@@ -168,28 +156,29 @@
           return;
         }
         window.clickOnMe();
-        // Clear out the old markers.
         markers.forEach(function(marker) {
           marker.setMap(null);
         });
         markers = [];
-
-        // For each place, get the icon, name and location.
         var bounds = new google.maps.LatLngBounds();
         places.forEach(function(place) {
           if (!place.geometry) {
             console.log("Returned place contains no geometry");
             return;
           }
-          var icon = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-          };
+          // var icon = {
+          //   url: place.icon,
+          //   size: new google.maps.Size(71, 71),
+          //   origin: new google.maps.Point(0, 0),
+          //   anchor: new google.maps.Point(17, 34),
+          //   scaledSize: new google.maps.Size(25, 25)
+          // };
+          var pinColor = "102447";
+          var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+              new google.maps.Size(71, 71),
+              new google.maps.Point(0,0),
+              new google.maps.Point(17, 34));
 
-          // Create a marker for each place.
           markers.push(new google.maps.Marker({
             map: window.map,
             icon: icon,
@@ -207,23 +196,9 @@
         });
         window.map.fitBounds(bounds);
       });
+
+      window.searchBox = searchBox;
     };
-
-    // Sets a listener on a radio button to change the filter type on Places
-    // Autocomplete.
-    // function setupClickListener(id, types) {
-    //   var radioButton = document.getElementById(id);
-    //   radioButton.addEventListener('click', function() {
-    //     autocomplete.setTypes(types);
-    //   });
-    // // }
-
-    // setupClickListener('changetype-all', []);
-    // setupClickListener('changetype-address', ['address']);
-    // setupClickListener('changetype-establishment', ['establishment']);
-    // setupClickListener('changetype-geocode', ['geocode']);
-
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqoHgS5h-v08X3-YRRQvPQ4lU21b5Dqkw&libraries=places&callback=initMap"
 async defer></script>

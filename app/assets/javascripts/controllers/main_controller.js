@@ -22,7 +22,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'Ajax
     $scope.mapFilters = {
       incomeGrowth: false,
       growth: false,
-      income: false,
+      max_dividends: false,
       address: ''
     };
     var locale = localStorage.getItem('locale') || navigator.language;
@@ -65,17 +65,17 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'Ajax
 
   $scope.getFilteredBg = function () {
 
-    if ((!$scope.mapFilters.income && !$scope.mapFilters.growth && !$scope.mapFilters.incomeGrowth)
-      || $scope.mapFilters.income && $scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
+    if ((!$scope.mapFilters.max_dividends && !$scope.mapFilters.growth && !$scope.mapFilters.incomeGrowth)
+      || $scope.mapFilters.max_dividends && $scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
       return {"background-image": "url('images/all_dots-01.png')"};
     } else {
       if ($scope.mapFilters.income && $scope.mapFilters.growth) {
         return {"background-image": "url('images/income_and_growth.png')"};
-      } else if ($scope.mapFilters.income && $scope.mapFilters.incomeGrowth) {
+      } else if ($scope.mapFilters.max_dividends && $scope.mapFilters.incomeGrowth) {
         return {"background-image": "url('images/income_and_income&growth.png')"};
       } else if ($scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
         return {"background-image": "url('images/growth_and_income&growth.png')"};
-      } else if ($scope.mapFilters.income) {
+      } else if ($scope.mapFilters.max_dividends) {
         return {"background-image": "url('images/income_only.png')"};
       } else if ($scope.mapFilters.growth) {
         return {"background-image": "url('images/growth_only.png')"};

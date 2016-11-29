@@ -107,11 +107,14 @@
     }
     .search-top-panel-container {
       width: 1000px;
-      /*background-color: blue;*/
       height: 110px;
       display: flex;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(25, 70, 107, 0.23);
+
       .search-checkbox {
-        background: #1fd6ea;
+        background: #4FC3C9;
         width: 11px;
         height: 11px;
         cursor: pointer;
