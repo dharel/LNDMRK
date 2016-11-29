@@ -48,7 +48,7 @@
           height: 26px;
           .sort-drop-down {
             width: 165px;
-            background: #4FC3C9;
+            background: #DDF2F5;
             font-size: 14px;
             /* font-weight: 600; */
             padding-top: 4px;
@@ -61,7 +61,7 @@
             background-size: 12px 7px;
             background-position: center;
             background-repeat: no-repeat;
-            background-color:#bcf4f9;
+            background-color: #DDF2F5;
           }
         }
         .sort-dropdown-list-container {
@@ -71,6 +71,7 @@
           background: white;
           overflow: auto;
           z-index: 10;
+          box-shadow: 0px 5px 8px -1px #dff5f7;
           .sort-dropdown-list {
             font-size: 14px;
             height: 25px;
@@ -157,12 +158,13 @@
               display: flex;
             }
             .clear-all-search {
-              font-size: 11px;
+              font-size: 10px;
               font-weight: 600;
               height: 100%;
               display: flex;
-              margin-top: 10px;
+              margin-top: 12px;
               cursor: pointer;
+              text-decoration: underline;
             }
             .search-properties-icon {
               background-image: image-url('search.png');
