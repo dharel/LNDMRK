@@ -16,7 +16,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($time
         // "<div class='light-blue-shadow'></div>" +
         "<div class='row'>" +
           "<div class='right-col'>" +
-            "<div class='risk-letter' ng-class='assignRiskClass(asset.risk)'>{{asset.risk}}</div>" +
+            "<div class='risk-letter' ng-class='assignRiskClass(asset.rating[0].toLowerCase())'>{{asset.rating}}</div>" +
             "<div class='partition'></div>" +
             "<div class='info-title'>Price per m&sup2;</div>" +
             "<div class='info-data'>${{asset.price}}K</div>" +
