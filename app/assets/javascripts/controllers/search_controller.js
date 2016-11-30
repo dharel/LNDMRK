@@ -132,14 +132,18 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   var filterByPropertyType = function () {
-    var investment_type_checked = _.map(_.filter($scope.investment_type_buttons, function (type) {
+    var property_type_checked = _.map(_.filter($scope.property_type_checkboxes, function (type) {
       return type.checked === true;
     }), 'name');
-    if (investment_type_checked.length > 0) {
+    if (property_type_checked.length > 0) {
       var results = [];
       _.forEach($scope.original_data, function (value, key) {
-        if (_.includes(investment_type_checked, value.investment_type)) {
-          results.push(value);
+        if (value.property_type !== null) {
+          var splitted_property_name = value.property_type.split(',');
+          var include = _.intersection(property_type_checked, splitted_property_name);
+          if (include.length > 0) {
+            results.push(value);
+          }
         }
       });
       return results;
