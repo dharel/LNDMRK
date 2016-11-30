@@ -1,4 +1,5 @@
 <div ng-controller='SearchController' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+  
   <header>
     <div class='header-wrap dashboard'>
       <ul class='left-side'>
@@ -17,6 +18,7 @@
       </ul>
     </div>
   </header>
+
   <section class="main-wrapper">
     <div class="data-container">
       <div class="left-panel-wrapper">
@@ -35,14 +37,8 @@
                 <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">GROWTH</div>
                 <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">INCOME & GROWTH</div>
               </div>
-              <!-- <div id="locationField" class="locationField">
-                <input class="autocomplete" id="autocomplete" placeholder="Enter your address"
-                       type="text" ng-model='address_autocomplete' ng-change="deleteZipErrorMessage()"
-                       ng-class="{'error': invitationDataManagerService.zip_code_error || invitationDataManagerService.address_error}"></input>
-
-              </div> -->
               <form ng-submit="filterResults()" id='searchForm'>
-                <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state">
+                <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state" ng-model="searchForm.address">
               </form>
             </div>
           </div>
@@ -82,20 +78,6 @@
           </div>
         </div>
         <div class="google-map-container">
-    
-<!--     <div id="type-selector" class="controls">
-      <input type="radio" name="type" id="changetype-all" checked="checked">
-      <label for="changetype-all">All</label>
-
-      <input type="radio" name="type" id="changetype-establishment">
-      <label for="changetype-establishment">Establishments</label>
-
-      <input type="radio" name="type" id="changetype-address">
-      <label for="changetype-address">Addresses</label>
-
-      <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-geocode">Geocodes</label>
-    </div> -->
           <div id="map" style="width: 100%; height: 100%"></div>
         </div>
       </div>
@@ -120,16 +102,14 @@
             <div class='separate-properties-results-counter'></div>
             <div class="search-results-data">
               <div ng-repeat='asset in assets_results' id='asset{{asset.id}}'>
-              <assets-results asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
+                <assets-results asset='asset' id='myCarousel' ng-click='toggleObject($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </section>
-
 </div>
 
 <script>
@@ -139,66 +119,58 @@
       zoom: 2,
       mapTypeId: 'roadmap'
     });
-
     window.map.setOptions({ minZoom: 2, maxZoom: 17 });
-    // Create the search box and link it to the UI element.
-      var input = document.getElementById('pac-input');
-      var searchBox = new google.maps.places.SearchBox(input);
-      window.map.addListener('bounds_changed', function() {
-        searchBox.setBounds(window.map.getBounds());
+    var input = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+    window.map.addListener('bounds_changed', function() {
+      searchBox.setBounds(window.map.getBounds());
+    });
+
+    var markers = [];
+    searchBox.addListener('places_changed', function() {
+      var places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+      window.clickOnMe();
+      markers.forEach(function(marker) {
+        marker.setMap(null);
       });
-
-      var markers = [];
-      searchBox.addListener('places_changed', function() {
-        var places = searchBox.getPlaces();
-
-        if (places.length == 0) {
+      markers = [];
+      var bounds = new google.maps.LatLngBounds();
+      places.forEach(function(place) {
+        if (!place.geometry) {
+          console.log("Returned place contains no geometry");
           return;
         }
-        window.clickOnMe();
-        markers.forEach(function(marker) {
-          marker.setMap(null);
-        });
-        markers = [];
-        var bounds = new google.maps.LatLngBounds();
-        places.forEach(function(place) {
-          if (!place.geometry) {
-            console.log("Returned place contains no geometry");
-            return;
-          }
-          // var icon = {
-          //   url: place.icon,
-          //   size: new google.maps.Size(71, 71),
-          //   origin: new google.maps.Point(0, 0),
-          //   anchor: new google.maps.Point(17, 34),
-          //   scaledSize: new google.maps.Size(25, 25)
-          // };
-          var pinColor = "102447";
-          var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-              new google.maps.Size(71, 71),
-              new google.maps.Point(0,0),
-              new google.maps.Point(17, 34));
+        var pinColor = "102447";
+        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+            new google.maps.Size(71, 71),
+            new google.maps.Point(0,0),
+            new google.maps.Point(17, 34));
 
-          markers.push(new google.maps.Marker({
-            map: window.map,
-            icon: icon,
-            title: place.name,
-            position: place.geometry.location
-          }));
+        markers.push(new google.maps.Marker({
+          map: window.map,
+          icon: icon,
+          title: place.name,
+          position: place.geometry.location
+        }));
 
-          if (place.geometry.viewport) {
-            // Only geocodes have viewport.
-            bounds.union(place.geometry.viewport);
-          } else {
-            bounds.extend(place.geometry.location);
-            map.setZoom(17);
-          }
-        });
-        window.map.fitBounds(bounds);
+        if (place.geometry.viewport) {
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+          map.setZoom(17);
+        }
       });
-
-      window.searchBox = searchBox;
-    };
+      window.map.fitBounds(bounds);
+    });
+    window.searchBox = searchBox;
+  };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqoHgS5h-v08X3-YRRQvPQ4lU21b5Dqkw&libraries=places&callback=initMap"
-async defer></script>
+<script 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqoHgS5h-v08X3-YRRQvPQ4lU21b5Dqkw&libraries=places&callback=initMap"
+  async 
+  defer>
+</script>

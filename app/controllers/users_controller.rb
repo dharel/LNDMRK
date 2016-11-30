@@ -1,4 +1,4 @@
-class TranslationsController < ApplicationController
+class UsersController < ApplicationController
   def login
     
   end
