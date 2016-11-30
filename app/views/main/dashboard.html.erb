@@ -174,7 +174,7 @@
              ng-repeat='property in data track by $index'
              ng-click='toggleExpanded(property)'>
           <div class='row-data'>
-            <div class='data name' ng-class='property.class' translate>{{property.name === 'income & growth' ?  "income_growth" : property.name}}</div>
+            <div class='data name' ng-class='property.class' translate>{{property.name}}</div>
             <div class='data price' style='width: 11.1%'>{{ calcAvarage('price', property.assets) | currency }}</div>
             <div class='data owned' style='width: 11.1%'>{{ sumProperty('owned', property.assets) }}</div>
             <div class='data value'>{{ sumProperty('value', property.assets) | currency}}</div>

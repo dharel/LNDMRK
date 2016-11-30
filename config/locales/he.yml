@@ -9,7 +9,7 @@ he:
   map_title: "תשקיע כל סכום בכל נכס. מסביב לעולם."
   max_dividends: "מקסימום הכנסה"
   growth: "מקסימום עליית ערך"
-  income_growth: "הכנסה ועליית ערך"
+  max_dividends_growth: "הכנסה ועליית ערך"
   search_placeholder: "Search address, city, state."
   search: "חפש"
   search_properties: 

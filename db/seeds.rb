@@ -1,10 +1,10 @@
+User.create({username: 'user@lndmrk.com'})
 
 InvestmentType.create([
-  { name: 'income' },
-  { name: 'income & growth' },
-  { name: 'growth' }
+  { name: 'max_dividends' },
+  { name: 'growth' },
+  { name: 'max_dividends_growth' }
 ])
-
 Asset.create(
   [
     { 
@@ -13,7 +13,7 @@ Asset.create(
       address: '89 Pok Fu Lam Road, Pok Fu Lam/Western Mid-levels, Hong Kong', 
       property_type: 'Private,Retail', 
       market_type: 'Fringe', 
-      investment_type: 'max_dividens', 
+      investment_type: 'max_dividends', 
       rating: 'A+', 
       price: '10', 
       income: '20', 
@@ -30,7 +30,7 @@ Asset.create(
       address: '32 London Bridge St, London SE1 9SG, UK', 
       property_type: 'Private,Industrial', 
       market_type: 'Prime', 
-      investment_type: 'max dividens',          
+      investment_type: 'max_dividends',          
       rating: 'B+', 
       price: '10', 
       income: '20', 
@@ -64,7 +64,7 @@ Asset.create(
       address: 'World Square, 95 Liverpool St, Sydney NSW 2000, Australia', 
       property_type: 'Industrial,Commericial,Agriculture', 
       market_type: 'Fringe', 
-      investment_type: 'max_dividens_growth',
+      investment_type: 'max_dividends_growth',
       rating: 'C-', 
       price: '10', 
       income: '20', 
@@ -98,7 +98,7 @@ Asset.create(
       address: 'Taipei 101, No. 7, Section 5, Xinyi Rd, Xinyi District, Taipei City, Taiwan 110', 
       property_type: 'Private,Residential', 
       market_type: 'Fringe', 
-      investment_type: 'max_dividens',          
+      investment_type: 'max_dividends',          
       rating: 'A', 
       price: '10', 
       income: '20', 
@@ -115,7 +115,7 @@ Asset.create(
       address: '1 Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab Emirates', 
       property_type: 'Commericial,Agriculture', 
       market_type: 'Secondary', 
-      investment_type: 'max_dividens',          
+      investment_type: 'max_dividends',          
       rating: 'A-',
       price: '10', 
       income: '20', 
@@ -149,7 +149,7 @@ Asset.create(
       address: 'М19, Holoby, Volyns\'ka oblast, Ukraine, 45071', 
       property_type: 'Facilities', 
       market_type: 'Prime', 
-      investment_type: 'max_dividens_growth', 
+      investment_type: 'max_dividends_growth', 
       rating: 'B-', 
       price: '10', 
       income: '20', 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128054627) do
+ActiveRecord::Schema.define(version: 20161130091517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 20161128054627) do
     t.float    "debt",            default: 0.0
     t.float    "gains",           default: 0.0
     t.string   "image"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
     t.string   "address"
     t.string   "market_type"
     t.string   "property_type"
     t.string   "gps"
+    t.integer  "user_owned"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "event_logs", force: :cascade do |t|
@@ -52,6 +53,11 @@ ActiveRecord::Schema.define(version: 20161128054627) do
     t.string   "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "username"
+    t.boolean "logged_in"
   end
 
 end
