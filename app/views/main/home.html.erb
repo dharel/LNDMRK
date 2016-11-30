@@ -13,7 +13,7 @@
   <div class='header-wrap'>
     <ul class='left-side'>
 
-      <li><a href='/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
+      <li><a href='/#/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
       <li><a class='link-1' translate>how_it_works</a></li>
       <li><a class='link-2' translate>about</a></li>
       <li><a class='link-3' translate>learning</a></li>
@@ -22,7 +22,7 @@
       <li ng-click='toggleLocalization("en")'><a class='link-4' ng-class='{"on": localizationSrv.locale === "en"}'>EN</a></li>
       <span class='v-strip'>|</span>
       <li ng-click='toggleLocalization("he")'><a class='link-5' ng-class='{"on": localizationSrv.locale === "he"}'>HE</a></li>
-      <li><a class='link-6' href='/dashboard' translate>login</a></li>
+      <li><a class='link-6' href='/#/dashboard' translate>login</a></li>
       <li class='invest-wrap'><a class='invest' translate>invest_button</a></li>
     </ul>
   </div>
@@ -39,32 +39,20 @@
            ng-click='mapFilters.growth = !mapFilters.growth'
            ng-class='{"active": mapFilters.growth}' translate> growth </div>
       <div class='filter income-growth'
-           ng-click='mapFilters.incomeGrowth = !mapFilters.incomeGrowth'
-           ng-class='{"active": mapFilters.incomeGrowth}' translate>income_growth</div>
+           ng-click='mapFilters.max_dividends_growth = !mapFilters.max_dividends_growth'
+           ng-class='{"active": mapFilters.max_dividends_growth}' translate>income_growth</div>
     </div>
     <div class='search-container'>
-
-      <!-- <input type="text" class='search' placeholder='Search address, city, state.' ng-if='localizationSrv.locale === "en"'> -->
-<!--       <form ng-submit="searchForAsset()">
-                <input id="home-pac-input" class="search" type="text" placeholder="Enter a location">
-              </form>
-      <input type="text" class='search he' placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'> -->
-
       <form ng-submit="filterResults()">
-        <input id="home-pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location"  ng-if='localizationSrv.locale === "en"' ng-model="mapFilters.address">
+        <input id="home-pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location"  ng-if='localizationSrv.locale === "en"' ng-enter='searchForAsset()'>
+        <input id="home-pac-input" class='search he' type="text" ng-model="mapFilters.address" placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'  ng-enter='searchForAsset()'>
       </form>
-
-<!--       <input type="text" class='search' placeholder='Search address, city, state.' ng-if='localizationSrv.locale === "en"' ng-model="mapFilters.address"> -->
-      <input type="text" class='search he' placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"' ng-model="mapFilters.address">
-
     </div>
     <div class='search-info'>
-      <!-- <a class='search-button' href='/search?data={{stringifyData()}}' ng-click="searchForAsset()"translate>Search</a> -->
-      <a class='search-button' href='/search' ng-click="searchForAsset()"translate>Search</a>
+      <a class='search-button' ng-click="searchForAsset()"translate>Search</a>
     </div>
   </div>
 </section>
-      <!-- <div class='search-button' ng-click="searchForAsset()" ui-sref='search' translate > search</div> -->
 
 <section-carousel class='carousel-directive' assets='assets' pagination='pagination'></section-carousel>
 

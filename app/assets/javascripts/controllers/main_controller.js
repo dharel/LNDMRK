@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'AjaxService','$translate','localizationSrv', function ($scope, $state, AjaxService, $translate, localizationSrv) {
+angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv', function ($scope, $location, AjaxService, $translate, localizationSrv) {
   'use strict';
 
   $scope.localizationSrv = localizationSrv;
@@ -20,7 +20,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'Ajax
     $scope.address= '';
     getCarousellData();
     $scope.mapFilters = {
-      incomeGrowth: false,
+      max_dividends_growth: false,
       growth: false,
       max_dividends: false,
       address: ''
@@ -34,23 +34,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'Ajax
   };
 
   $scope.searchForAsset = function () {
-    var address = {
-      'address': document.getElementById('home-pac-input').value
-    };
-    localStorage.setItem('address', JSON.stringify(address));
-    // window.search = document.getElementById('home-pac-input').value;
-    // $state.go('search');
-    // // console.log('window.search= ', window.search);
-    // // window.location.href = '/search';
-    // $state.go('search');
-  };
-  $scope.stringifyData = function () {
-    console.log('asas= ', document.getElementById('home-pac-input').value);
-    var address_input = {
-      address: document.getElementById('home-pac-input').value
-    };
-
-    return JSON.stringify(address_input);
+    $location.path('/search/'+JSON.stringify($scope.mapFilters));
   };
 
   $scope.toggleLocalization = function (val) {
@@ -64,22 +48,21 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'Ajax
   };
 
   $scope.getFilteredBg = function () {
-
-    if ((!$scope.mapFilters.max_dividends && !$scope.mapFilters.growth && !$scope.mapFilters.incomeGrowth)
-      || $scope.mapFilters.max_dividends && $scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
+    if ((!$scope.mapFilters.max_dividends && !$scope.mapFilters.growth && !$scope.mapFilters.max_dividends_growth)
+      || $scope.mapFilters.max_dividends && $scope.mapFilters.growth && $scope.mapFilters.max_dividends_growth) {
       return {"background-image": "url('images/all_dots-01.png')"};
     } else {
       if ($scope.mapFilters.max_dividends && $scope.mapFilters.growth) {
         return {"background-image": "url('images/income_and_growth.png')"};
-      } else if ($scope.mapFilters.max_dividends && $scope.mapFilters.incomeGrowth) {
+      } else if ($scope.mapFilters.max_dividends && $scope.mapFilters.max_dividends_growth) {
         return {"background-image": "url('images/income_and_income&growth.png')"};
-      } else if ($scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
+      } else if ($scope.mapFilters.growth && $scope.mapFilters.max_dividends_growth) {
         return {"background-image": "url('images/growth_and_income&growth.png')"};
       } else if ($scope.mapFilters.max_dividends) {
         return {"background-image": "url('images/income_only.png')"};
       } else if ($scope.mapFilters.growth) {
         return {"background-image": "url('images/growth_only.png')"};
-      } else if ($scope.mapFilters.incomeGrowth) {
+      } else if ($scope.mapFilters.max_dividends_growth) {
         return {"background-image": "url('images/income&growth_only.png')"};
       }
     }

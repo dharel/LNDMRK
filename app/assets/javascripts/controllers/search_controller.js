@@ -1,4 +1,17 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout', function ($scope, AjaxService, googleMaps, $timeout) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams', function ($scope, AjaxService, googleMaps, $timeout, $routeParams) {
+
+  $scope.googleMaps = googleMaps;
+
+  var applyFilters = function (filters) {
+    $scope.searchForm.address = filters.address;
+    $scope.investment_type_buttons[0].checked = filters.max_dividends;
+    $scope.investment_type_buttons[1].checked = filters.growth;
+    $scope.investment_type_buttons[2].checked = filters.max_dividends_growth;
+    if (filters.address !== '') {
+      googleMaps.manualSearch(filters.address);
+    }
+    $scope.filterResults();
+  };
 
   var getCarousellData = function () {
     var onSucc = function (data) {
@@ -7,6 +20,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
+      applyFilters(JSON.parse($routeParams.filter));
       googleMaps.setAssetMarkersOnMap(data);
     };
     var onErr = function (err) {
@@ -16,6 +30,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   }
 
   $scope.init = function () {
+
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: false},
       {name: 'Fringe', checked: false},
@@ -23,9 +38,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     ];
 
     $scope.investment_type_buttons = [
-      {name: 'max dividens', checked: false},
+      {name: 'max_dividends', checked: false},
       {name: 'growth', checked: false},
-      {name: 'max dividens & growth', checked: false},
+      {name: 'max_dividends_growth', checked: false},
     ];
 
     $scope.property_type_checkboxes = [
@@ -90,7 +105,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     }), 'name');
     if (investment_type_checked.length > 0) {
       var results = [];
-      _.forEach($scope.original_data, function (value, key) {
+      _.forEach($scope.original_data, function (value) {
         if (_.includes(investment_type_checked, value.investment_type)) {
           results.push(value);
         }
@@ -140,6 +155,18 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       filterByPropertyType()
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
+  };
 
+  $scope.clearSearch = function () {
+    R.forEach(value => value.checked = false)($scope.property_type_checkboxes);
+    R.forEach(value => value.checked = false)($scope.market_type_checkboxes);
+    R.forEach(value => value.checked = false)($scope.investment_type_buttons);
+    $scope.searchForm.address = '';
+    $scope.assets_results = $scope.original_data;
+    googleMaps.setAssetMarkersOnMap($scope.assets_results);
+    googleMaps.centerMap();
+  };
+
+  $scope.selectProperty = function (property) {
   };
 }]);

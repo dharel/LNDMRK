@@ -26,26 +26,6 @@ angular.module('lndmrk').controller('Search1Controller', ['$scope', 'AjaxService
     AjaxService.sendMsg('GET', '/carousel_assets', {}, onSucc, onErr);
   };
 
-  $scope.clearSearch = function () {
-    _.forEach($scope.property_type_checkboxes, function (value) {
-      value.checked = false
-    });
-    _.forEach($scope.market_type_checkboxes, function (value) {
-      value.checked = false
-    });
-
-    _.forEach($scope.investment_type_buttons, function (value) {
-      value.checked = false
-    });
-    document.getElementById('pac-input').value = '';
-    $scope.assets_results = self.original_data;
-    self.setMarkersOnMap();
-    window.map.setOptions(
-      { center: {lat: 2.811371, lng: 1.757813}, zoom: 2, mapTypeId: 'roadmap' }
-    );
-
-  };
-
   $scope.sortResult = function (sort_option) {
     $scope.show_sort_dropdown_show = false;
     $scope.sort_option = sort_option;
@@ -212,54 +192,4 @@ angular.module('lndmrk').controller('Search1Controller', ['$scope', 'AjaxService
       checked: false
     };
   };
-
-  //Finds y value of given object
-function findPos(obj) {
-  var curtop = 0;
-  if (obj.offsetParent) {
-    do {
-      curtop += obj.offsetTop;
-    } while (obj = obj.offsetParent);
-  return [curtop];
-  }
-}
-
-$scope.testScroll = function (id) {
-  // console.log('SCROLL');
-  //Get object
-  $location.hash('asset'+id);
-  var SupportDiv = document.getElementById('asset'+id);
-  // console.log('scroll= ', $("#"+'asset'+id).offset().top);
-  $anchorScroll();
-   // $('#sort').animate({
-   //      // scrollTop: 1100 },
-   //      scrollTop: $("#"+'asset'+id).offset().top + ($("#"+'asset'+id).height())},
-   //      'slow');
-  //Scroll to location of SupportDiv on load
-  // window.scroll(0,findPos(SupportDiv));
-  
-}
-
-  $scope.closeSortBy = function () {
-    // $scope.show_sort_dropdown_show = false
-  };
-
-   self.ConvertDMSToDD = function(degrees, minutes, seconds, direction) {
-    var dd = Number(degrees) + Number(minutes)/60 + Number(seconds)/(60*60);
-    if (direction == "S" || direction == "W") { dd = dd * -1; }
-    return dd;
-  }
-  self.ParseDMS = function(input) {
-      // var parts = input.split(/[^\d\w]+/);
-      var parts = input.split(/[^\d\w^.]+/) // regex for dms
-      var lat = self.ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
-      var lng = self.ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
-      console.log('[lat, lng]= ', [lat, lng]);
-      return [lat, lng];
-  }
-
-  $scope.showSortDropDown = function () {
-    $scope.show_sort_dropdown = !$scope.show_sort_dropdown;
-  };
-
 }]);
