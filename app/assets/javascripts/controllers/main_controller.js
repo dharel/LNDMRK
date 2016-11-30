@@ -69,7 +69,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'Ajax
       || $scope.mapFilters.max_dividends && $scope.mapFilters.growth && $scope.mapFilters.incomeGrowth) {
       return {"background-image": "url('images/all_dots-01.png')"};
     } else {
-      if ($scope.mapFilters.income && $scope.mapFilters.growth) {
+      if ($scope.mapFilters.max_dividends && $scope.mapFilters.growth) {
         return {"background-image": "url('images/income_and_growth.png')"};
       } else if ($scope.mapFilters.max_dividends && $scope.mapFilters.incomeGrowth) {
         return {"background-image": "url('images/income_and_income&growth.png')"};
@@ -84,5 +84,4 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$state', 'Ajax
       }
     }
   };
-
 }]);
