@@ -33,7 +33,7 @@
 
       .filter {
         display: inline-block;
-        width: 157px;
+        width: auto;
         text-align: center;
         height: 29px;
         font-size: 11px;
@@ -45,6 +45,7 @@
         letter-spacing: 1.2px;
         user-select: none;
         -webkit-user-select: none;
+        padding: 0 12px;
 
         &.income {
           background-color: $yello;
@@ -109,6 +110,7 @@
         cursor: pointer;
         text-shadow: 0 2px 3px rgba(25, 70, 107, .83);
         text-align: center;
+        display: block;
       }
 
       .subtitle {

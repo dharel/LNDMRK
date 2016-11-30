@@ -20,7 +20,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
-      applyFilters(JSON.parse($routeParams.filter));
+      if ($routeParams.filter) { applyFilters(JSON.parse($routeParams.filter)); }
       googleMaps.setAssetMarkersOnMap(data);
     };
     var onErr = function (err) {
@@ -32,25 +32,25 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.init = function () {
 
     $scope.market_type_checkboxes = [
-      {name: 'Prime', checked: false},
-      {name: 'Fringe', checked: false},
-      {name: 'Secondary', checked: false},
+      {name: 'Prime', checked: true},
+      {name: 'Fringe', checked: true},
+      {name: 'Secondary', checked: true},
     ];
 
     $scope.investment_type_buttons = [
-      {name: 'max_dividends', checked: false},
-      {name: 'growth', checked: false},
-      {name: 'max_dividends_growth', checked: false},
+      {name: 'max_dividends', checked: true},
+      {name: 'growth', checked: true},
+      {name: 'max_dividends_growth', checked: true},
     ];
 
     $scope.property_type_checkboxes = [
-      {name: 'Residential', checked: false},
-      {name: 'Private', checked: false},
-      {name: 'Retail', checked: false},
-      {name: 'Facilities', checked: false},
-      {name: 'Commericial', checked: false},
-      {name: 'Industrial', checked: false},
-      {name: 'Agriculture', checked: false},
+      {name: 'Residential', checked: true},
+      {name: 'Private', checked: true},
+      {name: 'Retail', checked: true},
+      {name: 'Facilities', checked: true},
+      {name: 'Commericial', checked: true},
+      {name: 'Industrial', checked: true},
+      {name: 'Agriculture', checked: true},
     ];  
     $scope.sort_options_list = ["Rating", "Yield"];
     $scope.sort_option = $scope.sort_options_list[0];

@@ -11,7 +11,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    width: 1154px;
+    width: 1130px;
 
     .column {
       width: 228px;
@@ -48,17 +48,20 @@
         letter-spacing: 1px;
       }
       .line {
-        position: absolute;
+        position: relative;
         &.growth {
-          top: 63px; right: 174px;
+          top: -7px; 
+          right: 37px;
           transform: rotate(19deg);
         }
         &.income {
-          top: 73px; right: -65px;
+          top: 21px; 
+          right: -100px;
           transform: rotate(156deg);
         }
         &.income-growth { 
-          top: 173px; right: 144px;
+          top: 110px; 
+          right: 20px;
           transform: rotate(-34deg);
         }
       }
@@ -73,16 +76,17 @@
         color: $dark-blue;
         font-size: 11px;
         position: relative;
-        display: inline-block;
+        display: block;
         letter-spacing: 2.5px;
         &.growth {
           top: 22px; right: 79px;
         }
         &.income {
-          top: 24px; left: 169px;
+          top: 24px; left: 183px;
         }
         &.income-growth {
-          top: 188px; right: 227px;
+          top: 195px; 
+          right: 108px;
           width: 80px;
           text-align: center;
           line-height: 12px;

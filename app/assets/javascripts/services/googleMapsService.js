@@ -100,6 +100,10 @@ angular.module('lndmrk').service('googleMaps', [function () {
         places.push(_tmp);
       })(data)
       setAssetMarkersOnMap(places); 
+      if (places.length === 1) {
+        var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng()));
+        map.fitBounds(bounds);
+      }
     });
   };
   
