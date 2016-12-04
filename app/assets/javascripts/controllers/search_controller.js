@@ -28,6 +28,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   }
 
   $scope.init = function () {
+    googleMaps.init();
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: true},
       {name: 'Fringe', checked: true},
@@ -61,10 +62,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       });
     });
     $scope.searchForm = { address: '' };
-    loadGoogleMapAPI.then(function () {
-      getCarousellData();
-      googleMaps.init();
-    });
+    getCarousellData();
   };
 
   $scope.sortResult = function (sort_option) {

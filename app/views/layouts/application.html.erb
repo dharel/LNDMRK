@@ -22,6 +22,16 @@
       <%= image_tag asset_path "images/#{image.split('/').last}"  %>
     <% end %>
    </div>
+   <script>
    
+   function initMap() {
+     angular.module('lndmrk').service('GoogleMapAPI', ['googleMaps', function (googleMaps) {
+      googleMaps.init();
+     }]);
+   }
+   
+   </script>
+   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBqoHgS5h-v08X3-YRRQvPQ4lU21b5Dqkw&libraries=places&callback=initMap"></script>
+
   </body>
 </html>
