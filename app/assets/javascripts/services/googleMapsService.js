@@ -1,6 +1,4 @@
 angular.module('lndmrk').service('googleMaps', [function () {
-  
-
   var markers = [];
   var init = function () {
     window.map = new google.maps.Map(document.getElementById('map'), {

@@ -19,7 +19,6 @@
 //= require ui-bootstrap-tpls-2.2.0.min
 //= require lodash
 //= require ramda.min
-//= require google-maps-api 
 //= require main
 //= require_tree .
 //= require_tree ../templates/

@@ -1,6 +1,4 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams', function ($scope, AjaxService, googleMaps, $timeout, $routeParams) {
-
-  $scope.googleMaps = googleMaps;
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','loadGoogleMapAPI', function ($scope, AjaxService, googleMaps, $timeout, $routeParams, loadGoogleMapAPI) {
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
@@ -30,7 +28,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   }
 
   $scope.init = function () {
-
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: true},
       {name: 'Fringe', checked: true},
@@ -64,7 +61,10 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       });
     });
     $scope.searchForm = { address: '' };
-    getCarousellData();
+    loadGoogleMapAPI.then(function () {
+      getCarousellData();
+      googleMaps.init();
+    });
   };
 
   $scope.sortResult = function (sort_option) {
