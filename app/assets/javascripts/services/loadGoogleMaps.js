@@ -1,14 +1,11 @@
 angular.module('lndmrk').service('loadGoogleMapAPI', ['$window', '$q', 
   function ( $window, $q ) {
     var deferred = $q.defer();
-      // Load Google map API script
     function loadScript() {  
-      // Use global document since Angular's $document is weak
       var script = document.createElement('script');
-      script.src = '//maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=places&callback=initMap';
+      script.src = '//maps.googleapis.com/maps/api/js?key=AIzaSyBqoHgS5h-v08X3-YRRQvPQ4lU21b5Dqkw&libraries=places&callback=initMap';
       document.body.appendChild(script);
     }
-    // Script loaded callback, send resolve
     $window.initMap = function () {
       deferred.resolve();
     }
