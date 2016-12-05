@@ -1,4 +1,4 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','loadGoogleMapAPI', function ($scope, AjaxService, googleMaps, $timeout, $routeParams, loadGoogleMapAPI) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams', function ($scope, AjaxService, googleMaps, $timeout, $routeParams) {
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
@@ -7,6 +7,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.investment_type_buttons[2].checked = filters.max_dividends_growth;
     if (filters.address !== '') {
       googleMaps.manualSearch(filters.address);
+      localStorage.removeItem('search');
     }
     $scope.filterResults();
   };
@@ -18,7 +19,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
-      if ($routeParams.filter) { applyFilters(JSON.parse($routeParams.filter)); }
+      if (localStorage.getItem('search')) { applyFilters(JSON.parse(localStorage.getItem('search'))); }
       googleMaps.setAssetMarkersOnMap(data);
     };
     var onErr = function (err) {

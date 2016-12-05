@@ -32,7 +32,7 @@ app.config(['$compileProvider', '$httpProvider','$translateProvider', '$location
      templateUrl: '/dashboard',
      controller: 'DashboardController'
    })
-   .when('/search/:filter?', {
+   .when('/search', {
      templateUrl: '/search',
      controller: 'SearchController'
    })

@@ -34,7 +34,8 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
   };
 
   $scope.searchForAsset = function () {
-    $location.path('/search/'+JSON.stringify($scope.mapFilters));
+    localStorage.setItem('search',JSON.stringify($scope.mapFilters));
+    $location.path('/search');
   };
 
   $scope.toggleLocalization = function (val) {
