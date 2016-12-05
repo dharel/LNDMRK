@@ -7,7 +7,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.investment_type_buttons[2].checked = filters.max_dividends_growth;
     if (filters.address !== '') {
       googleMaps.manualSearch(filters.address);
-      localStorage.removeItem('search');
     }
     $scope.filterResults();
   };
@@ -19,7 +18,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
-      if (localStorage.getItem('search')) { applyFilters(JSON.parse(localStorage.getItem('search'))); }
+      if (localStorage.getItem('search')) { 
+        applyFilters(JSON.parse(localStorage.getItem('search')));
+        localStorage.removeItem('search');
+        return;
+      }
       googleMaps.setAssetMarkersOnMap(data);
     };
     var onErr = function (err) {
@@ -63,6 +66,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       });
     });
     $scope.searchForm = { address: '' };
+    $scope.googleMaps = googleMaps;
     getCarousellData();
   };
 
