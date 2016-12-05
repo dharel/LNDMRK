@@ -101,8 +101,8 @@
             <div class="search-results-count-title">SHOWING <b>{{assets_results.length}}</b> SEARCH RESULTS</div>
             <div class='separate-properties-results-counter'></div>
             <div class="search-results-data">
-              <div ng-repeat='asset in assets_results' id='asset{{asset.id}}'>
-                <assets-results asset='asset' id='myCarousel' ng-click='selectProperty($index)' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
+              <div ng-repeat='asset in assets_results track by $index' id='asset{{asset.id}}' ng-click='googleMaps.manualSearch(assets_results[$index].address)'>
+                <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
               </div>
             </div>
           </div>

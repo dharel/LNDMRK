@@ -1,4 +1,4 @@
-angular.module('lndmrk').service('googleMaps', [ function () {
+angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll', function ($location, $anchorScroll) {
   var markers = [];
   var init = function () {
     window.map = new google.maps.Map(document.getElementById('map'), {
@@ -55,27 +55,37 @@ angular.module('lndmrk').service('googleMaps', [ function () {
   };
 
   var resetAssetMarkers = function () {
-    R.forEach(marker => marker.setMap(null))(markers);
+    R.forEach(function (marker) { marker.setMap(null); })(markers);
   };
 
   var setAssetMarkersOnMap = function (assets) {
     resetAssetMarkers();
-    R.forEach(asset => {
-      if (asset.gps !== null && asset.gps !== '') {
-        var lat_lon_arr = asset.gps.split(',');
-        var myLatlng = new google.maps.LatLng(parseInt(lat_lon_arr[0]),parseInt(lat_lon_arr[1]));
-        var pinColor = "102447";
-        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+    R.forEach(function (asset) {
+      if (asset.address !== '') {
+        geocoder = new google.maps.Geocoder();
+        geocoder.geocode({address: asset.address}, function (places) {
+          var LatLon = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
+          var pinColor = "102447";
+          var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
             new google.maps.Size(71, 71),
             new google.maps.Point(0,0),
             new google.maps.Point(17, 34));
-        var marker = new google.maps.Marker({
-          map: window.map,
-          icon: icon,
-          title: asset.name,
-          position: myLatlng
+          var marker = new google.maps.Marker({
+            map: window.map,
+            icon: icon,
+            title: asset.name,
+            position: LatLon
+          });
+
+          marker.addListener('click', function () {
+          var asset = R.find(R.propEq('name', marker.title))(assets);
+          if (asset) {
+            $location.hash('asset'+asset.id);
+            $anchorScroll();
+          }
+          });
+          markers.push(marker);
         });
-        markers.push(marker);
       }
     })(assets);
   };
@@ -87,20 +97,28 @@ angular.module('lndmrk').service('googleMaps', [ function () {
   };
 
   var manualSearch = function (location) {
+    resetAssetMarkers();
     geocoder = new google.maps.Geocoder();
-    geocoder.geocode({address: location}, function (data) {
-      var places = [];
-      R.forEach(place => {
-        var _tmp = place;
-        var lat = place.geometry.location.lat();
-        var lng = place.geometry.location.lng();
-        _tmp.gps = lat + ','+lng;
-        places.push(_tmp);
-      })(data)
-      setAssetMarkersOnMap(places); 
-      if (places.length === 1) {
-        var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng()));
+    var _places = null;
+    geocoder.geocode({address: location}, function (places) {
+      _places = places;
+      var LatLon = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
+      var pinColor = "102447";
+      var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+        new google.maps.Size(71, 71),
+        new google.maps.Point(0,0),
+        new google.maps.Point(17, 34));
+      var marker = new google.maps.Marker({
+        map: window.map,
+        icon: icon,
+        title: location,
+        position: LatLon
+      });
+      markers.push(marker);
+      if (_places) {
+        var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(_places[0].geometry.location.lat(), _places[0].geometry.location.lng()));
         map.fitBounds(bounds);
+        map.setZoom(15);
       }
     });
   };

@@ -9,7 +9,7 @@ Asset.create(
   [
     { 
       name: 'The Belcher\'s', 
-      gps: '22.284857, 114.13326099999995',  
+      gps: '22.287247, 114.140792',  
       address: '89 Pok Fu Lam Road, Pok Fu Lam/Western Mid-levels, Hong Kong', 
       property_type: 'Private,Retail', 
       market_type: 'Fringe', 
@@ -26,7 +26,7 @@ Asset.create(
     },
     { 
       name: 'The Shard, London',             
-      gps: '51.5065715, -0.08650000000000091',  
+      gps: '51.506571, -0.088292',  
       address: '32 London Bridge St, London SE1 9SG, UK', 
       property_type: 'Private,Industrial', 
       market_type: 'Prime', 
@@ -43,7 +43,7 @@ Asset.create(
     },
     { 
       name: 'columbia university Wien Hall', 
-      gps: '40.8066273, -73.9597465',  
+      gps: '40.806703, 40.806703',  
       address: ' 411 W. 116th Street  New York, NY 10027, USA', 
       property_type: 'Private', 
       market_type: 'Prime', 
@@ -60,7 +60,7 @@ Asset.create(
     },
     { 
       name: 'World Tower, Sydney',           
-      gps: '-33.876613, 151.20688300000006',  
+      gps: '-33.877274, 151.206691',  
       address: 'World Square, 95 Liverpool St, Sydney NSW 2000, Australia', 
       property_type: 'Industrial,Commericial,Agriculture', 
       market_type: 'Fringe', 
@@ -77,7 +77,7 @@ Asset.create(
     },
     { 
       name: 'Azrieli towers',                
-      gps: '32.0743304, 34.792017100000066',  
+      gps: '32.074739, 34.791060',  
       address: 'Derech Menachem Begin 132, Tel Aviv-Yafo',
       property_type: 'Agriculture,Residential', 
       market_type: 'Secondary', 
@@ -94,7 +94,7 @@ Asset.create(
     },
     { 
       name: 'Taipei 101, Taiwan',            
-      gps: '25.0339031, 121.56450990000008', 
+      gps: '25.033903, 121.564510', 
       address: 'Taipei 101, No. 7, Section 5, Xinyi Rd, Xinyi District, Taipei City, Taiwan 110', 
       property_type: 'Private,Residential', 
       market_type: 'Fringe', 
@@ -111,7 +111,7 @@ Asset.create(
     },
     { 
       name: 'Burj Khalifa, Dubai',          
-      gps: '25.196864, 55.278742700000066', 
+      gps: '25.191282, 55.272391', 
       address: '1 Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab Emirates', 
       property_type: 'Commericial,Agriculture', 
       market_type: 'Secondary', 
@@ -128,7 +128,7 @@ Asset.create(
     },
     { 
       name: 'Teigen Ranch',                  
-      gps: '66.3714596, 14.376521000000025', 
+      gps: '47.039211, -108.618091', 
       address: '12356 Montana 200 Teigen, MT 59084, USA', 
       property_type: 'Agriculture,Retail', 
       market_type: 'Prime', 
@@ -145,7 +145,7 @@ Asset.create(
     },
     { 
       name: 'Ukraine farmland',              
-      gps: '46.47000490000001, 30.75284869999996', 
+      gps: '51.089270, 25.013760', 
       address: 'М19, Holoby, Volyns\'ka oblast, Ukraine, 45071', 
       property_type: 'Facilities', 
       market_type: 'Prime', 
@@ -162,7 +162,7 @@ Asset.create(
     },
     { 
       name: 'Olympic Residence',            
-      gps: '-6.526144599999999, 106.85409660000005', 
+      gps: '47.912518, 106.923647', 
       address: 'Olympic Residence, UNESCO Street', 
       property_type: 'Private', 
       market_type: 'Secondary', 

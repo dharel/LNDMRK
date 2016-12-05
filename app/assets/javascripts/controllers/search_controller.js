@@ -1,4 +1,10 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','loadGoogleMapAPI', function ($scope, AjaxService, googleMaps, $timeout, $routeParams, loadGoogleMapAPI) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','$route' ,function ($scope, AjaxService, googleMaps, $timeout, $routeParams, $route) {
+  var lastRoute = $route.current;
+  $scope.$on('$locationChangeSuccess', function(event) {
+      if($route.current.$$route.controller === 'CurrencyConvertCtrl'){ 
+        $route.current = lastRoute;
+      }
+  });
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
@@ -18,7 +24,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
-      if ($routeParams.filter) { applyFilters(JSON.parse($routeParams.filter)); }
+      if (localStorage.getItem('search')) { 
+        applyFilters(JSON.parse(localStorage.getItem('search')));
+        localStorage.removeItem('search');
+        return;
+      }
       googleMaps.setAssetMarkersOnMap(data);
     };
     var onErr = function (err) {
@@ -62,6 +72,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       });
     });
     $scope.searchForm = { address: '' };
+    $scope.googleMaps = googleMaps;
     getCarousellData();
   };
 
@@ -160,9 +171,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.clearSearch = function () {
-    R.forEach(value => value.checked = false)($scope.property_type_checkboxes);
-    R.forEach(value => value.checked = false)($scope.market_type_checkboxes);
-    R.forEach(value => value.checked = false)($scope.investment_type_buttons);
+    R.forEach(function (value) {value.checked = false;})($scope.property_type_checkboxes);
+    R.forEach(function (value) {value.checked = false;})($scope.market_type_checkboxes);
+    R.forEach(function (value) {value.checked = false;})($scope.investment_type_buttons);
     $scope.searchForm.address = '';
     $scope.assets_results = $scope.original_data;
     googleMaps.setAssetMarkersOnMap($scope.assets_results);

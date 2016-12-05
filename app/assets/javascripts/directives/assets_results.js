@@ -5,11 +5,10 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($time
     restrict: 'E',
     scope: {
       asset: '=',
-      pagination: '@'
+      pagination: '@',
     },
     template:
     "<div class='results-asset-block'>" +
-      "<a href='#'>" +
       "<div class='asset-name'>{{asset.name}}</div>" +
       // "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
       "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)'>" +
@@ -42,7 +41,6 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($time
         "</div>" +
         "<div class='image-border'></div>" +
       "</div>" +
-      "</a>" +
       "<div class='bottom-row'>" +
         "<div class='property-button buy'>BUY</div>" +
         "<div class='property-button sell'>SELL</div>" +
