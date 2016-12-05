@@ -55,6 +55,18 @@
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center;
+      &.my-watchlist {
+        justify-content: flex-end;
+        width: 97.85%;
+        margin: 0 0 0 26px;
+        &.hebrew {
+          margin: 0 26px 0 0;
+        }
+        .header {
+          font-size: 10px;
+        }
+
+      }
 
       .header {
         height: inherit;
@@ -67,6 +79,27 @@
         text-align: center;
 
         &.placeholder { width: 145px; }
+      }
+    }
+    .data-wrapper {
+      &.my-watchlist {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        .remove-wrapper {
+          height: 35px;
+          margin-top: 5px;
+          margin-bottom: 15px;
+          cursor: pointer;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          .remove-from-watchlist {
+            height: 15px;
+            width: 15px;
+          }
+        }
       }
     }
 
@@ -111,6 +144,97 @@
           &.income { background-color: $yello }
           &.growth { background-color: $purple }
           &.income-growth { background-color: $medium-blue }
+        }
+      }
+
+        
+      &.my-watchlist {
+        justify-content: flex-end;
+        width: 97.85%;
+
+        .goto-asset-page {
+          height: 9px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: image-url('row_expand.png');
+          background-position: center;
+          &.hebrew {
+            @extend .flip-horizontally; 
+          }
+        }
+        .data {
+          &.type {
+            overflow: hidden;
+            height: 100%;
+            &.max_dividends { background-color: $yello }
+            &.max_dividends_growth { background-color: $purple }
+            &.growth { background-color: $medium-blue }
+          }
+          &.name {
+            color: $dark-blue;
+          }
+          &.address {
+            font-size: 10px;
+            font-weight: 300;
+            text-align: left;
+            padding-left: 16px;
+          }
+          &.details {
+            cursor: pointer;
+            height: 23px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: image-url('asset_details.png');
+            background-position: center;
+            &:hover {
+              background-image: image-url('asset_details_active.png');
+            }
+            .details-bubble {
+              width: 180px;
+              height: 105px;
+              background-color: $white;
+              color: grey;
+              text-align: center;
+              box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+              position: relative;
+              top: 40px;
+              left: -115px;
+              z-index: 1;
+              text-transform: none;
+              padding: 8px;
+              font-size: 12px;
+              font-weight: 100;
+              line-height: 15px;
+              &::before {
+                content: "";
+                position: absolute;
+                left: 83%;
+                transform: translateX(-50%);
+                top: -12px;
+                width: 0;
+                height: 0;
+                border-left: 16px solid transparent;
+                border-right: 16px solid transparent;
+                border-bottom: 16px solid $white;
+                filter: drop-shadow(0 0.5px 2px rgba(0, 122, 255, 0.6));
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                width: 36px;
+                top: 0px;
+                right: 13px;
+                height: 9px;
+                background-color: $white;
+              }
+            }
+          }
+
+        }
+        .partition {
+          height: 23px;
+          border-right: 2px solid #D8DDE2;
+          width: 2px;
         }
       }
 

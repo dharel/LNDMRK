@@ -16,12 +16,12 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
 
     var onErr = function (err) {
       console.log('error fetching data: ', err);
-    }
+    };
     AjaxService.sendMsg('GET', '/parsed_assets', {}, onSucc, onErr);
 
     var locale = localStorage.getItem('locale');
     $scope.toggleLocalization(locale || 'en');
-  }
+  };
 
   $scope.analyzingToolData = [
     {
@@ -51,7 +51,7 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
-  }
+  };
 
   $scope.sumProperty = function (type, collection) {
     return R.sum(R.pluck(type)(collection));

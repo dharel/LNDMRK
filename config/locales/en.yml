@@ -101,8 +101,9 @@ en:
   analyzing_tool: "analyzing tool"
   return: "return"
   risk: "risk"
+  
   my_properties: "my properties"
-  avarage_price_m: "avarage price from m²"
+  avarage_price_m: "avarage price per m²"
   m_owned: "m² owned"
   total_ownership_value: "total ownership value"
   estimated_yield: "estimated yield"
@@ -115,3 +116,4 @@ en:
   seth_nichols: "seth nicoles"
   robin_elliott: "robin elliot"
   guy_gardner: "guy gardner"
+  my_watch_list: "my watch list"
