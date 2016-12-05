@@ -55,12 +55,12 @@ angular.module('lndmrk').service('googleMaps', [ function () {
   };
 
   var resetAssetMarkers = function () {
-    R.forEach(marker => marker.setMap(null))(markers);
+    R.forEach(function (marker) { marker.setMap(null); })(markers);
   };
 
   var setAssetMarkersOnMap = function (assets) {
     resetAssetMarkers();
-    R.forEach(asset => {
+    R.forEach(function (asset) {
       if (asset.address !== '') {
         geocoder = new google.maps.Geocoder();
         geocoder.geocode({address: asset.address}, function (places) {
