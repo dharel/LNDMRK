@@ -13,6 +13,6 @@ module LNDMRK
     # -- all .rb files in that directory are automatically loaded.
     config.assets.precompile << /\.(?:svg|eot|woff|ttf|otf)\z/
 
-    config.assets.enabled = false
+    # config.assets.enabled = false
   end
 end
