@@ -102,7 +102,9 @@
             <div class='separate-properties-results-counter'></div>
             <div class="search-results-data">
               <div ng-repeat='asset in assets_results track by $index' id='asset{{asset.id}}' ng-click='googleMaps.manualSearch(assets_results[$index].address)'>
-                <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'></assets-results>
+                <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'
+                                addtowatchlist='addToWatchlist(asset_id)'
+                                removefromwatchlist='removeFromWatchlist(asset_id)'></assets-results>
               </div>
             </div>
           </div>

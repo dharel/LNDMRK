@@ -17,4 +17,5 @@ get '/robots.txt', to: 'application#robots'
 get '/dashboard', to: 'main#dashboard'
 
 post '/asset_remove_from_watchlist', to: 'assets#remove_from_watchlist'
+post '/asset_add_to_watchlist', to: 'assets#add_to_watchlist'
 end

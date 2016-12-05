@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($timeout) {
+angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', function ($timeout, AjaxService) {
   'use strict';
 
   return {
@@ -6,6 +6,8 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($time
     scope: {
       asset: '=',
       pagination: '@',
+      addtowatchlist: '&',
+      removefromwatchlist: '&'
     },
     template:
     "<div class='results-asset-block'>" +
@@ -46,10 +48,10 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($time
         "<div class='property-button sell'>SELL</div>" +
       "</div>" +
         "<div class='add-to-my-list-checkbox-container'>" +
-          "<div class='my-list-checkbox' ng-click='add_to_my_list.checked = !add_to_my_list.checked'>" +
-            "<span ng-show='add_to_my_list.checked'><i id='add-to-my-list-checkbox' class='fa fa-check'></i></span>" +
+          "<div class='my-list-checkbox' ng-click='changeMyWatchlist(asset.id)'>" +
+            "<span ng-show='asset.user_watched'><i id='add-to-my-list-checkbox' class='fa fa-check'></i></span>" +
           "</div>" +
-          "<span class='my-list-checkbox-text' ng-click='add_to_my_list.checked = !add_to_my_list.checked'>ADD TO MY LIST</span>" +
+          "<span class='my-list-checkbox-text' ng-click='changeMyWatchlist(asset.id)'>ADD TO MY LIST</span>" +
        "</div>" +
     "</div>" +
     "<div class='separate-properties'></div>",
@@ -99,6 +101,13 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', function ($time
             return 'income-growth';
           default:
             return 'income';
+        }
+      };
+      scope.changeMyWatchlist = function (asset_id) {
+        if(scope.asset.user_watched) {
+          scope.removefromwatchlist({'asset_id': asset_id});
+        } else {
+          scope.addtowatchlist({'asset_id': asset_id});
         }
       };
     }

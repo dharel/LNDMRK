@@ -189,6 +189,21 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.selectProperty = function (property) {
   };
 
+  var onSucc_change_watchlist = function () {
+    getCarousellData();
+  };
+  var onErr_change_watchlist = function (err) {
+    console.log('error fetching data: ', err);
+  };
+
+  $scope.addToWatchlist = function (asset_id) {
+    AjaxService.sendMsg('POST', '/asset_add_to_watchlist', {asset_id: asset_id}, onSucc_change_watchlist, onErr_change_watchlist);
+  };
+
+  $scope.removeFromWatchlist = function (asset_id) {
+    AjaxService.sendMsg('POST', '/asset_remove_from_watchlist', {asset_id: asset_id}, onSucc_change_watchlist, onErr_change_watchlist);
+  };
+
   $rootScope.$on('bounds_changed', function (event , markersInFOV) {
     if (!$scope.original_data) return;
       $scope.assetsInFOV = _.intersection(

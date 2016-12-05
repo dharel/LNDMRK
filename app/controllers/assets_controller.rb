@@ -35,4 +35,11 @@ class AssetsController < ApplicationController
     watched_assets = Asset.all.where(user_watched: true).as_json
     render json: watched_assets
   end
+
+  def add_to_watchlist
+    asset = Asset.find(params[:asset_id])
+    asset.update(user_watched: true, user_owned: false)
+  rescue => e
+    render json: { error: e.message }
+  end
 end
