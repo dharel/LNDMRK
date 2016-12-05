@@ -1,19 +1,29 @@
-angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll', function ($location, $anchorScroll) {
-  var markers = [];
-  var init = function () {
+angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$rootScope', function ($location, $anchorScroll, $rootScope) {
+  
+  var initialMarkers = [], markers = [], markersInFOV = [];
+
+  var init = function (assets) {
     window.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 2.811371, lng: 1.757813},
       zoom: 2,
       mapTypeId: 'roadmap'
     });
+
     window.map.setOptions({ minZoom: 2, maxZoom: 17 });
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
+
     window.map.addListener('bounds_changed', function() {
       searchBox.setBounds(window.map.getBounds());
+      markersInFOV = [];
+      R.forEach(function (marker) {
+        if (window.map.getBounds().contains(marker.getPosition())){
+          markersInFOV.push(marker);
+        }
+      })(initialMarkers);
+      $rootScope.$broadcast('bounds_changed', markersInFOV);
     });
 
-    var markers = [];
     searchBox.addListener('places_changed', function() {
       var places = searchBox.getPlaces();
 
@@ -23,7 +33,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll', fun
       markers.forEach(function(marker) {
         marker.setMap(null);
       });
-      markers = [];
       var bounds = new google.maps.LatLngBounds();
       places.forEach(function(place) {
         if (!place.geometry) {
@@ -52,40 +61,72 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll', fun
       });
       window.map.fitBounds(bounds);
     });
-  };
 
-  var resetAssetMarkers = function () {
-    R.forEach(function (marker) { marker.setMap(null); })(markers);
-  };
-
-  var setAssetMarkersOnMap = function (assets) {
-    resetAssetMarkers();
+    if (!assets) return;
     R.forEach(function (asset) {
-      if (asset.address !== '') {
-        geocoder = new google.maps.Geocoder();
-        geocoder.geocode({address: asset.address}, function (places) {
-          var LatLon = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
-          var pinColor = "102447";
-          var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-            new google.maps.Size(71, 71),
-            new google.maps.Point(0,0),
-            new google.maps.Point(17, 34));
-          var marker = new google.maps.Marker({
-            map: window.map,
-            icon: icon,
-            title: asset.name,
-            position: LatLon
-          });
+      if (asset.gps !== '') {
+        var lat = Number(asset.gps.split(',')[0]);
+        var lng = Number(asset.gps.split(',')[1]);        
+        var LatLon = new google.maps.LatLng(lat, lng);
+        var pinColor = "102447";
+        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+          new google.maps.Size(71, 71),
+          new google.maps.Point(0,0),
+          new google.maps.Point(17, 34));
+        var marker = new google.maps.Marker({
+          map: window.map,
+          icon: icon,
+          title: asset.name,
+          position: LatLon
+        });
 
-          marker.addListener('click', function () {
+        marker.addListener('click', function () {
           var asset = R.find(R.propEq('name', marker.title))(assets);
           if (asset) {
             $location.hash('asset'+asset.id);
             $anchorScroll();
           }
-          });
-          markers.push(marker);
         });
+        markers.push(marker);
+        initialMarkers = markers;
+      }
+    })(assets);
+  };
+
+  var resetAssetMarkers = function () {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    markers = [];
+  };
+
+  var setAssetMarkersOnMap = function (assets) {
+    resetAssetMarkers();
+    R.forEach(function (asset) {
+      if (asset.gps !== '') {
+        var lat = Number(asset.gps.split(',')[0]);
+        var lng = Number(asset.gps.split(',')[1]);        
+        var LatLon = new google.maps.LatLng(lat, lng);
+        var pinColor = "102447";
+        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+          new google.maps.Size(71, 71),
+          new google.maps.Point(0,0),
+          new google.maps.Point(17, 34));
+        var marker = new google.maps.Marker({
+          map: window.map,
+          icon: icon,
+          title: asset.name,
+          position: LatLon
+        });
+
+        marker.addListener('click', function () {
+          var asset = R.find(R.propEq('name', marker.title))(assets);
+          if (asset) {
+            $location.hash('asset'+asset.id);
+            $anchorScroll();
+          }
+        });
+        markers.push(marker);
       }
     })(assets);
   };

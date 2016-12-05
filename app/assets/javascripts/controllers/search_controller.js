@@ -1,10 +1,6 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','$route' ,function ($scope, AjaxService, googleMaps, $timeout, $routeParams, $route) {
-  var lastRoute = $route.current;
-  $scope.$on('$locationChangeSuccess', function(event) {
-      if($route.current.$$route.controller === 'CurrencyConvertCtrl'){ 
-        $route.current = lastRoute;
-      }
-  });
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','$route','$rootScope' ,function ($scope, AjaxService, googleMaps, $timeout, $routeParams, $route, $rootScope) {
+  
+  $scope.googleMaps = googleMaps;
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
@@ -24,12 +20,14 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
+      googleMaps.init($scope.assets_results);
       if (localStorage.getItem('search')) { 
         applyFilters(JSON.parse(localStorage.getItem('search')));
         localStorage.removeItem('search');
         return;
+      } else {
+         $scope.filterResults();
       }
-      googleMaps.setAssetMarkersOnMap(data);
     };
     var onErr = function (err) {
       console.log('error fetching data: ', err);
@@ -38,7 +36,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   }
 
   $scope.init = function () {
-    googleMaps.init();
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: true},
       {name: 'Fringe', checked: true},
@@ -72,7 +69,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       });
     });
     $scope.searchForm = { address: '' };
-    $scope.googleMaps = googleMaps;
     getCarousellData();
   };
 
@@ -160,8 +156,18 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     return $scope.original_data;
   };
 
+  var searchAssetsInBounds = function (markers) {
+    var results = [];
+    R.forEach(function(marker) {
+      var asset = R.find(R.propEq('name', marker.title))($scope.original_data);
+      results.push(asset);
+    })(markers);
+    return results;
+  };
+
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(
+      $scope.assetsInFOV || $scope.assets_results,      
       searchAssetsByAddress(), 
       filterByInvestmentType(), 
       filterByMarketType(), 
@@ -182,4 +188,17 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   $scope.selectProperty = function (property) {
   };
+
+  $rootScope.$on('bounds_changed', function (event , markersInFOV) {
+    if (!$scope.original_data) return;
+      $scope.assetsInFOV = _.intersection(
+        searchAssetsInBounds(markersInFOV),
+        searchAssetsByAddress(), 
+        filterByInvestmentType(), 
+        filterByMarketType(), 
+        filterByPropertyType()
+      );
+      $scope.filterResults();
+      $scope.$apply();
+  });
 }]);
