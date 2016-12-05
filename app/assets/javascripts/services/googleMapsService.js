@@ -1,13 +1,14 @@
 angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$rootScope', function ($location, $anchorScroll, $rootScope) {
   
-  var markers = [], markersInFOV = [];
+  var initialMarkers = [], markers = [], markersInFOV = [];
 
-  var init = function () {
+  var init = function (assets) {
     window.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 2.811371, lng: 1.757813},
       zoom: 2,
       mapTypeId: 'roadmap'
     });
+
     window.map.setOptions({ minZoom: 2, maxZoom: 17 });
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
@@ -16,10 +17,10 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       searchBox.setBounds(window.map.getBounds());
       markersInFOV = [];
       R.forEach(function (marker) {
-        if (window.map.getBounds().contains(marker.getPosition()) && markers.length !== markersInFOV.length){
+        if (window.map.getBounds().contains(marker.getPosition())){
           markersInFOV.push(marker);
         }
-      })(markers);
+      })(initialMarkers);
       $rootScope.$broadcast('bounds_changed', markersInFOV);
     });
 
@@ -60,6 +61,36 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       });
       window.map.fitBounds(bounds);
     });
+
+    if (!assets) return;
+    R.forEach(function (asset) {
+      if (asset.gps !== '') {
+        var lat = Number(asset.gps.split(',')[0]);
+        var lng = Number(asset.gps.split(',')[1]);        
+        var LatLon = new google.maps.LatLng(lat, lng);
+        var pinColor = "102447";
+        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+          new google.maps.Size(71, 71),
+          new google.maps.Point(0,0),
+          new google.maps.Point(17, 34));
+        var marker = new google.maps.Marker({
+          map: window.map,
+          icon: icon,
+          title: asset.name,
+          position: LatLon
+        });
+
+        marker.addListener('click', function () {
+          var asset = R.find(R.propEq('name', marker.title))(assets);
+          if (asset) {
+            $location.hash('asset'+asset.id);
+            $anchorScroll();
+          }
+        });
+        markers.push(marker);
+        initialMarkers = markers;
+      }
+    })(assets);
   };
 
   var resetAssetMarkers = function () {

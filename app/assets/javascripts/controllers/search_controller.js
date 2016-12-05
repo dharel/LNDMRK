@@ -20,6 +20,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
       $scope.sortResult($scope.sort_option);
+      googleMaps.init($scope.assets_results);
       if (localStorage.getItem('search')) { 
         applyFilters(JSON.parse(localStorage.getItem('search')));
         localStorage.removeItem('search');
@@ -35,7 +36,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   }
 
   $scope.init = function () {
-    googleMaps.init();
     $scope.market_type_checkboxes = [
       {name: 'Prime', checked: true},
       {name: 'Fringe', checked: true},
@@ -190,7 +190,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $rootScope.$on('bounds_changed', function (event , markersInFOV) {
-    if (!$scope.original_data) return
+    if (!$scope.original_data) return;
       $scope.assetsInFOV = _.intersection(
         searchAssetsInBounds(markersInFOV),
         searchAssetsByAddress(), 
