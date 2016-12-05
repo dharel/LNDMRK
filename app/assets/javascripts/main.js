@@ -34,7 +34,8 @@ app.config(['$compileProvider', '$httpProvider','$translateProvider', '$location
    })
    .when('/search', {
      templateUrl: '/search',
-     controller: 'SearchController'
+     controller: 'SearchController',
+     reloadOnSearch: false
    })
 }]);
 

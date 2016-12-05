@@ -1,4 +1,10 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams', function ($scope, AjaxService, googleMaps, $timeout, $routeParams) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','$route' ,function ($scope, AjaxService, googleMaps, $timeout, $routeParams, $route) {
+  var lastRoute = $route.current;
+  $scope.$on('$locationChangeSuccess', function(event) {
+      if($route.current.$$route.controller === 'CurrencyConvertCtrl'){ 
+        $route.current = lastRoute;
+      }
+  });
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;

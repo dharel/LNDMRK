@@ -1,4 +1,4 @@
-angular.module('lndmrk').service('googleMaps', [ function () {
+angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll', function ($location, $anchorScroll) {
   var markers = [];
   var init = function () {
     window.map = new google.maps.Map(document.getElementById('map'), {
@@ -76,12 +76,18 @@ angular.module('lndmrk').service('googleMaps', [ function () {
             title: asset.name,
             position: LatLon
           });
+
+          marker.addListener('click', function () {
+          var asset = R.find(R.propEq('name', marker.title))(assets);
+          if (asset) {
+            $location.hash('asset'+asset.id);
+            $anchorScroll();
+          }
+          });
           markers.push(marker);
         });
       }
     })(assets);
-
-    
   };
 
   var centerMap = function () {
