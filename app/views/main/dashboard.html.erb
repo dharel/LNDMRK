@@ -171,7 +171,7 @@
           <div class='header gains' style='width: 11.1%' translate>gains_from_initial_investment</div>
         </div>
         <div class='data-wrapper' 
-             ng-repeat='property in data track by $index'
+             ng-repeat='property in owned_data track by $index'
              ng-click='toggleExpanded(property)'>
           <div class='row-data'>
             <div class='data name' ng-class='property.class' translate>{{property.name}}</div>
@@ -227,13 +227,14 @@
           <div class='header placeholder' style='width: 7.17%'></div>
         </div>
         <div class='data-wrapper my-watchlist' 
-             ng-repeat='asset in data[0].assets track by $index'>
-          <div class='remove-wrapper'><img src='assets/row_remove.png' alt='remove from my watch-list' class='remove-from-watchlist'></div>
+             ng-repeat='asset in watched_data track by $index'>
+          <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)'>
+            <img src='assets/row_remove.png' alt='remove from my watch-list' class='remove-from-watchlist'></div>
           <div class='row-data my-watchlist'>
             <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
-            <div class='data name' style='width: 10.66%'>{{asset.name}}</div>
+            <div class='data name' style='width: 11.66%'>{{asset.name}}</div>
             <div class='partition'></div>
-            <div class='data address'  style='width: 32.71%'>{{asset.address}}</div>
+            <div class='data address'  style='width: 31.71%'>{{asset.address}}</div>
             <div class='partition'></div>
             <div class='data price'    style='width: 10.33%'>{{asset.price | currency }}</div>
             <div class='data yield'    style='width: 7.89%'>{{asset.yield}}%</div>
@@ -243,7 +244,9 @@
             <div class='data details'  style='width: 5.55%'
                  ng-mouseenter="hover_over_asset[$index]=true"
                  ng-mouseleave="hover_over_asset[$index]=false">
-              <div ng-if='hover_over_asset[$index]' class='details-bubble'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus.</div>
+              <div ng-if='hover_over_asset[$index]' class='details-bubble'
+                   ng-class='{"hebrew": localizationSrv.locale === "he"}'
+                   translate>short_lorem_ipsum</div>
             </div>
             <a class='goto-asset-page' style='width: 1.62%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
           </div>

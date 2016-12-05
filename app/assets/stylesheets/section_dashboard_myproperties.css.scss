@@ -65,7 +65,6 @@
         .header {
           font-size: 10px;
         }
-
       }
 
       .header {
@@ -172,12 +171,18 @@
           }
           &.name {
             color: $dark-blue;
+            line-height: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "proxima-nova", sans-serif;
           }
           &.address {
             font-size: 10px;
             font-weight: 300;
             text-align: left;
             padding-left: 16px;
+            font-family: "proxima-nova", sans-serif;
           }
           &.details {
             cursor: pointer;
@@ -193,22 +198,23 @@
               width: 180px;
               height: 105px;
               background-color: $white;
-              color: grey;
+              color: $dark-grey;
               text-align: center;
               box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
               position: relative;
               top: 40px;
-              left: -115px;
+              left: -115px; right: unset;
               z-index: 1;
               text-transform: none;
               padding: 8px;
               font-size: 12px;
               font-weight: 100;
               line-height: 15px;
+              font-family: "proxima-nova", sans-serif;
               &::before {
                 content: "";
                 position: absolute;
-                left: 83%;
+                left: 83%; right: unset;
                 transform: translateX(-50%);
                 top: -12px;
                 width: 0;
@@ -223,9 +229,14 @@
                 position: absolute;
                 width: 36px;
                 top: 0px;
-                right: 13px;
+                right: 13px; left: unset;
                 height: 9px;
                 background-color: $white;
+              }
+              &.hebrew {
+                left: unset; right: -115px;
+                &::before { left: unset; right: 64%; }
+                &::after { right: unset; left: 13px; }
               }
             }
           }

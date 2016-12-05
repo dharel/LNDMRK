@@ -2,7 +2,7 @@ class CreateAssets < ActiveRecord::Migration[5.0]
   def change
     create_table :assets do |t|
       t.string :name
-      t.string :investment_type      
+      t.string :investment_type
       t.float :price, default: 0
       t.float :owned, default: 0
       t.float :value, default: 0
@@ -16,7 +16,8 @@ class CreateAssets < ActiveRecord::Migration[5.0]
       t.string :market_type
       t.string :property_type
       t.string :gps
-      t.integer :user_owned
+      t.boolean :user_owned, default: true
+      t.boolean :user_watched, default: false
       t.timestamps
     end
   end

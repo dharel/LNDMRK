@@ -31,9 +31,10 @@ ActiveRecord::Schema.define(version: 20161130091517) do
     t.string   "market_type"
     t.string   "property_type"
     t.string   "gps"
-    t.integer  "user_owned"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "user_owned",      default: true
+    t.boolean  "user_watched",    default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "event_logs", force: :cascade do |t|

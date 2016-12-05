@@ -7,17 +7,40 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
       id: null
     };
 
-    var onSucc = function (data) {
+    var onSucc_all_assets = function (data) {
       $scope.data = data;
       $scope.data[0].class = 'income';
       $scope.data[1].class = 'income-growth';
       $scope.data[2].class = 'growth';
     };
-
-    var onErr = function (err) {
+    var onErr_all_assets = function (err) {
       console.log('error fetching data: ', err);
     };
-    AjaxService.sendMsg('GET', '/parsed_assets', {}, onSucc, onErr);
+
+    var onSucc_owned_assets = function (data) {
+      $scope.owned_data = data;
+      $scope.owned_data[0].class = 'income';
+      $scope.owned_data[1].class = 'income-growth';
+      $scope.owned_data[2].class = 'growth';
+    };
+    var onErr_owned_assets = function (err) {
+      console.log('error fetching data: ', err);
+    };
+
+    $scope.onSucc_watched_assets = function (data) {
+      $scope.watched_data = data;
+    };
+    $scope.onErr_watched_assets = function (err) {
+      console.log('error fetching data: ', err);
+    };
+
+    AjaxService.sendMsg('GET', '/parsed_assets', {}, onSucc_all_assets, onErr_all_assets);
+    AjaxService.sendMsg('GET', '/parsed_owned_assets', {}, onSucc_owned_assets, onErr_owned_assets);
+    AjaxService.sendMsg('GET', '/parsed_watched_assets', {}, $scope.onSucc_watched_assets, $scope.onErr_watched_assets);
+
+    $scope.removeFromWatchlist = function (asset_id) {
+      AjaxService.sendMsg('POST', '/asset_remove_from_watchlist', {asset_id: asset_id}, $scope.onSucc_watched_assets, $scope.onErr_watched_assets);
+    };
 
     var locale = localStorage.getItem('locale');
     $scope.toggleLocalization(locale || 'en');
@@ -74,5 +97,5 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   $scope.toggleExpanded = function (property) {
     $scope.expanded.isOpen = !$scope.expanded.isOpen;
     $scope.expanded.id = $scope.expanded.id !== property.id ? property.id : null;
-  };
+  };  
 }]);
