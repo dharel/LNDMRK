@@ -165,9 +165,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.clearSearch = function () {
-    R.forEach(value => value.checked = false)($scope.property_type_checkboxes);
-    R.forEach(value => value.checked = false)($scope.market_type_checkboxes);
-    R.forEach(value => value.checked = false)($scope.investment_type_buttons);
+    R.forEach(function (value) {value.checked = false;})($scope.property_type_checkboxes);
+    R.forEach(function (value) {value.checked = false;})($scope.market_type_checkboxes);
+    R.forEach(function (value) {value.checked = false;})($scope.investment_type_buttons);
     $scope.searchForm.address = '';
     $scope.assets_results = $scope.original_data;
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
