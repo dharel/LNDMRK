@@ -10,7 +10,7 @@ get '/search', to: 'main#search'
 get '/test', to: 'main#test'
 
 get '/carousel_assets', to: 'assets#show'
-get '/parsed_assets', to: 'assets#parsed_assets'
+# get '/parsed_assets', to: 'assets#parsed_assets'
 get '/parsed_owned_assets', to: 'assets#parsed_owned_assets'
 get '/parsed_watched_assets', to: 'assets#parsed_watched_assets'
 get '/robots.txt', to: 'application#robots'

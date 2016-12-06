@@ -206,13 +206,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   $rootScope.$on('bounds_changed', function (event , markersInFOV) {
     if (!$scope.original_data) return;
-      $scope.assetsInFOV = _.intersection(
-        searchAssetsInBounds(markersInFOV),
-        searchAssetsByAddress(), 
-        filterByInvestmentType(), 
-        filterByMarketType(), 
-        filterByPropertyType()
-      );
+      $scope.assetsInFOV = searchAssetsInBounds(markersInFOV);
       $scope.filterResults();
       $scope.$apply();
   });

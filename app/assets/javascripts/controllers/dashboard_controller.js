@@ -8,35 +8,32 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     };
     
     //watchlist data: first table is 'owned_data', second is 'watched_data'
-    $scope.onSucc_owned_assets = function (data) {
+    var onSucc_owned_assets = function (data) {
       $scope.owned_data = data;
       $scope.owned_data[0].class = 'income';
       $scope.owned_data[1].class = 'income-growth';
       $scope.owned_data[2].class = 'growth';
     };
-    $scope.onErr_owned_assets = function (err) {
+    var onErr_owned_assets = function (err) {
       console.log('error fetching data: ', err);
     };
 
-    $scope.onSucc_watched_assets = function (data) {
+    var onSucc_watched_assets = function (data) {
       $scope.watched_data = data;
     };
-    $scope.onErr_watched_assets = function (err) {
+    var onErr_watched_assets = function (err) {
       console.log('error fetching data: ', err);
     };
 
-    $scope.getDashboardAssets = function() {
-      AjaxService.sendMsg('GET', '/parsed_assets', {}, $scope.onSucc_all_assets, $scope.onErr_all_assets);
-    };
     $scope.getDashboardOwnedAssets = function() {
-      AjaxService.sendMsg('GET', '/parsed_owned_assets', {}, $scope.onSucc_owned_assets, $scope.onErr_owned_assets);
+      AjaxService.sendMsg('GET', '/parsed_owned_assets', {}, onSucc_owned_assets, onErr_owned_assets);
     };
     $scope.getDashboardWatchedAssets = function() {
-      AjaxService.sendMsg('GET', '/parsed_watched_assets', {}, $scope.onSucc_watched_assets, $scope.onErr_watched_assets);
+      AjaxService.sendMsg('GET', '/parsed_watched_assets', {}, onSucc_watched_assets, onErr_watched_assets);
     };
 
     $scope.removeFromWatchlist = function (asset_id) {
-      AjaxService.sendMsg('POST', '/asset_remove_from_watchlist', {asset_id: asset_id}, $scope.onSucc_watched_assets, $scope.onErr_watched_assets);
+      AjaxService.sendMsg('POST', '/asset_remove_from_watchlist', {asset_id: asset_id}, onSucc_watched_assets, onErr_watched_assets);
     };
 
     $scope.getDashboardOwnedAssets();
