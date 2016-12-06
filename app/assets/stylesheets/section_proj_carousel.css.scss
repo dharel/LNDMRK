@@ -91,11 +91,11 @@
   padding: 0;
   box-sizing: border-box;  
   text-align: left;
-  vertical-align: top;
   overflow: hidden;
   position: relative;
   display: flex;
   justify-content: flex-start;
+  align-items: flex-end;
   transition: left 0.5s ease-out;
   margin: 0;
 }
@@ -104,7 +104,7 @@
   cursor: default;
   height: calc(100% - 39px);
   width: 187px;
-  margin: 0 24px 0 30px;
+  margin: 0 24px 20px 30px;
   padding:0;
   text-align: center;
   h3 {
