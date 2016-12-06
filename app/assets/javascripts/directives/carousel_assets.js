@@ -40,8 +40,8 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
         "<div class='bottom-row'>" +
           "<div class='shadow'></div>" +
           "<div class='investment-type'" +
-                "ng-class='assignTypeClass(asset.investment_type)'>" +
-                "{{asset.investment_type}} investment</div>" +
+                "ng-class='assignTypeClass(asset.investment_type)' translate>" +
+                "{{asset.investment_type}}</div>" +
         "</div>" +
         "<div class='image-border'></div>" +
       "</div>" +
@@ -85,14 +85,14 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
 
       scope.assignTypeClass = function(investment_type) {
         switch (investment_type) {
-          case 'income':
+          case 'max_dividends':
             return 'income';
-          case 'growth':
+          case 'max_appreciation':
             return 'growth';
-          case 'income & growth':
+          case 'max_dividends_appreciation':
             return 'income-growth';
           default:
-            return 'income';
+            return 'max_dividends';
         }
       };
     }

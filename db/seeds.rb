@@ -2,8 +2,8 @@ User.create({username: 'user@lndmrk.com'})
 
 InvestmentType.create([
   { name: 'max_dividends' },
-  { name: 'growth' },
-  { name: 'max_dividends_growth' }
+  { name: 'max_appreciation' },
+  { name: 'max_dividends_appreciation' }
 ])
 Asset.create(
   [
@@ -49,7 +49,7 @@ Asset.create(
       address: ' 411 W. 116th Street  New York, NY 10027, USA',
       property_type: 'Private',
       market_type: 'Prime',
-      investment_type: 'growth',
+      investment_type: 'max_appreciation',
       rating: 'B',
       price: '10',
       income: '20',
@@ -67,7 +67,7 @@ Asset.create(
       address: 'World Square, 95 Liverpool St, Sydney NSW 2000, Australia',
       property_type: 'Industrial,Commericial,Agriculture',
       market_type: 'Fringe',
-      investment_type: 'max_dividends_growth',
+      investment_type: 'max_dividends_appreciation',
       rating: 'C-',
       price: '10',
       income: '20',
@@ -85,7 +85,7 @@ Asset.create(
       address: 'Derech Menachem Begin 132, Tel Aviv-Yafo',
       property_type: 'Agriculture,Residential',
       market_type: 'Secondary',
-      investment_type: 'growth',
+      investment_type: 'max_appreciation',
       rating: 'C',
       price: '10',
       income: '20',
@@ -139,7 +139,7 @@ Asset.create(
       address: '12356 Montana 200 Teigen, MT 59084, USA',
       property_type: 'Agriculture,Retail',
       market_type: 'Prime',
-      investment_type: 'growth',
+      investment_type: 'max_appreciation',
       rating: 'B',
       price: '10',
       income: '20',
@@ -157,7 +157,7 @@ Asset.create(
       address: 'М19, Holoby, Volyns\'ka oblast, Ukraine, 45071',
       property_type: 'Facilities',
       market_type: 'Prime',
-      investment_type: 'max_dividends_growth',
+      investment_type: 'max_dividends_appreciation',
       rating: 'B-',
       price: '10',
       income: '20',
@@ -175,7 +175,7 @@ Asset.create(
       address: 'Olympic Residence, UNESCO Street',
       property_type: 'Private',
       market_type: 'Secondary',
-      investment_type: 'growth',
+      investment_type: 'max_appreciation',
       rating: 'c',
       price: '10',
       income: '20',

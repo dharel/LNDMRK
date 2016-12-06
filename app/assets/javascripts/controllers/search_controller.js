@@ -44,8 +44,8 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
     $scope.investment_type_buttons = [
       {name: 'max_dividends', checked: true},
-      {name: 'growth', checked: true},
-      {name: 'max_dividends_growth', checked: true},
+      {name: 'max_appreciation', checked: true},
+      {name: 'max_dividends_appreciation', checked: true},
     ];
 
     $scope.property_type_checkboxes = [
@@ -53,7 +53,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       {name: 'Private', checked: true},
       {name: 'Retail', checked: true},
       {name: 'Facilities', checked: true},
-      {name: 'Commericial', checked: true},
+      {name: 'Commercial', checked: true},
       {name: 'Industrial', checked: true},
       {name: 'Agriculture', checked: true},
     ];  
@@ -168,18 +168,18 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(
       // searchAssetsByAddress(), 
+      $scope.assetsInFOV,      
       filterByInvestmentType(), 
       filterByMarketType(), 
-      filterByPropertyType(),
-      $scope.assetsInFOV 
+      filterByPropertyType()
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
   };
 
   $scope.clearSearch = function () {
-    R.forEach(function (value) {value.checked = false;})($scope.property_type_checkboxes);
-    R.forEach(function (value) {value.checked = false;})($scope.market_type_checkboxes);
-    R.forEach(function (value) {value.checked = false;})($scope.investment_type_buttons);
+    R.forEach(function (value) {value.checked = true;})($scope.property_type_checkboxes);
+    R.forEach(function (value) {value.checked = true;})($scope.market_type_checkboxes);
+    R.forEach(function (value) {value.checked = true;})($scope.investment_type_buttons);
     $scope.searchForm.address = '';
     $scope.assets_results = $scope.original_data;
     googleMaps.setAssetMarkersOnMap($scope.assets_results);

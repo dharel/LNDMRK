@@ -28,8 +28,8 @@ en:
   invest_button: "invest"
   map_title: "invest any amount in any property. worldwide."
   max_dividends: "max dividends"
-  growth: "max appreciation"
-  max_dividends_growth: "dividends & appreciation"
+  max_appreciation: "max appreciation"
+  max_dividends_appreciation: "dividends & appreciation"
   search_placeholder: "Search address, city, state."
   search: "search"
   search_properties: 

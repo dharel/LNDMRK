@@ -30,12 +30,12 @@
                   <div class='search-properties-icon'></div>
                   <div class="top-panel-section-title search">SEARCH PROPERTIES</div>
                 </div>
-                <div class='clear-all-search' ng-click="clearSearch()">CLEAR ALL</div>
+                <div class='clear-all-search' ng-click="clearSearch()">RESET ALL</div>
               </div>
               <div class="properties-buttons-wrapper">
                 <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">MAX DIVIDENDS</div>
-                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">GROWTH</div>
-                <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">INCOME & GROWTH</div>
+                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">MAX APPRECIATION</div>
+                <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">MAX DIVIDENDS & APPRECIATION</div>
               </div>
               <form ng-submit="filterResults()" id='searchForm'>
                 <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state" ng-model="searchForm.address">
