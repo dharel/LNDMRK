@@ -11,8 +11,8 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     var onSucc_owned_assets = function (data) {
       $scope.owned_data = data;
       $scope.owned_data[0].class = 'income';
-      $scope.owned_data[1].class = 'income-growth';
-      $scope.owned_data[2].class = 'growth';
+      $scope.owned_data[1].class = 'growth';
+      $scope.owned_data[2].class = 'income-growth';
     };
     var onErr_owned_assets = function (err) {
       console.log('error fetching data: ', err);
