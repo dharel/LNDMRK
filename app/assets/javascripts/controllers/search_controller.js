@@ -108,7 +108,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     var investment_type_checked = _.map(_.filter($scope.investment_type_buttons, function (type) {
       return type.checked === true;
     }), 'name');
-    if (investment_type_checked.length > 0) {
+    if (investment_type_checked.length >= 0 && investment_type_checked.length < 3) {
       var results = [];
       _.forEach($scope.original_data, function (value) {
         if (_.includes(investment_type_checked, value.investment_type)) {
@@ -167,7 +167,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(
-      // searchAssetsByAddress(), 
       $scope.assetsInFOV,      
       filterByInvestmentType(), 
       filterByMarketType(), 
