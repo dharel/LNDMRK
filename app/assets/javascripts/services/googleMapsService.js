@@ -147,13 +147,18 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
   };
 
   var hoverOverAsset = function (asset) {
-    var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
-    markers[index] = createMarker(asset,"FE7569");
+    setTimeout(function () {
+      var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
+      markers[index] = createMarker(asset,"FE7569");
+    });
+
   }
 
   var unhoverOverAsset = function (asset) {
-    var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
-    markers[index] = createMarker(asset,"214a91");
+    setTimeout(function () {
+      var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
+      markers[index] = createMarker(asset,"214a91");
+    });
   }
   
   return {
