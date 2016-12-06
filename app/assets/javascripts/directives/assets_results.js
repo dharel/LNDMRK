@@ -25,7 +25,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', 
             "<div class='info-title'>Income per m&sup2;</div>" +
             "<div class='info-data'>${{asset.income}}</div>" +
             "<div class='partition'></div>" +
-            "<div class='info-title'>Yeild</div>" +
+            "<div class='info-title'>Yield</div>" +
             "<div class='info-data'>{{asset.yield}}%</div>" +
           "</div>" +
           "<div class='image-placer'>" +
