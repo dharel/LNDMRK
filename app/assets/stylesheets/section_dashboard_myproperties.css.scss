@@ -1,7 +1,7 @@
 @import "./_base.css.scss";
 
 .myproperties {
-  min-height: 386px;
+  min-height: 356px;
   overflow: hidden;
   text-align: center;
   padding-top: 0;
@@ -10,9 +10,15 @@
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0;
+  margin-bottom: 50px;
+  &.owned {
+    min-height: 290px;
+    margin-bottom: 15px;
+    margin-top: 12px;
+  }
 
-  .container { width: 1197px;}
+  // .container { width: 1197px;}
+  .container { width: 1197px; &.owned-table { width: 1203px; }}
 
   .line {
     height: 1px;
@@ -34,7 +40,7 @@
     letter-spacing: 1.8px;
     z-index: 2;
     position: relative;
-    line-height: 28px;
+    line-height: 29px;
     border: 1px solid $dark-blue;
     background-color: $white;
     text-transform: uppercase;
@@ -47,6 +53,22 @@
     height: auto;
     margin-top: 17px;
     min-height: 250px;
+    &.owned {
+      height: unset;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: -12px;
+      width: 1203px;
+      margin-left: -3px;
+    }
+
+    .data-wraper {
+      display: flex;
+      align-items: center;
+    }
 
     .headers-wrap {
       width: 100%;
@@ -72,12 +94,12 @@
         display: block;
         float: left;
         color: $turquoise;
-        font-size: 8px;
+        font-size: 10px;
         font-weight: bold;
         line-height: 35px;
         text-align: center;
 
-        &.placeholder { width: 145px; }
+        &.placeholder { width: 154px; }
       }
     }
     .data-wrapper {
@@ -109,7 +131,8 @@
     }
 
     .row-data { 
-      width: 100%;
+      width: 1197px;
+      // width: 100%;
       height: 35px;
       background-color: $white;
       margin-top: 5px;
@@ -143,7 +166,7 @@
         width: 124px;
 
         &.name {
-          width: 145px;
+          width: 154px;
           height: inherit;
           color: white;
           font-size: 10px;
@@ -243,9 +266,21 @@
                 &::before { left: unset; right: 64%; }
                 &::after { right: unset; left: 13px; }
               }
+              &.from-top {
+                top: -115px;
+                &::before {
+                  top: unset; bottom: -9px;
+                  border-left: 16px solid transparent;
+                  border-right: 16px solid transparent;
+                  border-top: 16px solid #fff;
+                  border-bottom: unset;
+                }
+                &::after {
+                  top: unset; bottom: 0;
+                }
+              }
             }
           }
-
         }
         .partition {
           height: 23px;
@@ -253,7 +288,6 @@
           width: 2px;
         }
       }
-
     }
 
     .expanded-data-wrap {
@@ -290,7 +324,7 @@
           &.income-growth { color: $medium-blue }
 
           &.name {
-            width: 145px;
+            width: 154px;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
@@ -306,6 +340,12 @@
       color: $grey;
       width: 353px;
       margin: 30px auto 0;
+      a:visited {
+        color: $dark-turquoise;
+        &:hover {
+          color: $turquoise;
+        }
+      }
     }
   }
 }

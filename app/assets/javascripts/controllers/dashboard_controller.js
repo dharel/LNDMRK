@@ -95,5 +95,11 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   $scope.toggleExpanded = function (property) {
     $scope.expanded.isOpen = !$scope.expanded.isOpen;
     $scope.expanded.id = $scope.expanded.id !== property.id ? property.id : null;
-  };  
+  };
+
+  $scope.calc_bottom = function (index) {
+    var should_be_from_top = false;
+    if($scope.watched_data.length > 2){ should_be_from_top = index > $scope.watched_data.length - 3; }
+    return should_be_from_top;
+  };
 }]);

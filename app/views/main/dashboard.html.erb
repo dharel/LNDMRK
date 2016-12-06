@@ -154,11 +154,11 @@
     </div>
   </section>
 
-  <section class='myproperties'>
-    <div class='container'>
+  <section class='myproperties owned'>
+    <div class='container owned'>
       <div class='line'></div>
       <div class='title' translate>my_properties</div>
-      <div class='properties-table'>
+      <div class='properties-table owned'>
         <div class='headers-wrap'>
           <div class='header placeholder'></div>
           <div class='header price' style='width: 11.1%' translate>avarage_price_m</div>
@@ -226,7 +226,7 @@
           <div class='header rating' style='width: 6.74%' translate>rating</div>
           <div class='header income' style='width: 12.89%' translate>current_monthly_income</div>
           <div class='header debt'   style='width: 11.01%' translate>debt_to_value</div>
-          <div class='header placeholder' style='width: 7.17%'></div>
+          <div class='header placeholder' style='width: 6.5%'></div>
         </div>
         <div class='data-wrapper my-watchlist' 
              ng-repeat='asset in watched_data track by $index'>
@@ -248,7 +248,7 @@
                  ng-mouseenter="hover_over_asset[$index]=true"
                  ng-mouseleave="hover_over_asset[$index]=false">
               <div ng-if='hover_over_asset[$index]' class='details-bubble'
-                   ng-class='{"hebrew": localizationSrv.locale === "he"}'
+                   ng-class='{"hebrew": localizationSrv.locale === "he", "from-top": calc_bottom($index)}'
                    translate>short_lorem_ipsum</div>
             </div>
             <a class='goto-asset-page' style='width: 1.62%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
