@@ -53,7 +53,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       {name: 'Private', checked: true},
       {name: 'Retail', checked: true},
       {name: 'Facilities', checked: true},
-      {name: 'Commericial', checked: true},
+      {name: 'Commercial', checked: true},
       {name: 'Industrial', checked: true},
       {name: 'Agriculture', checked: true},
     ];  
