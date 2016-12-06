@@ -7,10 +7,9 @@ resources :translations, only: :show
 get '/home', to: 'main#home'
 get '/dashboard', to: 'main#dashboard'
 get '/search', to: 'main#search'
-get '/test', to: 'main#test'
+get '/property', to: 'main#property'
 
 get '/carousel_assets', to: 'assets#show'
-# get '/parsed_assets', to: 'assets#parsed_assets'
 get '/parsed_owned_assets', to: 'assets#parsed_owned_assets'
 get '/parsed_watched_assets', to: 'assets#parsed_watched_assets'
 get '/robots.txt', to: 'application#robots'

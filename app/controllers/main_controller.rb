@@ -12,7 +12,7 @@ class MainController < ApplicationController
     render 'search'
   end
 
-    def test
-    render 'test'
+  def property
+    render 'property'
   end
 end

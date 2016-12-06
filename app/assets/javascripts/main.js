@@ -37,6 +37,11 @@ app.config(['$compileProvider', '$httpProvider','$translateProvider', '$location
      controller: 'SearchController',
      reloadOnSearch: false
    })
+   .when('/property', {
+     templateUrl: '/property',
+     controller: 'PropertyController',
+     reloadOnSearch: false
+   })
 }]);
 
 app.run(['$templateCache', '$anchorScroll', function ($templateCache, $anchorScroll) {
