@@ -174,8 +174,8 @@
             overflow: hidden;
             height: 100%;
             &.max_dividends { background-color: $yello }
-            &.growth { background-color: $purple }
-            &.max_dividends_growth { background-color: $medium-blue }
+            &.max_appreciation { background-color: $purple }
+            &.max_dividends_appreciation { background-color: $medium-blue }
           }
           &.name {
             color: $dark-blue;

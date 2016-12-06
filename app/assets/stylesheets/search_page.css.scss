@@ -213,12 +213,12 @@
             margin-top: 10px;
             .properties-button {
               cursor: pointer;
-              width: 118px;
+              width: auto;
               height: 22px;
               text-align: center;
               border: 1px solid black;
               font-size: 10px;
-              padding-top: 4px;
+              padding: 4px 5px;
               &.left {
                 border-color: #fdc228;
               }

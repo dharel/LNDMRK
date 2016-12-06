@@ -31,7 +31,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', 
           "<div class='image-placer'>" +
             "<img src='{{asset.image}}' width='126' alt='asset'>" +
             "<div class='investment-type'" +
-              "ng-class='assignTypeClass(asset.investment_type)'>" +
+              "ng-class='assignTypeClass(asset.investment_type)' translate>" +
               "{{asset.investment_type}}</div>" +
             "<div class='property-datails'" +
                  "ng-class='{\"is-hovered\" : isAssetHovered(asset.id)," +
@@ -93,14 +93,14 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', 
 
       scope.assignTypeClass = function(investment_type) {
         switch (investment_type) {
-          case 'income':
+          case 'max_dividends':
             return 'income';
-          case 'growth':
+          case 'max_appreciation':
             return 'growth';
-          case 'income & growth':
+          case 'max_dividends_appreciation':
             return 'income-growth';
           default:
-            return 'income';
+            return 'max_dividends';
         }
       };
       scope.changeMyWatchlist = function (asset_id) {
