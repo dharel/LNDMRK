@@ -2,6 +2,41 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
   
   var initialMarkers = [], markers = [], markersInFOV = [];
 
+  var createMarker = function (asset, pinColor) {
+    var lat = Number(asset.gps.split(',')[0]);
+    var lng = Number(asset.gps.split(',')[1]);        
+    var LatLon = new google.maps.LatLng(lat, lng);
+    var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+      new google.maps.Size(71, 71),
+      new google.maps.Point(0,0),
+      new google.maps.Point(17, 34));
+    var marker = new google.maps.Marker({
+      map: window.map,
+      icon: icon,
+      title: asset.name,
+      position: LatLon
+    });
+
+    marker.addListener('click', function () {
+      var asset = R.find(R.propEq('name', marker.title))(assets);
+      if (asset) {
+        $location.hash('asset'+asset.id);
+        $anchorScroll();
+      }
+    });
+    markers.push(marker);
+    return marker;
+  }
+
+  var initMarkers = function (assets) {
+    R.forEach(function (asset) {
+      if (asset.gps !== '') {
+        createMarker(asset, "214a91")
+        initialMarkers = markers;
+      }
+    })(assets);
+  }
+
   var init = function (assets) {
     window.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 2.811371, lng: 1.757813},
@@ -63,34 +98,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     });
 
     if (!assets) return;
-    R.forEach(function (asset) {
-      if (asset.gps !== '') {
-        var lat = Number(asset.gps.split(',')[0]);
-        var lng = Number(asset.gps.split(',')[1]);        
-        var LatLon = new google.maps.LatLng(lat, lng);
-        var pinColor = "102447";
-        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-          new google.maps.Size(71, 71),
-          new google.maps.Point(0,0),
-          new google.maps.Point(17, 34));
-        var marker = new google.maps.Marker({
-          map: window.map,
-          icon: icon,
-          title: asset.name,
-          position: LatLon
-        });
-
-        marker.addListener('click', function () {
-          var asset = R.find(R.propEq('name', marker.title))(assets);
-          if (asset) {
-            $location.hash('asset'+asset.id);
-            $anchorScroll();
-          }
-        });
-        markers.push(marker);
-        initialMarkers = markers;
-      }
-    })(assets);
+    initMarkers(assets);
   };
 
   var resetAssetMarkers = function () {
@@ -102,33 +110,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
 
   var setAssetMarkersOnMap = function (assets) {
     resetAssetMarkers();
-    R.forEach(function (asset) {
-      if (asset.gps !== '') {
-        var lat = Number(asset.gps.split(',')[0]);
-        var lng = Number(asset.gps.split(',')[1]);        
-        var LatLon = new google.maps.LatLng(lat, lng);
-        var pinColor = "102447";
-        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-          new google.maps.Size(71, 71),
-          new google.maps.Point(0,0),
-          new google.maps.Point(17, 34));
-        var marker = new google.maps.Marker({
-          map: window.map,
-          icon: icon,
-          title: asset.name,
-          position: LatLon
-        });
-
-        marker.addListener('click', function () {
-          var asset = R.find(R.propEq('name', marker.title))(assets);
-          if (asset) {
-            $location.hash('asset'+asset.id);
-            $anchorScroll();
-          }
-        });
-        markers.push(marker);
-      }
-    })(assets);
+    initMarkers(assets);
   };
 
   var centerMap = function () {
@@ -163,6 +145,16 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       }
     });
   };
+
+  var hoverOverAsset = function (asset) {
+    var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
+    markers[index] = createMarker(asset,"FE7569");
+  }
+
+  var unhoverOverAsset = function (asset) {
+    var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
+    markers[index] = createMarker(asset,"214a91");
+  }
   
   return {
     init: init,
@@ -170,6 +162,8 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     setAssetMarkersOnMap: setAssetMarkersOnMap,
     resetAssetMarkers: resetAssetMarkers,
     centerMap: centerMap,
-    manualSearch: manualSearch
+    manualSearch: manualSearch,
+    hoverOverAsset: hoverOverAsset,
+    unhoverOverAsset: unhoverOverAsset
   };
 }]);
