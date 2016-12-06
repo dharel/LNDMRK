@@ -18,11 +18,8 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     });
 
     marker.addListener('click', function () {
-      var asset = R.find(R.propEq('name', marker.title))(assets);
-      if (asset) {
-        $location.hash('asset'+asset.id);
-        $anchorScroll();
-      }
+      $location.hash('asset'+asset.id);
+      $anchorScroll();
     });
     markers.push(marker);
     return marker;
@@ -99,7 +96,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     if (!assets) return;
     initMarkers(assets);
     initialMarkers = markers;
-    
   };
 
   var resetAssetMarkers = function () {
@@ -150,7 +146,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
   var hoverOverAsset = function (asset) {
     setTimeout(function () {
       var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
-      markers[index] = createMarker(asset,"FE7569");
+      initialMarkers[index] = createMarker(asset,"FE7569");
     });
 
   }
@@ -158,7 +154,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
   var unhoverOverAsset = function (asset) {
     setTimeout(function () {
       var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
-      markers[index] = createMarker(asset,"214a91");
+      initialMarkers[index] = createMarker(asset,"214a91");
     });
   }
   
