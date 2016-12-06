@@ -32,7 +32,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     R.forEach(function (asset) {
       if (asset.gps !== '') {
         createMarker(asset, "214a91")
-        initialMarkers = markers;
       }
     })(assets);
   }
@@ -51,6 +50,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     window.map.addListener('bounds_changed', function() {
       searchBox.setBounds(window.map.getBounds());
       markersInFOV = [];
+      console.log('initialMarkers: ', initialMarkers)
       R.forEach(function (marker) {
         if (window.map.getBounds().contains(marker.getPosition())){
           markersInFOV.push(marker);
@@ -99,6 +99,8 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
 
     if (!assets) return;
     initMarkers(assets);
+    initialMarkers = markers;
+    
   };
 
   var resetAssetMarkers = function () {

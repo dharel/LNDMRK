@@ -167,11 +167,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(
-      $scope.assetsInFOV || $scope.assets_results,      
-      searchAssetsByAddress(), 
+      // searchAssetsByAddress(), 
       filterByInvestmentType(), 
       filterByMarketType(), 
-      filterByPropertyType()
+      filterByPropertyType(),
+      $scope.assetsInFOV 
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
   };
