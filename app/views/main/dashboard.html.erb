@@ -176,7 +176,7 @@
           <div class='row-data'>
             <div class='data name' ng-class='property.class' translate>{{property.name}}</div>
             <div class='data price' style='width: 11.1%'>{{ calcAvarage('price', property.assets) | currency }}</div>
-            <div class='data owned' style='width: 11.1%'>{{ sumProperty('owned', property.assets) }}</div>
+            <div class='data owned' style='width: 11.1%'>{{ sumProperty('user_owned', property.assets) }}</div>
             <div class='data value'>{{ sumProperty('value', property.assets) | currency}}</div>
             <div class='data yield' style='width: 11.1%'>{{ sumProperty('yield', property.assets) }}%</div>
             <div class='data rating' style='width: 11.1%'>A4-C1</div>
@@ -188,7 +188,7 @@
             <div class='expanded-row-data' ng-repeat='asset in property.assets'>
               <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}'>{{asset.name}}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.price | currency }}</div>
-              <div class='expanded-data' style='width: 11.1%'>{{asset.owned}}</div>
+              <div class='expanded-data' style='width: 11.1%'>{{asset.user_owned}}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.value | currency }}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.yield}}%</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.risk}}</div>
@@ -229,7 +229,8 @@
         <div class='data-wrapper my-watchlist' 
              ng-repeat='asset in watched_data track by $index'>
           <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)'>
-            <img src='assets/row_remove.png' alt='remove from my watch-list' class='remove-from-watchlist'></div>
+            <div class='remove-from-watchlist'></div>
+          </div>
           <div class='row-data my-watchlist'>
             <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
             <div class='data name' style='width: 11.66%'>{{asset.name}}</div>

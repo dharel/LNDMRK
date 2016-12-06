@@ -6,24 +6,10 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
       isOpen: false,
       id: null
     };
-
-    $scope.onSucc_all_assets = function (data) {
-      // debugger;
-      $scope.data = data;
-
-      $scope.owned_data = data.owned_assets;
-      $scope.watched_data = data.watched_assets;
-      // $scope.data[0].class = 'income';
-      // $scope.data[1].class = 'income-growth';
-      // $scope.data[2].class = 'growth';
-    };
-    $scope.onErr_all_assets = function (err) {
-      console.log('error fetching data: ', err);
-    };
-
+    
+    //watchlist data: first table is 'owned_data', second is 'watched_data'
     $scope.onSucc_owned_assets = function (data) {
       $scope.owned_data = data;
-
       $scope.owned_data[0].class = 'income';
       $scope.owned_data[1].class = 'income-growth';
       $scope.owned_data[2].class = 'growth';
@@ -33,8 +19,7 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     };
 
     $scope.onSucc_watched_assets = function (data) {
-      $scope.getDashboardOwnedAssets();
-      // $scope.watched_data = data;
+      $scope.watched_data = data;
     };
     $scope.onErr_watched_assets = function (err) {
       console.log('error fetching data: ', err);
@@ -43,17 +28,20 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     $scope.getDashboardAssets = function() {
       AjaxService.sendMsg('GET', '/parsed_assets', {}, $scope.onSucc_all_assets, $scope.onErr_all_assets);
     };
-    // $scope.getDashboardOwnedAssets = function() {
-    //   AjaxService.sendMsg('GET', '/parsed_owned_assets', {}, onSucc_owned_assets, onErr_owned_assets);
-    // };
-    // $scope.getDashboardWatchedAssets = function() {
-    //   AjaxService.sendMsg('GET', '/parsed_watched_assets', {}, $scope.onSucc_watched_assets, $scope.onErr_watched_assets);
-    // };
-    $scope.getDashboardAssets();
+    $scope.getDashboardOwnedAssets = function() {
+      AjaxService.sendMsg('GET', '/parsed_owned_assets', {}, $scope.onSucc_owned_assets, $scope.onErr_owned_assets);
+    };
+    $scope.getDashboardWatchedAssets = function() {
+      AjaxService.sendMsg('GET', '/parsed_watched_assets', {}, $scope.onSucc_watched_assets, $scope.onErr_watched_assets);
+    };
 
     $scope.removeFromWatchlist = function (asset_id) {
       AjaxService.sendMsg('POST', '/asset_remove_from_watchlist', {asset_id: asset_id}, $scope.onSucc_watched_assets, $scope.onErr_watched_assets);
     };
+
+    $scope.getDashboardOwnedAssets();
+    $scope.getDashboardWatchedAssets();
+    // end of watchlist data
 
     var locale = localStorage.getItem('locale');
     $scope.toggleLocalization(locale || 'en');
@@ -98,11 +86,11 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   };
 
   $scope.sumAll = function (type) {
-    if (!$scope.data) return;
+    if (!$scope.owned_data) return;
     var sum = 0;
     R.forEach(function (property) {
       sum += $scope.sumProperty(type, property.assets);
-    })($scope.data);
+    })($scope.owned_data);
 
     return sum.toFixed(2);
   };

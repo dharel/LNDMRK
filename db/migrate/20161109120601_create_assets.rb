@@ -4,7 +4,6 @@ class CreateAssets < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :investment_type
       t.float :price, default: 0
-      t.float :owned, default: 0
       t.float :value, default: 0
       t.float :yield, default: 0
       t.string :rating

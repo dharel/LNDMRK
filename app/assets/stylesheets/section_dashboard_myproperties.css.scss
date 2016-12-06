@@ -10,7 +10,8 @@
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 0;
+  // margin-bottom: 50px;
 
   .container { width: 1197px;}
 
@@ -94,9 +95,15 @@
           display: flex;
           justify-content: flex-start;
           align-items: center;
+          overflow: hidden;
           .remove-from-watchlist {
-            height: 15px;
-            width: 15px;
+            height: 40px;
+            width: 40px;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: contain;
+            margin-top: 0;
+            background-image: image-url('row_remove.png');
           }
         }
       }
@@ -105,7 +112,7 @@
     .row-data { 
       width: 100%;
       height: 35px;
-      background-color: white;
+      background-color: $white;
       margin-top: 5px;
       margin-bottom: 15px;
       cursor: pointer;
@@ -152,11 +159,11 @@
         width: 97.85%;
 
         .goto-asset-page {
-          height: 9px;
-          background-repeat: no-repeat;
-          background-size: contain;
           background-image: image-url('row_expand.png');
+          background-repeat: no-repeat;
+          background-size: 31px 31px;;
           background-position: center;
+          height: 100%;
           &.hebrew {
             @extend .flip-horizontally; 
           }
@@ -186,14 +193,11 @@
           }
           &.details {
             cursor: pointer;
-            height: 23px;
+            height: 31px;
             background-repeat: no-repeat;
             background-size: contain;
             background-image: image-url('asset_details.png');
-            background-position: center;
-            &:hover {
-              background-image: image-url('asset_details_active.png');
-            }
+            background-position: 18px center;
             .details-bubble {
               width: 180px;
               height: 105px;
@@ -202,7 +206,7 @@
               text-align: center;
               box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
               position: relative;
-              top: 40px;
+              top: 42px;
               left: -115px; right: unset;
               z-index: 1;
               text-transform: none;

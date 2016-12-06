@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20161130091517) do
     t.string   "name"
     t.string   "investment_type"
     t.float    "price",           default: 0.0
-    t.float    "owned",           default: 0.0
     t.float    "value",           default: 0.0
     t.float    "yield",           default: 0.0
     t.string   "rating"
