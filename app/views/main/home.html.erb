@@ -37,10 +37,10 @@
            ng-class='{"active": mapFilters.max_dividends}' translate> max_dividends </div>
       <div class='filter growth'
            ng-click='mapFilters.growth = !mapFilters.growth'
-           ng-class='{"active": mapFilters.growth}' translate> growth </div>
+           ng-class='{"active": mapFilters.growth}' translate> max_appreciation </div>
       <div class='filter income-growth'
            ng-click='mapFilters.max_dividends_growth = !mapFilters.max_dividends_growth'
-           ng-class='{"active": mapFilters.max_dividends_growth}' translate>max_dividends_growth</div>
+           ng-class='{"active": mapFilters.max_dividends_growth}' translate>max_dividends_appreciation</div>
     </div>
     <div class='search-container'>
       <form ng-submit="filterResults()">
@@ -119,7 +119,7 @@
         <h2>453M</h2>
         <h4 class='growth' translate> growth </h4>
         <h4 class='income' translate> max_dividends </h4>
-        <h4 class='income-growth' translate> max_dividends_growth </h4>
+        <h4 class='income-growth' translate> max_dividends_appreciation </h4>
         <%= image_tag('line.png',class: 'line growth', width: '90', alt: '') %>
         <%= image_tag('line.png',class: 'line income', width: '90', alt: '') %>
         <%= image_tag('line.png',class: 'line income-growth', width: '90', alt: '') %>
