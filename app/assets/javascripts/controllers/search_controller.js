@@ -4,6 +4,14 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
+    if (!filters.max_dividends && !filters.growth && !filters.max_dividends_growth) {
+      if (filters.address !== '') {
+        googleMaps.manualSearch(filters.address);
+      }
+      $scope.filterResults();
+      return;
+    }
+    
     $scope.investment_type_buttons[0].checked = filters.max_dividends;
     $scope.investment_type_buttons[1].checked = filters.growth;
     $scope.investment_type_buttons[2].checked = filters.max_dividends_growth;
