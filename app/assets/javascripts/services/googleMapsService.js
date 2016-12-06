@@ -50,7 +50,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     window.map.addListener('bounds_changed', function() {
       searchBox.setBounds(window.map.getBounds());
       markersInFOV = [];
-      console.log('initialMarkers: ', initialMarkers)
       R.forEach(function (marker) {
         if (window.map.getBounds().contains(marker.getPosition())){
           markersInFOV.push(marker);
