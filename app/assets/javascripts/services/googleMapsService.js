@@ -32,7 +32,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     R.forEach(function (asset) {
       if (asset.gps !== '') {
         createMarker(asset, "214a91")
-        initialMarkers = markers;
       }
     })(assets);
   }
@@ -99,6 +98,8 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
 
     if (!assets) return;
     initMarkers(assets);
+    initialMarkers = markers;
+    
   };
 
   var resetAssetMarkers = function () {

@@ -167,11 +167,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(
-      $scope.assetsInFOV || $scope.assets_results,      
-      searchAssetsByAddress(), 
+      // searchAssetsByAddress(), 
       filterByInvestmentType(), 
       filterByMarketType(), 
-      filterByPropertyType()
+      filterByPropertyType(),
+      $scope.assetsInFOV 
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
   };
@@ -189,19 +189,22 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.selectProperty = function (property) {
   };
 
-  var onSucc_change_watchlist = function () {
-    getCarousellData();
+  var onSucc_change_watchlist = function (id, status) {
+    var asset = R.find(R.propEq('id', id))($scope.assets_results);
+    asset.user_watched = status;
+    function a () {}
+    return a;
   };
   var onErr_change_watchlist = function (err) {
     console.log('error fetching data: ', err);
   };
 
   $scope.addToWatchlist = function (asset_id) {
-    AjaxService.sendMsg('POST', '/asset_add_to_watchlist', {asset_id: asset_id}, onSucc_change_watchlist, onErr_change_watchlist);
+    AjaxService.sendMsg('POST', '/asset_add_to_watchlist', {asset_id: asset_id}, onSucc_change_watchlist(asset_id, true), onErr_change_watchlist);
   };
 
   $scope.removeFromWatchlist = function (asset_id) {
-    AjaxService.sendMsg('POST', '/asset_remove_from_watchlist', {asset_id: asset_id}, onSucc_change_watchlist, onErr_change_watchlist);
+    AjaxService.sendMsg('POST', '/asset_remove_from_watchlist', {asset_id: asset_id}, onSucc_change_watchlist(asset_id, false), onErr_change_watchlist);
   };
 
   $rootScope.$on('bounds_changed', function (event , markersInFOV) {
