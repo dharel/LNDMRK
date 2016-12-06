@@ -17,23 +17,38 @@ ActiveRecord::Schema.define(version: 20161130091517) do
 
   create_table "assets", force: :cascade do |t|
     t.string   "name"
-    t.string   "investment_type"
-    t.float    "price",           default: 0.0
-    t.float    "value",           default: 0.0
-    t.float    "yield",           default: 0.0
-    t.string   "rating"
-    t.float    "income",          default: 0.0
-    t.float    "debt",            default: 0.0
-    t.float    "gains",           default: 0.0
-    t.string   "image"
+    t.string   "name_heb"
     t.string   "address"
+    t.float    "total",                       default: 0.0
+    t.string   "description"
     t.string   "market_type"
+    t.string   "investment_type"
     t.string   "property_type"
+    t.string   "rating"
+    t.float    "price"
+    t.float    "income"
+    t.float    "yield"
+    t.integer  "established"
+    t.string   "quality"
+    t.float    "ltv"
     t.string   "gps"
-    t.boolean  "user_owned",      default: true
-    t.boolean  "user_watched",    default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "market"
+    t.string   "location"
+    t.string   "tenants_financial_stability"
+    t.string   "tenants_macro_stability"
+    t.string   "lease_contracts_length"
+    t.string   "contracts_securities"
+    t.string   "development_phase"
+    t.string   "occupancy_rate"
+    t.string   "market_occupancy_rate"
+    t.boolean  "user_owned"
+    t.boolean  "user_watched"
+    t.float    "value"
+    t.float    "debt"
+    t.float    "gains"
+    t.string   "image"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "event_logs", force: :cascade do |t|

@@ -45,7 +45,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   $scope.init = function () {
     $scope.market_type_checkboxes = [
-      {name: 'Prime', checked: true},
+      {name: 'Primary', checked: true},
       {name: 'Fringe', checked: true},
       {name: 'Secondary', checked: true},
     ];
@@ -64,6 +64,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       {name: 'Commercial', checked: true},
       {name: 'Industrial', checked: true},
       {name: 'Agriculture', checked: true},
+      {name: 'Hotel', checked: true},
+      {name: 'Office', checked: true}
+      
     ];  
     $scope.sort_options_list = ["Rating", "Yield"];
     $scope.sort_option = $scope.sort_options_list[0];
