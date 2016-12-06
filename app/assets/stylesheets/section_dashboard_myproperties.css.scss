@@ -115,14 +115,16 @@
       margin-top: 5px;
       margin-bottom: 15px;
       cursor: pointer;
-      box-shadow: 0px 0px 5px 1px lightgray;
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center;
+      &.empty-row { cursor: default; pointer-events: none; }
 
       &.sum {
         background-color: $turquoise;
+        &.empty-row { cursor: default; pointer-events: none; }
         
         .data {
           color: $white;         
@@ -259,7 +261,7 @@
       height: auto;
       margin: 15px 0;
       background-color: $white;
-      box-shadow: 0px 0px 5px 1px lightgray;
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
@@ -301,8 +303,9 @@
   .properties-missing {
     p {
       text-transform: none;
-      margin-top: 30px;
       color: $grey;
+      width: 353px;
+      margin: 30px auto 0;
     }
   }
 }

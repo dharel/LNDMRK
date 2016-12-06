@@ -173,7 +173,7 @@
         <div class='data-wrapper'
              ng-repeat='property in owned_data track by $index'
              ng-click='toggleExpanded(property)'>
-          <div class='row-data'>
+          <div class='row-data' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
             <div class='data name' ng-class='property.class' translate>{{property.name}}</div>
             <div class='data price' style='width: 11.1%'>{{ calcAvarage('price', property.assets) | currency }}</div>
             <div class='data owned' style='width: 11.1%'>{{ sumProperty('user_owned', property.assets) }}</div>
@@ -200,7 +200,7 @@
             </div>
           </div>
         </div>
-        <div class='row-data sum'>
+        <div class='row-data sum' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
           <div class='data name' translate>sum</div>
             <div class='data' style='width: 11.1%'>{{sumAll('price') | currency }}</div>
             <div class='data' style='width: 11.1%'>{{sumAll('user_owned')}}</div>
@@ -256,8 +256,7 @@
         </div>
       </div>
       <div class='properties-missing' ng-if='!watched_data || watched_data.length === 0'>
-        <p>Currently there are no properties in your watchlist.</p></br>
-        <p> to search for properties <a href='/#/search'>click here</a></p>
+        <p>Currently there are no properties in your watchlist. to search for properties <a href='/#/search'>click here</a></p>
       </div>
     </div>
   </section>

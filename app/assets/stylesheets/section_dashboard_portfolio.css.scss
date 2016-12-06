@@ -39,7 +39,7 @@
       height: 370px;
       float: left;
       color: white;
-      box-shadow: 0px 0px 10px -2px $turquoise;
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
@@ -274,7 +274,7 @@
           width: 225px;
           height: 175px;
           float: left;
-          box-shadow: 0px 0px 10px -2px $turquoise;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
           color: #102447;
       
           .title-small {
@@ -359,7 +359,7 @@
           height: 170px;
           float: left;
           margin-top: 25px;
-          box-shadow: 0px 0px 10px -2px $turquoise;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
           display: flex;
           flex-flow: column nowrap;
           justify-content: space-between;
@@ -392,7 +392,7 @@
                 margin: 0 10px;
                 margin-top: 30px;
                 position: relative;
-                box-shadow: 0px 0px 10px -2px $turquoise;
+                box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
 
                 .img {
                   width: 50px;

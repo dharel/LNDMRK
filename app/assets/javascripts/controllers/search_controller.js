@@ -190,7 +190,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   var onSucc_change_watchlist = function () {
-    // getCarousellData();
+    getCarousellData();
   };
   var onErr_change_watchlist = function (err) {
     console.log('error fetching data: ', err);
