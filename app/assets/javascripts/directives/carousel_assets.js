@@ -41,7 +41,7 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
           "<div class='shadow'></div>" +
           "<div class='investment-type'" +
                 "ng-class='assignTypeClass(asset.investment_type)' translate>" +
-                "{{asset.investment_type}} investment</div>" +
+                "{{asset.investment_type}}</div>" +
         "</div>" +
         "<div class='image-border'></div>" +
       "</div>" +

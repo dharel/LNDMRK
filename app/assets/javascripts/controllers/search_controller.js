@@ -168,10 +168,10 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.filterResults = function () {
     $scope.assets_results = _.intersection(
       // searchAssetsByAddress(), 
+      $scope.assetsInFOV,      
       filterByInvestmentType(), 
       filterByMarketType(), 
-      filterByPropertyType(),
-      $scope.assetsInFOV 
+      filterByPropertyType()
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
   };
