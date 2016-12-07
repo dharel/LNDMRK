@@ -17,6 +17,9 @@
     z-index: 0;
     background-size: cover;
     background-position: center -360px;
+    min-width: 1830px;
+    transform: translateX(-50%);
+    left: 50%;
   }
   .color-gradient {
     position: absolute;
@@ -51,7 +54,7 @@
         // background-position-x: -4px;
       }
       &.prev {
-        background-image: image-url('demo_img/next_arrow.png');
+        background-image: image-url('demo_img/prev_arrow.png');
         // background-position-x: 8px;
         // @extend .flip-horizontally;
       }

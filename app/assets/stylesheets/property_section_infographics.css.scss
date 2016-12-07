@@ -3,18 +3,19 @@
 // property-page: 3rd
 //================================
 .infographics {
-  height: 1600px;
+  height: 1385px;
   overflow: hidden;
   background-color: $white;
   .container {
     @extend .flexbox-row-between;
+    width: 1195px;
   }
 
   .line {
     height: 1px;
     background-color: $grey;
     position: relative;
-    top: 24px;
+    top: 48px;
     width: 100%;
     transform: translateX(-50%);
     left: 50%;
@@ -23,7 +24,7 @@
   .title {
     width: 207px;
     height: 31px;
-    margin: 7px auto 8px;
+    margin: 32px auto 39px;
     text-align: center;
     font-size: 11px;
     font-weight: 700;
@@ -48,31 +49,51 @@
     @extend .flexbox-colum-to-top-center;
     //column lines - left in English 
     &.lines {
-      width: 648px;
-      height: 1500px;
+      width: 629px;
+      height: 1385px;
       .transactions {
         text-transform: uppercase;
         width: 100%;
+        margin-bottom: 20px;
         @extend .flexbox-colum-to-top-center;
         h1 {
           @extend .secondary-title;
+          margin-bottom: 4px;
         }
         .transaction-row {
           border: 1px solid $dark-blue;
           width: 100%;
           height: 40px;
-          margin: 5px 0;
+          margin: 5px 0 13px;
           padding: 5px 15px;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
           @extend .flexbox-row-between;
+          .time {
+            font-weight: 600;
+            word-spacing: 4px;
+          }
+          .meter-price {
+            font-size: 22px;
+            font-weight: 600;
+            color: $turquoise;
+            & span {
+              font-weight: 900;
+            }
+          }
         }
         .transaction-history-link {
           width: 100%;
           height: 40px;
-          margin: 5px 0;
+          margin: 3px 0;
           padding: 5px 15px;
           text-align: center;
           color: $turquoise;
           background-color: $light-blue;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+          line-height: 30px;
+          font-weight: 600;
+          font-size: 14px;
+          letter-spacing: 0.5px;
         }
       }
       .rank {
@@ -83,6 +104,7 @@
         }
         .letters-row {
           @extend .flexbox-row-between;
+          margin-bottom: 19px;
           .rank {
             width: 97px;
             height: 98px;
@@ -106,6 +128,7 @@
         
         .points-row {
           @extend .flexbox-row-between;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
           height: 40px;
           width: 100%;
           border: 1px solid $dark-blue;
@@ -145,11 +168,14 @@
           }
           &.header {
             border: none;
+            box-shadow: none;
+            margin-bottom: -5px;
             h2, h3, h4 {
-              font-size: 16px;
+              font-size: 14px;
               font-weight: 600;
               color: $turquoise;
               background-color: transparent;
+              box-shadow: none;
             }
           }
         }
@@ -179,6 +205,7 @@
           border: 1px solid $dark-blue;
           margin: 5px 0;
           box-sizing: border-box;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
           h2 {
             font-size: 16px;
             font-weight: 600;
@@ -193,13 +220,16 @@
           h3 {
             font-size: 22px;
             font-weight: 600;
+            color: $turquoise;
             height: 38px;
             flex: 1 1 45%;
-            color: $turquoise;
             text-align: center;
             line-height: 40px;
             padding-left: 10px;
             background-color: transparent;
+            & span {
+              font-weight: 900;
+            }
           }
           h4 {
             font-size: 16px;
@@ -217,13 +247,14 @@
     //column maps - right in English 
     &.maps {
       width: 540px;
-      height: 1500px;
+      height: 1385px;
       text-transform: uppercase;
       .price-graph {
         width: 100%;
         @extend .flexbox-colum-to-top-center;
         h1 {
           @extend .secondary-title;
+          margin-bottom: 9px
         }
         .image {
           width: 536px;
@@ -231,6 +262,9 @@
           background-image: image-url('demo_img/graph.png');
           background-repeat: no-repeat;
           background-size: cover;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+          border: 1px solid $dark-blue;
+          margin-bottom: 39px;
         }
       }
       .event-timeline {
@@ -238,6 +272,7 @@
         @extend .flexbox-colum-to-top-center;
         h1 {
           @extend .secondary-title;
+          margin-bottom: 9px
         }
         .image {
           width: 536px;
@@ -245,15 +280,19 @@
           background-image: image-url('demo_img/graph-2.png');
           background-repeat: no-repeat;
           background-size: cover;
+          box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+          border: 1px solid $dark-blue;
         }
       }
       .property-management {
         width: 100%;
         .line {
           width: 100%;
+          top: 53px;
         }
         .title {
-          
+          margin-top: 36px;
+          margin-bottom: 31px;
         }
         .image {
           width: 502px;
