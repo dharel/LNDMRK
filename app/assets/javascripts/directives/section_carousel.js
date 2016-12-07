@@ -45,7 +45,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
         scope.assetsIndex = index;
         scope.chosenAsset = scope.assets[scope.assetsIndex];
         dataManagerService.asset = scope.chosenAsset;
-        // $location.path('/property');
+        $location.path('/property');
       };
 
       scope.firstShowed = 0;
