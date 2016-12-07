@@ -35,6 +35,7 @@
     border: none;
     position: absolute;
     top: 190px;
+    cursor: pointer;
     &.next { right: -20px; }
     &.prev { left: -20px; }
     .arrow {
@@ -52,7 +53,7 @@
       &.prev {
         background-image: image-url('demo_img/next_arrow.png');
         // background-position-x: 8px;
-        @extend .flip-horizontally;
+        // @extend .flip-horizontally;
       }
     }
   }
