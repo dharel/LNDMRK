@@ -1,4 +1,5 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$routeParams','$route','$rootScope' ,function ($scope, AjaxService, googleMaps, $timeout, $routeParams, $route, $rootScope) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$location','$rootScope' , 'dataManagerService',
+  function ($scope, AjaxService, googleMaps, $timeout, $location, $rootScope, dataManagerService) {
   
   $scope.googleMaps = googleMaps;
 
@@ -197,6 +198,8 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.selectProperty = function (property) {
+    dataManagerService.asset = property;
+    $location.path('/property');
   };
 
   var onSucc_change_watchlist = function (id, status) {

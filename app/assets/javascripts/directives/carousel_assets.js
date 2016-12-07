@@ -10,7 +10,7 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
     template:
     "<div class='asset-block'>" +
       "<a href='#'>" +
-      "<h3>{{asset.name}}</h3>" +
+      "<h3>{{i18nTransalteName(asset)}}</h3>" +
       "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
       "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)'>" +
         "<div class='light-blue-shadow'></div>" +
@@ -49,6 +49,15 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
     "</div>",
     link: function (scope, element, attrs) {
       scope.hovered_asset = '';
+
+      scope.i18nTransalteName = function (asset) {
+        var locale = localStorage.getItem('locale') || navigator.language;
+        if (locale === 'he') {
+          return asset.name_heb;
+        } else {
+          return asset.name;
+        }
+      }
 
       if (attrs.ngClick || attrs.href === '' || attrs.href === '#') {
         element.on('click', function (e) {
