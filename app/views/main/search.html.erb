@@ -103,7 +103,8 @@
             <div class="search-results-data">
               <div ng-repeat='asset in assets_results track by $index' id='asset{{asset.id}}'
                    ng-mouseenter='googleMaps.hoverOverAsset(asset)' 
-                   ng-mouseleave='googleMaps.unhoverOverAsset(asset)'>
+                   ng-mouseleave='googleMaps.unhoverOverAsset(asset)'
+                   ng-click="selectProperty(asset)">
                 <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'
                                 addtowatchlist='addToWatchlist(asset_id)'
                                 removefromwatchlist='removeFromWatchlist(asset_id)'></assets-results>
