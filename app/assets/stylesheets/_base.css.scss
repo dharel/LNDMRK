@@ -72,6 +72,13 @@ a {
   flex-flow: row nowrap;
 }
 
+.flexbox-row-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+
 .flexbox-colum-to-top-start {
   display: flex;
   justify-content: flex-start;
