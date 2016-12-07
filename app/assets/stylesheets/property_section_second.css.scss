@@ -61,3 +61,32 @@
     }
   }
 }
+
+.numbers-strip {
+  background-color: $turquoise;
+  width: 100%;
+  height: 120px;
+  .container.turquoise-strip {
+    @extend .flexbox-row-between;
+  }
+  .section-title {
+    width: 132px;
+    height: 124px;
+    background-color: $yello;
+    position: relative;
+    bottom: 2px;
+    color: $white;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    @extend .flexbox-row-center-center;
+  }
+  .image {
+    width: 858px;
+    height: 106px;
+    background-image: image-url('demo_img/numbers.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
