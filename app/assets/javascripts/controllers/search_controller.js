@@ -120,7 +120,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     var investment_type_checked = _.map(_.filter($scope.investment_type_buttons, function (type) {
       return type.checked === true;
     }), 'name');
-    if (investment_type_checked.length >= 0 && investment_type_checked.length < 3) {
+    if (investment_type_checked.length >= 0 && investment_type_checked.length < investment_type_checked.length + 1) {
       var results = [];
       _.forEach($scope.original_data, function (value) {
         if (_.includes(investment_type_checked, value.investment_type)) {
@@ -136,7 +136,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     var market_type_checked = _.map(_.filter($scope.market_type_checkboxes, function (type) {
       return type.checked === true;
     }), 'name');
-    if (market_type_checked.length > 0) {
+    if (market_type_checked.length >= 0 && market_type_checked.length < market_type_checked.length + 1) {
       var results = [];
       _.forEach($scope.original_data, function (value, key) {
         if (_.includes(market_type_checked, value.market_type)) {
@@ -152,7 +152,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     var property_type_checked = _.map(_.filter($scope.property_type_checkboxes, function (type) {
       return type.checked === true;
     }), 'name');
-    if (property_type_checked.length > 0) {
+    if (property_type_checked.length >= 0 && property_type_checked.length < property_type_checked.length + 1) {
       var results = [];
       _.forEach($scope.original_data, function (value, key) {
         if (value.property_type !== null) {
