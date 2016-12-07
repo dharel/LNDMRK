@@ -177,6 +177,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.filterResults = function () {
+    console.log($scope.assetsInFOV.length)
     $scope.assets_results = _.intersection(
       $scope.assetsInFOV,      
       filterByInvestmentType(), 

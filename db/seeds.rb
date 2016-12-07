@@ -47,7 +47,7 @@ Asset.create(
       total: '278709.12',
       description: 'Toyota Motor Manufacturing Canada Inc. (TMMC) is a Canada-based automotive manufacturer and is a wholly owned subsidiary of Toyota Motor Corporation. TMMC currently operates a plant in Cambridge, Ontario. In May, 2000, history was made when Toyota announced that TMMC was chosen as the first plant outside of Japan to manufacture the Lexus luxury brand of vehicles—the RX 330 SUV. Today, TMMC Cambridge South builds the third generation of that model, the RX 350, the most popular in the Lexus lineup, supplying all of North America. And, we’re still making history. On March 26, 2014, TMMC Cambridge also began building the RX 450h.',
       investment_type: 'max_dividends',
-      market_type: 'Other',
+      market_type: 'Primary',
       property_type: 'Industrial',
       rating: 'B+',
       price: '2.22',
@@ -370,39 +370,6 @@ Asset.create(
       gains: '15666',
       image: '/images/004.png'
     },
-    {
-      name: 'Chrysler Building, NYC',
-      name_heb: 'בניין קרייזלר',
-      address: 'Lexington Ave, New York, NY 10174, USA',
-      total: '1110',
-      description: 'The Chrysler Building is an Art Deco-style skyscraper located on the East Side of Midtown Manhattan in New York City, at the intersection of 42nd Street and Lexington Avenue in the Turtle Bay neighborhood. At 1,046 feet (319 m), the structure was the world\'s tallest building for 11 months before it was surpassed by the Empire State Building in 1931.[9] It is the tallest brick building in the world, albeit with a steel frame. After the destruction of the World Trade Center, it was again the second-tallest building in New York City until December 2007, when the spire was raised on the 1,200-foot (365.8 m) Bank of America Tower, pushing the Chrysler Building into third position. In addition, The New York Times Building, which opened in 2007, is exactly level with the Chrysler Building in height.[10] Both buildings were then pushed into fourth position, when the under-construction One World Trade Center surpassed their height, and then to fifth position by 432 Park Avenue which was completed in 2015.',
-      market_type: 'Secondary',
-      investment_type: 'max_dividends_appreciation',
-      property_type: 'Office',
-      rating: 'A+',
-      price: '16.53',
-      income: '81.29',
-      yield: '5.9',
-      established: '2008',
-      quality: '',
-      ltv: '0.17',
-      gps: '40.752128, -73.975571',
-      market: 'Fringe',
-      location: 'top in market',
-      tenants_financial_stability: 'high',
-      tenants_macro_stability: 'below GDP risk',
-      lease_contracts_length: 'over 5 years',
-      contracts_securities: 'external quaranto',
-      development_phase: 'full development',
-      occupancy_rate: 'over 98%',
-      market_occupancy_rate: 'over 90%',
-      user_owned: false,
-      user_watched: true,
-      value: '10551',
-      debt: '0',
-      gains: '15666',
-      image: '/images/004.png'
-    }
   ]
 )
 
