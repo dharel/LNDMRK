@@ -6,6 +6,8 @@ $dark-blue: rgb(16, 36, 71);
 $dark-shadow-blue: rgb(25, 70, 107);
 $blue: rgb(0, 122, 255);
 $blue-2: rgb(2, 128, 194);
+$light-blue: #EEFAFA;
+$light-medium-blue: #DDF2F5;
 $medium-blue: rgb(0, 219, 255);
 $dark-medium-blue: rgb(0, 165, 191);
 $turquoise: rgb(79, 195, 201);
@@ -91,4 +93,29 @@ a {
   justify-content: flex-start;
   align-items: flex-start;
   flex-flow: column nowrap;
+}
+
+.flexbox-colum-to-top-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.flexbox-wrap-column-start {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flexbox-wrap-row-start {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.util-bg-white {
+  background-color: $white;
 }

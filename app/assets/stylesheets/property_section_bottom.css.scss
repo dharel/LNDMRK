@@ -1,0 +1,84 @@
+@import "./_base.css.scss";
+//================================
+// property-page: 4th
+//================================
+
+.property-line {
+    height: 1px;
+    background-color: $grey;
+    position: relative;
+    top: 24px;
+    width: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .property-title {
+    width: 340px;
+    height: 31px;
+    margin: 7px auto 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    z-index: 2;
+    position: relative;
+    line-height: 29px;
+    border: 1px solid $dark-blue;
+    background-color: $white;
+    text-transform: uppercase;
+    color: $dark-turquoise;
+    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+  }
+
+.friends-who-invested {
+  background-color: $white;
+  text-transform: uppercase;
+  ul {
+    @extend .flexbox-wrap-row-start;
+    width: 100%;
+  }
+  li {
+    list-style-type: none;
+    .image {
+      width: 153px;
+      height: 153px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      &.place-1 { background-image: image-url('demo_img/investor-1.png'); }
+      &.place-2 { background-image: image-url('demo_img/investor-2.png'); }
+      &.place-3 { background-image: image-url('demo_img/investor-3.png'); }
+      &.place-4 { background-image: image-url('demo_img/investor-4.png'); }
+      &.place-5 { background-image: image-url('demo_img/investor-5.png'); }
+    }
+    h2 {
+      color: $dark-blue;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+}
+
+.property-documents {
+  text-transform: uppercase;
+  background-color: $white;
+  ul {
+    @extend .flexbox-wrap-column-start;
+    width: 49%;
+    height: 179px;
+  }
+  li {
+    list-style-type: none;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 40px;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: image-url('demo_img/doc.png');
+    }
+  }
+}

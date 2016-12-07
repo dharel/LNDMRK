@@ -1,0 +1,269 @@
+@import "./_base.css.scss";
+//================================
+// property-page: 3rd
+//================================
+.infographics {
+  height: 1600px;
+  overflow: hidden;
+  background-color: $white;
+  .container {
+    @extend .flexbox-row-between;
+  }
+
+  .line {
+    height: 1px;
+    background-color: $grey;
+    position: relative;
+    top: 24px;
+    width: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .title {
+    width: 207px;
+    height: 31px;
+    margin: 7px auto 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    z-index: 2;
+    position: relative;
+    line-height: 29px;
+    border: 1px solid $dark-blue;
+    background-color: $white;
+    text-transform: uppercase;
+    color: $dark-turquoise;
+    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+  }
+
+  .secondary-title {
+    color: $turquoise;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .column {
+    @extend .flexbox-colum-to-top-center;
+    //column lines - left in English 
+    &.lines {
+      width: 648px;
+      height: 1500px;
+      .transactions {
+        text-transform: uppercase;
+        width: 100%;
+        @extend .flexbox-colum-to-top-center;
+        h1 {
+          @extend .secondary-title;
+        }
+        .transaction-row {
+          border: 1px solid $dark-blue;
+          width: 100%;
+          height: 40px;
+          margin: 5px 0;
+          padding: 5px 15px;
+          @extend .flexbox-row-between;
+        }
+        .transaction-history-link {
+          width: 100%;
+          height: 40px;
+          margin: 5px 0;
+          padding: 5px 15px;
+          text-align: center;
+          color: $turquoise;
+          background-color: $light-blue;
+        }
+      }
+      .rank {
+        width: 100%;
+        h1 {
+          @extend .secondary-title;
+          text-align: center;
+        }
+        .letters-row {
+          @extend .flexbox-row-between;
+          .rank {
+            width: 97px;
+            height: 98px;
+            background-image: image-url('demo_img/b-3.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+          .ranks-options {
+            width: 462px;
+            height: 61px;
+            background-image: image-url('demo_img/letters.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      .points {
+        @extend .flexbox-colum-to-top-center;
+        width: 100%;
+        text-transform: uppercase;
+        
+        .points-row {
+          @extend .flexbox-row-between;
+          height: 40px;
+          width: 100%;
+          border: 1px solid $dark-blue;
+          margin: 5px 0;
+          box-sizing: border-box;
+          h2 {
+            font-size: 16px;
+            font-weight: 600;
+            height: 38px;
+            flex: 1 1 45%;
+            color: $black;
+            text-align: left;
+            line-height: 40px;
+            padding-left: 10px;
+            background-color: transparent;
+          }
+          h3 {
+            font-size: 16px;
+            font-weight: 600;
+            height: 38px;
+            flex: 1 1 30%;
+            color: $turquoise;
+            text-align: left;
+            line-height: 40px;
+            padding-left: 10px;
+            background-color: $light-blue;
+          }
+          h4 {
+            font-size: 16px;
+            font-weight: 600;
+            height: 38px;
+            flex: 1 1 25%;
+            color: $black;
+            text-align: center;
+            line-height: 40px;
+            background-color: $light-medium-blue;
+          }
+          &.header {
+            border: none;
+            h2, h3, h4 {
+              font-size: 16px;
+              font-weight: 600;
+              color: $turquoise;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+      .investment-management {
+        @extend .flexbox-colum-to-top-center;
+        width: 100%;
+        text-transform: uppercase;
+        .line {
+          width: 100%;
+        }
+        .title {
+
+        }
+        .invest-row-header {
+          text-align: center;
+          border: none;
+          font-size: 16px;
+          font-weight: 600;
+          color: $turquoise;
+          background-color: transparent;
+        }
+        .investment-mng-row {
+          @extend .flexbox-row-between;
+          height: 40px;
+          width: 100%;
+          border: 1px solid $dark-blue;
+          margin: 5px 0;
+          box-sizing: border-box;
+          h2 {
+            font-size: 16px;
+            font-weight: 600;
+            height: 38px;
+            flex: 1 1 30%;
+            color: $black;
+            text-align: left;
+            line-height: 40px;
+            padding-left: 10px;
+            background-color: transparent;
+          }
+          h3 {
+            font-size: 22px;
+            font-weight: 600;
+            height: 38px;
+            flex: 1 1 45%;
+            color: $turquoise;
+            text-align: center;
+            line-height: 40px;
+            padding-left: 10px;
+            background-color: transparent;
+          }
+          h4 {
+            font-size: 16px;
+            font-weight: 600;
+            height: 38px;
+            flex: 1 1 25%;
+            color: $black;
+            text-align: center;
+            line-height: 40px;
+            background-color: $light-medium-blue;
+          }
+        }
+      }
+    }
+    //column maps - right in English 
+    &.maps {
+      width: 540px;
+      height: 1500px;
+      text-transform: uppercase;
+      .price-graph {
+        width: 100%;
+        @extend .flexbox-colum-to-top-center;
+        h1 {
+          @extend .secondary-title;
+        }
+        .image {
+          width: 536px;
+          height: 460px;
+          background-image: image-url('demo_img/graph.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      .event-timeline {
+        width: 100%;
+        @extend .flexbox-colum-to-top-center;
+        h1 {
+          @extend .secondary-title;
+        }
+        .image {
+          width: 536px;
+          height: 387px;
+          background-image: image-url('demo_img/graph-2.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      .property-management {
+        width: 100%;
+        .line {
+          width: 100%;
+        }
+        .title {
+          
+        }
+        .image {
+          width: 502px;
+          height: 108px;
+          background-image: image-url('demo_img/manage.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+  }
+
+}
