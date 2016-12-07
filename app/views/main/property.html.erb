@@ -1,1 +1,49 @@
-{{asset}}
+<div ng-controller='PropertyController' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+  <header>
+    <div class='header-wrap'>
+      <ul class='left-side'>
+        <li><a href='/#/'><%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %></a></li> 
+        <li><a class='link-1' translate>how_it_works</a></li>
+        <li><a class='link-2' translate>about</a></li>
+        <li><a class='link-3' translate>learning</a></li>
+      </ul>
+      <ul class='right-side'>
+        <li ng-click='toggleLocalization("en")'><a class='link-4' ng-class='{"on": localizationSrv.locale === "en"}'>EN</a></li>
+        <span class='v-strip'>|</span>
+        <li ng-click='toggleLocalization("he")'><a class='link-5' ng-class='{"on": localizationSrv.locale === "he"}'>HE</a></li>
+        <li><a class='notification'></a></li>
+        <li><a class='user-image'></a></li>
+        <li><a class='user' href='#'>USER@LNDMRK.COM</a></li>
+        <li class='logout'><a class='link' href='/#/' translate>logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class='property-hero'>
+    <div class='background-img'></div>
+    <div class='color-gradient'></div>
+    <div class='titles'>
+      <h1>Azrieli towers, tlv</h1>
+      <h2>aczrieli center, derech menachem begin 132, tel aviv-yafo</h2>
+    </div>
+    <button class='asset-image next'><div class='arrow next'></div></button>
+    <button class='asset-image prev'><div class='arrow prev'></div></button>
+  </section>
+
+  <section class='second-row'>
+    <div class='container'>
+      <div class='property-details'>
+        <h1>property details</h1>
+        <p>The mixed-use development lies in the heart of the Embassy District of the capital, within the Central Business District, overlooking the central park of the city and adjacent to two five star hotels. Orientated to the South, the Olympic Residence offers unparalleled views over the Bodg Khan mountain range, as well as a unique cityscape. The Olympic Residence is a 35,000 sqm premium mixed-use development situated in the heart of Ulaanbaatar. As the fifth development from Asia Pacific Investment Partners ("APIP"), the Olympic is the most anticipated project in the luxury residential and retail sectors. The destination features 99 luxury apartments and 4 floors (6,742 sqm) of Grade A retail space. The Olympic Residence will feature: located in the Embassy District, next to the Shangri-La Hotel a view of National Children's Amusement Park 99 luxury apartments (sizes range from 84 sqm to 459 sqm) on the top 12 floors of the 16-story building 4 floors (6,742 sqm) of Grade A retail space 2 floors of underground heated garage projected yields of 14.2% NET p.a. high anticipated IRRs in excess of 25% over 80% of residential units already sold</p>
+      </div>
+      <div class='map-section'>
+        <div class='titles'>
+          <div class='street-view'>google street view</div>
+          <div class='location-map'>location map</div>
+        </div>
+        <div class='map-image'></div>
+      </div>
+    </div>
+  </section>
+
+  </div>

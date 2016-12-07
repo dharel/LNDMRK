@@ -64,3 +64,17 @@ a {
   filter: FlipH;
   -ms-filter: "FlipH";
 }
+
+.flexbox-row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+
+.flexbox-colum-to-top-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+}

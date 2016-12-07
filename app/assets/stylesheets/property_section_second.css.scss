@@ -1,0 +1,59 @@
+@import "./_base.css.scss";
+//================================
+// property-page: 2nd
+//================================
+
+
+.second-row {
+  .container {
+    position: static;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    .property-details {
+      flex: 1 1 auto;
+      padding: 20px;
+      h1 {
+        color: $turquoise;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      p {
+        color: $dark-blue;
+        font-size: 16px;
+        font-weight: 100;
+      }
+    }
+    .map-section {
+      flex: 0 0 auto;
+      @extend .flexbox-colum-to-top-start;
+      .titles {
+        @extend .flexbox-row-between;
+        width: 412px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+        .street-view {
+          background-color: $turquoise;
+          color: $white;
+          padding: 8px 28px 6px;
+        }
+        .location-map {
+          border: 2px solid $turquoise;
+          color: $turquoise;
+          padding: 8px 28px 6px;
+        }
+      }
+      .map-image {
+        width: 694px;
+        height: 376px;
+        border: 2px solid $turquoise;
+        background-image: image-url('demo_img/map.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
