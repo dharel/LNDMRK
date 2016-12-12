@@ -15,12 +15,6 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
     }
     AjaxService.sendMsg('GET', '/carousel_assets', {}, onSucc, onErr);
   }
-
-  var buildToggler = function (componentId) {
-    return function() {
-      $mdSidenav(componentId).toggle();
-    }
-  }
   
   $scope.init = function() {
     $scope.address= '';
@@ -34,12 +28,9 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
     var locale = localStorage.getItem('locale') || navigator.language;
     if (locale === 'he') {
       $scope.toggleLocalization('he');
-      $scope.componentId = 'right';
     } else {
       $scope.toggleLocalization('en');
-      $scope.componentId = 'left';
-    }  
-    $scope.toggleMenu = buildToggler('left');
+    }
   };
 
   $scope.searchForAsset = function () {
@@ -51,11 +42,6 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
-    if (val === 'he') {
-      $scope.toggleMenu = buildToggler('right');
-    } else {
-      $scope.toggleMenu = buildToggler('left');
-    }
   };
 
   $scope.toggleFilter = function (filter) {
@@ -82,4 +68,13 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
       }
     }
   };
+
+  var buildToggler = function (componentId) {
+    console.log('click')
+    return function() {
+      $mdSidenav(componentId).toggle();
+    }
+  }
+
+  $scope.toggleMenu = buildToggler('left');
 }]);
