@@ -1,3 +1,37 @@
-<div>
-  property mobile
+<div ng-controller="PropertyController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+  <md-sidenav class="md-sidenav-left menu" md-component-id="left"  md-whiteframe="4">
+    <div class='top'>
+      <li><a href="/#/">HOME</a></li>
+      <li><a href="/#/">HOW IT WORKS?</a></li>
+      <li><a href="/#/">ABOUT</a></li>
+      <li><a href="/#/">LEARNING</a></li>
+    </div>
+    <div class='bottom'>
+      <li class='lang'><div>EN</div> | <div>HE</div></li>
+      <li class='divider'></li>
+      <li class='user-image'></li>
+      <li>PORTFOLIO</li>
+      <li>USER@LNDMRK.COM</li>
+      <li class='divider'></li>
+      <li><a href="/#/">LOGOUT</a></li>        
+    </div>
+  </md-sidenav>
+
+  <header>
+    <div class='row-left'>
+      <button class='menu-hamburger' ng-click="toggleMenu()" type='button'></button>
+      <a class='logo' href='/#/'>
+        <%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %>
+      </a>      
+    </div>
+    <div class='row-right'>
+      <div class='logout'>
+        <a href="/#/" class='link' >Logout</a>
+      </div>      
+    </div>
+  </header>
+
+  <div class='body'>
+    
+  </div>
 </div>

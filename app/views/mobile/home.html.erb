@@ -1,6 +1,20 @@
 <div ng-controller="MainController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
   <md-sidenav class="md-sidenav-left menu" md-component-id="left"  md-whiteframe="4">
-
+    <div class='top'>
+      <li><a href="/#/">HOME</a></li>
+      <li><a href="/#/">HOW IT WORKS?</a></li>
+      <li><a href="/#/">ABOUT</a></li>
+      <li><a href="/#/">LEARNING</a></li>
+    </div>
+    <div class='bottom'>
+      <li class='lang'><div ng-click='toggleLocalization("en")'>EN</div> | <div ng-click='toggleLocalization("en")'>HE</div></li>
+      <li class='divider'></li>
+      <li class='user-image'></li>
+      <li>PORTFOLIO</li>
+      <li>USER@LNDMRK.COM</li>
+      <li class='divider'></li>
+      <li><a href="/#/">LOGOUT</a></li>        
+    </div>
   </md-sidenav>
 
   <header>

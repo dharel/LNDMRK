@@ -5,6 +5,61 @@
     width: 180px;
     min-width: 180px;
     max-width: 180px;
+    background-color: #1A2049;
+    position: absolute;
+    top: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+      li {
+        margin: 10px;
+        text-align: center;
+        color: white;
+        list-style: none;
+        cursor: pointer;
+        a {
+          color: white;
+          text-decoration: none;
+          outline: none;
+        }
+      }
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 30px;
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+
+      .lang {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+        color: white;
+      }
+
+      .divider {
+        width: 90%;
+        height: 1px;
+        background-color: #999999;
+        margin: 8px auto;
+      }
+
+      .user-image {
+        width: 80px;
+        height: 80px;  
+        background-color: black;        
+      }
+    }
+
   }
 
   header {
@@ -74,7 +129,7 @@
   .body {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
     top: 48px;
     left: 0;
 
