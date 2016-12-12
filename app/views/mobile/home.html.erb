@@ -1,5 +1,25 @@
-<div>
-  <a href="/#/dashboard">dashboard</a> <br>
-  <a href="/#/search">search</a> <br>
-  <a href="/#/property">property</a><br>
+<div ng-controller="MainController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+  <md-sidenav class="md-sidenav-left menu" md-component-id="left"  md-whiteframe="4">
+
+  </md-sidenav>
+
+  <header>
+    <div class='row-left'>
+      <button class='menu-hamburger' ng-click="toggleMenu()" type='button'></button>
+      <a class='logo' href='/#/'>
+        <%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %>
+      </a>      
+    </div>
+    <div class='row-right'>
+      <div class='logout'>
+        <a href="/#/" class='link' >Logout</a>
+      </div>      
+    </div>
+  </header>
+
+  <div class='body'>
+    <a href="/#/dashboard">dashboard</a> <br>
+    <a href="/#/search">search</a> <br>
+    <a href="/#/property">property</a><br>
+  </div>
 </div>
