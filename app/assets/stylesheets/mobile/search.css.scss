@@ -1,0 +1,154 @@
+@import "../_base.css.scss";
+
+.mobile {
+  .body {
+    width: 100vw;
+
+    .search-properties {
+      width: inherit;
+      height: auto;
+      position: fixed;
+      top: 48px;
+      box-shadow: 0 -2px 10px rgba(0, 122, 255, 0.6);
+      padding-top: 5px;
+      z-index: 10;
+      background-color: white;
+      outline: none;
+
+      .content {
+        width: inherit;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 10px;
+
+        .icon {
+          width: 30px;
+          height: 30px;
+          background-image: image-url('search.png');
+          background-size: contain;        
+        }
+        .title {
+          font-size: 14px;
+          color: $dark-blue;
+          font-weight: bold;
+        }
+      }
+
+      .filters-container {
+        width: inherit;
+        height: 75px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .filters {
+          width: inherit;
+          height: auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          position: relative;
+          z-index: 5;
+
+          .properties-button {
+            cursor: pointer;
+            width: auto;
+            height: 22px;
+            text-align: center;
+            border: 1px solid black;
+            font-size: 8px;
+            padding: 4px 5px;
+            &.left {
+              border-color: #fdc228;
+            }
+            &.middle {
+              border-color: #8c0c69;
+            }
+            &.right {
+              border-color: #1fd6ea;
+            }
+          }
+
+          .properties-button-left-selected {
+            background-color:  #fdc228;
+            color: white;
+            font-weight: 700;
+          }
+          .properties-button-middle-selected {
+            background-color: #8c0c69;
+            color: white;
+            font-weight: 700;
+          }
+          .properties-button-right-selected {
+            background-color: #1fd6ea;
+            color: white;
+            font-weight: 700;
+          }
+        }
+
+        .input {
+          width: inherit;
+          height: 25px;
+          position: relative;
+          z-index: 1;
+
+          padding: 0 15px;
+          .address-autocomplete-input {
+            width: 100%;
+            font-size: 12px;
+            height: 22px;
+            padding-left: 8px;
+          }
+        }
+      }
+    }
+
+    .navigator {
+      width: 100vw;
+      height: 60px;
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+
+      .button {
+        width: 100px;
+        height: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        .title {
+          color: white;
+          font-size: 12px;
+          font-weight: bold;
+          padding-top: 7px;
+        }
+
+        &.properties {
+          background-color: #8EDFE3;
+          .icon {
+            background-image: image-url('property.png');
+            width: 20px;
+            height: 20px;
+            margin-top: 5px;
+            background-size: 26px 26px;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+        &.map {
+          background-color: #0AC6CB;
+        }
+        &.filters {
+          background-color: #1A2049;
+        }
+      }
+    }
+  }
+}

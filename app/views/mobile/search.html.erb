@@ -1,37 +1,72 @@
 <div ng-controller="SearchController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
-  <md-sidenav class="md-sidenav-left menu" md-component-id="left"  md-whiteframe="4">
+  <md-sidenav class="{{menuClass}} menu" md-component-id="menu" ng-class='{"hebrew": localizationSrv.locale === "he"}'>
     <div class='top'>
-      <li><a href="/#/">HOME</a></li>
-      <li><a href="/#/">HOW IT WORKS?</a></li>
-      <li><a href="/#/">ABOUT</a></li>
-      <li><a href="/#/">LEARNING</a></li>
+      <li><a href="/#/" translate>home</a></li>
+      <li><a href="/#/" translate>how_it_works</a></li>
+      <li><a href="/#/" translate>about</a></li>
+      <li><a href="/#/" translate>learning</a></li>
     </div>
     <div class='bottom'>
-      <li class='lang'><div>EN</div> | <div>HE</div></li>
+      <li class='lang'><div ng-click='toggleLocalization("en")'>EN</div> | <div ng-click='toggleLocalization("he")'>HE</div></li>
       <li class='divider'></li>
       <li class='user-image'></li>
-      <li>PORTFOLIO</li>
-      <li>USER@LNDMRK.COM</li>
+      <li class='user-name'>PORTFOLIO</li>
+      <li class='user-email'>USER@LNDMRK.COM</li>
       <li class='divider'></li>
-      <li><a href="/#/">LOGOUT</a></li>        
+      <li><a href="/#/" translate>logout</a></li>        
     </div>
   </md-sidenav>
 
   <header>
     <div class='row-left'>
-      <button class='menu-hamburger' ng-click="toggleMenu()" type='button'></button>
+      <div class='menu-hamburger' ng-click="toggleMenu()" type='button'></div>
       <a class='logo' href='/#/'>
         <%= image_tag('lndmrk_logo.png',class: 'header-logo', width: '133', alt: 'LNDMRK') %>
       </a>      
     </div>
     <div class='row-right'>
       <div class='logout'>
-        <a href="/#/" class='link' >Logout</a>
+        <a href="/#/" class='link' translate>logout</a>
       </div>      
     </div>
   </header>
 
-  <div class='body'>
-    
+  <div class='body' ng-init='showFilters = false;'>
+    <div class='search-properties'>
+      <div class='content' ng-click='showFilters = !showFilters'> 
+        <div class='icon'></div>
+        <div class='title'>SEARCH PROPERTIES</div>
+      </div>
+      <div class='filters-container' ng-hide='showFilters === false'>
+        <div class='filters'>
+          <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">MAX DIVIDENDS</div>
+          <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">MAX APPRECIATION</div>
+          <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">MAX DIVIDENDS & APPRECIATION</div>
+        </div>
+
+        <div class='input'> 
+          <form ng-submit="filterResults(); showFilters = false;" id='searchForm'>
+            <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state" ng-model="searchForm.address">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="map" style="width: 100vw; height: 100vh; position: relative; top:43px" ng-init="googleMaps.init()"></div>
+
+    <div class='navigator'>
+      <div class='button properties'>
+        <div class='icon'></div>
+        <div class='title '>PROPERTIES</div>
+      </div>
+      <div class='button  map'>
+        <div class='icon'></div>
+        <div class='title '>MAP</div>
+      </div>
+      <div class='button filters'>
+        <div class='icon'></div>
+        <div class='title '>FILTERS</div>
+      </div>      
+    </div>
   </div>
 </div>

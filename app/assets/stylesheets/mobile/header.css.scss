@@ -2,13 +2,14 @@
 
 .mobile {
   width: 100vw;
-  
+  height: 100vh;
+
   .menu {
     width: 180px;
     min-width: 180px;
     max-width: 180px;
     background-color: #1A2049;
-    position: absolute;
+    position: fixed;
     top: 48px;
     display: flex;
     flex-direction: column;

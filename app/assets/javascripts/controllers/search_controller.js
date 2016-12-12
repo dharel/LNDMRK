@@ -10,7 +10,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     }
   }
 
-  $scope.toggleMenu = buildToggler('left');
+  $scope.toggleMenu = buildToggler('menu');
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
