@@ -1,4 +1,4 @@
-<div ng-controller='PropertyController' ng-class='{"hebrew": localizationSrv.locale === "he"}' class='util-bg-white'>
+<div ng-controller='PropertyController' ng-class='{"hebrew": localizationSrv.locale === "he"}' class='util-bg-white' ng-init='init()'>
   <header>
     <div class='header-wrap'>
       <ul class='left-side'>
@@ -20,11 +20,11 @@
   </header>
 
   <section class='property-hero'>
-    <div class='background-img'></div>
-    <div class='color-gradient'></div>
+    <div class='background-img' ng-class='getAssetBanner()'></div>
+    <div class='color-gradient' ng-class='getInvTypeClr(asset.investment_type)'></div>
     <div class='titles'>
-      <h1>Azrieli towers, tlv</h1>
-      <h2>Azrieli center, derech menachem begin 132, tel aviv-yafo</h2>
+      <h1>{{asset.name}}</h1>
+      <h2>{{asset.address}}</h2>
     </div>
     <button class='asset-image next'><div class='arrow next'></div></button>
     <button class='asset-image prev'><div class='arrow prev'></div></button>
@@ -34,7 +34,7 @@
     <div class='container'>
       <div class='property-details'>
         <h1>property details</h1>
-        <p>The mixed-use development lies in the heart of the Embassy District of the capital, within the Central Business District, overlooking the central park of the city and adjacent to two five star hotels. Orientated to the South, the Olympic Residence offers unparalleled views over the Bodg Khan mountain range, as well as a unique cityscape. The Olympic Residence is a 35,000 sqm premium mixed-use development situated in the heart of Ulaanbaatar. As the fifth development from Asia Pacific Investment Partners ("APIP"), the Olympic is the most anticipated project in the luxury residential and retail sectors. The destination features 99 luxury apartments and 4 floors (6,742 sqm) of Grade A retail space. The Olympic Residence will feature: located in the Embassy District, next to the Shangri-La Hotel a view of National Children's Amusement Park 99 luxury apartments (sizes range from 84 sqm to 459 sqm) on the top 12 floors of the 16-story building 4 floors (6,742 sqm) of Grade A retail space 2 floors of underground heated garage projected yields of 14.2% NET p.a. high anticipated IRRs in excess of 25% over 80% of residential units already sold</p>
+        <p>{{asset.description}}</p>
       </div>
       <div class='map-section'>
         <div class='titles'>
@@ -48,8 +48,35 @@
 
   <section class='numbers-strip'>
     <div class='container turquoise-strip'>
-      <div class='section-title'>income investment</div>
-      <div class='image'></div>
+      <div class='section-title'
+           ng-class='getInvTypeClr(asset.investment_type)'>
+           {{asset.investment_type_short}} investment</div>
+      <div class='attributes-wrap'>
+        <div class='attribute'>
+          <span>rank</span>
+          <h1 ng-class='getRatingColor(asset.rating)'>{{asset.rating}}</h1>
+        </div>
+        <div class='attribute'>
+          <span>price per m&sup2;</span>
+          <h2>${{asset.price * 1000}}</h2>
+        </div>
+        <div class='attribute'>
+          <span>income per m&sup2;</span>
+          <h2>${{asset.income}}</h2>
+        </div>
+        <div class='attribute'>
+          <span>yeild</span>
+          <h2>{{asset.yield}}%</h2>
+        </div>
+        <div class='attribute'>
+          <span>established at</span>
+          <h2>{{asset.established}}%</h2>
+        </div>
+        <div class='attribute'>
+          <span>up to</span>
+          <h2>{{asset.ltv}}% <i>ltv</i></h2>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -81,10 +108,12 @@
             view full transaction history on this property
           </div>
         </div>
-        <div class='rank'>
+        <div class='ranking'>
           <h1>rank</h1>
           <div class='letters-row'>
-            <div class='rank'></div><div class='ranks-options'></div>
+            <div class='rank'
+                 ng-class='getRatingColor(asset.rating)'>{{asset.rating}}</div>
+            <div class='ranks-options'></div>
           </div>
         </div>
         <div class='points'>

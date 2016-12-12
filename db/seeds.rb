@@ -8,7 +8,7 @@ InvestmentType.create([
 Asset.create(
   [
     {
-      name: 'The Belcher\'s',
+      name: 'The Belcher\'s, Hong Kong',
       name_heb: 'מגדלי הבלצ\'רס',
       address: '89 Pok Fu Lam Road, Pok Fu Lam/Western Mid-levels, Hong Kong',
       total: '271453',
@@ -38,10 +38,11 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/001.png'
+      image: '/investment_assets/01_The_Belchers_2_260-400.jpg',
+      banner_images: ['/investment_assets/01_The_Belchers.jpg']
     },
     {
-      name: 'Shanghai World Financial Center, China',
+      name: 'Shanghai World Financial Center, Shanghai',
       name_heb: 'מרכז הסחר של שנחאי',
       address: '100 Century Ave, LuJiaZui, Pudong Xinqu, Shanghai Shi, China, 200120',
       total: '381600',
@@ -70,8 +71,8 @@ Asset.create(
       user_watched: false,
       value: '10551',
       debt: '0',
-      gains: '15666',
-      image: '/images/002.png'
+      image: '/investment_assets/02_Shanghai_World_Financial_Center_3_260-400.jpg',
+      banner_images: ['/investment_assets/02_Shanghai_World_Financial_Center_1.jpg', '/investment_assets/02_Shanghai_World_Financial_Center_2.jpg']
     },
     {
       name: 'Chrysler Building, NYC',
@@ -104,10 +105,11 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/003.png'
+      image: '/investment_assets/03_Chrysler_Building_2_260-400.jpg',
+      banner_images: ['/investment_assets/03_Chrysler_Building_1.jpg']
     },
     {
-      name: 'One World Trade Center, New York',
+      name: 'One World Trade Center, NYC',
       name_heb: 'מרכז הסחר וואן',
       address: '285 Fulton St, New York, NY 10007, USA',
       total: '325279',
@@ -137,7 +139,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/004.png'
+      image: '/investment_assets/04_One_World_Trade_Center_3_260-400.jpg',
+      banner_images: ['/investment_assets/04_One_World_Trade_Center_1.jpg', '/investment_assets/04_One_World_Trade_Center_2.jpg']
     },
     {
       name: 'Burj Khalifa, Dubai',
@@ -170,10 +173,11 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/005.png'
+      image: '/investment_assets/05_BurjKhalifa_3_260-400.jpg',
+      banner_images: ['/investment_assets/05_BurjKhalifa_1.jpg', '/investment_assets/05_BurjKhalifa_2.jpg']
     },
     {
-      name: 'Jeddah Tower',
+      name: 'Jeddah Tower, Jeddah',
       name_heb: 'מגדל ג\'דהה',
       address: 'Jeddah Tower, Al-Sharafeyah, Jeddah 22234, Saudi Arabia',
       total: '243886',
@@ -202,15 +206,15 @@ Asset.create(
       user_watched: true,
       value: '10551',
       debt: '0',
-      gains: '15666',
-      image: '/images/06_Jeddah_Tower_1_26-400.jpg'
+      image: '/investment_assets/06_Jeddah_Tower_2_26-400.jpg',
+      banner_images: ['/investment_assets/06_Jeddah_Tower_1.jpg']
     },
-     {
-      name: 'Azrieli towers',
+    {
+      name: 'Azrieli Towers, TLV',
       name_heb: 'טייפה מגדלי עזריאלי',
       address: 'Derech Menachem Begin 132, Tel Aviv-Yafo',
       total: '412500',
-      description: '',
+      description: 'Azrieli Center is a complex of skyscrapers in Tel Aviv. At the base of the center lies a large shopping mall. The center was originally designed by Israeli-American architect Eli Attia, and after he fell out with the developer of the center David Azrieli (after whom it is named), completion of the design was passed on to the Tel Aviv firm of Moore Yaski Sivan Architects.',
       market_type: 'Primary',
       investment_type: 'max_dividends',
       property_type: 'Retail,Office,Hotel',
@@ -235,8 +239,8 @@ Asset.create(
       user_watched: true,
       value: '10551',
       debt: '0',
-      gains: '15666',
-      image: '/images/007.png'
+      image: '/investment_assets/07_Azrieli_Center_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Toyota Motor Manufacturing Canada Cambridge',
@@ -269,7 +273,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/008.png'
+      image: '/investment_assets/07_Azrieli_Center_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Sears Tower, Chicago, Illinois, United States',
@@ -302,7 +307,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/009.png'
+      image: '/investment_assets/07_Azrieli_Center_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'The Shard, London',
@@ -335,7 +341,8 @@ Asset.create(
       value: '1051',
       debt: '0',
       gains: '15666',
-      image: '/images/010.png'
+      image: '/investment_assets/07_Azrieli_Center_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'opel plant in kaiserslautern germany',
@@ -368,7 +375,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/011.png'
+      image: '/investment_assets/07_Azrieli_Center_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Olympic Residence',
@@ -401,7 +409,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/12_Olympic_Residence.jpg'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Johannesburg International Airport Hotel Development',
@@ -434,7 +443,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/013.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'columbia university Wien Hall',
@@ -467,7 +477,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/014.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Lloyds Building, London',
@@ -500,7 +511,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/015.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Petronas Towers, Kuala Lumpur',
@@ -533,7 +545,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/016.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'International Finance Centre, Hong Kong',
@@ -566,7 +579,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/017.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'World Tower, Sydney',
@@ -574,7 +588,7 @@ Asset.create(
       address: 'World Square, 95 Liverpool St, Sydney NSW 2000, Australia',
       total: '75565',
       description: 'World Tower is a 230 m (750 ft) skyscraper located at 91 Liverpool Street, Sydney, Australia. The building is the tallest residential building in the city since 2004. Construction began in 2001 and was completed in 2004. It was constructed by Meriton Apartments Pty Ltd, which is owned by developer Harry Triguboff. The architect was Nation Fender Katsalidis and the structural engineer was Connell Mott MacDonald.[1] World Tower was the 2004 Bronze recipient of the Emporis Skyscraper Award, and was briefly Australia\'s tallest residential building. World Tower consists of 75 above-ground levels, 10 basement levels, 15 lifts and 701 residential units. Each of the three residential sections of the building has a pool, spa, sauna, gymnasium, games room, and a private 24-seat theatrette. The pool and spa areas on levels 38 and 61 offer 180° views of Sydney. There is also a childcare centre located in the building. Situated at the foot of World Tower is World Square, a shopping complex with a Coles supermarket, several food outlets, and other specialty stores. Public buses stop outside World Square, and it is close to Town Hall and Museum railway station.',
-      investment_type: 'max_dividends',      
+      investment_type: 'max_dividends',
       market_type: 'Primary',
       property_type: 'Retail,Office,Multi Family',
       rating: 'A+',
@@ -599,7 +613,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/018.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Empire State Building',
@@ -632,7 +647,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/019.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Taipei 101, Taiwan',
@@ -665,7 +681,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/020.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'The Spear O Ranch',
@@ -698,7 +715,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/021.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'City Hospital No. 40 complex',
@@ -726,12 +744,13 @@ Asset.create(
       development_phase: 'full development',
       occupancy_rate: 'over 98%',
       market_occupancy_rate: 'over 90%',
-      user_owned: false,
-      user_watched: true,
+      user_owned: true,
+      user_watched: false,
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/022.png'
+      image: '/investment_assets/12_Olympic_Residence_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Phoenix Market city (Chennai)',
@@ -764,7 +783,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/23_Phoenix_Market_1_260-400.jpg'
+      image: '/investment_assets/23_Phoenix_Market_1_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Ukraine farmland',
@@ -797,7 +817,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/24_Ukraine_farmland_1_260-400.jpg'
+      image: '/investment_assets/24_Ukraine_farmland_1_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Teigen Ranch',
@@ -830,7 +851,8 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/25_Teigen_2_260-400.jpg'
+      image: '/investment_assets/25_Teigen_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
     },
     {
       name: 'Mall of Georgia',
@@ -863,8 +885,9 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/026.png'
-    },
+      image: '/investment_assets/25_Teigen_2_260-400.jpg',
+      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
+    }
   ]
 )
 

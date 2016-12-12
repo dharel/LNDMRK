@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20161130091517) do
     t.float    "debt"
     t.float    "gains"
     t.string   "image"
+    t.text     "banner_images",               default: [],               array: true
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
   end

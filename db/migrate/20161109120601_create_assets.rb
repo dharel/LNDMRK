@@ -32,6 +32,7 @@ class CreateAssets < ActiveRecord::Migration[5.0]
       t.float :debt
       t.float :gains
       t.string :image
+      t.text  :banner_images, array: true, default: []
       t.timestamps
     end
   end
