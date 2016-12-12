@@ -203,7 +203,7 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/006.png'
+      image: '/images/06_Jeddah_Tower_1_26-400.jpg'
     },
      {
       name: 'Azrieli towers',
@@ -401,7 +401,7 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/012.png'
+      image: '/images/12_Olympic_Residence.jpg'
     },
     {
       name: 'Johannesburg International Airport Hotel Development',
@@ -734,7 +734,7 @@ Asset.create(
       image: '/images/022.png'
     },
     {
-      name: 'Phoenix Marketcity (Chennai)',
+      name: 'Phoenix Market city (Chennai)',
       name_heb: 'קניון פיניקס',
       address: '142, Velachery main road, Velachery',
       total: '92903.04',
@@ -764,7 +764,7 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/023.png'
+      image: '/images/23_Phoenix_Market_1_260-400.jpg'
     },
     {
       name: 'Ukraine farmland',
@@ -797,7 +797,7 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/024.png'
+      image: '/images/24_Ukraine_farmland_1_260-400.jpg'
     },
     {
       name: 'Teigen Ranch',
@@ -830,7 +830,7 @@ Asset.create(
       value: '10551',
       debt: '0',
       gains: '15666',
-      image: '/images/025.png'
+      image: '/images/25_Teigen_2_260-400.jpg'
     },
     {
       name: 'Mall of Georgia',
