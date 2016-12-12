@@ -42,6 +42,11 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
+    if (val === 'he') {
+      $scope.menuClass= 'md-sidenav-right';
+    } else {
+      $scope.menuClass= 'md-sidenav-left';
+    }
   };
 
   $scope.toggleFilter = function (filter) {
@@ -76,5 +81,5 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
     }
   }
 
-  $scope.toggleMenu = buildToggler('left');
+  $scope.toggleMenu = buildToggler('menu');
 }]);

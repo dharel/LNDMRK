@@ -21,6 +21,7 @@
 
 en:
   hello: "Hello world"
+  home: 'home'
   how_it_works: "how it works"
   about: "about"
   learning: "learning"
