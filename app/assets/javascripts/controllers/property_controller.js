@@ -70,4 +70,13 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
     return '/investment_assets/' + assetName +'_' + image;
   };
 
+
+  var buildToggler = function (componentId) {
+    console.log('click')
+    return function() {
+      $mdSidenav(componentId).toggle();
+    }
+  }
+
+  $scope.toggleMenu = buildToggler('left');
 }]);

@@ -16,6 +16,8 @@
 //= require angular-ui-router 
 //= require angular-translate.min
 //= require angular-translate-loader-static-files.min
+//= require angular-aria.min
+//= require angular-material.min
 //= require ui-bootstrap-tpls-2.2.0.min
 //= require lodash
 //= require ramda.min

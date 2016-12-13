@@ -1,6 +1,16 @@
-angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService','$translate','localizationSrv', function ($scope, AjaxService, $translate, localizationSrv) {
+angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService','$translate','localizationSrv','$mdSidenav', function ($scope, AjaxService, $translate, localizationSrv, $mdSidenav) {
   
   $scope.localizationSrv = localizationSrv;
+
+  var buildToggler = function (componentId) {
+    console.log('click')
+    return function() {
+      $mdSidenav(componentId).toggle();
+    }
+  }
+
+  $scope.toggleMenu = buildToggler('left');
+
   $scope.init = function () {
     $scope.expanded = {
       isOpen: false,
@@ -72,6 +82,11 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
+    if (val === 'he') {
+      $scope.menuClass= 'md-sidenav-right';
+    } else {
+      $scope.menuClass= 'md-sidenav-left';
+    }
   };
 
   $scope.sumProperty = function (type, collection) {

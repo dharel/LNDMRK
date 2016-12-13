@@ -1,7 +1,16 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$location','$rootScope' , 'dataManagerService',
-  function ($scope, AjaxService, googleMaps, $timeout, $location, $rootScope, dataManagerService) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$location','$rootScope' , 'dataManagerService', '$mdSidenav',
+  function ($scope, AjaxService, googleMaps, $timeout, $location, $rootScope, dataManagerService, $mdSidenav) {
   
   $scope.googleMaps = googleMaps;
+
+  var buildToggler = function (componentId) {
+    console.log('click')
+    return function() {
+      $mdSidenav(componentId).toggle();
+    }
+  }
+
+  $scope.toggleMenu = buildToggler('menu');
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;

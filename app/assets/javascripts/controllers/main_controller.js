@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv', function ($scope, $location, AjaxService, $translate, localizationSrv) {
+angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv','$mdSidenav', function ($scope, $location, AjaxService, $translate, localizationSrv, $mdSidenav) {
   'use strict';
 
   $scope.localizationSrv = localizationSrv;
@@ -42,6 +42,11 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
+    if (val === 'he') {
+      $scope.menuClass= 'md-sidenav-right';
+    } else {
+      $scope.menuClass= 'md-sidenav-left';
+    }
   };
 
   $scope.toggleFilter = function (filter) {
@@ -68,4 +73,13 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
       }
     }
   };
+
+  var buildToggler = function (componentId) {
+    console.log('click')
+    return function() {
+      $mdSidenav(componentId).toggle();
+    }
+  }
+
+  $scope.toggleMenu = buildToggler('menu');
 }]);

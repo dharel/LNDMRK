@@ -1,6 +1,7 @@
 
 he:
   hello: "שלום עולם"
+  home: 'בית'
   how_it_works: "איך זה עובד?"
   about: "אודות"
   learning: "כלי לימוד"
