@@ -122,6 +122,7 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        padding: 0 5px;
 
         .title {
           color: white;
@@ -144,9 +145,27 @@
         }
         &.map {
           background-color: #0AC6CB;
+          .icon {
+            background-image: image-url('mobile-map.png');
+            width: 20px;
+            height: 20px;
+            margin-top: 5px;
+            background-size: 26px 26px;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
         }
         &.filters {
           background-color: #1A2049;
+          .icon {
+            background-image: image-url('mobile-filter.png');
+            width: 20px;
+            height: 20px;
+            margin-top: 5px;
+            background-size: 26px 26px;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
         }
       }
     }
