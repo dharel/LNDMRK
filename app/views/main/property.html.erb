@@ -19,16 +19,7 @@
     </div>
   </header>
 
-  <section class='property-hero'>
-    <div class='background-img' ng-class='getAssetBanner()'></div>
-    <div class='color-gradient' ng-class='getInvTypeClr(asset.investment_type)'></div>
-    <div class='titles'>
-      <h1>{{asset.name}}</h1>
-      <h2>{{asset.address}}</h2>
-    </div>
-    <button class='asset-image next'><div class='arrow next'></div></button>
-    <button class='asset-image prev'><div class='arrow prev'></div></button>
-  </section>
+  <banner-carousel asset='asset'></banner-carousel>
 
   <section class='second-row'>
     <div class='container'>
@@ -252,3 +243,5 @@
   </section>
 
   </div>
+
+  <big-footer></big-footer>

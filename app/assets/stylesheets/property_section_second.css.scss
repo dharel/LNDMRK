@@ -15,7 +15,8 @@
     width: 1195px;
     .property-details {
       flex: 1 1 auto;
-      padding: 62px 37px 20px 0;
+      padding: 62px 37px 0 0;
+      height: 477px;
       h1 {
         color: $turquoise;
         font-size: 18px;
@@ -28,6 +29,8 @@
         font-size: 14px;
         font-weight: 100;
         line-height: 1.6;
+        height: 355px;
+        overflow-y: auto;
       }
     }
     .map-section {

@@ -64,10 +64,13 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
     $translate.use(val);
   };
 
-  $scope.getAssetBanner = function () {
-    var assetName = '';
-    var image = 1;
-    return '/investment_assets/' + assetName +'_' + image;
-  };
+  // $scope.getAssetBanner = function () {
+  //   var assetName = '';
+  //   var image = 1;
+  //   return '/investment_assets/' + assetName +'_' + image;
+  // };
+    $scope.banner_img_num = 0;
+
+    
 
 }]);
