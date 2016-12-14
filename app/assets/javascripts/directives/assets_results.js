@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','dataManagerService', function ($timeout, AjaxService, dataManagerService) {
+angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','dataManagerService','$location', function ($timeout, AjaxService, dataManagerService, $location) {
   'use strict';
 
   return {

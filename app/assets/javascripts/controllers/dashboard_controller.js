@@ -1,4 +1,4 @@
-angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService','$translate','localizationSrv','$mdSidenav', function ($scope, AjaxService, $translate, localizationSrv, $mdSidenav) {
+angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxService','$translate','localizationSrv','$mdSidenav','dataManagerService','$location', function ($scope, AjaxService, $translate, localizationSrv, $mdSidenav, dataManagerService, $location) {
   
   $scope.localizationSrv = localizationSrv;
 
@@ -110,5 +110,10 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     var should_be_from_top = false;
     if($scope.watched_data.length > 2){ should_be_from_top = index > $scope.watched_data.length - 3; }
     return should_be_from_top;
+  };
+
+  $scope.selectAsset = function (asset){
+    dataManagerService.asset = asset;
+    $location.path('/property');
   };
 }]);

@@ -233,7 +233,7 @@
           <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)'>
             <div class='remove-from-watchlist'></div>
           </div>
-          <div class='row-data my-watchlist'>
+          <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
             <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
             <div class='data name' style='width: 11.66%'>{{asset.name}}</div>
             <div class='partition'></div>
