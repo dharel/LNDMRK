@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('bannerCarousel', ['$timeout', function ($timeout) {
+angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', function ($timeout,$window) {
   'use strict';
 
   return {
