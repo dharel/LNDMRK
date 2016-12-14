@@ -51,7 +51,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
         "<div class='my-list-checkbox' ng-click='changeMyWatchlist(asset.id)'>" +
           "<span ng-show='asset.user_watched'><i id='add-to-my-list-checkbox' class='fa fa-check'></i></span>" +
         "</div>" +
-        "<span class='my-list-checkbox-text' ng-click='changeMyWatchlist(asset.id)'>ADD TO MY LIST</span>" +
+        "<span class='my-list-checkbox-text' ng-click='changeMyWatchlist(asset.id)' >ADD TO MY LIST</span>" +
       "</div>" +
     "</div>" +
     "<div class='separate-properties'></div>",
@@ -60,7 +60,6 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
 
       if (attrs.ngClick || attrs.href === '' || attrs.href === '#') {
         element.on('click', function (e) {
-          console.log(e);
           e.preventDefault();
         });
       }
@@ -109,6 +108,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
             return 'max_dividends';
         }
       };
+      
       scope.changeMyWatchlist = function (asset_id) {
         if(scope.asset.user_watched) {
           scope.removefromwatchlist({'asset_id': asset_id});
