@@ -30,7 +30,7 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   };
 
   $scope.getRatingColor = function () {
-    // if(!$scope.asset.rating){return;}
+    if(!$scope.asset.rating){return;}
     switch ($scope.asset.rating)
     {
       case 'A':
