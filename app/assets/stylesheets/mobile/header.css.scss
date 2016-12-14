@@ -115,12 +115,14 @@
         width: 100px;
         height: inherit;
 
-        img {
-          width: inherit;
-          height: inherit;
+        .header-logo {
+          width: 100px;
+          height: 45px;
           background-size: contain;
-          display: block;
-          margin: 0 auto;
+          background-image: image-url('lndmrk_logo.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          margin-left: 5px;
         }
       }
 
@@ -130,6 +132,8 @@
         display: flex;
         align-items: center;
         border: 0;
+
+        &:hover { background-color: unset; }
 
         .link {
           display: block;

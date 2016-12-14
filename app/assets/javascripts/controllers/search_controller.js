@@ -91,6 +91,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     });
     $scope.searchForm = { address: '' };
     getCarousellData();
+    $scope.mobileVisiblePanel = 'map';
   };
 
   $scope.sortResult = function (sort_option) {

@@ -82,11 +82,6 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
-    if (val === 'he') {
-      $scope.menuClass= 'md-sidenav-right';
-    } else {
-      $scope.menuClass= 'md-sidenav-left';
-    }
   };
 
   $scope.sumProperty = function (type, collection) {
