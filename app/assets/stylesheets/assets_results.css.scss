@@ -45,6 +45,7 @@
   margin: 40px auto 0;
   box-sizing: border-box;
   padding: 9px;
+  position: relative;
   &.right { padding-left: 9px; }
   &.left { padding-left: 2px; }
   &.greyed {
@@ -87,7 +88,8 @@
 
 .carousel-inner-wrap {
   height:100%;
-  width: 2600px;
+  width: 1680px;
+  // width: 2600px;
   padding: 0;
   box-sizing: border-box;  
   text-align: left;

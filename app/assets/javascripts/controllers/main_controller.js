@@ -8,6 +8,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
   var getCarousellData = function () {
     var onSucc = function (data) {
       $scope.assets = data;
+      $scope.assets_for_homeCarousel = $scope.assets.slice(0,7);
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets[0];
     };

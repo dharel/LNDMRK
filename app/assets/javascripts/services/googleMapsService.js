@@ -108,14 +108,31 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     var lat = Number(asset.gps.split(',')[0]);
     var lng = Number(asset.gps.split(',')[1]);
 
-
     var panorama = new google.maps.StreetViewPanorama(
-    document.getElementById('pano'), {
+    document.getElementById('property-map'), {
       position: {lat: lat, lng: lng},
       pov: {heading: 165, pitch: 0},
       motionTracking: false
     });
-  }
+  };
+
+  var initSimpleMap = function (asset) {
+    if (!asset.gps || asset.gps === '') return;
+    var lat = Number(asset.gps.split(',')[0]);
+    var lng = Number(asset.gps.split(',')[1]);
+
+    var panorama = new google.maps.Map(document.getElementById('property-map'), {
+      center: {lat: lat, lng: lng},
+      zoom: 17,
+      mapTypeId: 'roadmap'
+    });
+
+    // window.map = new google.maps.Map(document.getElementById('map'), {
+    //   center: {lat: 2.811371, lng: 1.757813},
+    //   zoom: 2,
+    //   mapTypeId: 'roadmap'
+    // });
+  };
 
   var resetAssetMarkers = function () {
     for (var i = 0; i < markers.length; i++) {
@@ -186,6 +203,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     manualSearch: manualSearch,
     hoverOverAsset: hoverOverAsset,
     unhoverOverAsset: unhoverOverAsset,
-    initStreetView: initStreetView
+    initStreetView: initStreetView,
+    initSimpleMap: initSimpleMap
   };
 }]);

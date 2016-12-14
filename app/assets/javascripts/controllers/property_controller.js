@@ -1,5 +1,9 @@
-angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxService','$translate','localizationSrv','dataManagerService', function ($scope, AjaxService, $translate, localizationSrv, dataManagerService) {
- var getShortInvestmentType = function() {
+angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxService','$translate','localizationSrv','dataManagerService','googleMaps',
+  function ($scope, AjaxService, $translate, localizationSrv, dataManagerService, googleMaps) {
+ 
+  $scope.googleMaps = googleMaps;
+
+  var getShortInvestmentType = function() {
     if(!$scope.asset){ return; }
     if($scope.asset.investment_type === 'max_dividends'){
       $scope.asset.investment_type_short = 'income';
@@ -16,6 +20,9 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
 
     var locale = localStorage.getItem('locale');
     $scope.toggleLocalization(locale || 'en');
+
+    $scope.googleMaps.initStreetView($scope.asset);
+    $scope.map_type_visible = 'street';
   };
 
   $scope.getInvTypeClr = function (type) {
@@ -64,15 +71,15 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
     $translate.use(val);
   };
 
-  // $scope.getAssetBanner = function () {
-  //   var assetName = '';
-  //   var image = 1;
-  //   return '/investment_assets/' + assetName +'_' + image;
-  // };
-    $scope.banner_img_num = 0;
+  $scope.openStreetview = function () {
+    $scope.googleMaps.initStreetView($scope.asset);
+    $scope.map_type_visible = 'street';
+  };
 
-    
-
+  $scope.openGooglemaps = function () {
+    $scope.googleMaps.initSimpleMap($scope.asset);
+    $scope.map_type_visible = 'map';
+  };
 
   var buildToggler = function (componentId) {
     console.log('click')

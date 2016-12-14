@@ -29,10 +29,10 @@
       </div>
       <div class='map-section'>
         <div class='titles'>
-          <div class='street-view'>google street view</div>
-          <div class='location-map'>location map</div>
+          <div class='street-view' ng-click='openStreetview()' ng-class='{"chosen": map_type_visible === "street"}'>google street view</div>
+          <div class='location-map' ng-click='openGooglemaps()' ng-class='{"chosen": map_type_visible === "map"}'>location map</div>
         </div>
-        <div class='map-image'></div>
+        <div class='map-image' id='property-map'></div>
       </div>
     </div>
   </section>

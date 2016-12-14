@@ -78,7 +78,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
       };
 
       scope.isLast = function(){
-        return scope.firstShowed == 5;
+        return scope.firstShowed == 2;
       };
 
       scope.innerLimit = 1105;

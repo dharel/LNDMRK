@@ -48,11 +48,20 @@
         font-size: 14px;
         letter-spacing: 1.5px;
         height: 40px;
+        cursor: pointer;
         .street-view {
-          background-color: $turquoise;
-          color: $white;
+          border: 2px solid $turquoise;
+          border-bottom: none;
+          color: $turquoise;
           padding: 11px 28px 7px;
           height: inherit;
+          outline: 0;
+          &.chosen {
+            border:none;
+            background-color: $turquoise;
+            color: $white;
+          }
+          &:focus { outline: 0;}
         }
         .location-map {
           border: 2px solid $turquoise;
@@ -60,15 +69,19 @@
           color: $turquoise;
           padding: 11px 28px 7px;
           height: inherit;
+          outline: 0;
+          &.chosen {
+            border:none;
+            background-color: $turquoise;
+            color: $white;
+          }
+          &:focus { outline: 0;}
         }
       }
       .map-image {
         width: 694px;
         height: 376px;
         border: 2px solid $turquoise;
-        background-image: image-url('demo_img/map.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
       }
     }
   }
