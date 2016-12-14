@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv','$mdSidenav','googleMaps', function ($scope, $location, AjaxService, $translate, localizationSrv, $mdSidenav, googleMaps) {
+angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv','googleMaps', function ($scope, $location, AjaxService, $translate, localizationSrv, googleMaps) {
   'use strict';
 
   $scope.localizationSrv = localizationSrv;
@@ -53,6 +53,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
   $scope.getFilteredBg = function () {
     if ((!$scope.mapFilters.max_dividends && !$scope.mapFilters.growth && !$scope.mapFilters.max_dividends_growth)
       || $scope.mapFilters.max_dividends && $scope.mapFilters.growth && $scope.mapFilters.max_dividends_growth) {
+        
       return {"background-image": "url('images/all_dots-01.png')"};
     } else {
       if ($scope.mapFilters.max_dividends && $scope.mapFilters.growth) {

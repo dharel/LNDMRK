@@ -5,6 +5,8 @@
 .hero-map {
   height: 340px;
   overflow: hidden;
+  z-index: 1;
+  position: relative;
 
   .title {
     padding-left: 50px;

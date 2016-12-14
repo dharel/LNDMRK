@@ -1,10 +1,4 @@
 <div ng-controller='MainController' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
-
-<section class='background-homepage'>
-  <div class='map-image'></div>
-  <div class='map-filter-image' ng-style='getFilteredBg()'></div>
-</section>
-
 <header>
   <div class='header-wrap'>
     <ul class='left-side'>
@@ -23,6 +17,13 @@
     </ul>
   </div>
 </header>
+
+
+<section class='background-homepage'>
+  <div class='map-image'></div>
+  <div class='map-filter-image' ng-style='getFilteredBg()'></div>
+</section>
+
 
 <section class='hero-map'>
   <h1 class='title' translate> map_title </h1>
