@@ -30,7 +30,7 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   };
 
   $scope.getRatingColor = function () {
-    // if(!$scope.asset.rating){return;}
+    if(!$scope.asset.rating){return;}
     switch ($scope.asset.rating)
     {
       case 'A':
@@ -64,11 +64,14 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
     $translate.use(val);
   };
 
-  $scope.getAssetBanner = function () {
-    var assetName = '';
-    var image = 1;
-    return '/investment_assets/' + assetName +'_' + image;
-  };
+  // $scope.getAssetBanner = function () {
+  //   var assetName = '';
+  //   var image = 1;
+  //   return '/investment_assets/' + assetName +'_' + image;
+  // };
+    $scope.banner_img_num = 0;
+
+    
 
 
   var buildToggler = function (componentId) {

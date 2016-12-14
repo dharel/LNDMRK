@@ -39,6 +39,10 @@ $container-width: 1110px;
 body {
   background-color: $pale-grey;
   font-family: "proxima-nova", sans-serif;
+  @media (min-width: 1280px) {
+    width: 100vw;
+    overflow-x: hidden;
+  }
 }
 
 section {
