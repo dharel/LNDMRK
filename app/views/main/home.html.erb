@@ -39,9 +39,9 @@
            ng-class='{"active": mapFilters.max_dividends_growth}' translate>max_dividends_appreciation</div>
     </div>
     <div class='search-container'>
-      <form ng-submit="filterResults()">
-        <input id="home-pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location"  ng-if='localizationSrv.locale === "en"' ng-enter='searchForAsset()'>
-        <input id="home-pac-input" class='search he' type="text" ng-model="mapFilters.address" placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'  ng-enter='searchForAsset()'>
+      <form ng-submit="filterResults()" >
+        <input id="pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location"  ng-if='localizationSrv.locale === "en"' ng-enter='searchForAsset()' ng-init="googleMaps.init()">
+        <input id="pac-input" class='search he' type="text" ng-model="mapFilters.address" placeholder='חפש כתובת, עיר או מיקוד' ng-if='localizationSrv.locale === "he"'  ng-enter='searchForAsset()' ng-init="googleMaps.init()">
       </form>
     </div>
     <div class='search-info'>

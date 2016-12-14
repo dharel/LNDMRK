@@ -1,16 +1,7 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$location','$rootScope' , 'dataManagerService', '$mdSidenav',
-  function ($scope, AjaxService, googleMaps, $timeout, $location, $rootScope, dataManagerService, $mdSidenav) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$location','$rootScope' , 'dataManagerService',
+  function ($scope, AjaxService, googleMaps, $timeout, $location, $rootScope, dataManagerService) {
   
   $scope.googleMaps = googleMaps;
-
-  var buildToggler = function (componentId) {
-    console.log('click')
-    return function() {
-      $mdSidenav(componentId).toggle();
-    }
-  }
-
-  $scope.toggleMenu = buildToggler('menu');
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
@@ -99,21 +90,22 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.sort_option = sort_option;
     if (sort_option === 'Rating') {
       var sort = {
-          'A+' : 1,
-          'A' : 2,
-          'A-' : 3,
-          'B+' : 4,
-          'B' : 5,
-          'B-' : 6,
-          'C+' : 7,
-          'C' : 8,
-          'C-' : 9,
+          'A+' : 10,
+          'A' : 9,
+          'A-' : 8,
+          'B+' : 7,
+          'B' : 6,
+          'B-' : 5,
+          'C+' : 4,
+          'C' : 3,
+          'C-' : 2,
+          'D' : 1
         };
       $scope.assets_results = _.sortBy($scope.assets_results, function (asset) {
         return sort[asset.rating];
       });
     }
-    $scope.assets_results = _.orderBy($scope.assets_results, sort_option.toLowerCase(), ['desc']);
+    $scope.assets_results = _.orderBy($scope.assets_results, sort_option.toLowerCase(), ['asc']);
   };
 
   var searchAssetsByAddress = function () {

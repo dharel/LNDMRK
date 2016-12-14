@@ -1,8 +1,9 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv','$mdSidenav', function ($scope, $location, AjaxService, $translate, localizationSrv, $mdSidenav) {
+angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv','$mdSidenav','googleMaps', function ($scope, $location, AjaxService, $translate, localizationSrv, $mdSidenav, googleMaps) {
   'use strict';
 
   $scope.localizationSrv = localizationSrv;
+  $scope.googleMaps = googleMaps;
 
   var getCarousellData = function () {
     var onSucc = function (data) {
@@ -34,6 +35,7 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
   };
 
   $scope.searchForAsset = function () {
+    $scope.mapFilters.address = document.getElementById('pac-input').value;
     localStorage.setItem('search',JSON.stringify($scope.mapFilters));
     $location.path('/search');
   };

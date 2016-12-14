@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', function ($timeout, AjaxService) {
+angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','dataManagerService', function ($timeout, AjaxService, dataManagerService) {
   'use strict';
 
   return {
@@ -13,7 +13,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', 
     "<div class='results-asset-block'>" +
       "<div class='asset-name'>{{asset.name}}</div>" +
       // "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
-      "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)'>" +
+      "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)' ng-click='selectAsset(asset)'>" +
         // "<div class='light-blue-shadow'></div>" +
         "<div class='row'>" +
           "<div class='right-col'>" +
@@ -47,12 +47,12 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', 
         "<div class='property-button buy'>BUY</div>" +
         "<div class='property-button sell'>SELL</div>" +
       "</div>" +
-        "<div class='add-to-my-list-checkbox-container'>" +
-          "<div class='my-list-checkbox' ng-click='changeMyWatchlist(asset.id)'>" +
-            "<span ng-show='asset.user_watched'><i id='add-to-my-list-checkbox' class='fa fa-check'></i></span>" +
-          "</div>" +
-          "<span class='my-list-checkbox-text' ng-click='changeMyWatchlist(asset.id)'>ADD TO MY LIST</span>" +
-       "</div>" +
+      "<div class='add-to-my-list-checkbox-container'>" +
+        "<div class='my-list-checkbox' ng-click='changeMyWatchlist(asset.id)'>" +
+          "<span ng-show='asset.user_watched'><i id='add-to-my-list-checkbox' class='fa fa-check'></i></span>" +
+        "</div>" +
+        "<span class='my-list-checkbox-text' ng-click='changeMyWatchlist(asset.id)'>ADD TO MY LIST</span>" +
+      "</div>" +
     "</div>" +
     "<div class='separate-properties'></div>",
     link: function (scope, element, attrs) {
@@ -62,6 +62,11 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService', 
         element.on('click', function (e) {
           e.preventDefault();
         });
+      }
+
+      scope.selectAsset = function (asset) {
+        dataManagerService.asset = asset;
+        $location.path('/property');
       }
 
       scope.hoverAsset = function (asset_id) {
