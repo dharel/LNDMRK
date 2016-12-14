@@ -48,10 +48,10 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
         "<div class='property-button sell'>SELL</div>" +
       "</div>" +
       "<div class='add-to-my-list-checkbox-container'>" +
-        "<div class='my-list-checkbox' ng-click='changeMyWatchlist(asset.id)'>" +
+        "<div class='my-list-checkbox' ng-click='changeMyWatchlist($event, asset.id)'>" +
           "<span ng-show='asset.user_watched'><i id='add-to-my-list-checkbox' class='fa fa-check'></i></span>" +
         "</div>" +
-        "<span class='my-list-checkbox-text' ng-click='changeMyWatchlist(asset.id)' >ADD TO MY LIST</span>" +
+        "<span class='my-list-checkbox-text' ng-click='changeMyWatchlist($event, asset.id)' >ADD TO MY LIST</span>" +
       "</div>" +
     "</div>" +
     "<div class='separate-properties'></div>",
@@ -109,7 +109,9 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
         }
       };
       
-      scope.changeMyWatchlist = function (asset_id) {
+      scope.changeMyWatchlist = function (event, asset_id) {
+
+        event.preventDefault();
         if(scope.asset.user_watched) {
           scope.removefromwatchlist({'asset_id': asset_id});
         } else {
