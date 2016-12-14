@@ -60,6 +60,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
 
       if (attrs.ngClick || attrs.href === '' || attrs.href === '#') {
         element.on('click', function (e) {
+          console.log(e);
           e.preventDefault();
         });
       }

@@ -103,6 +103,20 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     initialMarkers = markers;
   };
 
+  var initStreetView = function (asset) {
+    if (!asset.gps || asset.gps === '') return;
+    var lat = Number(asset.gps.split(',')[0]);
+    var lng = Number(asset.gps.split(',')[1]);
+
+
+    var panorama = new google.maps.StreetViewPanorama(
+    document.getElementById('pano'), {
+      position: {lat: lat, lng: lng},
+      pov: {heading: 165, pitch: 0},
+      motionTracking: false
+    });
+  }
+
   var resetAssetMarkers = function () {
     for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
@@ -171,6 +185,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     centerMap: centerMap,
     manualSearch: manualSearch,
     hoverOverAsset: hoverOverAsset,
-    unhoverOverAsset: unhoverOverAsset
+    unhoverOverAsset: unhoverOverAsset,
+    initStreetView: initStreetView
   };
 }]);
