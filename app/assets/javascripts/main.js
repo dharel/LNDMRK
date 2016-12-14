@@ -26,11 +26,13 @@ app.config(['$compileProvider', '$httpProvider','$translateProvider', '$location
 
    $routeProvider.when('/', {
      templateUrl: '/home',
-     controller: 'MainController'
+     controller: 'MainController',
+     reloadOnSearch: false
    })
    .when('/dashboard', {
      templateUrl: '/dashboard',
-     controller: 'DashboardController'
+     controller: 'DashboardController',
+     reloadOnSearch: false
    })
    .when('/search', {
      templateUrl: '/search',

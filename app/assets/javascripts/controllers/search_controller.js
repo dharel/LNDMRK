@@ -207,7 +207,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   var onSucc_change_watchlist = function (id, status) {
     var asset = R.find(R.propEq('id', id))($scope.assets_results);
     asset.user_watched = status;
-    function a () {}
+    function a (e) { }
     return a;
   };
   var onErr_change_watchlist = function (err) {
