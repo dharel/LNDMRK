@@ -108,6 +108,13 @@ a {
   flex-flow: column nowrap;
 }
 
+.flexbox-colum-between-center {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flexbox-wrap-column-start {
   display: flex;
   flex-flow: column wrap;

@@ -28,7 +28,7 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
             "<div class='info-data'>{{asset.yield}}%</div>" +
           "</div>" +
           "<div class='image-placer'>" +
-            "<img src='{{asset.image}}' width='126' alt='asset'>" +
+            "<img src='{{asset.image}}' class='img-in-carousel' alt='asset'>" +
             "<div class='property-datails'" +
                  "ng-class='{\"is-hovered\" : isAssetHovered(asset.id)," +
                  "\"income\" : assignTypeClass(asset.investment_type)=== \"income\", " +
@@ -77,15 +77,17 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
         return asset_id === scope.hovered_asset;
       };
 
+
+// str.substr(start [, length])
       scope.assignRiskClass = function (risk_letter) {
-        switch (risk_letter) {
-          case 'a':
+        switch (risk_letter[0]) {
+          case 'A':
             return 'risk-a';
-          case 'b':
+          case 'B':
             return 'risk-b';
-          case 'c':
+          case 'C':
             return 'risk-c';
-          case 'd':
+          case 'D':
             return 'risk-d';
           default:
             return 'risk-a';
