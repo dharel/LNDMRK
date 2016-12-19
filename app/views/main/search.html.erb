@@ -9,10 +9,11 @@
         <li><a class='link-3' translate>learning</a></li>
       </ul>
       <ul class='right-side'>
+        <li ng-click='toggleLocalization("en")'><a class='link-4' ng-class='{"on": localizationSrv.locale === "en"}'>EN</a></li>
+        <span class='v-strip'>|</span>
+        <li ng-click='toggleLocalization("he")'><a class='link-5' ng-class='{"on": localizationSrv.locale === "he"}'>HE</a></li>
         <li><a class='notification'></a></li>
-        <li>
-          <a class='user-image'></a>
-        </li>
+        <li><a class='user-image'></a></li>
         <li><a class='user' href='#'>USER@LNDMRK.COM</a></li>
         <li class='logout'><a class='link' href='/#/' translate>logout</a></li>
       </ul>
@@ -28,14 +29,14 @@
               <div class="search-properties">
                 <div class='search-properties-v1'>
                   <div class='search-properties-icon'></div>
-                  <div class="top-panel-section-title search">SEARCH PROPERTIES</div>
+                  <div class="top-panel-section-title search" translate>search.search_properties</div>
                 </div>
-                <div class='clear-all-search' ng-click="clearSearch()">RESET ALL</div>
+                <div class='clear-all-search' ng-click="clearSearch()" translate>search.reset_all</div>
               </div>
               <div class="properties-buttons-wrapper">
-                <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">MAX DIVIDENDS</div>
-                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">MAX APPRECIATION</div>
-                <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">MAX DIVIDENDS & APPRECIATION</div>
+                <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()" translate>max_dividends</div>
+                <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()" translate>max_appreciation</div>
+                <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()" translate>max_dividends_appreciation</div>
               </div>
               <form ng-submit="filterResults()" id='searchForm'>
                 <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state" ng-model="searchForm.address">
@@ -47,14 +48,14 @@
             <div class="top-panel-market-type-container">
               <div class="market-properties">
                 <div class='market-properties-icon'></div>
-                <div class="top-panel-section-title market">MARKET TYPE</div>
+                <div class="top-panel-section-title market" translate>search.market_type</div>
               </div>
               <div class="market-type-checkbox-wrapper" ng-repeat="market_type_checkbox in market_type_checkboxes">
                 <div class="market-type-checkbox-container">
                   <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()">
                     <span ng-show="market_type_checkbox.checked"><i class="fa fa-check"></i></span>
                   </div>
-                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()">{{market_type_checkbox.name}}</span>
+                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()" translate>{{market_type_checkbox.name}}</span>
                 </div>
               </div>
             </div>
@@ -64,14 +65,14 @@
             <div class="top-panel-property-type-container">
              <div class="property-properties">
                 <div class='property-properties-icon'></div>
-                <div class="top-panel-section-title property">PROPERTY TYPE</div>
+                <div class="top-panel-section-title property" translate>search.property_type</div>
               </div>
               <div class="propery-type-checkbox-wrapper">
                 <div class="propery-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
                   <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()">
                     <span ng-show="property_type_checkbox.checked"><i class="fa fa-check"></i></span>
                   </div>
-                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : property_type_checkbox.checked}" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()">{{property_type_checkbox.name}}</span>
+                  <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : property_type_checkbox.checked}" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()" translate>{{property_type_checkbox.name}}</span>
                 </div>
               </div>
             </div>
@@ -86,19 +87,19 @@
           <div class="search-results-right-panel-wrapper">
             <div class="sort-by">
               <div class='sort-by-icon'></div>
-              <div class="sort-by-title">SORT BY</div>
+              <div class="sort-by-title" translate="">search.sort_by</div>
             </div>
             <div class="sort-drop-down-container" ng-click="show_sort_dropdown_show = !show_sort_dropdown_show">
-              <div class="sort-drop-down">{{sort_option}}</div>
+              <div class="sort-drop-down" translate>{{sort_option}}</div>
               <div class="sort-arrow-down"></div>
             </div>
             <div class="sort-dropdown-list-container" ng-show="show_sort_dropdown_show">
               <div class="sort-dropdown-list" ng-repeat="sort_option in sort_options_list" ng-click="sortResult(sort_option)">
-                <div class="sort-option">{{sort_option}}</div>
+                <div class="sort-option" translate>{{sort_option}}</div>
               </div>
             </div>
             <div class='separate-properties-results-counter'></div>
-            <div class="search-results-count-title">SHOWING <b>{{assets_results.length}}</b> SEARCH RESULTS</div>
+            <div class="search-results-count-title"><span translate>showing</span> <b>{{assets_results.length}}</b> <span translate>search_results</span></div>
             <div class='separate-properties-results-counter'></div>
             <div class="search-results-data">
               <div ng-repeat='asset in assets_results track by $index' id='asset{{asset.id}}'

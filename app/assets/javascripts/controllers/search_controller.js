@@ -1,7 +1,8 @@
-angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$location','$rootScope' , 'dataManagerService',
-  function ($scope, AjaxService, googleMaps, $timeout, $location, $rootScope, dataManagerService) {
+angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService','googleMaps','$timeout','$location','$rootScope' , 'dataManagerService', '$translate', 'localizationSrv',
+  function ($scope, AjaxService, googleMaps, $timeout, $location, $rootScope, dataManagerService, $translate, localizationSrv) {
   
   $scope.googleMaps = googleMaps;
+  $scope.localizationSrv = localizationSrv;
 
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
@@ -227,4 +228,10 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.filterResults();
       $scope.$apply();
   });
+
+  $scope.toggleLocalization = function (val) {
+    localizationSrv.locale = val;
+    localStorage.setItem('locale', val);
+    $translate.use(val);
+  };
 }]);
