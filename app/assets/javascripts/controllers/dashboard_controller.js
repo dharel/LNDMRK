@@ -2,14 +2,6 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   
   $scope.localizationSrv = localizationSrv;
 
-  var buildToggler = function (componentId) {
-    return function() {
-      $mdSidenav(componentId).toggle();
-    }
-  }
-
-  $scope.toggleMenu = buildToggler('left');
-
   $scope.init = function () {
     $scope.expanded = {
       isOpen: false,

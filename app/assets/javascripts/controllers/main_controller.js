@@ -1,5 +1,5 @@
 /*globals angular , window, unused, _  */
-angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv','googleMaps','$mdSidenav', function ($scope, $location, AjaxService, $translate, localizationSrv, googleMaps, $mdSidenav) {
+angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'AjaxService','$translate','localizationSrv','googleMaps', function ($scope, $location, AjaxService, $translate, localizationSrv, googleMaps) {
   'use strict';
 
   $scope.localizationSrv = localizationSrv;
