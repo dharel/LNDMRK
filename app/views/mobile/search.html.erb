@@ -4,7 +4,20 @@
   <div class='body' ng-init='showFilters = false;'>
 
     <div class='filters-panel nga-default nga-slide-left nga-fast' ng-show="mobileVisiblePanel === 'filters'">
-    
+      <div class='header'>
+        <div class='back-button'>
+          <div class='arrow'></div>
+          <div class='title'>filter</div>
+        </div>
+      </div>
+      
+      <div class='content'>
+        <div class='sort-by'>
+          <div class='sort-by-icon'></div>
+          <div class='sort-by-title'> sort by</div>
+        </div>
+
+      </div>
     </div>
 
     <div class='map-panel' ng-show="mobileVisiblePanel === 'map'">
