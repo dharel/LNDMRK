@@ -17,9 +17,10 @@
     justify-content: space-between;
     width: 1195px;
     .property-details {
-      flex: 1 1 auto;
+      flex: 0 0 auto;
       padding: 62px 37px 0 0;
       height: 477px;
+      width: 501px;
       &.hebrew { padding: 62px 0 0 37px; }
       h1 {
         color: $turquoise;
@@ -40,6 +41,8 @@
     .map-section {
       flex: 0 0 auto;
       padding: 29px 0 32px;
+      position: relative;
+      width: 694px;
       @extend .flexbox-colum-to-top-start;
       .titles {
         @extend .flexbox-row-start;
@@ -87,6 +90,12 @@
         width: 694px;
         height: 376px;
         border: 2px solid $turquoise;
+        z-index: 0;
+        position: absolute;
+        top: 69px;
+        &.visible {
+          z-index: 1;
+        }
       }
     }
   }

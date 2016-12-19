@@ -72,7 +72,6 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
     var locale = localStorage.getItem('locale');
     $scope.toggleLocalization(locale || 'en');
 
-    $scope.googleMaps.initStreetView($scope.asset);
     $scope.map_type_visible = 'street';
   };
 

@@ -34,7 +34,10 @@
                ng-class='{"chosen": map_type_visible === "map", "hebrew": localizationSrv.locale === "he"}' 
                translate>location_map</div>
         </div>
-        <div class='map-image' id='property-map'></div>
+        <div class='map-image' id='map' ng-init="googleMaps.initSimpleMap(asset)"
+             ng-class='{visible: map_type_visible === "map"}'></div>
+        <div class='map-image' id='street-map' ng-init="googleMaps.initStreetView(asset)"
+             ng-class='{visible: map_type_visible === "street"}'></div>
       </div>
     </div>
   </section>

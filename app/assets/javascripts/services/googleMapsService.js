@@ -3,7 +3,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
   var initialMarkers = [], markers = [], markersInFOV = [];
 
   var createMarker = function (asset, pinColor) {
-    debugger;
     var lat = Number(asset.gps.split(',')[0]);
     var lng = Number(asset.gps.split(',')[1]);        
     var LatLon = new google.maps.LatLng(lat, lng);
@@ -108,9 +107,8 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     if (!asset.gps || asset.gps === '') return;
     var lat = Number(asset.gps.split(',')[0]);
     var lng = Number(asset.gps.split(',')[1]);
-
     var panorama = new google.maps.StreetViewPanorama(
-    document.getElementById('property-map'), {
+    document.getElementById('street-map'), {
       position: {lat: lat, lng: lng},
       pov: {heading: 165, pitch: 0},
       motionTracking: false
@@ -121,11 +119,27 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     if (!asset.gps || asset.gps === '') return;
     var lat = Number(asset.gps.split(',')[0]);
     var lng = Number(asset.gps.split(',')[1]);
-
-    var panorama = new google.maps.Map(document.getElementById('property-map'), {
+    var simple = new google.maps.Map(document.getElementById('map'), {
       center: {lat: lat, lng: lng},
       zoom: 17,
       mapTypeId: 'roadmap'
+    });
+    createSimpleMapMarker(simple, asset, '102447');
+  };
+
+  var createSimpleMapMarker = function (map, asset, pinColor) {
+    var lat = Number(asset.gps.split(',')[0]);
+    var lng = Number(asset.gps.split(',')[1]);
+    var LatLon = new google.maps.LatLng(lat, lng);
+    var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+      new google.maps.Size(71, 71),
+      new google.maps.Point(0,0),
+      new google.maps.Point(17, 34));
+    var marker = new google.maps.Marker({
+      map: map,
+      icon: icon,
+      title: asset.name,
+      position: LatLon
     });
   };
 
