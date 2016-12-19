@@ -38,6 +38,7 @@
             margin-top: 15px;
             margin-left: 5px;
             text-align: center;
+            text-transform: uppercase;
           }
         }
         .sort-drop-down-container {
@@ -56,6 +57,7 @@
             padding-top: 4px;
             padding-left: 10px;
             padding-right: 10px;
+            text-transform: capitalize;
           }
           .sort-arrow-down {
             background-image: image-url('expand.png');
@@ -74,10 +76,12 @@
           overflow: auto;
           z-index: 10;
           box-shadow: 0px 5px 8px -1px #dff5f7;
+
           .sort-dropdown-list {
             font-size: 14px;
             height: 25px;
             padding-top: 5px;
+
             .sort-option {
               cursor: pointer;
               height: 25px;
@@ -85,6 +89,7 @@
               padding-left: 10px;
               padding-right: 10px;
               padding-top: 5px;
+              text-transform: capitalize;
             }
             .sort-option:hover {
               background-color: #dff5f7;
@@ -101,6 +106,7 @@
           text-align: center;
           color: #4FC3C9;
           margin-top: 10px;
+          text-transform: uppercase;
         }
         .search-results-data {
           margin-top: 10px;
@@ -132,6 +138,8 @@
         padding-left: 7px;
         padding-right: 7px;
         cursor: pointer;
+        text-transform: capitalize;
+        
       }
       .search-checkbox-text-selected {
         font-weight: 700;
@@ -148,6 +156,7 @@
         margin-top: 10px;
         display: flex;
         margin-left: 5px;
+        text-transform: uppercase;
       }
       /*height: 100%;*/
       .top-panel-search-properties {
@@ -170,6 +179,8 @@
               margin-top: 12px;
               cursor: pointer;
               text-decoration: underline;
+              text-transform: uppercase;
+
             }
             .search-properties-icon {
               background-image: image-url('search.png');
@@ -221,6 +232,8 @@
               border: 1px solid black;
               font-size: 10px;
               padding: 4px 5px;
+              text-transform: uppercase;
+              
               &.left {
                 border-color: #fdc228;
               }
