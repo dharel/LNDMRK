@@ -4,7 +4,20 @@
   <div class='body' ng-init='showFilters = false;'>
 
     <div class='filters-panel nga-default nga-slide-left nga-fast' ng-show="mobileVisiblePanel === 'filters'">
-    
+      <div class='header'>
+        <div class='back-button'>
+          <div class='arrow'></div>
+          <div class='title'>filter</div>
+        </div>
+      </div>
+      
+      <div class='content'>
+        <div class='sort-by'>
+          <div class='sort-by-icon'></div>
+          <div class='sort-by-title'> sort by</div>
+        </div>
+
+      </div>
     </div>
 
     <div class='map-panel' ng-show="mobileVisiblePanel === 'map'">
@@ -31,7 +44,35 @@
     </div>
 
     <div class='properties-panel nga-default nga-slide-down-all nga-fast' ng-show="mobileVisiblePanel === 'properties'">
-    
+      <div class='search-properties'>
+        <div class='content' ng-click='showFilters = !showFilters'> 
+          <div class='icon'></div>
+          <div class='title'>SEARCH PROPERTIES</div>
+        </div>
+        <div class='filters-container' ng-hide='showFilters === false'>
+          <div class='filters'>
+            <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">MAX DIVIDENDS</div>
+            <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">MAX APPRECIATION</div>
+            <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">MAX DIVIDENDS & APPRECIATION</div>
+          </div>
+
+          <div class='input'> 
+            <form ng-submit="filterResults(); showFilters = false;" id='searchForm'>
+              <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state" ng-model="searchForm.address">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class='search-results-data'>
+        <div ng-repeat='asset in assets_results track by $index' id='asset{{asset.id}}'
+            ng-mouseenter='googleMaps.hoverOverAsset(asset)' 
+            ng-mouseleave='googleMaps.unhoverOverAsset(asset)'>
+          <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'
+                          addtowatchlist='addToWatchlist(asset_id)'
+                          removefromwatchlist='removeFromWatchlist(asset_id)'></assets-results>
+        </div>
+      </div>
+
     </div>
 
     <div class='navigator'>
