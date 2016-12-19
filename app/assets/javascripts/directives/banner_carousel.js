@@ -9,11 +9,11 @@ angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', func
     template:
     "<section class='banner-carousel'>" +
 
-      "<div class='b-carousel-arrow-wrap prev' ng-click='prevAsset()'>" +
-        "<div class='arrow prev' ng-class='isFirst() ? \"greyed\" : \"\"'></div>" +
+      "<div class='b-carousel-arrow-wrap prev'>" +
+        "<div class='arrow prev'></div>" +
       "</div>" +
-      "<div class='b-carousel-arrow-wrap next' ng-click='nextAsset()'>" +
-        "<div class='arrow next' ng-class='isLast() ? \"greyed\" : \"\"'></div>" +
+      "<div class='b-carousel-arrow-wrap next'>" +
+        "<div class='arrow next'></div>" +
       "</div>" +
 
       "<div class='b-carousel-full-wrap' id='the-wrapper'>" +
@@ -31,7 +31,8 @@ angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', func
 
     "</section>",
     link: function (scope, element, attrs) {
-
+      // currently we have no assets for pagination,so we removed the ng-click='prevAsset()' / 'nextAsset()'
+      // and the ng-class='isLast() ? \"greyed\" : \"\"'
       var carouselDiv = document.getElementById("the-wrapper");
       scope.w_width = window.innerWidth;
 

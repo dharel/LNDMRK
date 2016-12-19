@@ -48,7 +48,7 @@
     top: 190px;
     cursor: pointer;
     z-index: 1;
-    &.next { right: -20px; }
+    &.next { right: 0px; }
     &.prev { left: -20px; }
     .arrow {
       width: 80px;
