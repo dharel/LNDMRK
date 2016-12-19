@@ -28,7 +28,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.original_data = data;
       $scope.assetsIndex = 0;
       $scope.chosenAsset = $scope.assets_results[0];
-      $scope.sortResult($scope.sort_option);
+      $scope.sortResult('Rating');
       googleMaps.init($scope.assets_results);
       if (localStorage.getItem('search')) { 
         applyFilters(JSON.parse(localStorage.getItem('search')));
@@ -90,22 +90,21 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.sort_option = sort_option;
     if (sort_option === 'Rating') {
       var sort = {
-          'A+' : 10,
-          'A' : 9,
-          'A-' : 8,
-          'B+' : 7,
-          'B' : 6,
-          'B-' : 5,
-          'C+' : 4,
-          'C' : 3,
-          'C-' : 2,
-          'D' : 1
+          'A+' : 9,
+          'A' : 8,
+          'A-' : 7,
+          'B+' : 6,
+          'B' : 5,
+          'B-' : 4,
+          'C+' : 3,
+          'C' : 2,
+          'C-' : 1,
+          'D' : 0
         };
-      $scope.assets_results = _.sortBy($scope.assets_results, function (asset) {
-        return sort[asset.rating];
-      });
+      $scope.assets_results = R.sort(function (a, b) {return sort[b.rating] - sort[a.rating]})($scope.assets_results);
+    } else {
+      $scope.assets_results = _.orderBy($scope.assets_results, sort_option.toLowerCase(), ['desc']);
     }
-    $scope.assets_results = _.orderBy($scope.assets_results, sort_option.toLowerCase(), ['asc']);
   };
 
   var searchAssetsByAddress = function () {
