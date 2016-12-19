@@ -2,6 +2,7 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   function ($scope, AjaxService, $translate, localizationSrv, dataManagerService, googleMaps) {
  
   $scope.googleMaps = googleMaps;
+  $scope.localizationSrv = localizationSrv;
 
   // ========= set / get Asset from client or from localstorage =========
   var saveAsset = JSON.parse(localStorage.saveAsset || null) || {};

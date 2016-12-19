@@ -20,6 +20,7 @@
       flex: 1 1 auto;
       padding: 62px 37px 0 0;
       height: 477px;
+      &.hebrew { padding: 62px 0 0 37px; }
       h1 {
         color: $turquoise;
         font-size: 18px;
@@ -38,7 +39,7 @@
     }
     .map-section {
       flex: 0 0 auto;
-      padding: 29px 0px 32px;
+      padding: 29px 0 32px;
       @extend .flexbox-colum-to-top-start;
       .titles {
         @extend .flexbox-row-start;
@@ -67,9 +68,13 @@
           border: 2px solid $turquoise;
           border-bottom: none;
           color: $turquoise;
-          padding: 11px 28px 7px;
           height: inherit;
           outline: 0;
+          text-align: center;
+          min-width: 120px;
+          font-size: 14px;
+          padding: 11px 28px 7px;
+          &.hebrew { font-size: 16px; line-height: 39px; padding: 0;}
           &.chosen {
             border:none;
             background-color: $turquoise;
@@ -117,11 +122,13 @@
     text-transform: uppercase;
     margin-left: 124px;
     @extend .flexbox-row-start;
+    &.hebrew { margin-left: unset; margin-right: 124px;}
     .attribute {
       @extend .flexbox-colum-to-top-center;
-      margin-left: 30px;
+      margin-left: 30px; margin-right: unset;
       height: 120px;
       min-width: 100px;
+      &.hebrew { margin-left: unset; margin-right: 30px;}
       span {
         color: $white;
         font-weight: 600;
@@ -161,21 +168,3 @@
     }
   }
 }
-
-// .numbers-strip .container.turquoise-strip {
-//   &.rank-a {
-//     .attributes-wrap .attribute h1 { box-shadow: 0 0 0 2px $blue-2, 0 0 0 6px $white,0 1.5px 8px 4px rgba(25,70,107,.3); }
-//   }
-//   &.rank-b {
-//     .attributes-wrap .attribute h1 { box-shadow: 0 0 0 2px $green, 0 0 0 6px $white,0 1.5px 8px 4px rgba(25,70,107,.3); }
-//   }
-//   &.rank-c {
-//     .attributes-wrap .attribute h1 { box-shadow: 0 0 0 2px $yello, 0 0 0 6px $white,0 1.5px 8px 4px rgba(25,70,107,.3); }
-//   }
-//   &.rank-d {
-//     .attributes-wrap .attribute h1 { box-shadow: 0 0 0 2px $red-orange, 0 0 0 6px $white,0 1.5px 8px 4px rgba(25,70,107,.3); }
-//   }
-//   &.rank-e {
-//     .attributes-wrap .attribute h1 { box-shadow: 0 0 0 2px $red, 0 0 0 6px $white,0 1.5px 8px 4px rgba(25,70,107,.3); }
-//   }
-// }

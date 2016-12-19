@@ -23,14 +23,16 @@
 
   <section class='second-row'>
     <div class='container'>
-      <div class='property-details'>
-        <h1>property details</h1>
-        <p>{{asset.description}}</p>
+      <div class='property-details' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+        <h1 translate>prop_details</h1>
+        <p style='text-align: left; direction: rtl;'>{{asset.description}}</p>
       </div>
       <div class='map-section'>
         <div class='titles'>
           <div class='street-view' ng-click='openStreetview()' ng-class='{"chosen": map_type_visible === "street"}'>google street view</div>
-          <div class='location-map' ng-click='openGooglemaps()' ng-class='{"chosen": map_type_visible === "map"}'>location map</div>
+          <div class='location-map' ng-click='openGooglemaps()'
+               ng-class='{"chosen": map_type_visible === "map", "hebrew": localizationSrv.locale === "he"}' 
+               translate>location_map</div>
         </div>
         <div class='map-image' id='property-map'></div>
       </div>
@@ -42,29 +44,29 @@
       <div class='section-title'
            ng-class='getInvTypeClr(asset.investment_type)'>
            {{asset.investment_type_short}} investment</div>
-      <div class='attributes-wrap'>
-        <div class='attribute'>
-          <span>rank</span>
-          <h1 ng-class='getRatingColor(asset.rating)'>{{asset.rating}}</h1>
+      <div class='attributes-wrap' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+        <div class='attribute' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <span translate>rank</span>
+          <h1 ng-class='getRatingColor(asset.rating)' style='direction: ltr;'>{{asset.rating}}</h1>
         </div>
-        <div class='attribute'>
-          <span>price per m&sup2;</span>
+        <div class='attribute' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <span translate>price_per_m</span>
           <h2>${{asset.price * 1000}}</h2>
         </div>
-        <div class='attribute'>
-          <span>income per m&sup2;</span>
+        <div class='attribute' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <span translate>income_per_m</span>
           <h2>${{asset.income}}</h2>
         </div>
-        <div class='attribute'>
-          <span>yeild</span>
+        <div class='attribute' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <span translate>yeild</span>
           <h2>{{asset.yield}}%</h2>
         </div>
-        <div class='attribute'>
-          <span>established at</span>
+        <div class='attribute' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <span translate>established_at</span>
           <h2>{{asset.established}}%</h2>
         </div>
-        <div class='attribute'>
-          <span>up to</span>
+        <div class='attribute' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <span translate>up_to</span>
           <h2>{{asset.ltv}}% <i>ltv</i></h2>
         </div>
       </div>
@@ -73,126 +75,124 @@
 
   <section class='infographics'>
     <div class='line'></div>
-    <div class='title'>investment details</div>
+    <div class='title' ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>investment_details</div>
 
     <div class='container'>
       <div class='column lines'>
         <div class='transactions'>
-          <h1>last transactions</h1>
+          <h1 translate>last_transactions</h1>
           <div class='transaction-row'>
-            <div class='time'>22 jul, 2016  10:53pm</div>
+            <div class='time'><span translate>jul_22</span>, 2016  10:53pm</div>
             <div class='meter-price'>17m&sup2;/<span>$4,345</span></div>
           </div>
           <div class='transaction-row'>
-            <div class='time'>22 jul, 2016  10:03pm</div>
+            <div class='time'><span translate>jul_22</span>, 2016  10:03pm</div>
             <div class='meter-price'>85m&sup2;/<span>$4,308</span></div>
           </div>
           <div class='transaction-row'>
-            <div class='time'>22 jul, 2016  9:10pm</div>
+            <div class='time'><span translate>jul_22</span>, 2016  9:10pm</div>
             <div class='meter-price'>233m&sup2;/<span>$4,308</span></div>
           </div>
           <div class='transaction-row'>
-            <div class='time'>22 jul, 2016  8:50pm</div>
+            <div class='time'><span translate>jul_22</span>, 2016  8:50pm</div>
             <div class='meter-price'>123m&sup2;/<span>$4,285</span></div>
           </div>
-          <div class='transaction-history-link'>
-            view full transaction history on this property
-          </div>
+          <div class='transaction-history-link' translate>view_full_trans_history</div>
         </div>
         <div class='ranking'>
-          <h1>rank</h1>
+          <h1 translate>rank</h1>
           <div class='letters-row'>
             <div class='rank'
-                 ng-class='getRatingColor(asset.rating)'>{{asset.rating}}</div>
+                 ng-class='getRatingColor(asset.rating)' style='direction: ltr;'>{{asset.rating}}</div>
             <div class='ranks-options'></div>
           </div>
         </div>
         <div class='points'>
           <div class='points-row header'>
-            <h2>category</h2>
-            <h3>assesment</h3>
-            <h4>points</h4>
+            <h2 translate>category</h2>
+            <h3 translate>assesment</h3>
+            <h4 translate>points</h4>
           </div>
 
           <div class='points-row'>
-            <h2>location</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>location</h2>
             <h3>primary</h3>
             <h4>28</h4>
           </div>
           <div class='points-row'>
-            <h2>market</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>market</h2>
             <h3>top in market</h3>
             <h4>13</h4>
           </div>
           <div class='points-row'>
-            <h2>tenants' financial stability</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>tenants_fin_stability</h2>
             <h3>high</h3>
             <h4>59</h4>
           </div>
           <div class='points-row'>
-            <h2>tenants' macro risk</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>tenants_macro_risk</h2>
             <h3>below gdp risk</h3>
             <h4>27</h4>
           </div>
           <div class='points-row'>
-            <h2>lease contract length</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>lease_contract_len</h2>
             <h3>over 5 years</h3>
             <h4>14</h4>
           </div>
           <div class='points-row'>
-            <h2>lease contract securities</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>lease_contract_secur</h2>
             <h3>external guarantors</h3>
             <h4>56</h4>
           </div>
           <div class='points-row'>
-            <h2>occupancy rate</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>occupancy_rate</h2>
             <h3>fully developed</h3>
             <h4>57</h4>
           </div>
           <div class='points-row'>
-            <h2>market occupancy rate</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>market_occupancy_rate</h2>
             <h3>over 98%</h3>
             <h4>53</h4>
           </div>
           <div class='points-row'>
-            <h2>development phase</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>development_phase</h2>
             <h3>over 90%</h3>
             <h4>58</h4>
           </div>
         </div>
         <div class='investment-management'>
           <div class='line'></div>
-          <div class='title'>investment management</div>
-          <div class='invest-row-header'>m&sup2; owned/%</div>
+          <div class='title' ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>investment_management</div>
+          <div class='invest-row-header' translate>m_owned_2</div>
           <div class='investment-mng-row'>
-            <h2>olivia roberts</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>olivia_roberts</h2>
             <h3>2,341m&sup2;/<span>17%</span></h3>
-            <h4>contact</h4>
+            <h4 translate>contact</h4>
           </div>
           <div class='investment-mng-row'>
-            <h2>marshall holt</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>marshall_holt</h2>
             <h3>1,267m&sup2;/<span>8%</span></h3>
-            <h4>contact</h4>
+            <h4 translate>contact</h4>
           </div>
           <div class='investment-mng-row'>
-            <h2>kent mason</h2>
+            <h2 ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>kent_mason</h2>
             <h3>1,690m&sup2;/<span>12%</span></h3>
-            <h4>contact</h4>
+            <h4 translate>contact</h4>
           </div>
         </div>
       </div>
       <div class='column maps'>
         <div class='price-graph'>
-          <h1>price per meter</h1>
+          <h1 translate>price_per_meter</h1>
           <div class='image'></div>
         </div>
         <div class='event-timeline'>
-          <h1>event timeline</h1>
+          <h1 translate>event_timeline</h1>
           <div class='image'></div>
         </div>
         <div class='property-management'>
           <div class='line'></div>
-          <div class='title'>property management</div>
+          <div class='title' ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>property_management</div>
           <div class='image'></div>
         </div>
       </div>
@@ -202,27 +202,27 @@
   <section class='friends-who-invested'>
     <div class='container'>
       <div class='property-line'></div>
-      <div class='property-title'>friends who invested in this property</div>
+      <div class='property-title' ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>friends_who_invested</div>
       <ul>
         <li>
           <div class='image place-1'></div>
-          <h2>claudia vargas</h2>
+          <h2 translate>claudia_vargas</h2>
         </li>
         <li>
           <div class='image place-2'></div>
-          <h2>scott hoffman</h2>
+          <h2 translate>scott_hoffman</h2>
         </li>
         <li>
           <div class='image place-3'></div>
-          <h2>ivan porter</h2>
+          <h2 translate>ivan_porter</h2>
         </li>
         <li>
           <div class='image place-4'></div>
-          <h2>scott torres</h2>
+          <h2 translate>scott_torres</h2>
         </li>
         <li>
           <div class='image place-5'></div>
-          <h2>dustin morris</h2>
+          <h2 translate>dustin_morris</h2>
         </li>
       </ul>
     </div>
@@ -231,13 +231,28 @@
   <section class='property-documents'>
     <div class='container'>
       <div class='property-line'></div>
-      <div class='property-title'>property document repository</div>
-      <ul>
-        <li><div class='icon'></div><span>shareholder agreement</span></li>
-        <li><div class='icon'></div><span>management company</span></li>
-        <li><div class='icon'></div><span>profit and loss statement</span></li>
-        <li><div class='icon'></div><span>underwriting agreement</span></li>
-        <li><div class='icon'></div><span>building deviations</span></li>
+      <div class='property-title' ng-class='{"hebrew": localizationSrv.locale === "he"}' translate>property_document_rep</div>
+      <ul ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+        <li ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <div class='icon' ng-class='{"hebrew": localizationSrv.locale === "he"}'></div>
+          <span translate>shareholder_agreement</span>
+        </li>
+        <li ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <div class='icon' ng-class='{"hebrew": localizationSrv.locale === "he"}'></div>
+          <span translate>management_company</span>
+        </li>
+        <li ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <div class='icon' ng-class='{"hebrew": localizationSrv.locale === "he"}'></div>
+          <span translate>profit_loss_statement</span>
+        </li>
+        <li ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <div class='icon' ng-class='{"hebrew": localizationSrv.locale === "he"}'></div>
+          <span translate>underwriting_agreement</span>
+        </li>
+        <li ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+          <div class='icon' ng-class='{"hebrew": localizationSrv.locale === "he"}'></div>
+          <span translate>building_deviations</span>
+        </li>
       </ul>
     </div>
   </section>

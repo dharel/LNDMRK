@@ -22,7 +22,7 @@ angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', func
         "</div>" +
       "</div>" +
 
-      "<div class='color-gradient' ng-class='getInvTypeClr(asset.investment_type)'></div>" +
+      "<div class='color-gradient' ng-class='getPropertyTypeClr(asset.investment_type)'></div>" +
 
       "<div class='titles'>" +
         "<h1>{{asset.name}}</h1>" +
@@ -66,6 +66,19 @@ angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', func
 
       scope.isLast = function(){
         return scope.firstShowed === scope.asset.banner_images.length-1;
+      };
+
+      scope.getPropertyTypeClr = function (type) {
+        switch (type) {
+          case 'max_dividends':
+            return 'type-yello';
+          case 'max_appreciation':
+            return 'type-purple';
+          case 'max_dividends_appreciation':
+            return 'type-cyan';
+          default:
+            return 'type-yello';
+        }
       };
     }
   };

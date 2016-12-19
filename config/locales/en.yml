@@ -119,3 +119,58 @@ en:
   guy_gardner: "guy gardner"
   my_watch_list: "my watch list"
   short_lorem_ipsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus."
+
+  prop_details: "property details"
+  location_map: "location map"
+  rank: "rank"
+  price_per_m: "price per m²"
+  income_per_m: "income per m²"
+  yeild: "yeild"
+  established_at: "established at"
+  up_to: "up to"
+  
+  investment_details: "investment details"
+  
+  last_transactions: "last transactions"
+  jul_22: "22 jul"
+  view_full_trans_history: "view full transaction history on this property"
+  
+  category: "category"
+  assesment: "assesment"
+  points: "points"
+  
+  location: "location"
+  market: "market"
+  tenants_fin_stability: "tenants' financial stability"
+  tenants_macro_risk: "tenants' macro risk"
+  lease_contract_len: "lease contract length"
+  lease_contract_secur: "lease contract securities"
+  occupancy_rate: "occupancy rate"
+  market_occupancy_rate: "market occupancy rate"
+  development_phase: "development phase"
+  
+  price_per_meter: "price per meter"
+  event_timeline: "event timeline"
+  
+  investment_management: "investment management"
+  m_owned_2: "m² owned / %"
+  contact: "contact"
+  olivia_roberts: "olivia roberts"
+  marshall_holt: "marshall holt"
+  kent_mason: "kent mason"
+  
+  property_management: "property management"
+
+  friends_who_invested: "friends who invested in this property"
+  claudia_vargas: "claudia vargas"
+  scott_hoffman: "scott hoffman"
+  ivan_porter: "ivan porter"
+  scott_torres: "scott torres"
+  dustin_morris: "dustin morris"
+
+  property_document_rep: "property document repository"
+  shareholder_agreement: "shareholder agreement"
+  management_company: "management company"
+  profit_loss_statement: "profit and loss statement"
+  underwriting_agreement: "underwriting agreement"
+  building_deviations: "building deviations"

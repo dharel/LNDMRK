@@ -7,28 +7,29 @@
     height: 1px;
     background-color: $grey;
     position: relative;
-    top: 24px;
+    top: 28px;
     width: 100%;
     transform: translateX(-50%);
     left: 50%;
   }
 
   .property-title {
-    width: 340px;
-    height: 31px;
+    width: 440px;
+    height: 40px;
     margin: 7px auto 8px;
     text-align: center;
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 1.8px;
     z-index: 2;
     position: relative;
-    line-height: 29px;
+    line-height: 40px;
     border: 1px solid $dark-blue;
     background-color: $white;
     text-transform: uppercase;
     color: $dark-turquoise;
-    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+    box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
+    &.hebrew { font-size: 20px; width: 290px; letter-spacing: 0.5px;}
   }
 
 .friends-who-invested {
@@ -76,14 +77,16 @@
     width: 48%;
     height: 230px;
     padding: 26px 0 20px 30px;
+    &.hebrew { padding: 26px 30px 20px 0;}
   }
   li {
     list-style-type: none;
-    margin-bottom: 13px;
+    margin: 0 35px 13px 0;
+    &.hebrew { margin: 0 0 13px 35px;}
     @extend .flexbox-row-start;
     span {
       color: $dark-blue;
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.5px;
     }
@@ -93,7 +96,8 @@
       background-image: image-url('demo_img/doc.png');
       width: 35px;
       height: 42px;
-      margin-right: 21px;
+      margin-right: 15px; margin-left: unset;
+      &.hebrew { margin-right: unset; margin-left: 15px;}
     }
   }
 }

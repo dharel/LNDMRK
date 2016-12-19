@@ -15,28 +15,29 @@
     height: 1px;
     background-color: $grey;
     position: relative;
-    top: 48px;
+    top: 52px;
     width: 100%;
     transform: translateX(-50%);
     left: 50%;
   }
 
   .title {
-    width: 207px;
-    height: 31px;
+    width: 312px;
+    height: 40px;
     margin: 32px auto 39px;
     text-align: center;
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 1.8px;
     z-index: 2;
     position: relative;
-    line-height: 29px;
+    line-height: 40px;
     border: 1px solid $dark-blue;
     background-color: $white;
     text-transform: uppercase;
     color: $dark-turquoise;
-    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+    box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
+    &.hebrew { font-size: 20px; width: 250px; letter-spacing: 0.5px;}
   }
 
   .secondary-title {
@@ -154,6 +155,7 @@
             line-height: 40px;
             padding-left: 10px;
             background-color: transparent;
+            &.hebrew { padding: 0 10px 0 0; text-align: right;}
           }
           h3 {
             font-size: 16px;
@@ -224,8 +226,10 @@
             color: $black;
             text-align: left;
             line-height: 40px;
-            padding-left: 10px;
+            // padding-left: 10px;
+            padding: 0 0 0 10px;
             background-color: transparent;
+            &.hebrew { padding: 0 10px 0 0; text-align: right;}
           }
           h3 {
             font-size: 22px;
@@ -295,6 +299,7 @@
         }
       }
       .property-management {
+        margin-top: 4px;
         width: 100%;
         .line {
           width: 100%;
