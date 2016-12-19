@@ -13,7 +13,7 @@
         <li ng-click='toggleLocalization("he")'><a class='link-5' ng-class='{"on": localizationSrv.locale === "he"}'>HE</a></li>
         <li><a class='notification'></a></li>
         <li><a class='user-image'></a></li>
-        <li><a class='user' href='#'>USER@LNDMRK.COM</a></li>
+        <li><a class='user'>USER@LNDMRK.COM</a></li>
         <li class='logout'><a class='link' href='/#/' translate>logout</a></li>
       </ul>
     </div>
@@ -170,10 +170,9 @@
           <div class='header debt' style='width: 11.1%' translate>debt_to_value</div>
           <div class='header gains' style='width: 11.1%' translate>gains_from_initial_investment</div>
         </div>
-        <div class='data-wrapper'
-             ng-repeat='property in owned_data track by $index'
-             ng-click='toggleExpanded(property)'>
-          <div class='row-data' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
+        <div class='data-wrapper' ng-repeat='property in owned_data track by $index'>
+          <div class='row-data' ng-click='toggleExpanded(property)'
+               ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
             <div class='data name' ng-class='property.class' translate>{{property.name}}</div>
             <div class='data price' style='width: 11.1%'>{{ calcAvarage('price', property.assets) | currency }}</div>
             <div class='data owned' style='width: 11.1%'>{{ sumProperty('user_owned', property.assets) }}</div>
@@ -187,7 +186,7 @@
           <div class='expanded-data-wrap' 
                ng-if='property.assets && property.assets.length > 0'
                ng-show='expanded.id === property.id'>
-            <div class='expanded-row-data' ng-repeat='asset in property.assets'>
+            <div class='expanded-row-data' ng-repeat='asset in property.assets' ng-click='selectAsset(asset)'>
               <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}'>{{asset.name}}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.price | currency }}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.user_owned}}</div>

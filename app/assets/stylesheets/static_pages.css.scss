@@ -71,22 +71,19 @@ header {
     }
     li {
       cursor: pointer;
+      &:focus { border: none; outline:0;}
     }
     .link-1 { margin-left: 45px; }
     .link-2 { margin-left: 40px; }
     .link-3 { margin-left: 42px; }
     .link-4 { 
       margin-right: 5px;
-      &.on {
-        color: $turquoise;
-      }
+      &.on { color: $turquoise; }
     }
     .link-5 { 
       margin-right: 42px; 
       margin-left: 3px; 
-      &.on {
-        color: $turquoise;
-      }
+      &.on { color: $turquoise; }
     }
     .link-6 { margin-right: 28px; }
   }
@@ -173,7 +170,7 @@ header {
     margin-top: 6px;
     margin-right: 10px; 
   }
-  .user { margin-right: 20px; }
+  .user { margin-right: 20px; cursor: default;}
 }
 
 

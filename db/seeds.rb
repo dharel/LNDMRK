@@ -558,7 +558,7 @@ Asset.create(
       market_type: 'Primary',
       property_type: 'Retail,Office,Hotel',
       rating: 'A+',
-      price: '16.37',
+      price: '16.39',
       income: '74.38',
       yield: '5.45',
       established: '2003',

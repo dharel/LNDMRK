@@ -3,6 +3,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
   var initialMarkers = [], markers = [], markersInFOV = [];
 
   var createMarker = function (asset, pinColor) {
+    debugger;
     var lat = Number(asset.gps.split(',')[0]);
     var lng = Number(asset.gps.split(',')[1]);        
     var LatLon = new google.maps.LatLng(lat, lng);
@@ -126,12 +127,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       zoom: 17,
       mapTypeId: 'roadmap'
     });
-
-    // window.map = new google.maps.Map(document.getElementById('map'), {
-    //   center: {lat: 2.811371, lng: 1.757813},
-    //   zoom: 2,
-    //   mapTypeId: 'roadmap'
-    // });
   };
 
   var resetAssetMarkers = function () {
