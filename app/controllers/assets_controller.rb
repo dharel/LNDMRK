@@ -41,4 +41,17 @@ class AssetsController < ApplicationController
       render json: { error: e.message }
     end
   end
+
+  def buy
+    byebug
+    asset = Asset.find(params[:id])
+    asset.update(value: params[:value])
+    render json: { status: 200 }
+  end
+
+  def sell
+    asset = Asset.find(params[:id])
+    asset.update(value: params[:value])
+    render json: { status: 200 }
+  end
 end

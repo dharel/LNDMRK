@@ -17,4 +17,6 @@ get '/dashboard', to: 'main#dashboard'
 
 post '/asset_remove_from_watchlist', to: 'assets#remove_from_watchlist'
 post '/asset_add_to_watchlist', to: 'assets#add_to_watchlist'
+post '/asset_buy', to: 'assets#buy'
+post '/asset_sell', to: 'assets#sell'
 end

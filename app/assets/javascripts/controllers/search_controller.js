@@ -241,7 +241,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.openPopup = function (asset, popup_type) {
-    if($scope.buy_popup_opened) {return;}
+    if($scope.popup_current_action) {return;}
     if(popup_type === 'buy') {
       $scope.popup_current_action = 'buy';
       $scope.submit_text = "popup_buy";
@@ -257,12 +257,40 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.chosen_asset = null;
   };
 
-  $scope.submitChosenAsset = function (currenty_action, asset) {
-    if(current_action === 'buy') {
-      console.log('buy buy buy' + chosen_asset.id);
-    } else if(current_action === 'sell') {
-      console.log('sell sell sell' + chosen_asset.id);
+  $scope.submitChosenAsset = function (currenty_action, asset_id, value) {
+    if($scope.popup_current_action === 'buy') {
+      $scope.buyChosenAsset(asset_id, value);
+    } else if($scope.popup_current_action === 'sell') {
+      $scope.sellChosenAsset(asset_id, value);
     }
+  };
+
+  var onSucc_buy_asset = function (id, status) {
+    var asset = R.find(R.propEq('id', id))($scope.assets_results);
+    asset.user_watched = status;
+    function a (e) { }
+    return a;
+  };
+  var onErr_buy_asset = function (err) {
+    console.log('error fetching data: ', err);
+  };
+  var onSucc_sell_asset = function (id, status) {
+    var asset = R.find(R.propEq('id', id))($scope.assets_results);
+    asset.user_watched = status;
+    function a (e) { }
+    return a;
+  };
+  var onErr_sell_asset = function (err) {
+    console.log('error fetching data: ', err);
+  };
+
+  $scope.buyChosenAsset = function (asset_id, value) {
+    debugger;
+    AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: asset_id}, onSucc_buy_asset(id, true), onErr_change_watchlist);
+  };
+
+  $scope.sellChosenAsset = function (asset_id, value) {
+    AjaxService.sendMsg('POST', '/asset_sell', {id: asset_id, value: asset_id}, onSucc_sell_asset(id, false), onErr_sell_asset);
   };
 
   $scope.addMeters = function () {
