@@ -243,29 +243,26 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.openPopup = function (asset, popup_type) {
     if($scope.buy_popup_opened) {return;}
     if(popup_type === 'buy') {
-      $scope.buy_popup_opened = true;
-      $scope.sell_popup_opened = false;
-      console.log("buy popup "+asset.id+", initial value is "+asset.value);
+      $scope.popup_current_action = 'buy';
+      $scope.submit_text = "popup_buy";
     } else if(popup_type === 'sell') {
-      $scope.buy_popup_opened = false;
-      $scope.sell_popup_opened = true;
-      console.log("sell popup "+asset.id+", initial value is "+asset.value);
+      $scope.popup_current_action = 'sell';
+      $scope.submit_text = "popup_sell";
     }
     $scope.chosen_asset = asset;
   };
 
   $scope.closePopup = function () {
-    $scope.buy_popup_opened = false;
-    $scope.sell_popup_opened = false;
+    $scope.popup_current_action = null;
     $scope.chosen_asset = null;
   };
 
-  $scope.buyChosenAsset = function (asset) {
-    console.log('buy buy buy' + chosen_asset.id);
-  };
-
-  $scope.sellChosenAsset = function (asset) {
-    console.log('sell sell sell' + chosen_asset.id);
+  $scope.submitChosenAsset = function (currenty_action, asset) {
+    if(current_action === 'buy') {
+      console.log('buy buy buy' + chosen_asset.id);
+    } else if(current_action === 'sell') {
+      console.log('sell sell sell' + chosen_asset.id);
+    }
   };
 
   $scope.addMeters = function () {

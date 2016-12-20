@@ -202,3 +202,7 @@ en:
   popup_price_per_meter: "price per m²"
   popup_total: "total amount"
   popup_buy: "buy"
+  popup_sell: "sell"
+  add_to_watchlist: "add to watchlist"
+  in_my_watchlist: "in my watchlist"
+  
