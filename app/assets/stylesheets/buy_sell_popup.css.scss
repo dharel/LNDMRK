@@ -1,0 +1,213 @@
+@import "./_base.css.scss";
+//================================
+// buy / sell popup:
+//================================
+
+.buy-popup-shadow {
+  background-color: transparent;
+  position: absolute;
+  overflow: hidden;
+  top:0; right:0; bottom:0; left:0;
+  z-index: 2;
+}
+.buy-popup {
+  background-color: $white;
+  // overflow: hidden;
+  width: 350px;
+  height: 130px;
+  box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
+  position: absolute;
+  z-index: 3;
+  right: 100px; left: unset;
+  margin-top: -2px;
+  @extend .flexbox-colum-between-center;
+  padding: 7px;
+  .submit {
+    height: 35px;
+    width: 320px;
+    margin: 0 10px;
+    color: $white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 0 6px rgba(25,70,107,.43);
+    line-height: 35px;
+    text-transform: uppercase;
+    box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
+    cursor: pointer;
+    border: none;
+    background-color: $red-orange;
+    &:hover, &:focus { background-color: $red-orange2; }
+    &:focus {outline: 0;}
+  }
+  .first-row {
+    @extend .flexbox-row-between;
+    height: 53px;
+    margin: 10px;
+    h2, label span {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      color: $turquoise;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+    .input-wrap {
+      @extend .flexbox-row-between;
+      width: 100px;
+      height: 40px;
+      border: 2px solid $turquoise;
+      .spinners {
+        @extend .flexbox-colum-between-center;
+        width: 20px;
+        height: 36px;
+        background-color: #e4f6f8;
+        .down {
+          width: 20px; height: 20px; cursor: pointer;
+          @extend .flexbox-row-center-center;
+          &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 10px solid $turquoise;
+          }
+          &:focus {
+            outline: 0;
+            &::after {border-top-color: $dark-turquoise;}
+          }
+        }
+        .up {
+          width: 20px; height: 20px; cursor: pointer;
+          border-bottom: 1px solid $turquoise;
+          @extend .flexbox-row-center-center;
+          &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 10px solid $turquoise;
+          }
+          &:focus {
+            outline: 0;
+            &::after {border-bottom-color: $dark-turquoise;}
+          }
+        }
+      }
+      input[type='number'] {
+        -moz-appearance: textfield;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        &:focus {outline: 0;}
+        border: none;
+        color: $turquoise;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        height: 36px;
+        flex: 1 0 auto;
+        text-align: center;
+        @extend .flexbox-row-center-center;
+      }
+    }
+    .price-per-m {
+      width: 100px;
+      position: relative;
+      .price-box {
+        color: $white;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        height: 40px;
+        background-color: $turquoise;
+        @extend .flexbox-row-center-center;
+      }
+      &::after {
+        content: 'x';
+        color: $turquoise;
+        line-height: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: $white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 23px;
+        left: -12px; right: unset;
+        @extend .flexbox-row-center-center;
+        pointer-events: none;
+        box-shadow: 0 0.5px 8px -1px rgba(25,70,107,.43);
+      }
+      &.hebrew {
+        &::after {
+          left:unset; right: -12px;
+          top: 25px;
+        }
+      }
+    }
+    .equal-sign {
+      font-size: 18px;
+      font-weight: 900;
+      color: $turquoise;
+      width: 20px;
+      height: 53px;
+      margin-top: 44px;
+      @extend .flexbox-colum-to-top-center;
+    }
+    .total-amount {
+      h2 { color: $dark-blue;}
+      width: 100px;
+      .box {
+        color: $white;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        height: 40px;
+        background-color: $dark-blue;
+        @extend .flexbox-row-center-center;
+      }
+    }
+  }
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    position: absolute;
+    transform: translateY(-50%);
+    bottom: 33px;
+    filter: drop-shadow(0 0.5px 2px rgba(0,122,255,.6));
+    border-left: 17px solid $white;
+    border-right: none;
+    left: 99%; right: unset;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 36px;
+    top: 45px;
+    width: 9px;
+    background-color: $white;
+    right: 0; left: unset;
+  }
+  &.hebrew {
+    right: unset; left: 100px;
+    &::before {
+      left: unset; right: 99%;
+      border-right: 17px solid $white;
+      border-left: none;
+    }
+    &::after {
+      right: unset; left: 0;
+    }
+  }
+}

@@ -173,3 +173,8 @@ he:
   Yield: "תשואה"
   showing: "מראה"
   search_results: "תוצאות חיפוש"
+
+  popup_meters: "מטר רבוע"
+  popup_price_per_meter: "מחיר למטר רבוע"
+  popup_total: "סכום כולל"
+  popup_buy: "קנה"

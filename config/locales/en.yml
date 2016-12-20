@@ -198,3 +198,7 @@ en:
   showing: "showing"
   search_results: "search results"
 
+  popup_meters: "m² meters"
+  popup_price_per_meter: "price per m²"
+  popup_total: "total amount"
+  popup_buy: "buy"
