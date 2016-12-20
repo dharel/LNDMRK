@@ -43,7 +43,6 @@ class AssetsController < ApplicationController
   end
 
   def buy
-    byebug
     asset = Asset.find(params[:id])
     asset.update(value: params[:value])
     render json: { status: 200 }

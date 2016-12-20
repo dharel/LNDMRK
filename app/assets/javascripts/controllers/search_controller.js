@@ -285,12 +285,15 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.buyChosenAsset = function (asset_id, value) {
-    debugger;
-    AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: asset_id}, onSucc_buy_asset(id, true), onErr_change_watchlist);
+    AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: value}, onSucc_buy_asset(asset_id, true), onErr_change_watchlist);
+    $scope.popup_current_action = null;
+    $scope.chosen_asset = null;
   };
 
   $scope.sellChosenAsset = function (asset_id, value) {
-    AjaxService.sendMsg('POST', '/asset_sell', {id: asset_id, value: asset_id}, onSucc_sell_asset(id, false), onErr_sell_asset);
+    AjaxService.sendMsg('POST', '/asset_sell', {id: asset_id, value: value}, onSucc_sell_asset(asset_id, false), onErr_sell_asset);
+    $scope.popup_current_action = null;
+    $scope.chosen_asset = null;
   };
 
   $scope.addMeters = function () {
