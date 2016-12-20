@@ -39,6 +39,7 @@
     background-color: $red-orange;
     &:hover, &:focus { background-color: $red-orange2; }
     &:focus {outline: 0;}
+    &.hebrew {font-family: 'Open Sans Hebrew', sans-serif;}
   }
   .first-row {
     @extend .flexbox-row-between;

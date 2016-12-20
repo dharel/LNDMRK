@@ -234,4 +234,51 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     localStorage.setItem('locale', val);
     $translate.use(val);
   };
+
+  // buy / sell popup
+  $scope.isHebrew = function () {
+    return localizationSrv.locale === "he";
+  };
+
+  $scope.openPopup = function (asset, popup_type) {
+    if($scope.buy_popup_opened) {return;}
+    if(popup_type === 'buy') {
+      $scope.buy_popup_opened = true;
+      $scope.sell_popup_opened = false;
+      console.log("buy popup "+asset.id+", initial value is "+asset.value);
+    } else if(popup_type === 'sell') {
+      $scope.buy_popup_opened = false;
+      $scope.sell_popup_opened = true;
+      console.log("sell popup "+asset.id+", initial value is "+asset.value);
+    }
+    $scope.chosen_asset = asset;
+  };
+
+  $scope.closePopup = function () {
+    $scope.buy_popup_opened = false;
+    $scope.sell_popup_opened = false;
+    $scope.chosen_asset = null;
+  };
+
+  $scope.buyChosenAsset = function (asset) {
+    console.log('buy buy buy' + chosen_asset.id);
+  };
+
+  $scope.sellChosenAsset = function (asset) {
+    console.log('sell sell sell' + chosen_asset.id);
+  };
+
+  $scope.addMeters = function () {
+    if($scope.chosen_asset.value === $scope.chosen_asset.total) {return;}
+    $scope.chosen_asset.value += 1;
+  };
+
+  $scope.subMeters = function () {
+    if($scope.chosen_asset.value === $scope.chosen_asset.orig_val) {return;}
+    $scope.chosen_asset.value -= 1;
+  };
+
+  $scope.asset_calced_price = function () {
+    return Math.round($scope.chosen_asset.price * $scope.chosen_asset.value * 100) / 100 ;
+  };
 }]);
