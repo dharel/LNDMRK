@@ -44,12 +44,13 @@ class AssetsController < ApplicationController
 
   def buy
     asset = Asset.find(params[:id])
-    asset.update(value: params[:value])
+    asset.update(value: params[:value], user_watched: false, user_owned: true)
     render json: { status: 200 }
   end
 
   def sell
     asset = Asset.find(params[:id])
+    asset.update(value: params[:value], user_owned: false) if params[:value].zero?
     asset.update(value: params[:value])
     render json: { status: 200 }
   end

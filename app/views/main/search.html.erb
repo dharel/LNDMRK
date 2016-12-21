@@ -108,7 +108,7 @@
                    ng-mouseleave='googleMaps.unhoverOverAsset(asset)'>
                 <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'
                                 addtowatchlist='addToWatchlist(asset_id)'
-                                open-popup='openPopup(asset, popup_type)'
+                                open-popup='openPopup(asset, popup_type, offset_top, offset_left)'
                                 removefromwatchlist='removeFromWatchlist(asset_id)'></assets-results>
               </div>
             </div>
@@ -117,7 +117,8 @@
       </div>
 
       <div ng-if='popup_current_action' class='buy-popup-shadow' ng-click='closePopup()'></div>
-      <div ng-if='popup_current_action' class='buy-popup' ng-class='{"hebrew": isHebrew()}'>
+      <div ng-if='popup_current_action' class='buy-popup' ng-class='{"hebrew": isHebrew()}'
+           ng-style='{top: popupTopPos + "px", left: popupLeftPos + "px"}'>
         <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, chosen_asset.value)'>
           <div class='first-row'>
             <label><span translate>popup_meters</span>

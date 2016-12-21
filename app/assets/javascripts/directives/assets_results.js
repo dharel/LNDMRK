@@ -45,11 +45,11 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
         "</div>" +
         "<div class='image-border'></div>" +
       "</div>" +
-      "<div class='bottom-row'>" +
-        "<div class='property-button buy' ng-click='openRelevantPopup(\"buy\")'" +
+      "<div class='bottom-row' id='popup_anchor'>" +
+        "<div class='property-button buy' ng-click='openRelevantPopup(\"buy\", $event)'" +
              "ng-class='{\"hebrew\": isHebrew()}' translate>popup_buy</div>" +
         
-        "<div class='property-button sell' ng-click='openRelevantPopup(\"sell\")'" +
+        "<div class='property-button sell' ng-click='openRelevantPopup(\"sell\", $event)'" +
              "ng-class='{\"hebrew\": isHebrew()}' ng-if='asset.user_owned' translate>popup_sell</div>" +
         
         "<div class='property-button wtch' ng-click='changeMyWatchlist($event, asset.id)'" +
@@ -82,8 +82,13 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
         return txt;
       };
 
-      scope.openRelevantPopup = function (popup_type) {
-        scope.openPopup({asset: scope.asset, popup_type: popup_type});
+      scope.openRelevantPopup = function (popup_type, event) {
+        scope.openPopup({
+          asset: scope.asset,
+          popup_type: popup_type,
+          offset_top: event.screenY,
+          offset_left: event.screenX
+        });
       };
 
       if (attrs.ngClick || attrs.href === '' || attrs.href === '#') {

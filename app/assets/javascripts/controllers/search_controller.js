@@ -240,8 +240,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     return localizationSrv.locale === "he";
   };
 
-  $scope.openPopup = function (asset, popup_type) {
+  $scope.openPopup = function (asset, popup_type, offset_top, offset_left) {
     if($scope.popup_current_action) {return;}
+
     if(popup_type === 'buy') {
       $scope.popup_current_action = 'buy';
       $scope.submit_text = "popup_buy";
@@ -250,7 +251,39 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.submit_text = "popup_sell";
     }
     $scope.chosen_asset = asset;
+
+    if(localizationSrv.locale === "en") {
+      if(window.innerWidth <= 1280){
+        $scope.popupLeftPos = 660;
+        $scope.popupTopPos = offset_top - 186;
+      } else {
+        $scope.popupLeftPos = offset_left - 450;
+        $scope.popupTopPos = offset_top - 175;
+      }
+    } else if(localizationSrv.locale === "he") {
+      if(window.innerWidth <= 1280){
+        $scope.popupLeftPos = 270;
+        $scope.popupTopPos = offset_top - 186;
+      } else {
+        $scope.popupLeftPos = offset_left;
+        $scope.popupTopPos = offset_top - 175;
+      }
+    }
   };
+
+  $(window).resize(function(){
+    console.log(window.innerWidth);
+    $scope.$apply(function(){
+      if(window.innerWidth <= '1280'){
+        $scope.popupTopPos = offset_top - 186;
+          if(localizationSrv.locale === "en") {
+          $scope.popupLeftPos = 660;
+        } else if(localizationSrv.locale === "he") {
+          $scope.popupLeftPos = 270;
+        }
+      }
+    });
+  });
 
   $scope.closePopup = function () {
     $scope.popup_current_action = null;
@@ -285,6 +318,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.buyChosenAsset = function (asset_id, value) {
+    if(value === 0) {return;}
     AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: value}, onSucc_buy_asset(asset_id, true), onErr_change_watchlist);
     $scope.popup_current_action = null;
     $scope.chosen_asset = null;
