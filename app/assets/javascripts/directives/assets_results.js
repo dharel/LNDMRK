@@ -13,7 +13,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
     },
     template:
     "<div class='results-asset-block'>" +
-      "<div class='asset-name'>{{asset.name}}</div>" +
+      "<div class='asset-name'>{{getNameByLocale(asset)}}</div>" +
       // "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
       "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)' ng-click='selectAsset(asset)'>" +
         // "<div class='light-blue-shadow'></div>" +
@@ -66,6 +66,14 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
     "</div>" +
     "<div class='separate-properties'></div>",
     link: function (scope, element, attrs) {
+
+      scope.getNameByLocale = function (asset) {
+        if (scope.isHebrew()) {
+          return asset.name_heb;
+        }
+        return asset.name;
+      }
+
       scope.hovered_asset = '';
 
       scope.isHebrew = function () {
