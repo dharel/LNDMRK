@@ -37,6 +37,24 @@
   section.hero-map {
     min-width: 320px;
     width: 100vw;
+    height: 400px;
+    background-image: image-url('map-export2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .title {
+      padding-left: 0;
+      text-align: center;
+      font-size: 22px;
+      line-height: 33px;
+      letter-spacing: 2.9px;
+      word-spacing: 1px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 16px auto 0;
+      text-shadow: 0 2px 8px rgba(25, 70, 107, 1);
+    }
   }
 
   section.carousel {
@@ -117,7 +135,134 @@
   }
 
   section.statistics {
+    height: 360px;
     min-width: 320px;
+    background: $turquoise;
+    @extend .flexbox-colum-to-top-center;
+    h1 {
+      color: $white;
+      font-size: 27px;
+      font-weight: 600;
+      text-shadow: 0 2px 5px rgba(6, 36, 71, 0.4);
+      text-transform: uppercase;
+      &.portfolio {font-size: 31px; height: unset; margin-bottom: 4px;}
+    }
+    h2 {
+      color: $dark-blue;
+      font-size: 20px;
+      letter-spacing: 1px;
+      font-weight: 400;
+      position: absolute;
+      top: 73px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      text-transform: uppercase;
+    }
+    h3 {
+      color: $white;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .line {
+      position: relative;
+      &.growth {
+        top: 35px;
+        right: -5px;
+        transform: rotate(29deg);
+      }
+      &.income {
+        top: 42px;
+        right: -50px;
+        transform: rotate(156deg);
+      }
+      &.income-growth { 
+        top: 128px;
+        right: 90px;
+        transform: rotate(-57deg);
+      }
+    }
+    .diamond-base {
+      width: 90px;
+      height: 7px;
+      background-color: $white;
+      position: absolute;
+      background-image: image-url('statistics_icon-1.png');
+    }
+    h4 {
+      color: $dark-blue;
+      font-size: 11px;
+      position: absolute;
+      display: inline-block;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      &.growth {
+        top: 14px; right: unset; left: -14px;
+      }
+      &.income {
+        top: 10px; right: -45px; left: unset;
+        width: 80px;
+      }
+      &.income-growth {
+        top: 151px; right: unset; left: -52px;
+        width: 92px;
+        text-align: center;
+      }
+    }
+    .small-remark {
+      text-transform: uppercase;
+      font-size: 11px;
+      color: $white;
+      letter-spacing: 0.8px;
+    }
+    .first-row {
+      @extend .flexbox-row-between;
+      width: 100%;
+      height: 120px;
+      .column {
+        @extend .flexbox-colum-to-top-center;
+        height: inherit;
+        &.first {width: 46%;}
+        &.distributed {width: 54%;}
+        .icon {
+          width: 50px;
+          height: 50px;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          margin: 0 auto;
+          &.distributed { background-image: image-url('statistics_icon-1.png'); }
+          &.portfolio { background-image: image-url('statistics_icon-2.png'); margin-top: 11px;}
+        }
+      }
+      .ver-partitian {
+        height: 100px;
+        margin-top: 20px;
+        width: 1px;
+        background-color: $white;
+      }
+    }
+
+    .second-row {
+      background-color: transparent;
+      .pie-area { position: relative;}
+      .pie-image {
+        width: 120px;
+        height: 120px;
+        background: image-url('pie-3.png');
+        background-size: contain;
+        margin-top: 26px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+    }
   }
 
   section.partners {

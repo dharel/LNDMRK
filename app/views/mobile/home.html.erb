@@ -28,7 +28,7 @@
       </div>
     </section>
 
-    <section class='carousel'>here you'll find the carousel</section>
+    <section class='carousel'>carousel will be here</section>
 
     <section class='how-it-works'>
       <div class='line how-it-works'></div>
@@ -74,13 +74,15 @@
 
     <section class='statistics'>
       <div class='first-row'>
-        <div class='column'>
+        <div class='column first'>
           <h3 translate> average_portfolio </h3>
           <div class='icon portfolio'></div>
-          <h1>$53,327</h1>
+          <h1 class='portfolio'>$53,327</h1>
         </div>
-        <div class='column'>
+        <div class='ver-partitian'></div>
+        <div class='column distributed'>
           <h3 translate> income_distributed </h3>
+          <p class='small-remark' translate> this_month</p>
           <div class='icon distributed'></div>
           <h1>$81,173,955</h1>
         </div>
@@ -93,9 +95,9 @@
           <h4 class='growth' translate> growth </h4>
           <h4 class='income' translate> max_dividends </h4>
           <h4 class='income-growth' translate> max_dividends_appreciation </h4>
-          <%= image_tag('line.png',class: 'line growth', width: '90', alt: '') %>
-          <%= image_tag('line.png',class: 'line income', width: '90', alt: '') %>
-          <%= image_tag('line.png',class: 'line income-growth', width: '90', alt: '') %>
+          <%= image_tag('line.png',class: 'line growth', width: '60', alt: '') %>
+          <%= image_tag('line.png',class: 'line income', width: '60', alt: '') %>
+          <%= image_tag('line.png',class: 'line income-growth', width: '40', alt: '') %>
         </div>
       </div>
     </section>
