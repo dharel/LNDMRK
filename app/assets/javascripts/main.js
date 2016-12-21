@@ -27,7 +27,6 @@ app.config(['$compileProvider', '$httpProvider','$translateProvider', '$location
    $routeProvider.when('/', {
      templateUrl: '/home',
      controller: 'MainController',
-     reloadOnSearch: false
    })
    .when('/dashboard', {
      templateUrl: '/dashboard',
@@ -42,7 +41,6 @@ app.config(['$compileProvider', '$httpProvider','$translateProvider', '$location
    .when('/property', {
      templateUrl: '/property',
      controller: 'PropertyController',
-     reloadOnSearch: false
    })
 }]);
 
