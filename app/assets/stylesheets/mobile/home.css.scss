@@ -1,0 +1,384 @@
+@import "../_base.css.scss";
+
+.mobile {
+  .body, section, footer {
+    width: 100vw;
+    height: auto;
+  }
+  section.how-it-works .line,
+  section.partners .line {
+    height: 1px;
+    background-color: #999;
+    position: relative;
+    width: calc(100% - 40px);
+    top: 53px;
+    margin: 0 auto;
+    &.how-it-works { margin: 0; }
+  }
+  section.how-it-works .title,
+  section.partners .title {
+    width: 190px;
+    height: 31px;
+    margin: 37px auto 17px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    z-index: 2;
+    position: relative;
+    line-height: 30px;
+    border: 1px solid #102447;
+    background-color: #fff;
+    text-transform: uppercase;
+    color: #1a8989;
+    box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+  }
+
+  section.hero-map {
+    min-width: 320px;
+    width: 100vw;
+    height: 400px;
+    background-image: image-url('map-export2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .title {
+      padding-left: 0;
+      text-align: center;
+      font-size: 22px;
+      line-height: 33px;
+      letter-spacing: 2.9px;
+      word-spacing: 1px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 16px auto 0;
+      text-shadow: 0 2px 8px rgba(25, 70, 107, 1);
+    }
+  }
+
+  section.carousel {
+    min-width: 320px;
+  }
+
+  section.how-it-works {
+    min-width: 320px;
+    .column-wrap {
+      width: 320px;
+      margin: 26px auto;
+      margin-top: 26px;
+    }
+    .item {
+      @extend .flexbox-row-start-top;
+      height: unset;
+      min-height: 75px;
+      margin-bottom: 22px;
+      .image {
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-size: 90px;
+        position: relative;
+        &.search {
+          background-image: image-url('icons-1.png');
+          margin: 2px 0 0;
+          background-position: -4px;
+        }
+        &.invest {
+          background-image: image-url('icons-2.png');
+          margin: 0;
+          background-position: -1px;
+        }
+        &.recieve {
+          background-image: image-url('icons-3.png');
+          margin: 6px 0 0;
+          background-position: 1px;
+        }
+        &.exit {
+          background-image: image-url('icons-4.png');
+          margin: -5px 0 0;
+          background-position: 4px;
+        }
+      }
+
+      .texts-column {
+        @extend .flexbox-colum-to-top-start;
+        padding-right: 5px;
+        .info-title {
+          width: unset;
+          height: 25px;
+          text-transform: uppercase;
+          font-weight: bold;
+          color: $dark-blue;
+          font-size: 15px;
+          margin-left: 10px;
+        }
+        .row {
+          @extend .flexbox-row-top-between;
+          .diamond {
+            width: 5px;
+            height: 5px;
+            transform: rotate(48deg);
+            background-color: $turquoise;;
+            margin: 9px 3px 0 0;
+          }
+          p { 
+            margin: 2px; 
+            font-weight: lighter;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  section.statistics {
+    height: 360px;
+    min-width: 320px;
+    background: $turquoise;
+    @extend .flexbox-colum-to-top-center;
+    h1 {
+      color: $white;
+      font-size: 27px;
+      font-weight: 600;
+      text-shadow: 0 2px 5px rgba(6, 36, 71, 0.4);
+      text-transform: uppercase;
+      &.portfolio {font-size: 31px; height: unset; margin-bottom: 4px;}
+    }
+    h2 {
+      color: $dark-blue;
+      font-size: 20px;
+      letter-spacing: 1px;
+      font-weight: 400;
+      position: absolute;
+      top: 73px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      text-transform: uppercase;
+    }
+    h3 {
+      color: $white;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .line {
+      position: relative;
+      &.growth {
+        top: 35px;
+        right: -5px;
+        transform: rotate(29deg);
+      }
+      &.income {
+        top: 42px;
+        right: -50px;
+        transform: rotate(156deg);
+      }
+      &.income-growth { 
+        top: 128px;
+        right: 90px;
+        transform: rotate(-57deg);
+      }
+    }
+    .diamond-base {
+      width: 90px;
+      height: 7px;
+      background-color: $white;
+      position: absolute;
+      background-image: image-url('statistics_icon-1.png');
+    }
+    h4 {
+      color: $dark-blue;
+      font-size: 11px;
+      position: absolute;
+      display: inline-block;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      &.growth {
+        top: 14px; right: unset; left: -14px;
+      }
+      &.income {
+        top: 10px; right: -45px; left: unset;
+        width: 80px;
+      }
+      &.income-growth {
+        top: 151px; right: unset; left: -52px;
+        width: 92px;
+        text-align: center;
+      }
+    }
+    .small-remark {
+      text-transform: uppercase;
+      font-size: 11px;
+      color: $white;
+      letter-spacing: 0.8px;
+    }
+    .first-row {
+      @extend .flexbox-row-between;
+      width: 100%;
+      height: 120px;
+      .column {
+        @extend .flexbox-colum-to-top-center;
+        height: inherit;
+        &.first {width: 46%;}
+        &.distributed {width: 54%;}
+        .icon {
+          width: 50px;
+          height: 50px;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          margin: 0 auto;
+          &.distributed { background-image: image-url('statistics_icon-1.png'); }
+          &.portfolio { background-image: image-url('statistics_icon-2.png'); margin-top: 11px;}
+        }
+      }
+      .ver-partitian {
+        height: 100px;
+        margin-top: 20px;
+        width: 1px;
+        background-color: $white;
+      }
+    }
+
+    .second-row {
+      background-color: transparent;
+      .pie-area { position: relative;}
+      .pie-image {
+        width: 120px;
+        height: 120px;
+        background: image-url('pie-3.png');
+        background-size: contain;
+        margin-top: 26px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+    }
+  }
+
+  section.partners {
+    min-width: 320px;.partners-container {
+    width: inherit;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    @extend .flexbox-row-wrap-around;
+    .partner {
+      width: 130px;
+      height: 35px;
+      background-size: contain;
+      background-position: center;
+      margin: 10px 0;
+      &.canada {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-14.png'), $pale-grey;
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+
+      &.cbre {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-15.png'), $pale-grey;
+        background-size: contain;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+
+      &.ey {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-18.png'), $pale-grey;
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+
+      &.deloitte {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-19.png'), $pale-grey;
+        background-size: contain;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+
+      &.pwc {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-17.png'), $pale-grey;
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+
+      &.kpmg {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-16.png'), $pale-grey;
+        background-size: contain;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+
+      &.goldman {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-21.png'), $pale-grey;
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+
+      &.ubs {
+        background: image-url('mobile-partner-logos/mobile_partner_logo-20.png'), $pale-grey;
+        background-size: contain;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, normal;
+      }
+    }
+  }
+}
+  
+
+  footer {
+    background: $dark-blue;
+    color: $white;
+    padding: 20px 30px 40px;
+    height: auto;
+    p {
+      font-size: 10px;
+      line-height: 18px;
+    }
+    .row {
+      font-size: 14px;
+      @extend .flexbox-row-between;
+    }
+    .column {
+      min-width: 95px;
+    }
+    .social {
+      width: 100%;
+      height: 100px;
+      @extend .flexbox-row-between;
+      padding: 0 40px;
+      .social-item {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &.facebook { background-image: image-url('footer_social1.png'); }
+        &.twitter { background-image: image-url('footer_social2.png'); }
+        &.linkdin { background-image: image-url('footer_social3.png'); }
+        &.mail { background-image: image-url('footer_social4.png'); }
+      }
+    }
+  }
+}
