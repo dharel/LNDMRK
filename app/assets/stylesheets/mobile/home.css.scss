@@ -55,6 +55,99 @@
       margin: 16px auto 0;
       text-shadow: 0 2px 8px rgba(25, 70, 107, 1);
     }
+    .sub-title {
+      color: $white;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin: 14px auto;
+      text-align: center;
+    }
+
+    .filters-container {
+      text-transform: uppercase;
+      @extend .flexbox-colum-to-top-center;
+      width: 300px;
+      margin: 23px auto 11px;
+    }
+    .filter {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      height: 29px;
+      font-size: 11px;
+      line-height: 29px;
+      color: $white;
+      font-weight: bold;
+      text-shadow: 0 1px 3px $grey;
+      cursor: pointer;
+      letter-spacing: 1.2px;
+      user-select: none;
+      -webkit-user-select: none;
+      padding: 0 12px;
+      margin-bottom: 6px;
+      &:focus {outline: 0;}
+
+      &.income {
+        background-color: $yello;
+        &.active { background-color: $dark-yello; }
+      }
+      &.growth {
+        background-color: $purple;
+        &.active { background-color: $dark-purple; }
+      }
+      &.income-growth {
+        background-color: $medium-blue;
+        &.active { background-color: $dark-medium-blue; }
+      }
+    }
+
+    .search-container {
+      // width: inherit;
+      // height: 47px;
+      // margin-top: 12px;
+      
+      input.search {
+        width: 300px;
+        height: inherit;
+        display: block;
+        padding-left: 18px;
+        font-size: 15px;
+        line-height: 47px;
+        letter-spacing: 0;
+        background-color: rgba(51, 51, 51, .4);
+        border: 1px solid $white;
+        color: $white;
+        margin: 0 auto;
+        &.he {
+          padding-right: 30px;
+        }
+      }
+      input.search::-webkit-input-placeholder { color: $white; }
+      input.search::-moz-placeholder { color: $white; }
+      input.search:focus {
+        border: 1px solid $white;
+      }
+    }
+
+    .search-info {
+      color: $white;
+      width: 110px;
+      margin: 11px auto 0;
+      text-transform: uppercase;
+
+      .search-button {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        margin: 0 auto 0 3px;
+        cursor: pointer;
+        text-shadow: 0 2px 3px rgba(25, 70, 107, 0.83);
+        text-align: center;
+        display: block;
+      }
+    }
   }
 
   section.carousel {
@@ -266,86 +359,86 @@
   }
 
   section.partners {
-    min-width: 320px;.partners-container {
-    width: inherit;
-    height: auto;
-    margin-top: 0;
-    margin-bottom: 10px;
-    padding: 0 20px;
-    @extend .flexbox-row-wrap-around;
-    .partner {
-      width: 130px;
-      height: 35px;
-      background-size: contain;
-      background-position: center;
-      margin: 10px 0;
-      &.canada {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-14.png'), $pale-grey;
+    min-width: 320px;
+    .partners-container {
+      width: inherit;
+      height: auto;
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding: 0 20px;
+      @extend .flexbox-row-wrap-around;
+      .partner {
+        width: 130px;
+        height: 35px;
         background-size: contain;
-        background-position: left center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
-      }
+        background-position: center;
+        margin: 10px 0;
+        &.canada {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-14.png'), $pale-grey;
+          background-size: contain;
+          background-position: left center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
 
-      &.cbre {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-15.png'), $pale-grey;
-        background-size: contain;
-        background-position: right center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
-      }
+        &.cbre {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-15.png'), $pale-grey;
+          background-size: contain;
+          background-position: right center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
 
-      &.ey {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-18.png'), $pale-grey;
-        background-size: contain;
-        background-position: left center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
-      }
+        &.ey {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-18.png'), $pale-grey;
+          background-size: contain;
+          background-position: left center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
 
-      &.deloitte {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-19.png'), $pale-grey;
-        background-size: contain;
-        background-position: right center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
-      }
+        &.deloitte {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-19.png'), $pale-grey;
+          background-size: contain;
+          background-position: right center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
 
-      &.pwc {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-17.png'), $pale-grey;
-        background-size: contain;
-        background-position: left center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
-      }
+        &.pwc {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-17.png'), $pale-grey;
+          background-size: contain;
+          background-position: left center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
 
-      &.kpmg {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-16.png'), $pale-grey;
-        background-size: contain;
-        background-position: right center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
-      }
+        &.kpmg {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-16.png'), $pale-grey;
+          background-size: contain;
+          background-position: right center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
 
-      &.goldman {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-21.png'), $pale-grey;
-        background-size: contain;
-        background-position: left center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
-      }
+        &.goldman {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-21.png'), $pale-grey;
+          background-size: contain;
+          background-position: left center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
 
-      &.ubs {
-        background: image-url('mobile-partner-logos/mobile_partner_logo-20.png'), $pale-grey;
-        background-size: contain;
-        background-position: right center;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply, normal;
+        &.ubs {
+          background: image-url('mobile-partner-logos/mobile_partner_logo-20.png'), $pale-grey;
+          background-size: contain;
+          background-position: right center;
+          background-repeat: no-repeat;
+          background-blend-mode: multiply, normal;
+        }
       }
     }
   }
-}
-  
 
   footer {
     background: $dark-blue;

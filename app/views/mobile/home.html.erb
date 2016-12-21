@@ -8,27 +8,24 @@
       <h2 class='sub-title' translate> what_would_you_like </h2>
 
       <div class='filters-container'>
-        <div class='filter income'
-             ng-click='toggleFilter("max_dividends")'
-             ng-class='{"active": mapFilters.max_dividends}' translate> max_dividends </div>
-        <div class='filter growth'
-             ng-click='mapFilters.growth = !mapFilters.growth'
-             ng-class='{"active": mapFilters.growth}' translate> max_appreciation </div>
-        <div class='filter income-growth'
-             ng-click='mapFilters.max_dividends_growth = !mapFilters.max_dividends_growth'
-             ng-class='{"active": mapFilters.max_dividends_growth}' translate>max_dividends_appreciation</div>
+        <div class='filter income' translate> max_dividends </div>
+        <div class='filter growth' translate> max_appreciation </div>
+        <div class='filter income-growth' translate>max_dividends_appreciation</div>
       </div>
       <div class='search-container'>
         <form ng-submit="filterResults()" >
-          <input id="pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location"
+          <input id="pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="{{searchPlaceholderText()}}"
                  ng-if='localizationSrv.locale === "en"' ng-enter='searchForAsset()' ng-init="googleMaps.init()">
           <input id="pac-input" class='search he' type="text" ng-model="mapFilters.address" placeholder='חפש כתובת, עיר או מיקוד'
                  ng-if='localizationSrv.locale === "he"'  ng-enter='searchForAsset()' ng-init="googleMaps.init()">
         </form>
       </div>
+      <div class='search-info'>
+        <a class='search-button' ng-click="searchForAsset()" translate>search</a>
+      </div>
     </section>
 
-    <section class='carousel'>carousel will be here</section>
+    <section class='carousel'></section>
 
     <section class='how-it-works'>
       <div class='line how-it-works'></div>
