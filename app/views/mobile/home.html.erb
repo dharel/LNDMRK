@@ -2,24 +2,144 @@
 
   <mobile-header></mobile-header>
 
-    <header>
-      <div class='row-left'>
-        <div class='menu-hamburger' ng-click="toggleMenu()"></div>
-        <a class='logo' href='/#/'>
-          <div class='header-logo'></div>
-        </a>
+  <div class='body'>
+    <section class='hero-map'>
+      <h1 class='title' translate> map_title </h1>
+      <h2 class='sub-title' translate> what_would_you_like </h2>
+
+      <div class='filters-container'>
+        <div class='filter income'
+             ng-click='toggleFilter("max_dividends")'
+             ng-class='{"active": mapFilters.max_dividends}' translate> max_dividends </div>
+        <div class='filter growth'
+             ng-click='mapFilters.growth = !mapFilters.growth'
+             ng-class='{"active": mapFilters.growth}' translate> max_appreciation </div>
+        <div class='filter income-growth'
+             ng-click='mapFilters.max_dividends_growth = !mapFilters.max_dividends_growth'
+             ng-class='{"active": mapFilters.max_dividends_growth}' translate>max_dividends_appreciation</div>
       </div>
-      <div class='row-right'>
-        <div class='logout'>
-          <a href="/#/" class='link' translate>logout</a>
+      <div class='search-container'>
+        <form ng-submit="filterResults()" >
+          <input id="pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="Enter a location"
+                 ng-if='localizationSrv.locale === "en"' ng-enter='searchForAsset()' ng-init="googleMaps.init()">
+          <input id="pac-input" class='search he' type="text" ng-model="mapFilters.address" placeholder='חפש כתובת, עיר או מיקוד'
+                 ng-if='localizationSrv.locale === "he"'  ng-enter='searchForAsset()' ng-init="googleMaps.init()">
+        </form>
+      </div>
+    </section>
+
+    <section class='carousel'>here you'll find the carousel</section>
+
+    <section class='how-it-works'>
+      <div class='line how-it-works'></div>
+      <div class='title' translate> how_it_works </div>
+
+      <div class='column-wrap'>
+        <div class='item'>
+          <div class='image search'></div>
+          <div class='texts-column'>
+            <div class='info-title' translate> search_properties.title </div>
+            <div class='row'><div class='diamond'></div><p translate> search_properties.part_1 </p></div>
+            <div class='row'><div class='diamond'></div><p translate> search_properties.part_2 </p></div>
+          </div>
+        </div>
+        <div class='item'>
+          <div class='image invest'></div>
+          <div class='texts-column'>
+          <div class='info-title' translate> invest.title</div>
+            <div class='row'><div class='diamond'></div><p translate> invest.part_1 </p></div>
+            <div class='row'><div class='diamond'></div><p translate> invest.part_2 </p></div>
+            <div class='row'><div class='diamond'></div><p translate> invest.part_3 </p></div>
+          </div>
+        </div>
+        <div class='item'>
+          <div class='image recieve'></div>
+          <div class='texts-column'>
+          <div class='info-title' translate> recieve_income.title </div>
+            <div class='row'><div class='diamond'></div><p translate> recieve_income.part_1 </p></div>
+            <div class='row'><div class='diamond'></div><p translate> recieve_income.part_2 </p></div>
+            <div class='row'><div class='diamond'></div><p translate> recieve_income.part_3 </p></div>
+          </div>
+        </div>
+        <div class='item'>
+          <div class='image exit'></div>
+          <div class='texts-column'>
+          <div class='info-title' translate> exit.title </div>
+            <div class='row'><div class='diamond'></div><p translate> exit.part_1 </p></div>
+            <div class='row'><div class='diamond'></div><p translate> exit.part_2 </p></div>
+          </div>
         </div>
       </div>
-    </header>
-  </div>
+    </section>
 
-  <div class='body'>
-    <a href="/#/dashboard">dashboard</a> <br>
+    <section class='statistics'>
+      <div class='first-row'>
+        <div class='column'>
+          <h3 translate> average_portfolio </h3>
+          <div class='icon portfolio'></div>
+          <h1>$53,327</h1>
+        </div>
+        <div class='column'>
+          <h3 translate> income_distributed </h3>
+          <div class='icon distributed'></div>
+          <h1>$81,173,955</h1>
+        </div>
+      </div>
+      <div class='second-row'>
+        <h3 translate>m_in_lndmrk</h3>
+        <div class='pie-area'>
+          <div class='pie-image'></div>
+          <h2>453M</h2>
+          <h4 class='growth' translate> growth </h4>
+          <h4 class='income' translate> max_dividends </h4>
+          <h4 class='income-growth' translate> max_dividends_appreciation </h4>
+          <%= image_tag('line.png',class: 'line growth', width: '90', alt: '') %>
+          <%= image_tag('line.png',class: 'line income', width: '90', alt: '') %>
+          <%= image_tag('line.png',class: 'line income-growth', width: '90', alt: '') %>
+        </div>
+      </div>
+    </section>
+
+    <section class='partners'>
+        <div class='line'></div>
+        <div class='title' translate>partners.title</div>
+        <div class='partners-container'>
+          <div class='partner canada'></div>
+          <div class='partner cbre'></div>
+          <div class='partner ey'></div>
+          <div class='partner deloitte'></div>
+          <div class='partner pwc'></div>
+          <div class='partner kpmg'></div>
+          <div class='partner goldman'></div>
+          <div class='partner ubs'></div>
+        </div>
+    </section>
+
+    <footer>
+      <div class='row'>
+        <div class='column'>
+          <div class='contact-info'>contact@lndmrk.com</div>
+          <div class='contact-info'>+972-578687678</div>
+        </div>
+        <div class='column'>
+          <div class='contact-info'>122 Jmhh St.</div>
+          <div class='contact-info'>Ffnsdnn, Israel</div>
+        </div>
+      </div>
+      <div class='social'>
+        <div class='social-item facebook'></div>
+        <div class='social-item twitter'></div>
+        <div class='social-item linkdin'></div>
+        <div class='social-item mail'></div>
+      </div>
+      <p class='paragraph'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.</br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.
+      </p>
+    </footer>
+    
+<!--     <a href="/#/dashboard">dashboard</a> <br>
     <a href="/#/search">search</a> <br>
-    <a href="/#/property">property</a><br>
+    <a href="/#/property">property</a><br> -->
   </div>
 </div>
