@@ -300,8 +300,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   var onSucc_buy_asset = function (id, status) {
     var asset = R.find(R.propEq('id', id))($scope.assets_results);
-    debugger;
-    asset.user_watched = status;
+    asset.user_owned = status;
     function a (e) { }
     return a;
   };
@@ -310,7 +309,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
   var onSucc_sell_asset = function (id, status) {
     var asset = R.find(R.propEq('id', id))($scope.assets_results);
-    asset.user_watched = status;
+    asset.user_owned = status;
     function a (e) { }
     return a;
   };

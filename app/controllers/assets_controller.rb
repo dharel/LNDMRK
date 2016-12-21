@@ -33,25 +33,27 @@ class AssetsController < ApplicationController
   end
 
   def add_to_watchlist
-    begin
-      asset = Asset.find(params[:asset_id])
-      asset.update(user_watched: true, user_owned: false)
-      render json: { status: 200 }
-    rescue => e
-      render json: { error: e.message }
-    end
+    asset = Asset.find(params[:asset_id])
+    asset.update(user_watched: true, user_owned: false)
+    render json: { status: 200 }
+  rescue => e
+    render json: { error: e.message }
   end
 
   def buy
     asset = Asset.find(params[:id])
     asset.update(value: params[:value], user_watched: false, user_owned: true)
     render json: { status: 200 }
+  rescue => e
+    render json: { error: e.message }
   end
 
   def sell
     asset = Asset.find(params[:id])
     asset.update(value: params[:value], user_owned: false) if params[:value].zero?
-    asset.update(value: params[:value])
+    asset.update(value: params[:value]) unless params[:value].zero?
     render json: { status: 200 }
+  rescue => e
+    render json: { error: e.message }
   end
 end
