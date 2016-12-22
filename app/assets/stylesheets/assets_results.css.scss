@@ -8,7 +8,9 @@
 }
 .assets-carousel {
   height: 310px;
-  overflow: hidden;
+  // overflow: visible;
+  overflow-y: hidden;
+  // overflow-x: visible;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -75,7 +77,8 @@
   padding: 0;
   width: 1212px;
   flex: 1 1 auto;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: visible;
   order: 2;
 }
 
@@ -84,7 +87,9 @@
   margin: 0 auto;
   box-sizing: border-box;
   padding: 0;
-  overflow: hidden;
+  overflow-y: hidden;
+  // overflow-x: visible;
+  // overflow: visible;
 }
 
 .carousel-inner-wrap {
@@ -95,7 +100,8 @@
   box-sizing: border-box;  
   text-align: left;
   vertical-align: top;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: visible;
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -114,10 +120,15 @@
   padding:0;
   text-align: center;
   padding-bottom: 13px;
+
+
+  position: relative;
+
   .bottom-row {
     height: 20px;
     width: 190px;
-    overflow: hidden;
+    // overflow-y: hidden;
+    overflow: visible;
     position: relative;
     // pointer-events: none;
     display: flex;
@@ -243,6 +254,7 @@
     width: 190px;
     margin: 0 auto;
     box-shadow: 0 0 9px -1px rgba(0, 0, 0, .4);
+
 
     .light-blue-shadow {
       position: absolute;

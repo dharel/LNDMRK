@@ -240,7 +240,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     return localizationSrv.locale === "he";
   };
 
-  $scope.openPopup = function (asset, popup_type, offset_top, offset_left) {
+  // $scope.isCurrentAssetChosen = function (asset_id) {
+  //   return asset_id === '';
+  // };
+
+  $scope.openPopup = function (asset, popup_type) {
     if($scope.popup_current_action) {return;}
 
     if(popup_type === 'buy') {
@@ -252,42 +256,16 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     }
     $scope.chosen_asset = asset;
 
-    $scope.popupTopPos = 300;
-    $scope.popupLeftPos = 400;
-
-
-    // if(localizationSrv.locale === "en") {
-    //   if(window.innerWidth <= 1280){
-    //     $scope.popupLeftPos = 660;
-    //     $scope.popupTopPos = offset_top - 186;
-    //   } else {
-    //     $scope.popupLeftPos = offset_left - 450;
-    //     $scope.popupTopPos = offset_top - 175;
-    //   }
-    // } else if(localizationSrv.locale === "he") {
-    //   if(window.innerWidth <= 1280){
-    //     $scope.popupLeftPos = 270;
-    //     $scope.popupTopPos = offset_top - 186;
-    //   } else {
-    //     $scope.popupLeftPos = offset_left;
-    //     $scope.popupTopPos = offset_top - 175;
-    //   }
-    // }
   };
 
-  // $(window).resize(function(){
-  //   console.log(window.innerWidth);
-  //   $scope.$apply(function(){
-  //     if(window.innerWidth <= '1280'){
-  //       $scope.popupTopPos = offset_top - 186;
-  //         if(localizationSrv.locale === "en") {
-  //         $scope.popupLeftPos = 660;
-  //       } else if(localizationSrv.locale === "he") {
-  //         $scope.popupLeftPos = 270;
-  //       }
-  //     }
-  //   });
-  // });
+  $scope.$root.$on('over-box',function(ev,data){
+    // $scope.popupTopPos= data.top + 195;
+    // $scope.popupLeftPos= data.left - 373;
+    // $scope.popupTopPos= data.top;
+    // $scope.popupLeftPos= data.left;
+    $scope.popupTopPos= data.top - 52;
+    $scope.popupLeftPos= data.left - 372;
+  });
 
   $scope.closePopup = function () {
     $scope.popup_current_action = null;

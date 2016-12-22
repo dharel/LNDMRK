@@ -8,7 +8,11 @@
   position: absolute;
   overflow: hidden;
   top:0; right:0; bottom:0; left:0;
-  z-index: 2;
+  z-index: 5;
+}
+
+.anchor-for-popup {
+  position: relative;
 }
 .buy-popup {
   background-color: $white;
@@ -17,8 +21,15 @@
   height: 130px;
   box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
   position: absolute;
-  z-index: 3;
-  right: 100px; left: unset;
+  z-index: 6;
+  
+  top: 0;
+  left: 0;
+  
+  // right: 0px;
+
+  // top: 182px;
+  // right: 213px;
   margin-top: -2px;
   @extend .flexbox-colum-between-center;
   padding: 7px;
