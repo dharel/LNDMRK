@@ -240,10 +240,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     return localizationSrv.locale === "he";
   };
 
-  // $scope.isCurrentAssetChosen = function (asset_id) {
-  //   return asset_id === '';
-  // };
-
   $scope.openPopup = function (asset, popup_type) {
     if($scope.popup_current_action) {return;}
 
@@ -259,12 +255,12 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.$root.$on('over-box',function(ev,data){
-    // $scope.popupTopPos= data.top + 195;
-    // $scope.popupLeftPos= data.left - 373;
-    // $scope.popupTopPos= data.top;
-    // $scope.popupLeftPos= data.left;
     $scope.popupTopPos= data.top - 52;
-    $scope.popupLeftPos= data.left - 372;
+    if(localizationSrv.locale === "he"){
+      $scope.popupLeftPos= data.left + 212;
+    } else {
+      $scope.popupLeftPos= data.left - 372;
+    }
   });
 
   $scope.closePopup = function () {
