@@ -34,6 +34,17 @@
           color: $dark-blue;
           font-weight: bold;
         }
+
+        .clear-all {
+          align-self: center;
+          font-size: 10px;
+          font-weight: 600;
+          display: flex;
+          cursor: pointer;
+          text-decoration: underline;
+          text-transform: uppercase;
+          margin-left: 70px;
+        } 
       }
 
       .filters-container {

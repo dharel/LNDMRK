@@ -59,6 +59,14 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
     "</div>" +
     "<div class='separate-properties'></div>",
     link: function (scope, element, attrs) {
+
+      scope.getNameByLocale = function (asset) {
+        if (scope.isHebrew()) {
+          return asset.name_heb;
+        }
+        return asset.name;
+      }
+
       scope.hovered_asset = '';
 
       scope.isHebrew = function () {
