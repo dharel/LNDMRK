@@ -108,7 +108,7 @@
                    ng-mouseleave='googleMaps.unhoverOverAsset(asset)'>
                 <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'
                                 addtowatchlist='addToWatchlist(asset_id)'
-                                open-popup='openPopup(asset, popup_type, offset_top, offset_left)'
+                                open-popup='openPopup(asset, popup_type, event)'
                                 removefromwatchlist='removeFromWatchlist(asset_id)'></assets-results>
               </div>
             </div>

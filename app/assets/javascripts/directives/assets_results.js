@@ -86,8 +86,9 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
         scope.openPopup({
           asset: scope.asset,
           popup_type: popup_type,
-          offset_top: event.screenY,
-          offset_left: event.screenX
+          event: event
+          // offset_top: event.screenY,
+          // offset_left: event.screenX
         });
       };
 

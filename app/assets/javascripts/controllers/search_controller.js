@@ -252,38 +252,42 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     }
     $scope.chosen_asset = asset;
 
-    if(localizationSrv.locale === "en") {
-      if(window.innerWidth <= 1280){
-        $scope.popupLeftPos = 660;
-        $scope.popupTopPos = offset_top - 186;
-      } else {
-        $scope.popupLeftPos = offset_left - 450;
-        $scope.popupTopPos = offset_top - 175;
-      }
-    } else if(localizationSrv.locale === "he") {
-      if(window.innerWidth <= 1280){
-        $scope.popupLeftPos = 270;
-        $scope.popupTopPos = offset_top - 186;
-      } else {
-        $scope.popupLeftPos = offset_left;
-        $scope.popupTopPos = offset_top - 175;
-      }
-    }
+    $scope.popupTopPos = 300;
+    $scope.popupLeftPos = 400;
+
+
+    // if(localizationSrv.locale === "en") {
+    //   if(window.innerWidth <= 1280){
+    //     $scope.popupLeftPos = 660;
+    //     $scope.popupTopPos = offset_top - 186;
+    //   } else {
+    //     $scope.popupLeftPos = offset_left - 450;
+    //     $scope.popupTopPos = offset_top - 175;
+    //   }
+    // } else if(localizationSrv.locale === "he") {
+    //   if(window.innerWidth <= 1280){
+    //     $scope.popupLeftPos = 270;
+    //     $scope.popupTopPos = offset_top - 186;
+    //   } else {
+    //     $scope.popupLeftPos = offset_left;
+    //     $scope.popupTopPos = offset_top - 175;
+    //   }
+    // }
   };
 
-  $(window).resize(function(){
-    console.log(window.innerWidth);
-    $scope.$apply(function(){
-      if(window.innerWidth <= '1280'){
-        $scope.popupTopPos = offset_top - 186;
-          if(localizationSrv.locale === "en") {
-          $scope.popupLeftPos = 660;
-        } else if(localizationSrv.locale === "he") {
-          $scope.popupLeftPos = 270;
-        }
-      }
-    });
-  });
+  // $(window).resize(function(){
+  //   console.log(window.innerWidth);
+  //   $scope.$apply(function(){
+  //     if(window.innerWidth <= '1280'){
+  //       $scope.popupTopPos = offset_top - 186;
+  //         if(localizationSrv.locale === "en") {
+  //         $scope.popupLeftPos = 660;
+  //       } else if(localizationSrv.locale === "he") {
+  //         $scope.popupLeftPos = 270;
+  //       }
+  //     }
+  //   });
+  // });
 
   $scope.closePopup = function () {
     $scope.popup_current_action = null;
