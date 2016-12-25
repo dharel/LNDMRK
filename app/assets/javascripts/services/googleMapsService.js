@@ -40,7 +40,8 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
 
     var infoWindow = new google.maps.InfoWindow({
       content: '',
-      pixelOffset: new google.maps.Size(-25, 0)
+      pixelOffset: new google.maps.Size(-25, 0),
+      disableAutoPan: true
     });
     
     var marker = new google.maps.Marker({

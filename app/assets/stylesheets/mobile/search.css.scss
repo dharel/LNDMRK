@@ -1,6 +1,8 @@
 @import "../_base.css.scss";
 
 .mobile {
+  outline: none;
+  
   .body {
     width: 100vw;
 
@@ -174,10 +176,10 @@
       .content {
         display: flex;
         flex-direction: column;
-        height: calc(100vh - 138px);
-        justify-content: space-between;
+        height: calc(100vh - 150px);
         margin-top: 35px;
         padding: 0 15px;
+        overflow: scroll;
 
         .divider {
           width: 100%;
@@ -189,6 +191,7 @@
         .sort-by {
           display: flex;
           flex-direction: column;
+          height: 220px; 
 
           .title {
             display: flex;
@@ -219,7 +222,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            
+
             .option {
               font-size: 15px;
               margin: 5px 0;
@@ -233,6 +236,7 @@
         .market-type {
           display: flex;
           flex-direction: column;
+          height: 300px; 
 
           .title {
             display: flex;
@@ -298,8 +302,9 @@
         }
 
         .property-type {
-           display: flex;
+          display: flex;
           flex-direction: column;
+          height: 500px;
 
           .title {
             display: flex;
@@ -329,12 +334,14 @@
           .property-type-checkbox-wrapper {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
 
             .property-type-checkbox-container {
               display: flex;
               margin: 6px 0;
               font-size: 12px;
               flex-direction: row;
+              align-self: space-between;
 
               .search-checkbox {
                 background: #4FC3C9;
@@ -415,6 +422,7 @@
         align-items: center;
         padding: 0 5px;
         align-self: center;
+        outline: none;
 
         .title {
           color: white;
