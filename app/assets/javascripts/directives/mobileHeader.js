@@ -13,9 +13,11 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
           "<div class='bottom'>"+
             "<li class='lang'><div ng-click='toggleLocalization(\"en\")'>EN</div> | <div ng-click='toggleLocalization(\"he\")'>HE</div></li>"+
             "<li class='divider'></li>"+
-            "<li class='user-image'></li>"+
-            "<li class='user-name'>PORTFOLIO</li>"+
-            "<li class='user-email'>USER@LNDMRK.COM</li>"+
+            "<a href=\"/#/dashboard\">"+
+              "<li class='user-image'></li>"+
+              "<li class='user-name'>PORTFOLIO</li>"+
+              "<li class='user-email'>USER@LNDMRK.COM</li>"+
+            "</a>"+
             "<li class='divider'></li>"+
             "<li><a href=\"/#/\" translate>logout</a></li>"+        
           "</div>"+
