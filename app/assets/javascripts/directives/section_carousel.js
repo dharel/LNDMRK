@@ -35,9 +35,12 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
         "</div>" +
       "</div>" +
     "</section>",
+    controller: function($scope) {
+      $scope.carouselDiv = document.getElementById("the-wrapper");
+    },
     link: function (scope, element, attrs) {
-      var carouselDiv = document.getElementById("the-wrapper"),
-      w = angular.element($window);
+      // var carouselDiv = document.getElementById("the-wrapper"),
+      var w = angular.element($window);
 
       scope.toggleObject = function (index) {
         scope.assetsIndex = index;
@@ -48,10 +51,10 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
 
       scope.firstShowed = 0;
       scope.xOffset = 0;
-      carouselDiv.style.left = 0 + 'px';
+      scope.carouselDiv.style.left = 0 + 'px';
       var updateCss = function(val){
-        carouselDiv = document.getElementById("the-wrapper");
-        carouselDiv.style.left = scope.xOffset + 'px';
+        scope.carouselDiv = document.getElementById("the-wrapper");
+        scope.carouselDiv.style.left = scope.xOffset + 'px';
       };
 
       scope.prevAsset = function() {
