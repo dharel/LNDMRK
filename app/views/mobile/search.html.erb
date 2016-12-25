@@ -1,22 +1,63 @@
 <div ng-controller="SearchController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
   <mobile-header></mobile-header>
 
-  <div class='body' ng-init='showFilters = false;'>
+  <div class='body' ng-init='showFilters = false; prevRoute = "map"'>
 
     <div class='filters-panel nga-default nga-slide-left nga-fast' ng-show="mobileVisiblePanel === 'filters'">
       <div class='header'>
-        <div class='back-button'>
-          <div class='arrow'></div>
+        <div class='back-button' ng-click='mobileVisiblePanel = prevRoute'>
+          <div class='arrow'><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
           <div class='title'>filter</div>
         </div>
       </div>
       
       <div class='content'>
         <div class='sort-by'>
-          <div class='sort-by-icon'></div>
-          <div class='sort-by-title'> sort by</div>
+          <div class='title'>
+            <div class='sort-by-icon'></div>
+            <div class='sort-by-title'> sort by</div>
+          </div>
+          <div class='sort-container'>
+            <label ng-repeat="sort_option in sort_options_list" class='option'>
+              <input type="radio" name='sort' ng-click='sortResult(sort_option)' />
+              {{sort_option}}
+            </label>
+          </div>
         </div>
 
+        <div class='divider'></div>
+
+        <div class='market-type'>
+          <div class='title'>
+            <div class='market-properties-icon'></div>
+            <div class='market-title'> market type</div>
+          </div>
+          <div class="market-type-checkbox-wrapper" >
+            <div class="market-type-checkbox-container" ng-repeat="market_type_checkbox in market_type_checkboxes">
+              <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()">
+                <span ng-show="market_type_checkbox.checked"><i class="fa fa-check"></i></span>
+              </div>
+              <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()" translate>{{market_type_checkbox.name}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class='divider'></div>
+
+        <div class='property-type'>
+          <div class='title'>
+            <div class='property-properties-icon'></div>
+            <div class='properties-title'> property type</div>
+          </div>
+          <div class="property-type-checkbox-wrapper">
+            <div class="property-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
+              <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()">
+                <span ng-show="property_type_checkbox.checked"><i class="fa fa-check"></i></span>
+              </div>
+              <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : property_type_checkbox.checked}" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()" translate>{{property_type_checkbox.name}}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -81,14 +122,14 @@
 
       <div class='map-prop-container'> 
         <div class='button properties' 
-             ng-click="mobileVisiblePanel = 'properties'"
+             ng-click="mobileVisiblePanel = 'properties'; prevRoute = 'properties'"
              ng-class="{'active': mobileVisiblePanel === 'properties'}">
           <div class='icon'></div>
           <div class='title '>PROPERTIES</div>
         </div>
 
         <div class='button  map' 
-             ng-click="mobileVisiblePanel = 'map'"
+             ng-click="mobileVisiblePanel = 'map'; ; prevRoute = 'map'"
              ng-class="{'active': mobileVisiblePanel === 'map'}">
           <div class='icon'></div>
           <div class='title '>MAP</div>
