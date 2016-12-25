@@ -1,0 +1,107 @@
+.info-window {
+  display: flex;
+  width: 350px;
+  height: 105px;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-between;
+  background-color: white;
+  direction: ltr;
+
+  .border {
+    height: 100%;
+    width: 5px;
+
+    &.max_appreciation { 
+      background-color: rgb(146, 39, 142);
+    }
+
+    &.max_dividends {
+      background-color: rgb(255,216,26);
+    }
+
+    &.max_dividends_appreciation {
+      background-color: rgb(0, 219, 255);
+    }
+  }
+
+  .content {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .address { margin-top: 10px; }
+
+    .button {
+      width: 50%;
+      height: 25px;
+      background-color: #0AC6CB;
+      align-self: flex-end;
+      margin: 10px;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-top: 7px;
+      padding-left: 4px;
+      cursor: pointer;
+    }
+  }
+
+  .details {
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: rgba(240,240,240,0.6);
+    align-items: center;
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      color: black;
+    }
+
+    .rating, .yield {
+      height: 50px;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .title {
+        font-size: 8px;
+        font-weight: 600;
+        padding-top: 5px;
+        text-transform: uppercase;
+      }
+    }
+
+    .yield {
+      .data {
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+
+    .rating {
+      .data {
+        border-radius: 50px;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: bold;
+        justify-content: center;
+        border: 2px solid limegreen;
+        color: limegreen;
+      }
+    }
+  }
+}

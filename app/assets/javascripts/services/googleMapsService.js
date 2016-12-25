@@ -1,4 +1,4 @@
-angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$rootScope','$document', function ($location, $anchorScroll, $rootScope, $document) {
+angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$rootScope','$document','$compile','dataManagerService', function ($location, $anchorScroll, $rootScope, $document, $compile, dataManagerService) {
   var initialMarkers = [], markers = [], markersInFOV = [];
 
   var createMarker = function (asset, pinColor) {
@@ -9,6 +9,40 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       new google.maps.Size(71, 71), 
       new google.maps.Point(0,0),
       new google.maps.Point(17, 34));
+
+     function propertyDetails () {
+      console.log(asset);
+      // localStorage.saveAsset = JSON.stringify(asset);
+      // $location.path('/property');
+    }
+
+    var content = 
+      '<div class="info-window">'+
+        '<div class="border ' + asset.investment_type + '"></div>'+
+          '<div class="content">'+
+            '<div class="title">'+ asset.name +'</div>'+
+            '<div class="address">'+ asset.address +'</div>'+
+            '<div class="button" id="btn">Property Details</div>'+
+          '</div>'+
+          '<div class="details">'+
+            '<div class="yield">' +
+              '<div class="title">Yield</div>' + 
+              '<div class="data">' + asset.yield +'%</div>'+
+            '</div>'+
+            '<div class="divider"></div>'+
+            '<div class="rating">' +
+              '<div class="title">Rating</div>' + 
+              '<div class="data">'+ asset.rating +'</div>'+
+            '</div>'+
+          '</div>'+
+        '</div>'+
+      '</div>';
+
+    var infoWindow = new google.maps.InfoWindow({
+      content: '',
+      pixelOffset: new google.maps.Size(-25, 0)
+    });
+    
     var marker = new google.maps.Marker({
       map: window.map,
       icon: icon,
@@ -16,9 +50,20 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       position: LatLon
     });
 
-    marker.addListener('click', function () {
-      $location.hash('asset'+asset.id);
-      $anchorScroll();
+    google.maps.event.addListener(marker, 'click', (function(marker, content, scope) {
+      return function() {
+          infoWindow.setContent(content);
+          infoWindow.open(window.map, this);
+      };
+    })(marker, $compile(content)($rootScope)[0]), $rootScope);
+
+    google.maps.event.addListener(infoWindow,'domready',function(){
+      $('#btn').click(function() {
+        localStorage.saveAsset = JSON.stringify(asset);
+        dataManagerService.asset = asset;
+        $location.path('/property');
+        $rootScope.$apply();
+      });
     });
     markers.push(marker);
     return marker;
