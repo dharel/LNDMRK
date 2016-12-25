@@ -138,8 +138,8 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
     console.log('click')
     return function() {
       $mdSidenav(componentId).toggle();
-    }
-  }
+    };
+  };
 
   $scope.toggleMenu = buildToggler('left');
 }]);

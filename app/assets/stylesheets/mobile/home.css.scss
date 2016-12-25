@@ -113,7 +113,7 @@
         width: 300px;
         height: inherit;
         display: block;
-        padding-left: 18px;
+        padding: 0 18px;
         font-size: 15px;
         line-height: 47px;
         letter-spacing: 0;
@@ -214,7 +214,7 @@
             height: 5px;
             transform: rotate(48deg);
             background-color: $turquoise;;
-            margin: 9px 3px 0 0;
+            margin: 9px 3px 0;
           }
           p { 
             margin: 2px; 
@@ -269,16 +269,19 @@
         top: 35px;
         right: -5px;
         transform: rotate(29deg);
+        &.hebrew { right: 117px;}
       }
       &.income {
         top: 42px;
         right: -50px;
         transform: rotate(156deg);
+        &.hebrew { right: -65px;}
       }
       &.income-growth { 
         top: 128px;
         right: 90px;
         transform: rotate(-57deg);
+        &.hebrew { right: -31px;}
       }
     }
     .diamond-base {
@@ -298,6 +301,7 @@
       text-align: center;
       &.growth {
         top: 14px; right: unset; left: -14px;
+        &.hebrew { left: -63px;}
       }
       &.income {
         top: 10px; right: -45px; left: unset;
@@ -325,13 +329,16 @@
         &.first {width: 46%;}
         &.distributed {width: 54%;}
         .icon {
-          width: 50px;
-          height: 50px;
+          width: 40px;
+          height: 40px;
           background-size: 100%;
           background-repeat: no-repeat;
           margin: 0 auto;
           &.distributed { background-image: image-url('statistics_icon-1.png'); }
-          &.portfolio { background-image: image-url('statistics_icon-2.png'); margin-top: 11px;}
+          &.portfolio {
+            background-image: image-url('statistics_icon-2.png'); margin-top: 11px;
+            &.hebrew { margin-top: 12px; margin-bottom: -5px;}
+          }
         }
       }
       .ver-partitian {
