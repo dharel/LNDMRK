@@ -49,6 +49,7 @@
         <div class='content' ng-click='showFilters = !showFilters'> 
           <div class='icon'></div>
           <div class='title'>SEARCH PROPERTIES</div>
+          <div class='clear-all' ng-click="clearSearch()" >Reset All</div>
         </div>
         <div class='filters-container' ng-hide='showFilters === false'>
           <div class='filters'>
@@ -77,15 +78,26 @@
     </div>
 
     <div class='navigator'>
-      <div class='button properties' ng-click="mobileVisiblePanel = 'properties'">
-        <div class='icon'></div>
-        <div class='title '>PROPERTIES</div>
+
+      <div class='map-prop-container'> 
+        <div class='button properties' 
+             ng-click="mobileVisiblePanel = 'properties'"
+             ng-class="{'active': mobileVisiblePanel === 'properties'}">
+          <div class='icon'></div>
+          <div class='title '>PROPERTIES</div>
+        </div>
+
+        <div class='button  map' 
+             ng-click="mobileVisiblePanel = 'map'"
+             ng-class="{'active': mobileVisiblePanel === 'map'}">
+          <div class='icon'></div>
+          <div class='title '>MAP</div>
+        </div>
       </div>
-      <div class='button  map' ng-click="mobileVisiblePanel = 'map'">
-        <div class='icon'></div>
-        <div class='title '>MAP</div>
-      </div>
-      <div class='button filters' ng-click="mobileVisiblePanel = 'filters'">
+
+      <div class='button filters' 
+           ng-click="mobileVisiblePanel = 'filters'"
+           ng-class="{'active': mobileVisiblePanel === 'filters'}">
         <div class='icon'></div>
         <div class='title '>FILTERS</div>
       </div>      
