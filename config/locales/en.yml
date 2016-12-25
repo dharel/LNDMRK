@@ -205,4 +205,7 @@ en:
   popup_sell: "sell"
   add_to_watchlist: "add to watchlist"
   in_my_watchlist: "in my watchlist"
-  
+
+  what_would_you_like: "what would you like to invest in?"
+  this_month: "(this month)"
+  search_mobile_placeholder: "Search address, city, state.."

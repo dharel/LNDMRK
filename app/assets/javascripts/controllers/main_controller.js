@@ -72,4 +72,14 @@ angular.module('lndmrk').controller('MainController', ['$scope', '$location', 'A
       }
     }
   };
+
+  $scope.searchPlaceholderText = function () {
+    var txt;
+    if(localizationSrv.locale === 'en') {
+      txt = "Search address, city, state..";
+    } else if(localizationSrv.locale === 'he') {
+      txt = "חפש כתובת, עיר, או מדינה...";
+    }
+    return txt;
+  };
 }]);

@@ -88,6 +88,13 @@ a {
   flex-flow: row nowrap; 
 }
 
+.flexbox-row-start-top {
+  display: flex;
+  flex-flow: row nowrap; 
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .flexbox-row-start {
   display: flex;
   justify-content: flex-start;
@@ -95,18 +102,18 @@ a {
   flex-flow: row nowrap;
 }
 
-.flexbox-row-start-top {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: top;
-}
-
 .flexbox-row-top-between {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: top;
+  align-items: flex-start;
+}
+
+.flexbox-row-wrap-around {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .flexbox-colum-to-top-start {
@@ -142,13 +149,6 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.flexbox-row-wrap-around {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .util-bg-white {
