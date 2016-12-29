@@ -1,6 +1,264 @@
-<div ng-controller="PropertyController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+<div ng-controller="PropertyController" class='mobile' ng-init='init()' ng-class='{"hebrew": isHebrew()}'>
   <mobile-header></mobile-header>
   <div class='body'>
-    
+
+    <section class='hero'>
+      <div class='mobile-img'>
+        <img src='{{asset.banner_images[0]}}' alt='asset.name'>
+      </div>
+
+      <div class='color-gradient' ng-class='getPropertyTypeClr(asset.investment_type)'></div>
+
+      <div class='titles'>
+        <h1 ng-if='!isHebrew()'>{{asset.name}}</h1>
+        <h1 ng-if='isHebrew()'>{{asset.name_heb}}</h1>
+        <h2>{{asset.address}}</h2>
+      </div>
+    </section>
+
+    <section class='property-details' ng-class='{"hebrew": isHebrew()}'>
+      <h1 translate>prop_details</h1>
+      <p style='text-align: left; direction: rtl;'>{{asset.description}}</p>
+    </section>
+
+    <section class='map-section'>
+      <div class='titles'>
+        <div class='street-view' ng-click='openStreetview()' ng-class='{"chosen": map_type_visible === "street"}'>google street view</div>
+        <div class='location-map' ng-click='openGooglemaps()'
+        ng-class='{"chosen": map_type_visible === "map", "hebrew": isHebrew()}' 
+        translate>location_map</div>
+      </div>
+      <div class='map-image' id='map' ng-init="googleMaps.initSimpleMap(asset)"
+      ng-class='{visible: map_type_visible === "map"}'></div>
+      <div class='map-image' id='street-map' ng-init="googleMaps.initStreetView(asset)"
+      ng-class='{visible: map_type_visible === "street"}'></div>
+    </section>
+
+    <section class='numbers-strips'>
+      <div class='container turquoise-strip'>
+        <div class='section-title'
+        ng-class='getInvTypeClr(asset.investment_type)'>
+        <span ng-if='!isHebrew()'>{{asset.investment_type_short}}</span>
+        <span ng-if='isHebrew()'>{{asset.investment_type_short_heb}}</span>
+      </div>
+      <div class='attributes-wrap' ng-class='{"hebrew": isHebrew()}'>
+        <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+          <span translate>rank</span>
+          <h1 ng-class='getRatingColor(asset.rating)' style='direction: ltr;'>{{asset.rating}}</h1>
+        </div>
+        <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+          <span translate>price_per_m</span>
+          <h2>${{asset.price * 1000}}</h2>
+        </div>
+        <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+          <span translate>income_per_m</span>
+          <h2>${{asset.income}}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class='container turquoise-strip'>
+      <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+        <span translate>yeild</span>
+        <h2>{{asset.yield}}%</h2>
+      </div>
+      <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+        <span translate>established_at</span>
+        <h2>{{asset.established}}%</h2>
+      </div>
+      <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+        <span translate>up_to</span>
+        <h2>{{asset.ltv}}% <i>ltv</i></h2>
+      </div>
+    </div>
+  </section>
+
+  <section class='investment-details'>
+    <div class='line'></div>
+    <div class='title' ng-class='{"hebrew": isHebrew()}' translate>investment_details</div>
+  </section>
+
+  <section class='transactions'>
+    <h1 translate>last_transactions</h1>
+    <div class='transaction-row'>
+      <div class='time'><span translate>jul_22</span>, 2016  10:53pm</div>
+      <div class='meter-price'>17m&sup2;/<span>$4,345</span></div>
+    </div>
+    <div class='transaction-row'>
+      <div class='time'><span translate>jul_22</span>, 2016  10:03pm</div>
+      <div class='meter-price'>85m&sup2;/<span>$4,308</span></div>
+    </div>
+    <div class='transaction-row'>
+      <div class='time'><span translate>jul_22</span>, 2016  9:10pm</div>
+      <div class='meter-price'>233m&sup2;/<span>$4,308</span></div>
+    </div>
+    <div class='transaction-row'>
+      <div class='time'><span translate>jul_22</span>, 2016  8:50pm</div>
+      <div class='meter-price'>123m&sup2;/<span>$4,285</span></div>
+    </div>
+    <div class='transaction-history-link' translate>view_full_trans_history</div>
+  </section>
+
+  <section class='price-graph'>
+    <h1 translate>price_per_meter</h1>
+    <div class='image'></div>
+  </section>
+
+  <h1 translate>rank</h1>
+  <div class='letters-row'>
+    <div class='rank'
+    ng-class='getRatingColor(asset.rating)' style='direction: ltr;'>{{asset.rating}}</div>
+    <div class='ranks-options'></div>
+  </div>
+
+  <section class='points'>
+    <div class='points-row header'>
+      <h2 translate>category</h2>
+      <h3 translate>assesment</h3>
+      <h4 translate>points</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>location</h2>
+      <h3>primary</h3>
+      <h4>28</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>market</h2>
+      <h3>top in market</h3>
+      <h4>13</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>tenants_fin_stability</h2>
+      <h3>high</h3>
+      <h4>59</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>tenants_macro_risk</h2>
+      <h3>below gdp risk</h3>
+      <h4>27</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>lease_contract_len</h2>
+      <h3>over 5 years</h3>
+      <h4>14</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>lease_contract_secur</h2>
+      <h3>external guarantors</h3>
+      <h4>56</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>occupancy_rate</h2>
+      <h3>fully developed</h3>
+      <h4>57</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>market_occupancy_rate</h2>
+      <h3>over 98%</h3>
+      <h4>53</h4>
+    </div>
+    <div class='points-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>development_phase</h2>
+      <h3>over 90%</h3>
+      <h4>58</h4>
+    </div>
+  </section>
+
+  <section class='investment-management'>
+    <div class='line'></div>
+    <div class='title' ng-class='{"hebrew": isHebrew()}' translate>investment_management</div>
+    <div class='invest-row-header' translate>m_owned_2</div>
+    <div class='investment-mng-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>olivia_roberts</h2>
+      <h3>2,341m&sup2;/<span>17%</span></h3>
+      <h4 translate>contact</h4>
+    </div>
+    <div class='investment-mng-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>marshall_holt</h2>
+      <h3>1,267m&sup2;/<span>8%</span></h3>
+      <h4 translate>contact</h4>
+    </div>
+    <div class='investment-mng-row'>
+      <h2 ng-class='{"hebrew": isHebrew()}' translate>kent_mason</h2>
+      <h3>1,690m&sup2;/<span>12%</span></h3>
+      <h4 translate>contact</h4>
+    </div>
+  </section>
+
+  <section class='property-management'>
+    <div class='line'></div>
+    <div class='title' ng-class='{"hebrew": isHebrew()}' translate>property_management</div>
+    <div class='image'></div>
+  </section>
+
+  <section class='mobile-friends-who-invested'>
+    <div class='container'>
+      <div class='property-line'></div>
+      <div class='property-title' ng-class='{"hebrew": isHebrew()}' translate>friends_who_invested</div>
+      <ul>
+        <li>
+          <div class='image place-4'></div>
+          <h2 translate>scott_torres</h2>
+        </li>
+        <li>
+          <div class='image place-5'></div>
+          <h2 translate>dustin_morris</h2>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class='mobile-property-documents'>
+    <div class='container'>
+      <div class='property-line'></div>
+      <div class='property-title' ng-class='{"hebrew": isHebrew()}' translate>property_document_rep</div>
+      <ul ng-class='{"hebrew": isHebrew()}'>
+      <li ng-class='{"hebrew": isHebrew()}'>
+      <div class='icon' ng-class='{"hebrew": isHebrew()}'></div>
+          <span translate>shareholder_agreement</span>
+        </li>
+        <li ng-class='{"hebrew": isHebrew()}'>
+        <div class='icon' ng-class='{"hebrew": isHebrew()}'></div>
+          <span translate>management_company</span>
+        </li>
+        <li ng-class='{"hebrew": isHebrew()}'>
+        <div class='icon' ng-class='{"hebrew": isHebrew()}'></div>
+          <span translate>profit_loss_statement</span>
+        </li>
+        <li ng-class='{"hebrew": isHebrew()}'>
+        <div class='icon' ng-class='{"hebrew": isHebrew()}'></div>
+          <span translate>underwriting_agreement</span>
+        </li>
+        <li ng-class='{"hebrew": isHebrew()}'>
+        <div class='icon' ng-class='{"hebrew": isHebrew()}'></div>
+          <span translate>building_deviations</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class='row'>
+      <div class='column'>
+        <div class='contact-info'>contact@lndmrk.com</div>
+        <div class='contact-info'>+972-578687678</div>
+      </div>
+      <div class='column'>
+        <div class='contact-info'>122 Jmhh St.</div>
+        <div class='contact-info'>Ffnsdnn, Israel</div>
+      </div>
+    </div>
+    <div class='social'>
+      <div class='social-item facebook'></div>
+      <div class='social-item twitter'></div>
+      <div class='social-item linkdin'></div>
+      <div class='social-item mail'></div>
+    </div>
+    <p class='paragraph'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.</br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.
+    </p>
+  </footer>
+
   </div>
 </div>

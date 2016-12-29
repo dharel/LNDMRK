@@ -142,4 +142,8 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   };
 
   $scope.toggleMenu = buildToggler('left');
+
+  $scope.isHebrew = function () {
+    return localizationSrv.locale === "he";
+  };
 }]);
