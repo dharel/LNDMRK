@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', function ($timeout,$window) {
+angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window','localizationSrv', function ($timeout,$window,localizationSrv) {
   'use strict';
 
   return {
@@ -25,7 +25,8 @@ angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', func
       "<div class='color-gradient' ng-class='getPropertyTypeClr(asset.investment_type)'></div>" +
 
       "<div class='titles'>" +
-        "<h1>{{asset.name}}</h1>" +
+        "<h1 ng-if='localizationSrv.locale === \"en\"'>{{asset.name}}</h1>" +
+        "<h1 ng-if='localizationSrv.locale === \"he\"'>{{asset.name_heb}}</h1>" +
         "<h2>{{asset.address}}</h2>" +
       "</div>" +
 
@@ -33,6 +34,7 @@ angular.module('lndmrk').directive('bannerCarousel', ['$timeout','$window', func
     link: function (scope, element, attrs) {
       // currently we have no assets for pagination,so we removed the ng-click='prevAsset()' / 'nextAsset()'
       // and the ng-class='isLast() ? \"greyed\" : \"\"'
+      scope.localizationSrv = localizationSrv;
       var carouselDiv = document.getElementById("the-wrapper");
       scope.w_width = window.innerWidth;
 

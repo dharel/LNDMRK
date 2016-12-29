@@ -8,20 +8,25 @@
       <h2 class='sub-title' translate> what_would_you_like </h2>
 
       <div class='filters-container'>
-        <div class='filter income' translate> max_dividends </div>
-        <div class='filter growth' translate> max_appreciation </div>
-        <div class='filter income-growth' translate>max_dividends_appreciation</div>
+        <div class='filter income'
+             ng-click='toggleFilter("max_dividends")'
+             ng-class='{"active": mapFilters.max_dividends}' translate> max_dividends </div>
+        <div class='filter growth'
+             ng-click='mapFilters.growth = !mapFilters.growth'
+             ng-class='{"active": mapFilters.growth}' translate> max_appreciation </div>
+        <div class='filter income-growth'
+             ng-click='mapFilters.max_dividends_growth = !mapFilters.max_dividends_growth'
+             ng-class='{"active": mapFilters.max_dividends_growth}' translate>max_dividends_appreciation</div>
       </div>
       <div class='search-container'>
         <form ng-submit="filterResults()" >
-          <input id="pac-input" class="search" type="text" ng-model="mapFilters.address" placeholder="{{searchPlaceholderText()}}"
-                 ng-if='localizationSrv.locale === "en"' ng-enter='searchForAsset()' ng-init="googleMaps.init()">
-          <input id="pac-input" class='search he' type="text" ng-model="mapFilters.address" placeholder='חפש כתובת, עיר או מיקוד'
-                 ng-if='localizationSrv.locale === "he"'  ng-enter='searchForAsset()' ng-init="googleMaps.init()">
+          <input id="pac-input" class="search" type="text" ng-model="mapFilters.address"
+                 placeholder="{{searchPlaceholderText()}}"
+                 ng-enter='searchForAsset()' ng-init="googleMaps.init()">
         </form>
       </div>
       <div class='search-info'>
-        <a class='search-button' ng-click="searchForAsset()" translate>search</a>
+        <a class='search-button' ng-click="searchForAsset()" translate>mobile_home_search</a>
       </div>
     </section>
 
@@ -73,7 +78,7 @@
       <div class='first-row'>
         <div class='column first'>
           <h3 translate> average_portfolio </h3>
-          <div class='icon portfolio'></div>
+          <div class='icon portfolio' ng-class='{"hebrew": localizationSrv.locale === "he"}'></div>
           <h1 class='portfolio'>$53,327</h1>
         </div>
         <div class='ver-partitian'></div>
@@ -89,12 +94,22 @@
         <div class='pie-area'>
           <div class='pie-image'></div>
           <h2>453M</h2>
-          <h4 class='growth' translate> growth </h4>
-          <h4 class='income' translate> max_dividends </h4>
-          <h4 class='income-growth' translate> max_dividends_appreciation </h4>
-          <%= image_tag('line.png',class: 'line growth', width: '60', alt: '') %>
-          <%= image_tag('line.png',class: 'line income', width: '60', alt: '') %>
-          <%= image_tag('line.png',class: 'line income-growth', width: '40', alt: '') %>
+          <div ng-if='localizationSrv.locale === "en"'>
+            <h4 class='growth' translate> max_appreciation </h4>
+            <h4 class='income' translate> max_dividends </h4>
+            <h4 class='income-growth' translate> max_dividends_appreciation </h4>
+            <%= image_tag('line.png',class: 'line growth', width: '60', alt: '') %>
+            <%= image_tag('line.png',class: 'line income', width: '60', alt: '') %>
+            <%= image_tag('line.png',class: 'line income-growth', width: '40', alt: '') %>
+          </div>
+          <div ng-if='localizationSrv.locale === "he"'>
+            <h4 class='growth hebrew' translate> max_appreciation </h4>
+            <h4 class='income hebrew' translate> max_dividends </h4>
+            <h4 class='income-growth hebrew' translate> max_dividends_appreciation </h4>
+            <%= image_tag('line.png',class: 'line growth hebrew', width: '60', alt: '') %>
+            <%= image_tag('line.png',class: 'line income hebrew', width: '60', alt: '') %>
+            <%= image_tag('line.png',class: 'line income-growth hebrew', width: '40', alt: '') %>
+          </div>
         </div>
       </div>
     </section>
