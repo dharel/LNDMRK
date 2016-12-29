@@ -11,15 +11,17 @@
     background-color: #999;
     position: relative;
     width: calc(100% - 40px);
-    top: 53px;
+    top: 31px;
+    // top: 53px;
     margin: 0 auto;
-    &.how-it-works { margin: 0; }
+    &.how-it-works { margin: 0; top: 31px;}
   }
   section.how-it-works .title,
   section.partners .title {
     width: 190px;
     height: 31px;
-    margin: 37px auto 17px;
+    margin: 15px auto 17px;
+    // margin: 37px auto 17px;
     text-align: center;
     font-size: 16px;
     font-weight: 700;
@@ -37,11 +39,13 @@
   section.hero-map {
     min-width: 320px;
     width: 100vw;
-    height: 400px;
+    height: 673px;
+    // height: 500px;
     background-image: image-url('map-export2.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: auto 522px;
+    // background-size: cover;
+    background-position: center top;
     .title {
       padding-left: 0;
       text-align: center;
