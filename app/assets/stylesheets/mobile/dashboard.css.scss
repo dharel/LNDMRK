@@ -1,0 +1,815 @@
+@import "../_base.css.scss";
+
+
+.dashboard {
+  width: 95%;
+  height: auto;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+
+  .header {
+    width: inherit;
+    height: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .total-portfolio {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    height: 65px;
+    box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
+
+    .plus {
+      display: flex;
+      align-self: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 50px;
+      background-color: #7DDBE0;
+      color: white;
+      align-items: center;
+      padding-left: 4px;
+      font-weight: 600;
+    }
+
+    .left {
+      background-color: #0AC6CB;
+      width: 60%;
+      height: inherit;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0 15px;
+
+      .equity, .debt {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .title {
+        text-transform: uppercase;
+        font-size: 10px;
+      }
+
+      .value {
+        font-size: 18px;
+      }
+    }
+
+    .right {
+      width: 40%;
+      height: inherit;
+      background-color: #7DDBE0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .equals {
+        width: 25px;
+        height: 25px;
+        border-radius: 25px;
+        background-color: white;
+        position: absolute;
+        left: -15px;
+        top: 20px;
+        box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        color: rgb(79, 195, 201);
+      }
+
+      .total {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        
+        .value { font-size: 20px; }
+
+        .title {
+          text-transform: uppercase;
+          font-size: 8px;
+          text-align: center;
+        }
+      }
+
+    }
+  }
+
+  .total-graph {
+    margin-top: 15px;
+    width: inherit;
+    height: 350px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
+    background-color: white;
+    
+
+    .graph-wrap {
+      width: 65px;
+      height: 275px;
+      margin-top: 35px;
+      float: left;
+
+      .graph {
+        width: 100%;
+        margin-top: 5px;
+        color: white;
+        font-size: 10px; 
+        font-weight: bold;
+        box-shadow: 0px 0px 3px 2px lightgray;
+        display: flex;
+        flex-direction: column;
+      }
+      .info {
+        font-size: 10px;
+        margin-top: 19px;
+        color: black;
+        
+        .name { font-weight: bold; text-align: center; text-transform: uppercase}
+        .currency {text-align: center;}
+      }
+
+      &#income {
+        .graph {
+          height: 222px;
+
+          .top {
+            background-color: #FAE280;
+            width: inherit;
+            height: 40%;
+            padding-top: 38px;
+            text-align: center;
+          }
+
+          .bottom {
+            background-color: #F5C501;
+            width: inherit;
+            height: 134px;
+            padding-top: 60px;
+            text-align: center;
+          } 
+        }
+      }
+
+
+      &#growth {
+        .graph {
+          height: 122px;
+          margin-top: 105px;
+
+          .bottom {
+            background-color: #92278F;
+            width: inherit;
+            height: 100%;
+            padding-top: 55px;
+            text-align: center;
+            
+          } 
+        }
+      }
+
+      &#income-growth {
+        .graph {
+          margin-top: 171px;
+          height: 55px;
+
+          .top {
+            width: inherit;
+            height: 19%;
+            background-color: #CDF8FF;
+            text-align: center;
+            
+          }
+
+          .bottom {
+            width: inherit;
+            height: 82%;
+            background-color: #01DCFD;
+            padding-top: 15px;
+            text-align: center;
+            
+          }
+        }
+      }
+    }
+  }
+
+  .small-graphs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    width: inherit;
+
+
+    .gains, .yield {
+      width: 150px;
+      height: 120px;
+      box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        width: inherit;
+        text-align: center;
+        color: #7DDBE0;
+        font-weight: bold;
+        font-size: 16px;
+        padding-top: 5px;
+      }
+
+      .graph-container {
+        position: relative;
+        width: inherit;
+        height: inherit;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        &#gains {
+          background-image: image-url('dash-graph-1.png');
+          background-size: 50%;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+
+
+        &#yield {
+          background-image: image-url('dash-graph-2.png');
+          background-size: 50%;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+
+        .left-text {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          font-size: 10px;
+          text-align: center;
+          font-weight: normal;
+
+          span { font-weight: bold;}
+        }
+
+        .right-text {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-weight: normal;
+          font-size: 10px;
+          text-align: center;
+          span { font-weight: bold;}
+        }
+      }
+    }
+  }
+
+  .monthly-income {
+    margin: 15px 0;
+    display: flex;
+    box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
+    flex-direction: column;
+    width: inherit;  
+    padding-top: 3px;
+
+    .title {
+      width: inherit;
+      font-weight: bold;
+      font-size: 15px;
+      color: #7DDBE0;
+      text-align: center;
+    }
+
+    .sub-title {
+      width: inherit;
+      font-size: 10px;
+      text-align: center;
+      padding-top: 3px;
+    }
+
+    .graph {
+      width: 100%;
+      height: 200px;
+      background-image: image-url("dash-graph-4.png");
+      background-size: 100%;
+      background-repeat: no-repeat; 
+      background-position: center;
+    }
+  }
+
+  .anlyzing-tool {
+    display: flex;
+    width: inherit;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+      
+    .title {
+      width: inherit;
+      font-weight: bold;
+      font-size: 15px;
+      color: #7DDBE0;
+      text-align: center;
+    }
+
+    .people-container {
+      height: 140px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .person-wrap {
+        width: 105px;
+        height: 105px;
+        margin-top: 30px;
+        position: relative;
+        box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+          text-align: center;
+
+        .img {
+          width: 50px;
+          height: 50px;
+          margin: 0 auto;
+          border-radius: 50px;
+          position: relative;
+          top:-30px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          z-index: 2;
+
+          &#image-0 {
+            background-image: image-url('dash-face-01.png');
+          }
+          &#image-1 {
+            background-image: image-url('dash-face-02.png');
+          }
+          &#image-2 {
+            background-image: image-url('dash-face-03.png');
+          }
+        }
+
+        .name {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 35px;
+          font-size: 9px;
+          padding-top: 22px;
+          font-weight: bold;
+          background-color: #EEFAFA;
+        }
+
+        .data-wrap {
+          width: 100%;
+          height: 50px;
+          margin-top: -15px;
+          .divider {
+            width: 1px;
+            height: 38px;
+            position: absolute;
+            background-color: lightgrey;
+            top: 41px;
+            left: 51px;
+          }
+
+          .data {
+            width: 50px;
+            height: 100%;
+            float: left;
+            line-height: 30px;
+            font-weight: bold;
+
+            .title {
+              width: 100%;
+              height: 20px;
+              font-size: 8px;
+              font-weight: normal;
+            }
+
+            .return {
+              font-size: 13px;
+              position: relative;
+              top: -3px;
+            }
+
+            .risk {
+              border-radius: 50px;
+              width: 20px;
+              height: 20px;
+              margin: 0 auto;
+              line-height: 17px;
+              position: relative;
+              top: 3px;
+              font-size: 10px;
+              text-transform: uppercase;
+
+              &#risk-b {
+                color: #8AC542;
+                border: 1px solid #8AC542;
+              }
+
+              &#risk-c {
+                color: #F6A64A;
+                border: 1px solid #F6A64A;
+              }
+
+              &#risk-d {
+                color: #2F9DD5;
+                border: 1px solid #2F9DD5;
+              }
+            }
+          }
+        }
+
+        .value {
+          height: 20px;
+          font-size: 10px;
+          font-weight: bold;
+          padding-top: 4px;
+          color: white;
+          background-color: #7DDBE0;
+        }
+      }
+    }
+  }
+
+  .static-graphs {
+    display: flex;
+    width: inherit;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
+    margin-bottom: 15px;    
+
+    #static-graph1 {
+      width: 50%;
+      height: 100px;
+      background-image: image-url("dash-graph-3.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center; 
+    }
+    #static-graph2 {
+      width: 50%;
+      height: 100px;
+      background-image: image-url("dash-graph-1.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center; 
+    }
+  }
+
+  .my-properties {
+    display: flex;
+    width: inherit;
+    height: 360px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 15px 0;
+
+    .line {
+      height: 1px;
+      background-color: $grey;
+      position: relative;
+      top: 24px;
+      width: 100%;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .title {
+      width: 141px;
+      height: 31px;
+      margin: 7px auto 8px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      z-index: 2;
+      position: relative;
+      line-height: 29px;
+      border: 1px solid $dark-blue;
+      background-color: $white;
+      text-transform: uppercase;
+      color: $dark-turquoise;
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+    }
+    .properties-table {
+      width: 100%;
+      height: auto;
+      margin-top: 17px;
+      min-height: 250px;
+
+      &.owned {
+        height: unset;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: -12px;
+        width: 1203px;
+        margin-left: -3px;
+      }
+
+      .headers-wrap {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        &.my-watchlist {
+          justify-content: flex-end;
+          width: 97.85%;
+          margin: 0 0 0 26px;
+          &.hebrew {
+            margin: 0 26px 0 0;
+          }
+          .header {
+            font-size: 10px;
+          }
+        }
+
+        .header {
+          height: inherit;
+          display: block;
+          color: $turquoise;
+          font-size: 10px;
+          font-weight: bold;
+          line-height: 35px;
+          text-align: center;
+          line-height: 10px;
+          text-align: center;
+          width: 20%;
+          &.placeholder { width: 20%; }
+        }
+      }
+
+      .data-wrapper {
+        &:focus {outline: 0;}
+        &.my-watchlist {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          .remove-wrapper {
+            height: 35px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+            .remove-from-watchlist {
+              height: 40px;
+              width: 40px;
+              background-repeat: no-repeat;
+              background-position: center top;
+              background-size: contain;
+              margin-top: 0;
+              background-image: image-url('row_remove.png');
+            }
+          }
+        }
+      }
+
+
+      .row-data { 
+        width: inherit;
+        height: 55px;
+        background-color: $white;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        &.empty-row { cursor: default; pointer-events: none; }
+        &:focus { outline: 0;}
+        &.sum {
+          background-color: $turquoise;
+          &.empty-row { cursor: default; pointer-events: none; }
+          
+          .data {
+            color: $white;  
+            text-align: center;   
+            &.name {
+              padding-top: 20px;
+            }    
+          }
+        }
+        .data {
+          line-height: 35px;
+          font-weight: bold;
+          color: $dark-blue;
+          font-size: 11px;
+          width: 124px;
+          text-align: center;
+
+          &.name {
+            height: inherit;
+            color: white;
+            font-size: 10px;
+            text-align: center;
+            line-height: 17px;
+            padding-top: 10px;
+
+            &.income { background-color: $yello }
+            &.growth { background-color: $purple }
+            &.income-growth { background-color: $medium-blue }
+          }
+        }
+
+        &.my-watchlist {
+          width: 97.85%;
+          justify-content: space-between;
+
+          .goto-asset-page {
+            background-image: image-url('row_expand.png');
+            background-repeat: no-repeat;
+            background-size: 31px 31px;;
+            background-position: center;
+            height: 100%;
+            &.hebrew {
+              @extend .flip-horizontally; 
+            }
+          }
+          .data {
+            &.type {
+              overflow: hidden;
+              height: 100%;
+              &.max_dividends { background-color: $yello }
+              &.max_appreciation { background-color: $purple }
+              &.max_dividends_appreciation { background-color: $medium-blue }
+            }
+            &.name {
+              color: $dark-blue;
+              line-height: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: "proxima-nova", sans-serif;
+            }
+            &.address {
+              font-size: 10px;
+              font-weight: 300;
+              text-align: left;
+              padding-left: 9px;
+              font-family: "proxima-nova", sans-serif;
+            }
+            &.details {
+              cursor: pointer;
+              height: 31px;
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-image: image-url('asset_details.png');
+              background-position: 18px center;
+              .details-bubble {
+                width: 180px;
+                height: 105px;
+                background-color: $white;
+                color: $dark-grey;
+                text-align: center;
+                box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+                position: relative;
+                top: 42px;
+                left: -115px; right: unset;
+                z-index: 1;
+                text-transform: none;
+                padding: 8px;
+                font-size: 12px;
+                font-weight: 100;
+                line-height: 15px;
+                font-family: "proxima-nova", sans-serif;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  left: 83%; right: unset;
+                  transform: translateX(-50%);
+                  top: -12px;
+                  width: 0;
+                  height: 0;
+                  border-left: 16px solid transparent;
+                  border-right: 16px solid transparent;
+                  border-bottom: 16px solid $white;
+                  filter: drop-shadow(0 0.5px 2px rgba(0, 122, 255, 0.6));
+                }
+                &::after {
+                  content: "";
+                  position: absolute;
+                  width: 36px;
+                  top: 0px;
+                  right: 13px; left: unset;
+                  height: 9px;
+                  background-color: $white;
+                }
+                &.hebrew {
+                  left: unset; right: -115px;
+                  &::before { left: unset; right: 64%; }
+                  &::after { right: unset; left: 13px; }
+                }
+                &.from-top {
+                  top: -115px;
+                  &::before {
+                    top: unset; bottom: -9px;
+                    border-left: 16px solid transparent;
+                    border-right: 16px solid transparent;
+                    border-top: 16px solid #fff;
+                    border-bottom: unset;
+                  }
+                  &::after {
+                    top: unset; bottom: 0;
+                  }
+                }
+              }
+            }
+          }
+          .partition {
+            height: 23px;
+            border-right: 2px solid #D8DDE2;
+            width: 2px;
+          }
+        }
+      }
+
+      .expanded-data-wrap {
+        width: inherit;
+        height: auto;
+        margin: 15px 0;
+        background-color: $white;
+        box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        &:focus {outline: 0;}
+
+        .expanded-row-data { 
+          width: 100%;
+          height: 35px;
+          background-color: white;
+          cursor: pointer;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          &:focus {outline: 0;}
+
+          .expanded-data {
+            display: inline-block;
+            line-height: 33px;
+            font-size: 13px;
+            line-height: 37px;
+            color: $dark-blue;
+            width: 124px;
+            padding: 0 4px;
+            text-align: center;
+
+            &.income { color: $yello }
+            &.growth { color: $purple }
+            &.income-growth { color: $medium-blue }
+
+            &.name {
+              width: 154px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+        }    
+      }
+    }
+  }
+}

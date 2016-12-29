@@ -201,62 +201,60 @@
         </div>
         <div class='row-data sum' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
           <div class='data name' translate>sum</div>
-            <div class='data' style='width: 11.1%'>{{sumAll('price') | currency }}</div>
-            <div class='data' style='width: 11.1%'>{{sumAll('user_owned')}}</div>
-            <div class='data' style='width: 11.1%'>{{sumAll('value') | currency}}</div>
-            <div class='data' style='width: 11.1%'>{{sumAll('yield')}}%</div>
-            <div class='data' style='width: 11.1%'>A4-C1</div>
-            <div class='data' style='width: 11.1%'>{{sumAll('income') | currency}}</div>
-            <div class='data' style='width: 11.1%'>50% / $9,356</div>
-            <div class='data' style='width: 11.1%'>{{sumAll('gains') | currency}}</div>  
+          <div class='data' style='width: 11.1%'>{{sumAll('price') | currency }}</div>
+          <div class='data' style='width: 11.1%'>{{sumAll('user_owned')}}</div>
+          <div class='data' style='width: 11.1%'>{{sumAll('value') | currency}}</div>
+          <div class='data' style='width: 11.1%'>{{sumAll('yield')}}%</div>
+          <div class='data' style='width: 11.1%'>A4-C1</div>
+          <div class='data' style='width: 11.1%'>{{sumAll('income') | currency}}</div>
+          <div class='data' style='width: 11.1%'>50% / $9,356</div>
+          <div class='data' style='width: 11.1%'>{{sumAll('gains') | currency}}</div>  
         </div>
       </div>
     </div>
   </section>
 
   <section class='myproperties'>
-    <div class='container'>
-      <div class='line'></div>
-      <div class='title' translate>my_watch_list</div>
-      <div class='properties-table' ng-if='watched_data && watched_data.length > 0'>
-        <div class='headers-wrap my-watchlist' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
-          <div class='header price'  style='width: 10.33%' translate>avarage_price_m</div>
-          <div class='header yield'  style='width: 7.89%' translate>estimated_yield</div>
-          <div class='header rating' style='width: 6.74%' translate>rating</div>
-          <div class='header income' style='width: 12.89%' translate>current_monthly_income</div>
-          <div class='header debt'   style='width: 11.01%' translate>debt_to_value</div>
-          <div class='header placeholder' style='width: 6.5%'></div>
+    <div class='line'></div>
+    <div class='title' translate>my_watch_list</div>
+    <div class='properties-table' ng-if='watched_data && watched_data.length > 0'>
+      <div class='headers-wrap my-watchlist' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+        <div class='header price'  style='width: 10.33%' translate>avarage_price_m</div>
+        <div class='header yield'  style='width: 7.89%' translate>estimated_yield</div>
+        <div class='header rating' style='width: 6.74%' translate>rating</div>
+        <div class='header income' style='width: 12.89%' translate>current_monthly_income</div>
+        <div class='header debt'   style='width: 11.01%' translate>debt_to_value</div>
+        <div class='header placeholder' style='width: 6.5%'></div>
+      </div>
+      <div class='data-wrapper my-watchlist' 
+            ng-repeat='asset in watched_data track by $index'>
+        <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)'>
+          <div class='remove-from-watchlist'></div>
         </div>
-        <div class='data-wrapper my-watchlist' 
-             ng-repeat='asset in watched_data track by $index'>
-          <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)'>
-            <div class='remove-from-watchlist'></div>
+        <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
+          <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
+          <div class='data name' style='width: 11.66%'>{{asset.name}}</div>
+          <div class='partition'></div>
+          <div class='data address'  style='width: 31.71%'>{{asset.address}}</div>
+          <div class='partition'></div>
+          <div class='data price'    style='width: 10.33%'>{{asset.price | currency }}</div>
+          <div class='data yield'    style='width: 7.89%'>{{asset.yield}}%</div>
+          <div class='data rating'   style='width: 6.74%'>{{asset.rating}}</div>
+          <div class='data income'   style='width: 12.89%'>{{asset.income | currency }}</div>
+          <div class='data debt'     style='width: 11.01%'>{{asset.debt}}%/{{asset.value | currency }}</div>
+          <div class='data details'  style='width: 5.55%'
+                ng-mouseenter="hover_over_asset[$index]=true"
+                ng-mouseleave="hover_over_asset[$index]=false">
+            <div ng-if='hover_over_asset[$index]' class='details-bubble'
+                  ng-class='{"hebrew": localizationSrv.locale === "he", "from-top": calc_bottom($index)}'
+                  translate>short_lorem_ipsum</div>
           </div>
-          <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
-            <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
-            <div class='data name' style='width: 11.66%'>{{asset.name}}</div>
-            <div class='partition'></div>
-            <div class='data address'  style='width: 31.71%'>{{asset.address}}</div>
-            <div class='partition'></div>
-            <div class='data price'    style='width: 10.33%'>{{asset.price | currency }}</div>
-            <div class='data yield'    style='width: 7.89%'>{{asset.yield}}%</div>
-            <div class='data rating'   style='width: 6.74%'>{{asset.rating}}</div>
-            <div class='data income'   style='width: 12.89%'>{{asset.income | currency }}</div>
-            <div class='data debt'     style='width: 11.01%'>{{asset.debt}}%/{{asset.value | currency }}</div>
-            <div class='data details'  style='width: 5.55%'
-                 ng-mouseenter="hover_over_asset[$index]=true"
-                 ng-mouseleave="hover_over_asset[$index]=false">
-              <div ng-if='hover_over_asset[$index]' class='details-bubble'
-                   ng-class='{"hebrew": localizationSrv.locale === "he", "from-top": calc_bottom($index)}'
-                   translate>short_lorem_ipsum</div>
-            </div>
-            <a class='goto-asset-page' style='width: 1.62%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
-          </div>
+          <a class='goto-asset-page' style='width: 1.62%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
         </div>
       </div>
-      <div class='properties-missing' ng-if='!watched_data || watched_data.length === 0'>
-        <p>Currently there are no properties in your watchlist. to search for properties <a href='/#/search'>click here</a></p>
-      </div>
+    </div>
+    <div class='properties-missing' ng-if='!watched_data || watched_data.length === 0'>
+      <p>Currently there are no properties in your watchlist. to search for properties <a href='/#/search'>click here</a></p>
     </div>
   </section>
 </div>
