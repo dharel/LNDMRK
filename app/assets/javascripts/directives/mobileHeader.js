@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','localizationSrv', function ($translate, $mdSidenav, localizationSrv) {
+angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','localizationSrv','$location', function ($translate, $mdSidenav, localizationSrv, $location) {
   return {
     restrict: 'E',
     template:
@@ -32,7 +32,8 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
           "</div>"+
           "<div class='row-right'>"+
             "<div class='logout'>"+
-              "<a href=\"/#/\" class='link' translate>logout</a>"+
+              "<a ng-if='!isLoggedIn()' href=\"/#/dashboard\" class='link' translate>login</a>"+
+              "<a ng-if='isLoggedIn()' href=\"/#/\" class='link' translate>logout</a>"+
             "</div>"+
           "</div>"+
         "</header>"+
@@ -64,6 +65,10 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
         }
       }
       $scope.toggleMenu = buildToggler('menu');
+
+      $scope.isLoggedIn = function () {
+        return $location.url() !== "/";
+      };
     }
   }
 }]);

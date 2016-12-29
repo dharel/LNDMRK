@@ -56,11 +56,14 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   var getShortInvestmentType = function() {
     if(!$scope.asset){ return; }
     if($scope.asset.investment_type === 'max_dividends'){
-      $scope.asset.investment_type_short = 'income';
+      $scope.asset.investment_type_short = 'income investment';
+      $scope.asset.investment_type_short_heb = 'מקסימום הכנסה';
     } else if($scope.asset.investment_type === 'max_appreciation'){
-      $scope.asset.investment_type_short = 'growth';
+      $scope.asset.investment_type_short = 'growth investment';
+      $scope.asset.investment_type_short_heb = 'מקסימום עליית ערך';
     } else if($scope.asset.investment_type === 'max_dividends_appreciation'){
-      $scope.asset.investment_type_short = 'income and growth';
+      $scope.asset.investment_type_short = 'income and growth investment';
+      $scope.asset.investment_type_short_heb = 'הכנסה ועליית ערך';
     }
   };
   
@@ -135,8 +138,8 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
     console.log('click')
     return function() {
       $mdSidenav(componentId).toggle();
-    }
-  }
+    };
+  };
 
   $scope.toggleMenu = buildToggler('left');
 }]);

@@ -1,6 +1,6 @@
 /*globals angular, document, JST, window */
 
-var app = angular.module('lndmrk', ['ngRoute', 'ngAnimate', 'pascalprecht.translate','ngMaterial', 'ui.bootstrap']);
+var app = angular.module('lndmrk', ['ngRoute', 'ngAnimate', 'pascalprecht.translate','ngTouch','ngMaterial', 'ui.bootstrap']);
 
 angular.element(document).ready(function () {
   'use strict';

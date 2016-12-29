@@ -46,7 +46,9 @@
     <div class='container turquoise-strip'>
       <div class='section-title'
            ng-class='getInvTypeClr(asset.investment_type)'>
-           {{asset.investment_type_short}} investment</div>
+           <span ng-if='localizationSrv.locale === "en"'>{{asset.investment_type_short}}</span>
+           <span ng-if='localizationSrv.locale === "he"'>{{asset.investment_type_short_heb}}</span>
+      </div>
       <div class='attributes-wrap' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
         <div class='attribute' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
           <span translate>rank</span>
