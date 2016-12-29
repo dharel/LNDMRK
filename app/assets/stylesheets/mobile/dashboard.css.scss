@@ -236,6 +236,7 @@
         font-weight: bold;
         font-size: 16px;
         padding-top: 5px;
+        text-transform: uppercase;
       }
 
       .graph-container {
@@ -272,6 +273,8 @@
           font-size: 10px;
           text-align: center;
           font-weight: normal;
+          text-transform: uppercase;
+          
 
           span { font-weight: bold;}
         }
@@ -283,6 +286,8 @@
           font-weight: normal;
           font-size: 10px;
           text-align: center;
+          text-transform: uppercase;
+          
           span { font-weight: bold;}
         }
       }
@@ -303,6 +308,7 @@
       font-size: 15px;
       color: #7DDBE0;
       text-align: center;
+      text-transform: uppercase;
     }
 
     .sub-title {
@@ -336,6 +342,8 @@
       font-size: 15px;
       color: #7DDBE0;
       text-align: center;
+      text-transform: uppercase;
+      
     }
 
     .people-container {
@@ -384,6 +392,8 @@
           padding-top: 22px;
           font-weight: bold;
           background-color: #EEFAFA;
+          text-transform: capitalize;
+          
         }
 
         .data-wrap {
@@ -405,6 +415,7 @@
             float: left;
             line-height: 30px;
             font-weight: bold;
+            
 
             .title {
               width: 100%;
@@ -527,7 +538,8 @@
       height: auto;
       margin-top: 17px;
       min-height: 250px;
-
+      text-transform: uppercase;
+      
       &.owned {
         height: unset;
         display: flex;

@@ -3,24 +3,24 @@
 
   <div class='body dashboard'>
     <div class='dashboard'>
-      <div class='header'>protfolio managment</div>
+      <div class='header' translate>portfolio_management</div>
       <div class='total-portfolio'>
         <div class='left'>
           <div class='equity'>
             <div class='value'>$40,740</div>
-            <div class='title'>equity</div>
+            <div class='title' translate>equity</div>
           </div>
           <div class='plus'>+</div>
           <div class='debt'>
             <div class='value'>$27,160</div>
-            <div class='title'>debt</div>
+            <div class='title' translate>debt</div>
           </div>
         </div>
         <div class='right'>
           <div class='equals'>=</div>
           <div class='total'>
             <div class='value'>$67,901</div>
-            <div class='title'>total portforlio value</div>
+            <div class='title' translate>total_portfolio_value</div>
           </div>
         </div>      
       </div>
@@ -59,33 +59,33 @@
 
       <div class="small-graphs">
         <div class='gains'>
-          <div class='title'>Total Gains</div>
+          <div class='title' translate>total_gains</div>
           <div class='graph-container' id='gains'>
-            <div class='left-text'><span>Realized</span> <br> $7234</div>
+            <div class='left-text'><span translate>realized</span> <br> $7234</div>
             <div class='graph'>$13567</div>
-            <div class='right-text'><span>Unrealized</span> <br> $5348</div>
+            <div class='right-text'><span translate>unrealized</span> <br> $5348</div>
           </div>
           
         </div>
         <div class='yield'>
-          <div class='title'>Yield</div>
+          <div class='title'translate>yield</div>
           <div class='graph-container' id='yield'>
-            <div class='left-text'><span>MAX <br> APPRECIATIONS</span></div>
+            <div class='left-text'><span translate>max_appreciation</span></div>
             <div class='graph'>9%</div>
-            <div class='right-text'><span>MAX <br> DIVIDENDS</span></div>
+            <div class='right-text'><span translate>max_dividends</span></div>
           </div>
           
         </div>        
       </div>
 
       <div class='monthly-income'>
-        <div class='title'>Monthly Income</div>
-        <div class='sub-title'>PREDICTION</div>
+        <div class='title' translate>monthly_income</div>
+        <div class='sub-title' translate>prediction</div>
         <div class='graph'></div>
       </div>
 
       <div class='anlyzing-tool'>
-        <div class='title'> Analyzing Tool </div>
+        <div class='title' translate> analyzing_tool </div>
         <div class='people-container'>
           <div ng-repeat='person in analyzingToolData track by $index'
               class='person-wrap'>
@@ -114,7 +114,7 @@
 
       <div class='my-properties'>
         <div class='line'></div>
-        <div class='title'>MY PROPERTIES</div>
+        <div class='title' translate>my_properties</div>
         <div class='properties-table'>
           <div class='headers-wrap'>
             <div class='header placeholder'></div>
@@ -154,7 +154,7 @@
 
       <div class='my-properties'>
         <div class='line'></div>
-        <div class='title'>MY WATCH LIST</div>
+        <div class='title' translate>my_watch_list</div>
         <div class='properties-table' ng-if='watched_data && watched_data.length > 0'>
           <div class='headers-wrap my-watchlist' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
             <div class='header price'  style='width: 20%' translate>avarage_price_m</div>
