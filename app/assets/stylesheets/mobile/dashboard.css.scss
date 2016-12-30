@@ -244,7 +244,7 @@
         width: inherit;
         height: inherit;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 12px;
         text-align: center;
         display: flex;
         align-items: center;
@@ -253,7 +253,7 @@
 
         &#gains {
           background-image: image-url('dash-graph-1.png');
-          background-size: 50%;
+          background-size:45%;
           background-repeat: no-repeat;
           background-position: center center;
         }
@@ -261,7 +261,7 @@
 
         &#yield {
           background-image: image-url('dash-graph-2.png');
-          background-size: 50%;
+          background-size: 45%;
           background-repeat: no-repeat;
           background-position: center center;
         }
@@ -269,13 +269,12 @@
         .left-text {
           position: absolute;
           bottom: 0;
-          left: 0;
+          left: 5px;
           font-size: 10px;
           text-align: center;
           font-weight: normal;
           text-transform: uppercase;
-          
-
+          width: 45px;
           span { font-weight: bold;}
         }
 
@@ -287,7 +286,7 @@
           font-size: 10px;
           text-align: center;
           text-transform: uppercase;
-          
+          width: 45px;
           span { font-weight: bold;}
         }
       }

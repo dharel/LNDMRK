@@ -15,7 +15,7 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
             "<li class='divider'></li>"+
             "<a href=\"/#/dashboard\">"+
               "<li class='user-image'></li>"+
-              "<li class='user-name'>PORTFOLIO</li>"+
+              "<li class='user-name' translate>portfolio</li>"+
               "<li class='user-email'>USER@LNDMRK.COM</li>"+
             "</a>"+
             "<li class='divider'></li>"+

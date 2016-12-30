@@ -24,28 +24,37 @@
         flex-direction: row;
         align-items: center;
         padding-left: 10px;
+        justify-content: space-between;
+        .title-wrap {
+          display: flex;
+          align-self: center;
 
-        .icon {
-          width: 30px;
-          height: 30px;
-          background-image: image-url('search.png');
-          background-size: contain;        
+          .icon {
+            width: 30px;
+            height: 30px;
+            background-image: image-url('search.png');
+            background-size: contain;        
+          }
+          .title {
+            font-size: 14px;
+            color: $dark-blue;
+            font-weight: bold;
+            padding-top: 7px;
+            text-transform: uppercase;
+          }
+
         }
-        .title {
-          font-size: 14px;
-          color: $dark-blue;
-          font-weight: bold;
-        }
+
 
         .clear-all {
-          align-self: center;
-          font-size: 10px;
-          font-weight: 600;
           display: flex;
-          cursor: pointer;
-          text-decoration: underline;
+          font-weight: bold;
           text-transform: uppercase;
-          margin-left: 70px;
+          font-size: 12px;
+          align-self: center;
+          margin-right: 15px;
+          text-decoration: underline
+
         } 
       }
 
@@ -429,6 +438,7 @@
           font-size: 12px;
           font-weight: bold;
           padding-top: 7px;
+          text-transform: uppercase;
         }
 
         &.properties {
