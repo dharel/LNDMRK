@@ -14,7 +14,7 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
     template:
 
     "<div class='results-asset-block'>" +
-      "<div class='asset-name'>{{asset.name}}</div>" +
+      "<div class='asset-name'>{{getNameByLocale(asset)}}</div>" +
       "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)' ng-click='selectAsset(asset)'>" +
 
         "<div class='row'>" +
