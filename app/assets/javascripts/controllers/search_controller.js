@@ -84,6 +84,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.searchForm = { address: '' };
     getCarousellData();
     $scope.mobileVisiblePanel = 'map';
+    $scope.modal = {
+      open: false,
+      asset: null,
+      type: null
+    }
   };
 
   $scope.sortResult = function (sort_option) {
@@ -279,6 +284,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   var onSucc_buy_asset = function (id, status) {
     var asset = R.find(R.propEq('id', id))($scope.assets_results);
     asset.user_owned = status;
+    $scope.modal.open = true;
+    $scope.modal.type = 'buy';
+    $scope.modal.asset = asset;
     function a (e) { }
     return a;
   };
@@ -288,11 +296,20 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   var onSucc_sell_asset = function (id, status) {
     var asset = R.find(R.propEq('id', id))($scope.assets_results);
     asset.user_owned = status;
+    $scope.modal.open = true;
+    $scope.modal.type = 'sell';
+    $scope.modal.asset = asset;
     function a (e) { }
     return a;
   };
   var onErr_sell_asset = function (err) {
     console.log('error fetching data: ', err);
+  };
+
+  $scope.closeModal = function () {
+    $scope.modal.open = false;
+    $scope.modal.type = null;
+    $socpe.modal.asset = null;
   };
 
   $scope.buyChosenAsset = function (asset_id, value) {

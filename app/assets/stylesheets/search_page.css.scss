@@ -1,3 +1,5 @@
+@import "./_base.css.scss";
+
 .main-wrapper {
   width: 100%;
   height: 100%;
@@ -336,6 +338,111 @@
       height: calc(100% - 110px);
     }
 
+  }
+
+}
+.modal-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, 0.4);
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  .modal {
+    width: 450px;
+    height: 320px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .close {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      z-index: 2;
+      margin: 8px;
+      color: $turquoise;
+      font-weight: bold;
+    }
+
+    .title-container {
+      position: absolute;
+      top: 0;
+      width: inherit;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #EBFBFA;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .logo {
+        width: 120px;
+        height: 120px;
+        background-image: image-url("success_icon.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+        top: 10px;
+        left: -5px;
+      }
+      .title {
+        font-size: 17px;
+        font-weight: bold;
+        color: $turquoise;
+        text-transform: uppercase;
+        position: relative;
+        top: 10px;
+      }
+      .triangle {
+        width: 0px;
+        height: 0px;
+        border-left: 200px solid transparent;
+        border-right: 200px solid transparent;
+        border-top: 18px solid #EBFBFA;
+        position: relative;
+        bottom: -18px;
+      }
+    }
+
+    .data-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 185px;
+      .part1, .part2, .part3 {
+        margin: 5px 0;
+      }
+      .close-button {
+        width: 70px;
+        height: 20px;
+        background-color: $dark-medium-blue;
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 22px;
+        cursor: pointer;
+      }
+    }
   }
 }
 

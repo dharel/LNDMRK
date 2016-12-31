@@ -149,7 +149,36 @@
           <button type='submit' class='submit' ng-class='{"hebrew": isHebrew()}' translate>{{submit_text}}</button>
         </form>
       </div>
-
     </div>
   </section>
+  <div class='modal-container' ng-if="modal.open">
+    <div ng-if='modal.type === "buy"' class='modal'>
+      <div class='close' ng-click='closeModal()'>X</div>
+      <div class='title-container'>
+        <div class='logo'></div>
+        <div class='title' translate>congratulations</div>
+        <div class='triangle'></div>
+      </div>
+      <div class='data-wrapper'>
+        <span class='part1'> You are now the owner of {{modal.asset.value}}</span>
+        <span class='part2'>in {{modal.asset.name}}</span>
+        <span class='part3' style="font-weight: bold;">Thank you for using LNDMRK!</span>
+        <div class='close-button' ng-click='closeModal()' translate>close</div>
+      </div>
+    </div>
+    <div ng-if='modal.type === "sell"' class='modal'>
+      <div class='close' ng-click='closeModal()'>X</div>
+      <div class='title-container'>
+        <div class='logo'></div>
+        <div class='title' translate>congratulations</div>
+        <div class='triangle'></div>
+      </div>
+      <div class='data-wrapper'>
+        <span class='part1'> You just sold {{modal.asset.value}} m2</span>
+        <span class='part2'>in {{modal.asset.name}} for the price of {{chosen_asset.total - chosen_asset.value}}</span>
+        <span class='part3' style="font-weight: bold;">Thank you for using LNDMRK!</span>
+        <div class='close-button' ng-click='closeModal()' translate>close</div>
+      </div>  
+    </div>
+  </div>
 </div>
