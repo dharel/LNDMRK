@@ -36,10 +36,11 @@
       width: 100vw;
       h1 {
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 15px;
         letter-spacing: 1px;
         word-spacing: 1px;
         font-weight: 600;
+        @extend .flexbox-row-center-center;
       }
       h2 {
         text-transform: capitalize;
