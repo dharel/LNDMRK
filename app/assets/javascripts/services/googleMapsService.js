@@ -137,7 +137,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
               bounds.union(place.geometry.viewport);
             } else {
               bounds.extend(place.geometry.location);
-              map.setZoom(17);
+              window.map.setZoom(17);
             }
           });
           window.map.fitBounds(bounds);

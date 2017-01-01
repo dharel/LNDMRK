@@ -160,7 +160,7 @@
         <div class='triangle'></div>
       </div>
       <div class='data-wrapper'>
-        <span class='part1'> <span translate> modal.buy_part_1 </span> {{modal.asset.value}}</span>
+        <span class='part1'> <span translate> modal.buy_part_1 </span> {{modal.asset.value}} <span translate>modal.m_2</span></span>
         <span class='part2'><span translate>modal.buy_part_2 </span> {{modal.asset.name}}</span>
         <span class='part3' style="font-weight: bold;" translate>modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>modal.close</div>
@@ -174,8 +174,8 @@
         <div class='triangle'></div>
       </div>
       <div class='data-wrapper'>
-        <span class='part1'> <span translate>modal.sell_part_1</span> {{modal.asset.value}} <span translate>moda.sell_m_2</span></span>
-        <span class='part2'><span translate>modal.sell_part_2</span> {{modal.asset.name}} <span translate> modal.sell_part_3 </span> {{chosen_asset.total - chosen_asset.value}}</span>
+        <span class='part1'> <span translate>modal.sell_part_1</span> {{modal.asset.value}} <span translate>modal.m_2</span></span>
+        <span class='part2'><span translate>modal.sell_part_2</span> {{modal.asset.name}} <span translate> modal.sell_part_3 </span> ${{asset_calced_price()}}</span>
         <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>close</div>
       </div>  

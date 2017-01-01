@@ -218,10 +218,10 @@ en:
   modal:
     congratulations: "congratulations"
     close: "close"
+    m_2: "m²"
     thank_you: "Thank you for using LNDMRK!"
     buy_part_1: "You are now the owner of "
     buy_part_2: "in "
     sell_part_1: "You just sold"
-    sell_m_2: "m2"
     sell_part_2: "in"
     sell_part_3: "for the price of"

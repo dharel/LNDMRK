@@ -316,13 +316,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     if(value === 0) {return;}
     AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: value}, onSucc_buy_asset(asset_id, true), onErr_change_watchlist);
     $scope.popup_current_action = null;
-    $scope.chosen_asset = null;
+    // $scope.chosen_asset = null;
   };
 
   $scope.sellChosenAsset = function (asset_id, value) {
     AjaxService.sendMsg('POST', '/asset_sell', {id: asset_id, value: value}, onSucc_sell_asset(asset_id, false), onErr_sell_asset);
     $scope.popup_current_action = null;
-    $scope.chosen_asset = null;
+    // $scope.chosen_asset = null;
   };
 
   $scope.addMeters = function () {
