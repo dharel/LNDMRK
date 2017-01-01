@@ -186,6 +186,11 @@ he:
   this_month: "(בחודש זה)"
   search_mobile_placeholder: "חפש כתובת, עיר, או מדינה..."
   mobile_home_search: "חפש"
+
+  show_more: 'הצג עוד'
+  invested_in_this_property: 'השקיעו בנכס זה'
+  view_full_transaction_history: 'צפה בהיסטוריית הפעולות המלאה'
+
   portfolio: "תיק השקעות"
   map: "מפה"
   filters: "פילטר"

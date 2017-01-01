@@ -210,6 +210,11 @@ en:
   this_month: "(this month)"
   search_mobile_placeholder: "Search address, city, state.."
   mobile_home_search: "search"
+
+  show_more: 'show more'
+  invested_in_this_property: 'invested in this property'
+  view_full_transaction_history: 'view full transaction history'
+
   portfolio: "PORTFOLIO"
   map: "map"
   filters: "filters"
