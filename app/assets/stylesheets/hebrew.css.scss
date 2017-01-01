@@ -85,3 +85,32 @@
     flex-flow: row-reverse nowrap;
   }
 }
+
+.mobile {
+  &.hebrew {
+    .total-portfolio {
+      .left {
+        .plus {
+          padding-right: 2px;
+          padding-left: unset;
+        }
+      }
+      .right {
+        .equals {
+          left: unset;
+          right: -15px;
+        }
+      }
+    }
+
+    .small-graphs {
+      .gains, .yield {
+        .graph-container {
+          .right-text {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}

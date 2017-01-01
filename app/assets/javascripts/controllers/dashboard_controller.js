@@ -80,7 +80,8 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   };
 
   $scope.calcAvarage = function (type, collection) {
-    return (R.sum(R.pluck(type)(collection)) / collection.length).toFixed(2);
+    var av = (R.sum(R.pluck(type)(collection)) / collection.length).toFixed(2);
+    return Number(av) ? av : 0;
   };
 
   $scope.sumAll = function (type) {
@@ -108,4 +109,21 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     dataManagerService.asset = asset;
     $location.path('/property');
   };
+
+  $scope.maxRating = function (assets) {
+      var sort = {
+        'A+' : 9,
+        'A' : 8,
+        'A-' : 7,
+        'B+' : 6,
+        'B' : 5,
+        'B-' : 4,
+        'C+' : 3,
+        'C' : 2,
+        'C-' : 1,
+        'D' : 0
+      };
+      if (!assets || assets.length === 0) return '-';
+      return R.sort(function (a, b) {return sort[b.rating] - sort[a.rating]})(assets)[0].rating;
+  }
 }]);

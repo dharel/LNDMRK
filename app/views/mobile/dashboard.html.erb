@@ -1,7 +1,187 @@
 <div ng-controller="DashboardController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
   <mobile-header></mobile-header>
 
-  <div class='body'>
-    
+  <div class='body dashboard'>
+    <div class='dashboard'>
+      <div class='header' translate>portfolio_management</div>
+      <div class='total-portfolio'>
+        <div class='left'>
+          <div class='equity'>
+            <div class='value'>$40,740</div>
+            <div class='title' translate>equity</div>
+          </div>
+          <div class='plus'>+</div>
+          <div class='debt'>
+            <div class='value'>$27,160</div>
+            <div class='title' translate>debt</div>
+          </div>
+        </div>
+        <div class='right'>
+          <div class='equals'>=</div>
+          <div class='total'>
+            <div class='value'>$67,901</div>
+            <div class='title' translate>total_portfolio_value</div>
+          </div>
+        </div>      
+      </div>
+
+      <div class='total-graph'>
+        <div class='graph-wrap' id='income'>
+          <div class='graph'>
+            <div class='top'>40%</div>
+            <div class='bottom'>60%</div>
+          </div>
+          <div class='info'>
+            <div class='name' translate>max_dividends</div>
+            <div class='currency'>$35,309</div>
+          </div>
+        </div>
+        <div class='graph-wrap' id='growth'>
+          <div class='graph'>
+            <div class='bottom'>100%</div>
+          </div>
+          <div class='info'>
+            <div class='name' translate>max_appreciation</div>
+            <div class='currency'>$2,444</div>
+          </div>
+        </div>
+        <div class='graph-wrap' id='income-growth'>
+          <div class='graph'>
+            <div class='top'>19%</div>
+            <div class='bottom'>81%</div>
+          </div>
+          <div class='info'>
+            <div class='name' translate>max_dividends_appreciation</div>
+            <div class='currency'>$8148</div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="small-graphs">
+        <div class='gains'>
+          <div class='title' translate>total_gains</div>
+          <div class='graph-container' id='gains'>
+            <div class='left-text'><span translate>realized</span> <br> $7234</div>
+            <div class='graph'>$13567</div>
+            <div class='right-text'><span translate>unrealized</span> <br> $5348</div>
+          </div>
+          
+        </div>
+        <div class='yield'>
+          <div class='title'translate>yield</div>
+          <div class='graph-container' id='yield'>
+            <div class='left-text'><span translate>max_appreciation</span></div>
+            <div class='graph'>9%</div>
+            <div class='right-text'><span translate>max_dividends</span></div>
+          </div>
+          
+        </div>        
+      </div>
+
+      <div class='monthly-income'>
+        <div class='title' translate>monthly_income</div>
+        <div class='sub-title' translate>prediction</div>
+        <div class='graph'></div>
+      </div>
+
+      <div class='anlyzing-tool'>
+        <div class='title' translate> analyzing_tool </div>
+        <div class='people-container'>
+          <div ng-repeat='person in analyzingToolData track by $index'
+              class='person-wrap'>
+            <div class='img' id='image-{{person.id}}'></div>
+            <div class='name' translate>{{person.name.replace(' ', '_')}}</div>
+            <div class='data-wrap'>
+              <div class='data'>
+                <div class='title' translate>return</div>
+                <div class='return'>{{person.return}}%</div>
+              </div>
+              <div class='divider'></div>
+              <div class='data'>
+                <div class='title' translate>risk</div>                  
+                <div class='risk' id='risk-{{person.risk}}'>{{person.risk}}</div>
+              </div>                
+            </div>
+            <div class='value'>${{person.value}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class='static-graphs'>
+        <div id='static-graph1'></div>
+        <div id='static-graph2'>$5679</div>      
+      </div>
+
+      <div class='my-properties'>
+        <div class='line'></div>
+        <div class='title' translate>my_properties</div>
+        <div class='properties-table'>
+          <div class='headers-wrap'>
+            <div class='header placeholder'></div>
+            <div class='header yield'  translate>estimated_yield</div>
+            <div class='header owned'  translate>m_owned</div>
+            <div class='header value'  translate>total_ownership_value</div>
+          </div>
+          <div class='data-wrapper' ng-repeat='property in owned_data track by $index'>
+            <div class='row-data' 
+                 ng-click='toggleExpanded(property)' 
+                 ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
+              <div class='data name' ng-class='property.class' translate style='width: 25%'>{{property.name}}</div>
+              <div class='data yield' style='width: 25%'>{{ sumProperty('yield', property.assets) }}%</div>
+              <div class='data owned' style='width: 25%'>{{ sumProperty('user_owned', property.assets) }}</div>
+              <div class='data value' style='width: 25%'>{{ sumProperty('value', property.assets) | currency}}</div>
+            </div>
+            <div class='expanded-data-wrap' 
+                ng-if='property.assets && property.assets.length > 0'
+                ng-show='expanded.id === property.id'>
+              <div class='expanded-row-data' ng-repeat='asset in property.assets' ng-click='selectAsset(asset)'>
+                <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}' style='width: 25%'>{{asset.name}}</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.yield}}%</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.user_owned}}</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.value | currency }}</div>
+              </div>
+            </div>
+
+          </div>
+          <div class='row-data sum' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
+            <div class='data name' translate style='width: 25%'>sum</div>
+            <div class='data' style='width: 25%'>{{sumAll('yield')}}%</div>
+            <div class='data' style='width: 25%'>{{sumAll('user_owned')}}</div>
+            <div class='data' style='width: 25%'>{{sumAll('value') | currency}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class='my-properties'>
+        <div class='line watchlist'></div>
+        <div class='title' translate>my_watch_list</div>
+        <div class='properties-table' ng-if='watched_data && watched_data.length > 0'>
+          <div class='headers-wrap my-watchlist' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
+            <div class='header price'  style='width: 20%' translate>avarage_price_m</div>
+            <div class='header yield'  style='width: 20%' translate>estimated_yield</div>
+            <div class='header rating' style='width: 20%' translate>rating</div>
+            <div class='header placeholder' style='width: 20%'></div>
+          </div>
+          <div class='data-wrapper my-watchlist' 
+              ng-repeat='asset in watched_data track by $index'>
+            <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)'>
+              <div class='remove-from-watchlist'></div>
+            </div>
+            <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
+              <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
+              <div class='data name' style='width: 20%'>{{asset.name}}</div>
+              <div class='partition'></div>
+              <div class='data price'    style='width: 20%'>{{asset.price | currency }}</div>
+              <div class='data yield'    style='width: 20%'>{{asset.yield}}%</div>
+              <div class='data rating'   style='width: 20%'>{{asset.rating}}</div>
+              <a class='goto-asset-page' style='width: 20%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
+            </div>
+          </div>
+        </div>
+        <div class='properties-missing' ng-if='!watched_data || watched_data.length === 0'>
+          <p>Currently there are no properties in your watchlist. to search for properties <a href='/#/search'>click here</a></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

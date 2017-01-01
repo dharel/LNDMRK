@@ -7,7 +7,7 @@
       <div class='header'>
         <div class='back-button' ng-click='mobileVisiblePanel = prevRoute'>
           <div class='arrow'><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
-          <div class='title'>filter</div>
+          <div class='title' translate>filters</div>
         </div>
       </div>
       
@@ -15,12 +15,12 @@
         <div class='sort-by'>
           <div class='title'>
             <div class='sort-by-icon'></div>
-            <div class='sort-by-title'> sort by</div>
+            <div class='sort-by-title' translate> search.sort_by</div>
           </div>
           <div class='sort-container'>
-            <label ng-repeat="sort_option in sort_options_list" class='option'>
+            <label ng-repeat="sort_option in sort_options_list" class='option' >
               <input type="radio" name='sort' ng-click='sortResult(sort_option)' />
-              {{sort_option}}
+              <span translate>{{sort_option}}</span>
             </label>
           </div>
         </div>
@@ -30,7 +30,7 @@
         <div class='market-type'>
           <div class='title'>
             <div class='market-properties-icon'></div>
-            <div class='market-title'> market type</div>
+            <div class='market-title' translate> search.market_type</div>
           </div>
           <div class="market-type-checkbox-wrapper" >
             <div class="market-type-checkbox-container" ng-repeat="market_type_checkbox in market_type_checkboxes">
@@ -47,7 +47,7 @@
         <div class='property-type'>
           <div class='title'>
             <div class='property-properties-icon'></div>
-            <div class='properties-title'> property type</div>
+            <div class='properties-title' translate> search.property_type</div>
           </div>
           <div class="property-type-checkbox-wrapper">
             <div class="property-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
@@ -64,15 +64,17 @@
     <div class='map-panel' ng-show="mobileVisiblePanel === 'map'">
       <div class='search-properties'>
         <div class='content' ng-click='showFilters = !showFilters'> 
-          <div class='icon'></div>
-          <div class='title'>SEARCH PROPERTIES</div>
-          <div class='clear-all' ng-click="clearSearch()" >Reset All</div>
+          <div class='title-wrap'>
+            <div class='icon'></div>
+            <div class='title' translate>search.search_properties</div>
+          </div>
+          <div class='clear-all' ng-click="clearSearch()" translate>search.reset_all</div>
         </div>
         <div class='filters-container' ng-hide='showFilters === false'>
           <div class='filters'>
-            <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">MAX DIVIDENDS</div>
-            <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">MAX APPRECIATION</div>
-            <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">MAX DIVIDENDS & APPRECIATION</div>
+            <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()" translate>max_dividends</div>
+            <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()" translate>max_appreciation</div>
+            <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()" translate>max_dividends_appreciation</div>
           </div>
 
           <div class='input'> 
@@ -88,15 +90,17 @@
     <div class='properties-panel nga-default nga-slide-down-all nga-fast' ng-show="mobileVisiblePanel === 'properties'">
       <div class='search-properties'>
         <div class='content' ng-click='showFilters = !showFilters'> 
-          <div class='icon'></div>
-          <div class='title'>SEARCH PROPERTIES</div>
-          <div class='clear-all' ng-click="clearSearch()" >Reset All</div>
+          <div class='title-wrap'>
+            <div class='icon'></div>
+            <div class='title' translate>search.search_properties</div>
+          </div>
+          <div class='clear-all' ng-click="clearSearch()" translate>search.reset_all</div>
         </div>
         <div class='filters-container' ng-hide='showFilters === false'>
           <div class='filters'>
-            <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()">MAX DIVIDENDS</div>
-            <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()">MAX APPRECIATION</div>
-            <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()">MAX DIVIDENDS & APPRECIATION</div>
+            <div class="properties-button left" ng-class="{'properties-button-left-selected' : investment_type_buttons[0].checked}" ng-click="investment_type_buttons[0].checked = !investment_type_buttons[0].checked ; filterResults()" translate>max_dividends</div>
+            <div class="properties-button middle" ng-class="{'properties-button-middle-selected' : investment_type_buttons[1].checked}" ng-click="investment_type_buttons[1].checked = !investment_type_buttons[1].checked ; filterResults()" translate>max_appreciation</div>
+            <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()" translate>max_dividends_appreciation</div>
           </div>
 
           <div class='input'> 
@@ -125,14 +129,14 @@
              ng-click="mobileVisiblePanel = 'properties'; prevRoute = 'properties'"
              ng-class="{'active': mobileVisiblePanel === 'properties'}">
           <div class='icon'></div>
-          <div class='title '>PROPERTIES</div>
+          <div class='title ' translate>properties</div>
         </div>
 
         <div class='button  map' 
              ng-click="mobileVisiblePanel = 'map'; ; prevRoute = 'map'"
              ng-class="{'active': mobileVisiblePanel === 'map'}">
           <div class='icon'></div>
-          <div class='title '>MAP</div>
+          <div class='title ' translate>map</div>
         </div>
       </div>
 
@@ -140,7 +144,7 @@
            ng-click="mobileVisiblePanel = 'filters'"
            ng-class="{'active': mobileVisiblePanel === 'filters'}">
         <div class='icon'></div>
-        <div class='title '>FILTERS</div>
+        <div class='title ' translate>filters</div>
       </div>      
     </div>
   </div>

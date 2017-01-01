@@ -214,3 +214,19 @@ en:
   show_more: 'show more'
   invested_in_this_property: 'invested in this property'
   view_full_transaction_history: 'view full transaction history'
+
+  portfolio: "PORTFOLIO"
+  map: "map"
+  filters: "filters"
+  prediction: "prediction"
+  properties: "properties"
+  modal:
+    congratulations: "congratulations"
+    close: "close"
+    thank_you: "Thank you for using LNDMRK!"
+    buy_part_1: "You are now the owner of "
+    buy_part_2: "in "
+    sell_part_1: "You just sold"
+    sell_m_2: "m2"
+    sell_part_2: "in"
+    sell_part_3: "for the price of"
