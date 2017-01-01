@@ -81,6 +81,7 @@
             text-align: center;
             border: 1px solid black;
             font-size: 8px;
+            text-transform: uppercase;
             padding: 4px 5px;
             &.left {
               border-color: #fdc228;
@@ -236,6 +237,7 @@
               font-size: 15px;
               margin: 5px 0;
               font-weight: 700;
+              text-transform: capitalize;
             }
 
           }
