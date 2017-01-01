@@ -52,6 +52,12 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       {name: 'Secondary', checked: true},
     ];
 
+    $scope.mobile_market_type_checkboxes = [
+      {name: 'Primary', checked: true},
+      {name: 'Fringe', checked: true},
+      {name: 'Secondary', checked: true},
+    ];
+
     $scope.investment_type_buttons = [
       {name: 'max_dividends', checked: true},
       {name: 'max_appreciation', checked: true},
@@ -70,6 +76,19 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       {name: 'Office', checked: true}
       
     ];  
+
+    $scope.mobile_property_type_checkboxes = [
+      {name: 'Residential', checked: true},
+      {name: 'Private', checked: true},
+      {name: 'Retail', checked: true},
+      {name: 'Facilities', checked: true},
+      {name: 'Commercial', checked: true},
+      {name: 'Industrial', checked: true},
+      {name: 'Agriculture', checked: true},
+      {name: 'Hotel', checked: true},
+      {name: 'Office', checked: true}
+      
+    ]; 
     $scope.sort_options_list = ["Rating", "Yield"];
     $scope.sort_option = $scope.sort_options_list[0];
 
@@ -193,6 +212,23 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
   };
+
+  $scope.mobileFilterResults = function () {
+    $scope.market_type_checkboxes = $scope.mobile_market_type_checkboxes;
+    $scope.property_type_checkboxes = $scope.mobile_property_type_checkboxes;
+    $scope.assets_results = _.intersection(
+      $scope.assetsInFOV,      
+      filterByInvestmentType(), 
+      filterByMarketType(), 
+      filterByPropertyType()
+    );
+    googleMaps.setAssetMarkersOnMap($scope.assets_results);
+  };
+
+  $scope.cancelFilters = function () {
+    $scope.mobile_market_type_checkboxes = $scope.market_type_checkboxes;
+    $scope.mobile_property_type_checkboxes = $scope.property_type_checkboxes;
+  }
 
   $scope.clearSearch = function () {
     R.forEach(function (value) {value.checked = true;})($scope.property_type_checkboxes);

@@ -33,7 +33,7 @@
             <div class='market-title' translate> search.market_type</div>
           </div>
           <div class="market-type-checkbox-wrapper" >
-            <div class="market-type-checkbox-container" ng-repeat="market_type_checkbox in market_type_checkboxes">
+            <div class="market-type-checkbox-container" ng-repeat="market_type_checkbox in mobile_market_type_checkboxes">
               <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">
                 <span ng-show="market_type_checkbox.checked"><i class="fa fa-check"></i></span>
               </div>
@@ -50,7 +50,7 @@
             <div class='properties-title' translate> search.property_type</div>
           </div>
           <div class="property-type-checkbox-wrapper">
-            <div class="property-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
+            <div class="property-type-checkbox-container" ng-repeat="property_type_checkbox in mobile_property_type_checkboxes">
               <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">
                 <span ng-show="property_type_checkbox.checked"><i class="fa fa-check"></i></span>
               </div>
@@ -60,8 +60,8 @@
         </div>
 
         <div class='apply-cancel-container'>
-          <div class='cancel' ng-click="mobileVisiblePanel = 'map'"> Cancel </div>
-          <div class='apply' ng-click="filterResults()"> Apply </div>
+          <div class='cancel' ng-click="cancelFilters(); mobileVisiblePanel = 'map'"> Cancel </div>
+          <div class='apply' ng-click="mobileFilterResults()"> Apply </div>
         </div>
       </div>
     </div>
