@@ -4,7 +4,7 @@
 
     <div class='hero util-section'>
       <div class='mobile-img'>
-        <img src='{{asset.banner_images[0]}}' alt='asset.name'>
+        <img src='{{asset.banner_images[0]}}' alt='asset.name' class='image'>
         <div class='color-gradient' ng-class='getPropertyTypeClr(asset.investment_type)'></div>
       </div>
 
@@ -25,7 +25,7 @@
     </div>
 
     <div class='map-outer-wrap util-section'>
-      <div class='map-section'>
+      <div class='map-section' ng-class='{"hebrew": isHebrew()}'>
         <div class='titles'>
           <div class='street-view' ng-click='openStreetview()' ng-class='{"chosen": map_type_visible === "street"}'>google street view</div>
           <div class='location-map' ng-click='openGooglemaps()'
@@ -250,7 +250,7 @@
           <div class='contact-info'>+972-578687678</div>
         </div>
         <div class='column'>
-          <div class='contact-info'>122 Jmhh St.</div>
+          <div class='contact-info' style='text-align: left; direction: ltr;'>122 Jmhh St.</div>
           <div class='contact-info'>Ffnsdnn, Israel</div>
         </div>
       </div>
@@ -260,7 +260,7 @@
         <div class='social-item linkdin'></div>
         <div class='social-item mail'></div>
       </div>
-      <p class='paragraph'>
+      <p class='paragraph' style='text-align: left; direction: ltr;'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.</br>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.
       </p>

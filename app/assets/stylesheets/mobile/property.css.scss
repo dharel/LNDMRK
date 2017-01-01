@@ -15,7 +15,12 @@
       position: relative;
       height: 225px;
       width: 100vw;
-      .image { width: 100%; height: auto;}
+      .image {
+        min-width: 100vw;
+        width: 100vw;
+        height: auto;
+        min-height: 225px;
+      }
       .color-gradient {
         position: absolute;
         height: inherit;
@@ -71,7 +76,7 @@
     padding: 0;
     height: 225px;
     width: calc(100vw - 40px);
-    &.hebrew { padding: 62px 0 0 37px; }
+    // &.hebrew { padding: 62px 0 0 37px; }
     h1 {
       color: $turquoise;
       font-size: 14px;
@@ -116,7 +121,8 @@
       padding: 0;
       position: relative;
       width: calc(100vw - 40px);
-      margin-left: 14px;
+      margin-left: 14px; margin-right: unset;
+      &.hebrew {margin-left: unset; margin-right: 14px;}
       @extend .flexbox-colum-to-top-start;
       .titles {
         @extend .flexbox-row-between;
@@ -220,7 +226,8 @@
       @extend .flexbox-colum-to-top-center;
       height: 70px;
       min-width: 40px;
-      margin-left: 15px;
+      margin-left: 15px; margin-right:unset;
+      &.hebrew { margin-left: unset; margin-right: 15px;}
       &.util-margin {
         margin-left: 88px; margin-right: unset;
         &.hebrew { margin-left: unset; margin-right: 88px;}
