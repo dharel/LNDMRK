@@ -213,6 +213,7 @@ en:
   portfolio: "PORTFOLIO"
   map: "map"
   filters: "filters"
+  prediction: "prediction"
   properties: "properties"
   modal:
     congratulations: "congratulations"

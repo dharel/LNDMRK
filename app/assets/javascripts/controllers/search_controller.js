@@ -309,7 +309,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.closeModal = function () {
     $scope.modal.open = false;
     $scope.modal.type = null;
-    $socpe.modal.asset = null;
+    $scope.modal.asset = null;
   };
 
   $scope.buyChosenAsset = function (asset_id, value) {

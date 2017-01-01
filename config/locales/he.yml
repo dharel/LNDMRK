@@ -190,6 +190,7 @@ he:
   map: "מפה"
   filters: "פילטר"
   properties: "נכסים"
+  prediction: ""
   modal:
     congratulations: "ברכותינו"
     close: "סגירה"

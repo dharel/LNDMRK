@@ -109,7 +109,7 @@
 
       <div class='static-graphs'>
         <div id='static-graph1'></div>
-        <div id='static-graph2'></div>      
+        <div id='static-graph2'>$5679</div>      
       </div>
 
       <div class='my-properties'>
@@ -126,34 +126,34 @@
             <div class='row-data' 
                  ng-click='toggleExpanded(property)' 
                  ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
-              <div class='data name' ng-class='property.class' translate style='width: 20%'>{{property.name}}</div>
-              <div class='data yield' style='width: 20%'>{{ sumProperty('yield', property.assets) }}%</div>
-              <div class='data owned' style='width: 20%'>{{ sumProperty('user_owned', property.assets) }}</div>
-              <div class='data value' style='width: 20%'>{{ sumProperty('value', property.assets) | currency}}</div>
+              <div class='data name' ng-class='property.class' translate style='width: 25%'>{{property.name}}</div>
+              <div class='data yield' style='width: 25%'>{{ sumProperty('yield', property.assets) }}%</div>
+              <div class='data owned' style='width: 25%'>{{ sumProperty('user_owned', property.assets) }}</div>
+              <div class='data value' style='width: 25%'>{{ sumProperty('value', property.assets) | currency}}</div>
             </div>
             <div class='expanded-data-wrap' 
                 ng-if='property.assets && property.assets.length > 0'
                 ng-show='expanded.id === property.id'>
               <div class='expanded-row-data' ng-repeat='asset in property.assets' ng-click='selectAsset(asset)'>
-                <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}' style='width: 20%'>{{asset.name}}</div>
-                <div class='expanded-data' style='width: 20%'>{{asset.yield}}%</div>
-                <div class='expanded-data' style='width: 20%'>{{asset.user_owned}}</div>
-                <div class='expanded-data' style='width: 20%'>{{asset.value | currency }}</div>
+                <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}' style='width: 25%'>{{asset.name}}</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.yield}}%</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.user_owned}}</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.value | currency }}</div>
               </div>
             </div>
 
           </div>
           <div class='row-data sum' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
-            <div class='data name' translate style='width: 20%'>sum</div>
-            <div class='data' style='width: 20%'>{{sumAll('yield')}}%</div>
-            <div class='data' style='width: 20%'>{{sumAll('user_owned')}}</div>
-            <div class='data' style='width: 20%'>{{sumAll('value') | currency}}</div>
+            <div class='data name' translate style='width: 25%'>sum</div>
+            <div class='data' style='width: 25%'>{{sumAll('yield')}}%</div>
+            <div class='data' style='width: 25%'>{{sumAll('user_owned')}}</div>
+            <div class='data' style='width: 25%'>{{sumAll('value') | currency}}</div>
           </div>
         </div>
       </div>
 
       <div class='my-properties'>
-        <div class='line'></div>
+        <div class='line watchlist'></div>
         <div class='title' translate>my_watch_list</div>
         <div class='properties-table' ng-if='watched_data && watched_data.length > 0'>
           <div class='headers-wrap my-watchlist' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
@@ -169,12 +169,12 @@
             </div>
             <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
               <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
-              <div class='data name' style='width: 16.6%'>{{asset.name}}</div>
+              <div class='data name' style='width: 20%'>{{asset.name}}</div>
               <div class='partition'></div>
-              <div class='data price'    style='width: 16.6%'>{{asset.price | currency }}</div>
-              <div class='data yield'    style='width: 16.6%'>{{asset.yield}}%</div>
-              <div class='data rating'   style='width: 16.6%'>{{asset.rating}}</div>
-              <a class='goto-asset-page' style='width: 16.6%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
+              <div class='data price'    style='width: 20%'>{{asset.price | currency }}</div>
+              <div class='data yield'    style='width: 20%'>{{asset.yield}}%</div>
+              <div class='data rating'   style='width: 20%'>{{asset.rating}}</div>
+              <a class='goto-asset-page' style='width: 20%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
             </div>
           </div>
         </div>
