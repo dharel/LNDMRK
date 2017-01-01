@@ -127,8 +127,8 @@
                  ng-click='toggleExpanded(property)' 
                  ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
               <div class='data name' ng-class='property.class' translate style='width: 25%'>{{property.name}}</div>
-              <div class='data yield' style='width: 25%'>{{ sumProperty('yield', property.assets) }}%</div>
-              <div class='data owned' style='width: 25%'>{{ sumProperty('user_owned', property.assets) }}</div>
+              <div class='data yield' style='width: 25%'>{{ calcAvarage('yield', property.assets) }}%</div>
+              <div class='data owned' style='width: 25%'>{{ sumProperty('value', property.assets) | currency }}</div>
               <div class='data value' style='width: 25%'>{{ sumProperty('value', property.assets) | currency}}</div>
             </div>
             <div class='expanded-data-wrap' 
@@ -137,7 +137,7 @@
               <div class='expanded-row-data' ng-repeat='asset in property.assets' ng-click='selectAsset(asset)'>
                 <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}' style='width: 25%'>{{asset.name}}</div>
                 <div class='expanded-data' style='width: 25%'>{{asset.yield}}%</div>
-                <div class='expanded-data' style='width: 25%'>{{asset.user_owned}}</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.value | currency}}</div>
                 <div class='expanded-data' style='width: 25%'>{{asset.value | currency }}</div>
               </div>
             </div>
@@ -146,7 +146,7 @@
           <div class='row-data sum' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
             <div class='data name' translate style='width: 25%'>sum</div>
             <div class='data' style='width: 25%'>{{sumAll('yield')}}%</div>
-            <div class='data' style='width: 25%'>{{sumAll('user_owned')}}</div>
+            <div class='data' style='width: 25%'>{{sumAll('value')}}</div>
             <div class='data' style='width: 25%'>{{sumAll('value') | currency}}</div>
           </div>
         </div>
