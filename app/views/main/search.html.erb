@@ -156,14 +156,14 @@
       <div class='close' ng-click='closeModal()'>X</div>
       <div class='title-container'>
         <div class='logo'></div>
-        <div class='title' translate>congratulations</div>
+        <div class='title' translate>modal.congratulations</div>
         <div class='triangle'></div>
       </div>
       <div class='data-wrapper'>
-        <span class='part1'> You are now the owner of {{modal.asset.value}}</span>
-        <span class='part2'>in {{modal.asset.name}}</span>
-        <span class='part3' style="font-weight: bold;">Thank you for using LNDMRK!</span>
-        <div class='close-button' ng-click='closeModal()' translate>close</div>
+        <span class='part1'> <span translate> modal.buy_part_1 </span> {{modal.asset.value}}</span>
+        <span class='part2'><span translate>modal.buy_part_2 </span> {{modal.asset.name}}</span>
+        <span class='part3' style="font-weight: bold;" translate>modal.thank_you</span>
+        <div class='close-button' ng-click='closeModal()' translate>modal.close</div>
       </div>
     </div>
     <div ng-if='modal.type === "sell"' class='modal'>
@@ -174,9 +174,9 @@
         <div class='triangle'></div>
       </div>
       <div class='data-wrapper'>
-        <span class='part1'> You just sold {{modal.asset.value}} m2</span>
-        <span class='part2'>in {{modal.asset.name}} for the price of {{chosen_asset.total - chosen_asset.value}}</span>
-        <span class='part3' style="font-weight: bold;">Thank you for using LNDMRK!</span>
+        <span class='part1'> <span translate>modal.sell_part_1</span> {{modal.asset.value}} <span translate>moda.sell_m_2</span></span>
+        <span class='part2'><span translate>modal.sel_.part_2</span> {{modal.asset.name}} <span translate> modal.sell_part_2 </span> {{chosen_asset.total - chosen_asset.value}}</span>
+        <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>close</div>
       </div>  
     </div>
