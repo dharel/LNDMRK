@@ -381,6 +381,39 @@
             }
           }
         }
+
+        .apply-cancel-container {
+          position: fixed;
+          display: flex;
+          bottom: 0;
+          width: 90%;
+          height: 50px;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+
+          .cancel, .apply {
+            width: 120px;
+            height: 35px;
+            display: flex;
+            border: 1px solid #1A2049;
+            display: flex;
+            align-self: center;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+          }
+
+          .cancel {
+            color: #1A2049;
+            background-color: white;
+          }
+
+          .apply {
+            color: white;
+            background-color: #1A2049;
+          }
+        }
       }
     }
 

@@ -34,10 +34,10 @@
           </div>
           <div class="market-type-checkbox-wrapper" >
             <div class="market-type-checkbox-container" ng-repeat="market_type_checkbox in market_type_checkboxes">
-              <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()">
+              <div class="search-checkbox" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked">
                 <span ng-show="market_type_checkbox.checked"><i class="fa fa-check"></i></span>
               </div>
-              <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked ; filterResults()" translate>{{market_type_checkbox.name}}</span>
+              <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : market_type_checkbox.checked}" ng-click="market_type_checkbox.checked = !market_type_checkbox.checked" translate>{{market_type_checkbox.name}}</span>
             </div>
           </div>
         </div>
@@ -51,12 +51,17 @@
           </div>
           <div class="property-type-checkbox-wrapper">
             <div class="property-type-checkbox-container" ng-repeat="property_type_checkbox in property_type_checkboxes">
-              <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()">
+              <div class="search-checkbox" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked">
                 <span ng-show="property_type_checkbox.checked"><i class="fa fa-check"></i></span>
               </div>
               <span class="search-checkbox-text" ng-class="{'search-checkbox-text-selected' : property_type_checkbox.checked}" ng-click="property_type_checkbox.checked = !property_type_checkbox.checked ; filterResults()" translate>{{property_type_checkbox.name}}</span>
             </div>
           </div>
+        </div>
+
+        <div class='apply-cancel-container'>
+          <div class='cancel' ng-click="mobileVisiblePanel = 'map'"> Cancel </div>
+          <div class='apply' ng-click="filterResults()"> Apply </div>
         </div>
       </div>
     </div>
@@ -122,7 +127,7 @@
 
     </div>
 
-    <div class='navigator'>
+    <div class='navigator' ng-show='mobileVisiblePanel !== "filters"'>
 
       <div class='map-prop-container'> 
         <div class='button properties' 
