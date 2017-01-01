@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','localizationSrv','$location', function ($translate, $mdSidenav, localizationSrv, $location) {
+angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','localizationSrv','$location','$document', function ($translate, $mdSidenav, localizationSrv, $location, $document) {
   return {
     restrict: 'E',
     template:
@@ -57,6 +57,12 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
         } else {
           $scope.menuClass= 'md-sidenav-left';
         }
+
+        $document.ready(function () {
+          if ( $mdSidenav('menu').isOpen()) {
+            $mdSidenav('menu').close();
+          }
+        })
       };
 
       var buildToggler = function (componentId) {
