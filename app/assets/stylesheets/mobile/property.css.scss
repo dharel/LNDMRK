@@ -9,6 +9,7 @@
   .body {@extend .flexbox-colum-to-top-center; background-color: $white;}
   
   .hero {
+    position: relative;
     .mobile-img {
       overflow: hidden;
       position: relative;
@@ -31,7 +32,8 @@
       color: $dark-blue;
       position: absolute;
       z-index: 2;
-      top: 172px;
+      // top: 172px;
+      bottom: 3px;
       text-align: center;
       width: 100vw;
       h1 {
