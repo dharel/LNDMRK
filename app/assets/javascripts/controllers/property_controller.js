@@ -68,6 +68,7 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   };
   
   $scope.init = function() {
+    $('.body')[0].scrollIntoView();
     $scope.asset = dataManagerService.asset || loadAsset();
     saveAssetToLocalStorage($scope.asset);
     getShortInvestmentType();

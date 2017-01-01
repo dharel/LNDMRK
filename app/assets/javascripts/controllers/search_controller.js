@@ -46,6 +46,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   }
 
   $scope.init = function () {
+    $('.body')[0].scrollIntoView();
     $scope.market_type_checkboxes = [
       {name: 'Primary', checked: true},
       {name: 'Fringe', checked: true},

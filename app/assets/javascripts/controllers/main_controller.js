@@ -21,6 +21,7 @@ angular.module('lndmrk').controller('MainController',
   }
   
   $scope.init = function() {
+    $('.body')[0].scrollIntoView();
     $scope.address= '';
     getCarousellData();
     $scope.mapFilters = {

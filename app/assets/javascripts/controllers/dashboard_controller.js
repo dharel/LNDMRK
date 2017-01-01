@@ -3,6 +3,8 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   $scope.localizationSrv = localizationSrv;
 
   $scope.init = function () {
+    $('.body')[0].scrollIntoView();
+
     $scope.expanded = {
       isOpen: false,
       id: null
