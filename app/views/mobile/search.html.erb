@@ -60,8 +60,8 @@
         </div>
 
         <div class='apply-cancel-container'>
-          <div class='cancel' ng-click="cancelFilters(); mobileVisiblePanel = 'map'" translate> cancel </div>
-          <div class='apply' ng-click="mobileFilterResults(); mobileVisiblePanel = 'map'" translate> apply </div>
+          <div class='cancel' ng-click="mobileVisiblePanel = 'map'; cancelFilters(); " translate> cancel </div>
+          <div class='apply' ng-click="mobileVisiblePanel = 'map'; mobileFilterResults(); " translate> apply </div>
         </div>
       </div>
     </div>
