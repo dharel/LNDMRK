@@ -613,7 +613,7 @@
     .image {
       width: calc(100% - 40px);
       height: 227px;
-      background-image: image-url('Artboard_1.png');
+      background-image: image-url('Artboard_2.png');
       background-repeat: no-repeat;
       background-size: contain;
       margin: 0 auto;
@@ -668,8 +668,8 @@
         height: 80px;
         background-repeat: no-repeat;
         background-size: cover;
-        &.place-4 { background-image: image-url('demo_img/investor-4.png'); }
-        &.place-5 { background-image: image-url('demo_img/investor-5.png'); }
+        &.place-4 { background-image: image-url('man_2.png'); }
+        &.place-5 { background-image: image-url('man_1.png'); }
       }
       h2 {
         color: $dark-blue;
@@ -737,9 +737,9 @@
       .icon {
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: image-url('demo_img/doc.png');
-        width: 29px;
-        height: 37px;
+        background-image: image-url('docc_trans.png');
+        width: 25px;
+        height: 31px;
         margin-right: 8px; margin-left: unset;
         &.hebrew { margin-right: unset; margin-left: 8px;}
       }
