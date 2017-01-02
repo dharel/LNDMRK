@@ -169,11 +169,11 @@
       <div class='close' ng-click='closeModal()'>X</div>
       <div class='title-container'>
         <div class='logo'></div>
-        <div class='title' translate>congratulations</div>
+        <div class='title' translate>modal.congratulations</div>
         <div class='triangle'></div>
       </div>
       <div class='data-wrapper'>
-        <span class='part1'> <span translate>modal.sell_part_1</span> {{modal.asset.value}} <span translate>modal.m_2</span></span>
+        <span class='part1'> <span translate>modal.sell_part_1</span> {{meters_amount}} <span translate>modal.m_2</span></span>
         <span class='part2'><span translate>modal.sell_part_2</span> {{nameByLocale(modal.asset)}} <span translate> modal.sell_part_3 </span> ${{asset_calced_price()}}</span>
         <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>close</div>
