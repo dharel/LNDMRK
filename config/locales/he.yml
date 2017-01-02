@@ -106,7 +106,8 @@ he:
   up_to: "מינוף מקסימלי"
   price_per_m_2l: "מחיר למ\"ר"
   income_per_m_2l: "הכנסה<br>לפי מ\"ר"
-  
+  ltv: "א''מ"
+
   investment_details: "פרטי השקעה"
   property_details: "פרטי נכס"
 
@@ -199,6 +200,7 @@ he:
   filters: "פילטר"
   properties: "נכסים"
   prediction: ""
+  m_2: "מ''ר"
   modal:
     congratulations: "ברכותינו"
     close: "סגירה"

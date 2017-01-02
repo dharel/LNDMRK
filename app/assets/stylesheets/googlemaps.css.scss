@@ -39,7 +39,7 @@
     .address { margin-top: 10px; }
 
     .button {
-      width: 50%;
+      width: auto;
       height: 25px;
       background-color: #0AC6CB;
       align-self: flex-end;
@@ -49,7 +49,7 @@
       font-weight: 600;
       text-transform: uppercase;
       padding-top: 7px;
-      padding-left: 4px;
+      padding: 4px;
       cursor: pointer;
     }
   }

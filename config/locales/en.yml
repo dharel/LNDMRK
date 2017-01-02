@@ -218,12 +218,14 @@ en:
   show_more: 'show more'
   invested_in_this_property: 'invested in this property'
   view_full_transaction_history: 'view full transaction history'
-
+  ltv: "ltv"
   portfolio: "PORTFOLIO"
   map: "map"
   filters: "filters"
   prediction: "prediction"
   properties: "properties"
+  m_2: "m²"
+  
   modal:
     congratulations: "congratulations"
     close: "close"
