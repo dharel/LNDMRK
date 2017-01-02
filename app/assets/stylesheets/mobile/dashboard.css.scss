@@ -586,26 +586,29 @@
             margin: 0 26px 0 0;
           }
           .header-watched {
-            font-size: 10px;
+            font-size: 8px;
             text-align: center;
-            height: inherit;
-            color: $turquoise;
+            color: #4fc3c9;
             font-weight: bold;
-            line-height: 10px;
+            justify-content: flex-end;
+            align-items: flex-start;
+            flex-flow: row nowrap;
+            display: flex;
           }
         }
 
         .header-owned {
+          color: $turquoise;
+          width: 20%;
           height: inherit;
           display: flex;
-          color: $turquoise;
-          font-size: 10px;
+          font-size: 8px;
+          // font-size: 10px;
           font-weight: bold;
           text-align: center;
           line-height: 10px;
-          align-items: center;
+          align-items: flex-start;
           flex-direction: row;
-          width: 20%;
           &.placeholder { width: 20%; }
         }
       }

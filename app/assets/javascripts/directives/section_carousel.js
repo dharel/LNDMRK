@@ -1,4 +1,4 @@
-angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$location','dataManagerService', function ($timeout, $window, $location, dataManagerService){
+angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$location','dataManagerService','localizationSrv', function ($timeout, $window, $location, dataManagerService, localizationSrv){
   'use strict';
 
   return {
@@ -11,19 +11,19 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
     template:
     "<section class='assets-carousel'>" +
       "<div class='carousel-arrow-wrap left'>" +
-        "<div class='arrow-inner-wrap left' ng-click='prevAsset()'" +
-               "ng-class='isFirst() ? \"greyed\" : \"\"'>" +
+        "<div class='arrow-inner-wrap left' ng-click='onClickLeft()'" +
+               "ng-class='{\"greyed\": isGreyed(\"left\") }'>" +
           "<div width='19' alt='next assets' class='carousel-arrow-l'></div>" +
         "</div>" +
       "</div>" +
       "<div class='carousel-arrow-wrap right'>" +
-        "<div class='arrow-inner-wrap right' ng-click='nextAsset()'" +
-             "ng-class='isLast() ? \"greyed\" : \"\"'>" +
+        "<div class='arrow-inner-wrap right' ng-click='onClickRight()'" +
+             "ng-class='{\"greyed\": isGreyed(\"right\") }'>" +
           "<div width='19' alt='next assets' class='carousel-arrow-r'></div>" +
         "</div>" +
       "</div>" +
       "<div class='carousel-show' id='list-outer'>" +
-        "<div class='carousel-outer-wrap' id='list-inner' ng-style='calcedWidth'>" +
+        "<div class='carousel-outer-wrap' id='list-inner' ng-style='calcedWidth' ng-class='{\"hebrew\":isHebrew()}'>" +
           "<div class='carousel-inner-wrap' id='the-wrapper'>" +
             "<carousel-assets ng-repeat='asset in assets'" +
                              "asset='asset'" +
@@ -42,28 +42,37 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
       // var carouselDiv = document.getElementById("the-wrapper"),
       var w = angular.element($window);
 
+      scope.localizationSrv = localizationSrv;
+
+      scope.$watch('localizationSrv.locale', function (newval, oldval){
+        if (newval !== oldval) {
+          scope.firstShowed = 0;
+          scope.xOffset = 0;
+          updateCss(0);
+          // updateCss(scope.xOffset);
+        }
+      }, true);
+      scope.isHebrew = function () {
+        return localizationSrv.locale === "he";
+      };
+
       scope.toggleObject = function (index) {
         scope.assetsIndex = index;
         scope.chosenAsset = scope.assets[scope.assetsIndex];
         dataManagerService.asset = scope.chosenAsset;
         $location.path('/property');
       };
-
+    
       scope.firstShowed = 0;
       scope.xOffset = 0;
-      var isHebrew = function () {
-        return localStorage.locale === 'he';
-      }
-
-      scope.carouselDiv.style.left = 0 + 'px';
-
+      scope.carouselDiv.style[scope.isHebrew() ? 'right' : 'left'] = scope.xOffset + 'px';
       var updateCss = function(val){
         scope.carouselDiv = document.getElementById("the-wrapper");
-        scope.carouselDiv.style.left = scope.xOffset + 'px';
+        scope.carouselDiv.style[scope.isHebrew() ? 'right' : 'left'] = scope.xOffset + 'px';
       };
 
       scope.prevAsset = function() {
-        if(scope.xOffset !== 0) {
+        if(scope.isFirst() === false) {
           scope.xOffset = scope.xOffset + 241;
           updateCss(scope.xOffset);
           
@@ -72,8 +81,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
       };
 
       scope.nextAsset = function() {
-
-        if(scope.isLast() === false) {
+        if(!scope.isLast()) {
           scope.xOffset = scope.xOffset - 241;
           updateCss(scope.xOffset);
 
@@ -82,7 +90,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
       };
 
       scope.isFirst = function(){
-        return scope.xOffset === 0;
+        return scope.firstShowed === 0;
       };
 
       scope.isLast = function(){
@@ -95,6 +103,34 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
         var outer = currentOuter;
         scope.innerWidth = currentOuter - 30;
         scope.calcedWidth = {width: scope.innerWidth + 'px'};
+      };
+
+      scope.onClickLeft = function(ev) {
+        if(scope.isHebrew()){
+          if(scope.isLast()){return;}
+          scope.nextAsset();
+        } else {
+          if(scope.isFirst()){return;}
+          scope.prevAsset();
+        }
+      };
+
+      scope.onClickRight = function(ev) {
+        if(scope.isHebrew()){
+          if(scope.isFirst()){return;}
+          scope.prevAsset();
+        } else {
+          if(scope.isLast()){return;}
+          scope.nextAsset();
+        }
+      };
+
+      scope.isGreyed = function(direction) {
+        if(direction === 'right'){
+          if(!scope.isHebrew()){return scope.isLast();} else {return scope.isFirst();}
+        } else {
+          if(!scope.isHebrew()){return scope.isFirst();} else {return scope.isLast();}
+        }
       };
     }
   };

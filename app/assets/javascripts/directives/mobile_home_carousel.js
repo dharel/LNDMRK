@@ -56,7 +56,7 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
       };
 
       scope.prevAsset = function() {
-        if(scope.isFirst() === false) {
+        if(!scope.isFirst()) {
           scope.xOffset = scope.xOffset + 241;
           updateCss(scope.xOffset);
           
@@ -92,13 +92,24 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
 
 
       scope.onSwipeLeft = function(ev) {
-        if(scope.isLast()){return;}
-        scope.nextAsset();
+        if(scope.isHebrew()){
+          if(scope.isFirst()){return;}
+          scope.prevAsset();
+        } else {
+          if(scope.isLast()){return;}
+          scope.nextAsset();
+        }
+
       };
 
       scope.onSwipeRight = function(ev) {
-        if(scope.isFirst()){return;}
-        scope.prevAsset();
+        if(scope.isHebrew()){
+          if(scope.isLast()){return;}
+          scope.nextAsset();
+        } else {
+          if(scope.isFirst()){return;}
+          scope.prevAsset();
+        }
       };
     }
   };
