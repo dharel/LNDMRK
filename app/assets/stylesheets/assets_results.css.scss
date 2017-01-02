@@ -8,9 +8,8 @@
 }
 .assets-carousel {
   height: 310px;
-  // overflow: visible;
+  direction: ltr;
   overflow-y: hidden;
-  // overflow-x: visible;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
