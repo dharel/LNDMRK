@@ -128,6 +128,8 @@ en:
   yeild: "yeild"
   established_at: "established at"
   up_to: "up to"
+  price_per_m_2l: "price<br>per m²"
+  income_per_m_2l: "income<br>per m²"
   
   investment_details: "investment details"
   

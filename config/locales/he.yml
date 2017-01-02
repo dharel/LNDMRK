@@ -104,6 +104,8 @@ he:
   yeild: "תשואה"
   established_at: "הוקם ב-"
   up_to: "מינוף מקסימלי"
+  price_per_m_2l: "מחיר למ\"ר"
+  income_per_m_2l: "הכנסה<br>לפי מ\"ר"
   
   investment_details: "פרטי השקעה"
   

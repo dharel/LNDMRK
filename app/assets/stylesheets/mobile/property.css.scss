@@ -6,7 +6,7 @@
     height: auto;
     max-width: 100vw;
   }
-  .body {@extend .flexbox-colum-to-top-center; background-color: $white;}
+  .body {@extend .flexbox-colum-to-top-center;}
   
   .hero {
     position: relative;
@@ -27,10 +27,10 @@
         top:0; right:0; bottom:0; left:0;
         z-index: 1;
         pointer-events: none;
-        background: linear-gradient(to bottom,rgba(255,216,26,0) 0%, rgba(255,216,26,0) 60%, rgba(255,216,26,1) 100%);
-        &.type-yello  { background: linear-gradient(to bottom,rgba(255,216,26,0) 0%, rgba(255,216,26,0) 60%, rgba(255,216,26,.8) 89%, rgba(255,216,26,1) 100%); }
-        &.type-purple { background: linear-gradient(to bottom,rgba(146,39,142,0) 0%, rgba(146,39,142,0) 60%, rgba(146,39,142,.8) 89%, rgba(146,39,142,1) 100%); }
-        &.type-cyan   { background: linear-gradient(to bottom,rgba(0,219,255,0) 0%, rgba(0,219,255,0) 60%, rgba(0,219,255,.8) 89%, rgba(0,219,255,1) 100%); }
+        background: linear-gradient(to bottom,rgba(255,216,26,0) 0%, rgba(255,216,26,0) 50%, rgba(255,216,26,.8) 80%,rgba(255,216,26,1) 100%);
+        &.type-yello  { background: linear-gradient(to bottom,rgba(255,216,26,0) 0%, rgba(255,216,26,0) 50%, rgba(255,216,26,.8) 80%, rgba(255,216,26,1) 100%); }
+        &.type-purple { background: linear-gradient(to bottom,rgba(146,39,142,0) 0%, rgba(146,39,142,0) 50%, rgba(146,39,142,.8) 80%, rgba(146,39,142,1) 100%); }
+        &.type-cyan   { background: linear-gradient(to bottom,rgba(0,219,255,0) 0%, rgba(0,219,255,0) 50%, rgba(0,219,255,.8) 80%, rgba(0,219,255,1) 100%); }
       }
     }
     .titles {
@@ -66,7 +66,7 @@
           display: inline-block;
           margin-right: 5px;
           position: relative;
-          top: 5px;
+          top: 2px;
         }
       }
     }
@@ -76,7 +76,10 @@
     padding: 0;
     height: 225px;
     width: calc(100vw - 40px);
-    // &.hebrew { padding: 62px 0 0 37px; }
+    &.opened {
+      height: auto;
+      padding-bottom: 30px;
+    }
     h1 {
       color: $turquoise;
       font-size: 14px;
@@ -94,8 +97,12 @@
       height: 150px;
       position: relative;
       overflow: hidden;
+      &.opened {
+        overflow: visible;
+        height: auto;
+      }
       .white-gradient {
-        background: linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,.8) 75%, rgba(255,255,255,1) 90%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(to bottom, rgba(251, 251, 251, 0) 0%,rgba(251, 251, 251, 0) 50%, rgba(251, 251, 251, 0.8) 75%, #fbfbfb 90%, #fbfbfb 100%);
         pointer-events: none;
         position: absolute;
         top:0; right:0; bottom:0; left:0;
@@ -103,13 +110,17 @@
     }
     .show-more {
       color: $turquoise;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       margin-bottom: 5px;
       text-align: center;
       line-height: 30px;
       height: 30px;
+      position: absolute;
+      bottom: -14px;
+      transform: translateX(-50%);
+      left: 50%;
     }
   }
   .map-outer-wrap {
@@ -190,6 +201,7 @@
     padding-top: 16px;
     width: 100vw;
     height: 160px;
+    margin-top: 20px;
     @extend .flexbox-colum-between-center;
     .turquoise-strip {
       @extend .flexbox-row-start;
@@ -224,13 +236,13 @@
     }
     .attribute {
       @extend .flexbox-colum-to-top-center;
-      height: 70px;
+      height: 66px;
       min-width: 40px;
       margin-left: 15px; margin-right:unset;
       &.hebrew { margin-left: unset; margin-right: 15px;}
       &.util-margin {
-        margin-left: 88px; margin-right: unset;
-        &.hebrew { margin-left: unset; margin-right: 88px;}
+        margin-left: 91px; margin-right: unset;
+        &.hebrew { margin-left: unset; margin-right: 91px;}
       }
       span {
         text-transform: uppercase;
@@ -240,6 +252,8 @@
         letter-spacing: 1px;
         margin-top: 15px;
         margin-bottom: 10px;
+        text-align: center;
+        &.util-high {margin-top: 10px;}
       }
       h1 {
         text-transform: uppercase;
@@ -281,21 +295,22 @@
       background-color: $grey;
       position: absolute;
       width: calc(100% - 40px);
-      top: 30px;
-      left: 48%;
-      transform: translateX(-50%);
+      top: 59px;
+      margin: 0 auto;
+      // left: 48%;
+      // transform: translateX(-50%);
     }
     .property-title {
       width: calc(100vw - 140px);
-      height: 31px;
-      margin: 15px auto 17px;
+      height: 40px;
+      margin: 40px auto 17px;
       text-align: center;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.8px;
       z-index: 2;
       position: relative;
-      line-height: 30px;
+      line-height: 40px;
       border: 1px solid $dark-blue;
       background-color: $white;
       text-transform: uppercase;
@@ -319,15 +334,15 @@
     .transaction-row {
       border: 1px solid $dark-blue;
       width: calc(100vw - 40px);
-      height: 30px;
+      height: 40px;
       margin: 5px 0 13px;
       padding: 5px 15px;
-      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.2);
       @extend .flexbox-row-between;
       .time {
         font-weight: 600;
         word-spacing: 4px;
-        font-size: 11px;
+        font-size: 13px;
       }
       .meter-price {
         font-size: 15px;
@@ -340,14 +355,14 @@
     }
     .transaction-history-link {
       width: calc(100vw - 40px);
-      height: 30px;
+      height: 40px;
       margin: 3px 0;
       padding: 0;
       text-align: center;
       color: $turquoise;
       background-color: $light-blue;
-      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
-      line-height: 30px;
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.2);
+      line-height: 40px;
       font-weight: 600;
       font-size: 11px;
       letter-spacing: 0.5px;
@@ -368,7 +383,7 @@
       background-image: image-url('demo_img/graph.png');
       background-repeat: no-repeat;
       background-size: cover;
-      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.2);
       border: 1px solid $dark-blue;
       margin: 0 auto;
     }
@@ -387,6 +402,7 @@
       margin-bottom: 19px;
       width: calc(100vw - 40px);
       .rank {
+        flex: 0 0 auto;
         width: 55px;
         height: 55px;
         border-radius: 50%;
@@ -406,7 +422,7 @@
       .ranks-options {
         width: 260px;
         height: 35px;
-        background-image: image-url('demo_img/letters.png');
+        background-image: image-url('numbers.png');
         background-repeat: no-repeat;
         background-size: contain;
       }
@@ -419,8 +435,8 @@
     
     .points-row {
       @extend .flexbox-row-between;
-      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
-      height: 30px;
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.2);
+      height: 40px;
       width: calc(100% - 40px);
       border: 1px solid $dark-blue;
       margin: 5px 0;
@@ -428,7 +444,7 @@
       h2 {
         font-size: 10px;
         font-weight: 600;
-        height: 28px;
+        height: 38px;
         flex: 1 1 45%;
         color: $black;
         text-align: left;
@@ -441,7 +457,7 @@
       h3 {
         font-size: 10px;
         font-weight: 600;
-        height: 28px;
+        height: 38px;
         flex: 1 1 35%;
         color: $turquoise;
         text-align: left;
@@ -453,11 +469,11 @@
       h4 {
         font-size: 12px;
         font-weight: 600;
-        height: 28px;
+        height: 38px;
         flex: 1 1 20%;
         color: $black;
         text-align: center;
-        line-height: 30px;
+        line-height: 40px;
         background-color: $light-medium-blue;
       }
       &.header {
@@ -478,26 +494,28 @@
     @extend .flexbox-colum-to-top-center;
     width: 100%;
     text-transform: uppercase;
+    position: relative;
     .property-line {
       height: 1px;
       background-color: $grey;
-      position: relative;
-      width: calc(100% - 40px);
-      top: 30px;
-      left: 43%;
-      transform: translateX(-50%);
+      position: absolute;
+      width: calc(100vw - 40px);
+      top: 54px;
+      margin: 0 auto;
+      // left: 43%;
+      // transform: translateX(-50%);
     }
     .property-title {
       width: calc(100vw - 140px);
-      height: 31px;
-      margin: 15px auto 17px;
+      height: 40px;
+      margin: 35px auto 17px;
       text-align: center;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.8px;
       z-index: 2;
       position: relative;
-      line-height: 30px;
+      line-height: 40px;
       border: 1px solid $dark-blue;
       background-color: $white;
       text-transform: uppercase;
@@ -515,20 +533,21 @@
     }
     .investment-mng-row {
       @extend .flexbox-row-between;
-      height: 30px;
+      height: 40px;
       width: calc(100% - 40px);
       border: 1px solid $dark-blue;
       margin: 5px 0;
       box-sizing: border-box;
-      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.6);
+      box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.2);
       h2 {
         font-size: 10px;
         font-weight: 600;
-        height: 28px;
+        height: 38px;
         flex: 1 1 30%;
         color: $black;
         text-align: left;
-        line-height: 30px;
+        line-height: 11px;
+        @extend .flexbox-row-start;
         // padding-left: 10px;
         padding: 0 0 0 10px;
         background-color: transparent;
@@ -538,10 +557,10 @@
         font-size: 14px;
         font-weight: 600;
         color: $turquoise;
-        height: 28px;
+        height: 38px;
         flex: 1 1 45%;
         text-align: center;
-        line-height: 30px;
+        line-height: 40px;
         padding-left: 10px;
         background-color: transparent;
         & span {
@@ -551,11 +570,11 @@
       h4 {
         font-size: 9px;
         font-weight: 600;
-        height: 28px;
+        height: 38px;
         flex: 1 1 25%;
         color: $black;
         text-align: center;
-        line-height: 30px;
+        line-height: 40px;
         background-color: $light-medium-blue;
       }
     }
@@ -568,21 +587,22 @@
       background-color: $grey;
       position: absolute;
       width: calc(100% - 40px);
-      top: 30px;
-      left: 48%;
-      transform: translateX(-50%);
+      top: 49px;
+      margin: 0 auto;
+      // left: 48%;
+      // transform: translateX(-50%);
     }
     .property-title {
       width: calc(100vw - 140px);
-      height: 31px;
-      margin: 15px auto 17px;
+      height: 40px;
+      margin: 30px auto 17px;
       text-align: center;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.8px;
       z-index: 2;
       position: relative;
-      line-height: 30px;
+      line-height: 40px;
       border: 1px solid $dark-blue;
       background-color: $white;
       text-transform: uppercase;
@@ -593,7 +613,7 @@
     .image {
       width: calc(100% - 40px);
       height: 108px;
-      background-image: image-url('demo_img/manage.png');
+      background-image: image-url('logos-16.png');
       background-repeat: no-repeat;
       background-size: contain;
       margin: 0 auto;
@@ -607,21 +627,23 @@
         background-color: $grey;
         position: absolute;
         width: calc(100% - 40px);
-        top: 15px;
-        left: 48%;
-        transform: translateX(-50%);
+        top: 30px;
+        margin: 0 auto;
+        // left: 48%;
+        // transform: translateX(-50%);
       }
       .property-title {
         width: calc(100vw - 140px);
-        height: 31px;
-        margin: 15px auto 17px;
+        height: 40px;
+        min-width: 190px;
+        margin: 40px auto 17px;
         text-align: center;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.8px;
         z-index: 2;
         position: relative;
-        line-height: 30px;
+        line-height: 40px;
         border: 1px solid $dark-blue;
         background-color: $white;
         text-transform: uppercase;
@@ -630,7 +652,7 @@
         &.hebrew { font-size: 20px; width: 290px; letter-spacing: 0.5px;}
       }
     }
-    background-color: $white;
+    // background-color: $white;
     text-transform: uppercase;
     ul {
       @extend .flexbox-row-center-center;
@@ -660,21 +682,24 @@
   }
   .mobile-property-documents {
     text-transform: uppercase;
-    background-color: $white;
+    // background-color: $white;
     .container {
       width: 100vw;
+      position: relative;
       .property-line {
         height: 1px;
         background-color: $grey;
         position: absolute;
         width: calc(100% - 40px);
-        top: 15px;
-        left: 48%;
-        transform: translateX(-50%);
+        top: 19px;
+        margin: 0 auto;
+        // left: 48%;
+        // transform: translateX(-50%);
       }
       .property-title {
         width: calc(100vw - 100px);
-        height: 31px;
+        min-width: 230px;
+        height: 40px;
         margin: 15px auto 17px;
         text-align: center;
         font-size: 11px;
@@ -682,7 +707,7 @@
         letter-spacing: 0.8px;
         z-index: 2;
         position: relative;
-        line-height: 30px;
+        line-height: 40px;
         border: 1px solid $dark-blue;
         background-color: $white;
         text-transform: uppercase;

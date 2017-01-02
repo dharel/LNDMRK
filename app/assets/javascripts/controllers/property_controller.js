@@ -146,4 +146,9 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   $scope.isHebrew = function () {
     return localizationSrv.locale === "he";
   };
+
+  $scope.detailsOpened = false;
+  $scope.showMoreDetails = function () {
+    $scope.detailsOpened = true;
+  };
 }]);

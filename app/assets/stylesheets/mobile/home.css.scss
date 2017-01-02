@@ -9,17 +9,20 @@
   section.partners .line {
     height: 1px;
     background-color: #999;
-    position: relative;
-    top: 31px;
-    // top: 53px;
+    position: absolute;
+    top: 55px;
     margin: 0 auto;
-    &.how-it-works { margin: 0; top: 31px;}
+    width: calc(100vw - 40px);
+  }
+  section.partners .line {
+    transform: translateX(-50%);
+    left: 50%;
   }
   section.how-it-works .title,
   section.partners .title {
     width: 190px;
-    height: 31px;
-    margin: 15px auto 17px;
+    height: 40px;
+    margin: 35px auto 17px;
     // margin: 37px auto 17px;
     text-align: center;
     font-size: 16px;
@@ -27,7 +30,7 @@
     letter-spacing: 1.8px;
     z-index: 2;
     position: relative;
-    line-height: 30px;
+    line-height: 40px;
     border: 1px solid #102447;
     background-color: #fff;
     text-transform: uppercase;
@@ -38,11 +41,12 @@
   section.hero-map {
     min-width: 320px;
     width: 100vw;
-    height: 673px;
+    height: 704px;
     // height: 500px;
     background-image: image-url('map-export2.jpg');
     background-repeat: no-repeat;
-    background-size: auto 522px;
+    background-size: auto 580px;
+    // background-size: auto 522px;
     // background-size: cover;
     background-position: center top;
     .title {
@@ -79,9 +83,9 @@
       display: inline-block;
       width: 100%;
       text-align: center;
-      height: 29px;
+      height: 40px;
       font-size: 11px;
-      line-height: 29px;
+      line-height: 40px;
       color: $white;
       font-weight: bold;
       text-shadow: 0 1px 3px $grey;
@@ -145,7 +149,7 @@
         font-size: 17px;
         font-weight: 600;
         letter-spacing: 4px;
-        margin: 0 auto 0 3px;
+        margin: 0 auto 5px 3px;
         cursor: pointer;
         text-shadow: 0 2px 3px rgba(25, 70, 107, 0.83);
         text-align: center;
@@ -160,6 +164,7 @@
 
   section.how-it-works {
     min-width: 320px;
+    position: relative;
     .column-wrap {
       width: 320px;
       margin: 26px auto;
@@ -232,7 +237,7 @@
   }
 
   section.statistics {
-    height: 360px;
+    height: 420px;
     min-width: 320px;
     background: $turquoise;
     @extend .flexbox-colum-to-top-center;
@@ -261,7 +266,7 @@
       font-size: 11px;
       font-weight: 600;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 40px;
       position: relative;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -303,7 +308,7 @@
       text-transform: uppercase;
       text-align: center;
       &.growth {
-        top: 14px; right: unset; left: -14px;
+        top: 14px; right: unset; left: -54px;
         &.hebrew { left: -63px;}
       }
       &.income {
@@ -325,7 +330,7 @@
     .first-row {
       @extend .flexbox-row-between;
       width: 100%;
-      height: 120px;
+      height: 140px;
       .column {
         @extend .flexbox-colum-to-top-center;
         height: inherit;
@@ -346,7 +351,7 @@
       }
       .ver-partitian {
         height: 100px;
-        margin-top: 20px;
+        margin-top: 40px;
         width: 1px;
         background-color: $white;
       }
@@ -354,7 +359,7 @@
 
     .second-row {
       background-color: transparent;
-      .pie-area { position: relative;}
+      .pie-area { position: relative; margin-top: 15px;}
       .pie-image {
         width: 120px;
         height: 120px;
@@ -371,11 +376,12 @@
 
   section.partners {
     min-width: 320px;
+    position: relative;
     .partners-container {
       width: inherit;
       height: auto;
       margin-top: 0;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
       padding: 0 20px;
       @extend .flexbox-row-wrap-around;
       .partner {
@@ -456,9 +462,17 @@
     color: $white;
     padding: 20px 30px 40px;
     height: auto;
+    &.mobile {padding-bottom: 34px;}
     p {
       font-size: 10px;
       line-height: 18px;
+      &.mobile {
+        font-size: 12px;
+        line-height: 21px;
+        color: #b4bfcc;
+        width: calc(100vw - 60px);
+        height: auto;
+      }
     }
     .row {
       font-size: 14px;

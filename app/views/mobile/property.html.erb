@@ -16,12 +16,13 @@
       </div>
     </div>
 
-    <div class='property-details util-section' ng-class='{"hebrew": isHebrew()}'>
+    <div class='property-details util-section' ng-class='{"hebrew": isHebrew(),"opened": detailsOpened}'>
       <h1 translate>prop_details</h1>
-      <div class='paragraph' style='text-align: left; direction: rtl;'>{{asset.description}}
-        <div class='white-gradient'></div>
+      <div class='paragraph' ng-class="{'opened': detailsOpened}"
+           style='text-align: left; direction: rtl;'>{{asset.description}}
+        <div class='white-gradient' ng-if="!detailsOpened"></div>
+        <div class='show-more' ng-if="!detailsOpened" ng-click="showMoreDetails()" translate>show_more</div>
       </div>
-      <div class='show-more' translate>show_more</div>
     </div>
 
     <div class='map-outer-wrap util-section'>
@@ -51,11 +52,11 @@
             <h1 ng-class='getRatingColor(asset.rating)' style='direction: ltr;'>{{asset.rating}}</h1>
           </div>
           <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
-            <span translate>price_per_m</span>
+            <span translate class='util-high'>price_per_m_2l</span>
             <h2>${{asset.price * 1000}}</h2>
           </div>
           <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
-            <span translate>income_per_m</span>
+            <span translate class='util-high' translate>income_per_m_2l</span>
             <h2>${{asset.income}}</h2>
           </div>
 
@@ -68,7 +69,7 @@
         </div>
         <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
           <span translate>established_at</span>
-          <h2>{{asset.established}}%</h2>
+          <h2>{{asset.established}}</h2>
         </div>
         <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
           <span translate>up_to</span>
@@ -243,7 +244,7 @@
       </div>
     </div>
   
-    <footer>
+    <footer class='mobile'>
       <div class='row'>
         <div class='column'>
           <div class='contact-info'>contact@lndmrk.com</div>
@@ -260,7 +261,7 @@
         <div class='social-item linkdin'></div>
         <div class='social-item mail'></div>
       </div>
-      <p class='paragraph' style='text-align: left; direction: ltr;'>
+      <p class='paragraph mobile' style='text-align: left; direction: ltr;'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.</br>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, justo sit amet rutrum vulputate, mi justo scelerisque libero, sit amet venenatis ex diam id risus. Phasellus placerat imperdiet arcu, molestie mollis ante volutpat vel. Donec eu felis augue. Suspendisse dapibus commodo efficitur. Etiam sit amet nisi ac est suscipit semper at ac massa. Donec tempor tempor convallis. Proin eget tortor vitae nulla laoreet cursus eu vel elit.
       </p>
