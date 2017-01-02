@@ -356,7 +356,7 @@
 
   .modal {
     min-width: 450px;
-    min-height: 320px;
+    min-height: 350px;
     width: auto;
     height: auto;
     background-color: white;
@@ -427,6 +427,9 @@
       justify-content: space-between;
       align-items: center;
       position: absolute;
+      width: 80%;
+      text-align: center;
+
       top: 185px;
       .part1, .part2, .part3 {
         margin: 5px 0;
