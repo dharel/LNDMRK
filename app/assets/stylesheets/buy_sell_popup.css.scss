@@ -9,6 +9,10 @@
   overflow: hidden;
   top:0; right:0; bottom:0; left:0;
   z-index: 5;
+  &.mobile {
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+  }
 }
 
 .anchor-for-popup {
@@ -19,8 +23,15 @@
   width: 350px;
   height: 130px;
   box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
-  position: absolute;
   z-index: 6;
+
+
+
+  position: absolute;
+
+
+
+
   top: 0;
   left: 0;
   margin-top: -2px;
@@ -49,6 +60,9 @@
     @extend .flexbox-row-between;
     height: 53px;
     margin: 10px;
+    &.mobile {
+      @extend .flexbox-wrap-row-start;
+    }
     h2, label span {
       text-transform: uppercase;
       font-size: 11px;
@@ -170,6 +184,10 @@
     .total-amount {
       h2 { color: $dark-blue;}
       width: 100px;
+      &.mobile {
+        width: 320px;
+        margin: 0 10px;
+      }
       .box {
         color: $white;
         font-size: 14px;
@@ -185,14 +203,16 @@
     content: "";
     width: 0;
     height: 0;
+    
+    bottom: 33px;
     border-top: 17px solid transparent;
     border-bottom: 17px solid transparent;
-    position: absolute;
-    transform: translateY(-50%);
-    bottom: 33px;
-    filter: drop-shadow(0 0.5px 2px rgba(0,122,255,.6));
     border-left: 17px solid $white;
     border-right: none;
+
+    position: absolute;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0.5px 2px rgba(0,122,255,.6));
     left: 99%; right: unset;
   }
   &::after {
@@ -213,6 +233,30 @@
     }
     &::after {
       right: unset; left: 0;
+    }
+  }
+  &.mobile {
+    position: fixed;
+    top: 125px;
+    width: calc(100vw - 60px);
+    height: 250px;
+    &::before {
+      bottom: -32px;
+      border-right: 17px solid transparent;
+      border-top: 17px solid $white;
+      border-left: 17px solid transparent;
+
+      transform: translateY(0);
+      left: 50%;
+      transform: translateX(-50%);
+
+    }
+    &::after {
+      width: 36px;
+      height: 9px;
+      top: unset; bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
