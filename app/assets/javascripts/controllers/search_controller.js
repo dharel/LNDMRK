@@ -108,6 +108,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       asset: null,
       type: null
     }
+
+    var locale = localStorage.getItem('locale') || navigator.language;
+    if (locale === 'he') {
+      $scope.toggleLocalization('he');
+    } else {
+      $scope.toggleLocalization('en');
+    }
   };
 
   $scope.sortResult = function (sort_option) {
@@ -274,6 +281,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
+    if (val === 'he') {
+      $scope.placeholder = 'חפש כתובת, עיר או מיקוד';
+    } else {
+      $scope.placeholder = 'Search address, city, state';      
+    }
   };
 
   //=================================

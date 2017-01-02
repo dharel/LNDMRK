@@ -50,7 +50,7 @@ angular.module('lndmrk').controller('MainController',
     if (val === 'he') {
       $scope.placeholder = 'חפש כתובת, עיר או מיקוד';
     } else {
-      $scope.placeholder = 'Enter a location';      
+      $scope.placeholder = 'Search address, city, state';      
     }
   };
 
