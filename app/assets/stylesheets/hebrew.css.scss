@@ -103,7 +103,7 @@
       .gains, .yield {
         .graph-container {
           .right-text {
-            right: 0;
+            right:-40px;
           }
         }
       }
@@ -121,5 +121,7 @@
     .filters-panel .header .back-button .arrow {
       transform: rotateY(180deg)
     }
+
+
   }
 }

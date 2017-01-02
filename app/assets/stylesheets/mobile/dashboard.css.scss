@@ -482,18 +482,18 @@
     @extend .flexbox-row-between;
     box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
     margin-bottom: 15px;
-    height: 115px;
+    height: 143px;
 
     #static-graph1 {
-      width: 50%;
-      height: 100px;
+      width: 60%;
+      height: 124px;
       background-image: image-url("dash-graph-3.png");
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: center; 
     }
     #static-graph2 {
-      width: 50%;
+      width: 40%;
       height: 100px;
       background-image: image-url("dash-graph-1.png");
       background-size: contain;
@@ -518,24 +518,20 @@
     align-items: center;
     position: relative;
     margin: 15px 0;
-
+    &.util-no-marg-bottom {margin-bottom: 0;}
     .line {
       height: 1px;
       background-color: $grey;
       position: relative;
-      top: 24px;
+      top: 27px;
       width: 100%;
       transform: translateX(-50%);
       left: 50%;
-
-      // &.watchlist {
-      //   height: 3px;
-      // }
     }
 
     .title {
       width: 141px;
-      height: 31px;
+      height: 40px;
       margin: 7px auto 8px;
       text-align: center;
       font-size: 11px;
@@ -543,7 +539,7 @@
       letter-spacing: 1.8px;
       z-index: 2;
       position: relative;
-      line-height: 29px;
+      line-height: 39px;
       border: 1px solid $dark-blue;
       background-color: $white;
       text-transform: uppercase;
@@ -578,9 +574,11 @@
         &.my-watchlist {
           justify-content: flex-end;
           width: 100%;
-          margin: 0 0 0 26px;
+          margin: 0 0 5px;
+          // margin: 0 0 0 26px;
           .header-inner-wrap {
-            width: 97.85%;
+            // width: 97.85%;
+            width: calc(100% - 30px);
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
@@ -589,23 +587,26 @@
           &.hebrew {
             margin: 0 26px 0 0;
           }
-          .header {
+          .header-watched {
             font-size: 10px;
+            text-align: center;
+            height: inherit;
+            color: $turquoise;
+            font-weight: bold;
+            line-height: 10px;
           }
         }
 
-        .header {
+        .header-owned {
           height: inherit;
           display: flex;
           color: $turquoise;
           font-size: 10px;
           font-weight: bold;
-          line-height: 35px;
           text-align: center;
           line-height: 10px;
           align-items: center;
           flex-direction: row;
-          
           width: 20%;
           &.placeholder { width: 20%; }
         }
@@ -721,7 +722,8 @@
               text-overflow: ellipsis;
               overflow: hidden;
               font-size: 9px;
-              padding: unset;
+              // padding: unset;
+              padding: 0 2px;
             }
             &.address {
               font-size: 10px;
