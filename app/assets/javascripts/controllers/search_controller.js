@@ -115,6 +115,8 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     } else {
       $scope.toggleLocalization('en');
     }
+
+    $scope.mobileVisiblePanel = 'map';
   };
 
   $scope.sortResult = function (sort_option) {
@@ -230,11 +232,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       filterByPropertyType()
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
+    $scope.mobileVisiblePanel = 'map';
   };
 
   $scope.cancelFilters = function () {
     $scope.mobile_market_type_checkboxes = $scope.market_type_checkboxes;
     $scope.mobile_property_type_checkboxes = $scope.property_type_checkboxes;
+    $scope.mobileVisiblePanel = 'map';
   }
 
   $scope.clearSearch = function () {

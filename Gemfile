@@ -9,6 +9,7 @@ gem 'yui-compressor'
 gem 'ejs'
 gem 'colorize'
 gem 'pg'
+gem "font-awesome-rails"
 # gem 'turbolinks'  * use only with round trip apps. single page apps dont need that.
 # gem 'aws-sdk'     * amazon access
 # gem 'clockwork'   * if you need to schedule tasks with less the 10 min intervals
