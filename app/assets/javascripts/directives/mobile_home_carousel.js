@@ -12,7 +12,7 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
 
     template:
     "<section class='mobile-assets-carousel'>" +
-      "<div class='moving-wrap' id='the-wrapper' ng-class='{\"hebrew\": isHebrew()}'" +
+      "<div class='moving-wrap' id='the-wrapper'" +
                      "ng-swipe-left='onSwipeLeft()' ng-swipe-right='onSwipeRight()'>" +
         "<carousel-assets ng-repeat='asset in assets'" +
                          "asset='asset'" +
@@ -29,6 +29,17 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
       // var carouselDiv = document.getElementById("the-wrapper"),
       var w = angular.element($window);
 
+      scope.localizationSrv = localizationSrv;
+
+      scope.$watch('localizationSrv.locale', function (newval, oldval){
+        if (newval !== oldval) {
+          updateCss(scope.xOffset);
+        }
+      }, true);
+      scope.isHebrew = function () {
+        return localizationSrv.locale === "he";
+      };
+
       scope.toggleObject = function (index) {
         scope.assetsIndex = index;
         scope.chosenAsset = scope.assets[scope.assetsIndex];
@@ -38,10 +49,10 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
 
       scope.assetFocused = 0;
       scope.xOffset = 65;
-      scope.carouselDiv.style.left = scope.xOffset + 'px';
+      scope.carouselDiv.style[scope.isHebrew() ? 'right' : 'left'] = scope.xOffset + 'px';
       var updateCss = function(val){
         scope.carouselDiv = document.getElementById("the-wrapper");
-        scope.carouselDiv.style.left = scope.xOffset + 'px';
+        scope.carouselDiv.style[scope.isHebrew() ? 'right' : 'left'] = scope.xOffset + 'px';
       };
 
       scope.prevAsset = function() {
@@ -54,7 +65,6 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
       };
 
       scope.nextAsset = function() {
-
         if(scope.isLast() === false) {
           scope.xOffset = scope.xOffset - 241;
           updateCss(scope.xOffset);
@@ -79,28 +89,16 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
         scope.calcedWidth = {width: scope.innerWidth + 'px'};
       };
 
-      scope.isHebrew = function () {
-        return localizationSrv.locale === "he";
-      };
+
 
       scope.onSwipeLeft = function(ev) {
-        if(scope.isHebrew()){
-          if(scope.isFirst()){return;}
-          scope.prevAsset();
-        } else {
-          if(scope.isLast()){return;}
-          scope.nextAsset();
-        }
+        if(scope.isLast()){return;}
+        scope.nextAsset();
       };
 
       scope.onSwipeRight = function(ev) {
-        if(scope.isHebrew()){
-          if(scope.isLast()){return;}
-          scope.nextAsset();
-        } else {
-          if(scope.isFirst()){return;}
-          scope.prevAsset();
-        }
+        if(scope.isFirst()){return;}
+        scope.prevAsset();
       };
     }
   };
