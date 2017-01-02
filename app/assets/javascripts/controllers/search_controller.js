@@ -223,8 +223,12 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.mobileFilterResults = function () {
-    $scope.market_type_checkboxes = $scope.mobile_market_type_checkboxes;
-    $scope.property_type_checkboxes = $scope.mobile_property_type_checkboxes;
+    _.forEach($scope.mobile_market_type_checkboxes, function (checkbox, index) {
+      $scope.market_type_checkboxes[index].checked = checkbox.checked;
+    });
+    _.forEach($scope.mobile_property_type_checkboxes, function (checkbox, index) {
+      $scope.property_type_checkboxes[index].checked = checkbox.checked;
+    });
     $scope.assets_results = _.intersection(
       $scope.assetsInFOV,      
       filterByInvestmentType(), 
