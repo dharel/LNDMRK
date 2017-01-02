@@ -175,7 +175,7 @@
               <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
               <div class='data name' style='width: 30.4%'>{{assetNameByLocale(asset)}}</div>
               <div class='partition'></div>
-              <div class='data price'    style='width: 22%'>{{asset.price | currency }}</div>
+              <div class='data price'    style='width: 22%'>{{asset.price }}</div>
               <div class='data yield'    style='width: 22%'>{{asset.yield}}%</div>
               <div class='data rating'   style='width: 15%'>{{asset.rating}}</div>
               <a class='goto-asset-page' style='width: 10%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
