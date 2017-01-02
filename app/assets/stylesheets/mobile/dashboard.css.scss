@@ -469,7 +469,7 @@
           font-size: 10px;
           font-weight: bold;
           padding-top: 4px;
-          color: white;
+          color: $white;
           background-color: #7DDBE0;
         }
       }
@@ -479,10 +479,10 @@
   .static-graphs {
     display: flex;
     width: inherit;
-    flex-direction: row;
-    justify-content: space-between;
+    @extend .flexbox-row-between;
     box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
+    height: 115px;
 
     #static-graph1 {
       width: 50%;
@@ -575,11 +575,17 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-
         &.my-watchlist {
           justify-content: flex-end;
-          width: 97.85%;
+          width: 100%;
           margin: 0 0 0 26px;
+          .header-inner-wrap {
+            width: 97.85%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-end;
+          }
           &.hebrew {
             margin: 0 26px 0 0;
           }
