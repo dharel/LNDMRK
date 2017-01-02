@@ -34,7 +34,7 @@
       width: 17px;
       height: 17px;
       border-radius: 50%;
-      background-color: #7DDBE0;
+      background-color: $turquoise2;
       color: $white;
       font-weight: 600;
       margin: 4px;
@@ -70,7 +70,7 @@
     .right {
       width: 40%;
       height: inherit;
-      background-color: #7DDBE0;
+      background-color: $turquoise2;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -233,9 +233,9 @@
       .title {
         width: 100%;
         text-align: center;
-        color: #7DDBE0;
+        color: $turquoise2;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 12px;
         padding-top: 5px;
         text-transform: uppercase;
       }
@@ -245,7 +245,7 @@
         width: 43%;
         height: inherit;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 11px;
         text-align: center;
         display: flex;
         align-items: center;
@@ -268,9 +268,9 @@
 
         .left-text {
           position: absolute;
-          bottom: 2px;
+          bottom: 8px;
           left: -34px;
-          font-size: 10px;
+          font-size: 8px;
           text-align: center;
           font-weight: normal;
           text-transform: uppercase;
@@ -282,7 +282,7 @@
           position: absolute;
           top: 4px;
           font-weight: normal;
-          font-size: 9px;
+          font-size: 8px;
           text-align: center;
           text-transform: uppercase;
           width: 45px;
@@ -306,8 +306,8 @@
       margin-top: 5px;
       width: inherit;
       font-weight: bold;
-      font-size: 15px;
-      color: #7DDBE0;
+      font-size: 12px;
+      color: $turquoise2;
       text-align: center;
       text-transform: uppercase;
     }
@@ -341,8 +341,8 @@
     .title {
       width: inherit;
       font-weight: bold;
-      font-size: 15px;
-      color: #7DDBE0;
+      font-size: 12px;
+      color: $turquoise2;
       text-align: center;
       text-transform: uppercase;
       
@@ -469,7 +469,7 @@
           font-weight: bold;
           padding-top: 4px;
           color: $white;
-          background-color: #7DDBE0;
+          background-color: $turquoise2;
         }
       }
     }
@@ -575,7 +575,7 @@
           justify-content: flex-end;
           width: 100%;
           margin: 0 0 5px;
-          // margin: 0 0 0 26px;
+          height: 18px;
           .header-inner-wrap {
             width: 90%;
             height: inherit;
@@ -590,7 +590,7 @@
             text-align: center;
             color: #4fc3c9;
             font-weight: bold;
-            justify-content: flex-end;
+            justify-content: flex-start;
             align-items: flex-start;
             flex-flow: row nowrap;
             display: flex;
@@ -609,6 +609,7 @@
           line-height: 10px;
           align-items: flex-start;
           flex-direction: row;
+          justify-content: center;
           &.placeholder { width: 20%; }
         }
       }
