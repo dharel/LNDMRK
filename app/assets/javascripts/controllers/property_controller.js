@@ -135,7 +135,6 @@ angular.module('lndmrk').controller('PropertyController', ['$scope', 'AjaxServic
   };
 
   var buildToggler = function (componentId) {
-    console.log('click')
     return function() {
       $mdSidenav(componentId).toggle();
     };

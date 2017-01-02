@@ -1,7 +1,7 @@
 <div ng-controller="SearchController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
   <mobile-header></mobile-header>
 
-  <div class='body' ng-init='showFilters = false; prevRoute = "map"'>
+  <div class='body' ng-init='showFilters = false; prevRoute = "map"' style="height: calc(100vh - 90px)">
 
     <div class='filters-panel nga-default nga-slide-left nga-fast' ng-show="mobileVisiblePanel === 'filters'">
       <div class='header'>

@@ -40,7 +40,7 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
       "</div>",
     controller: function ($scope) {
       $scope.init = function () {
-        // $('.body')[0].scrollIntoView();
+        $('.body')[0].scrollIntoView();
         var locale = localStorage.getItem('locale') || navigator.language;
         if (locale === 'he') {
           $scope.toggleLocalization('he');
