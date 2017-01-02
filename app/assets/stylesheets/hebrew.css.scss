@@ -117,5 +117,9 @@
         }
       } 
     }
+
+    .filters-panel .header .back-button .arrow {
+      transform: rotateY(180deg)
+    }
   }
 }
