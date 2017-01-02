@@ -22,7 +22,7 @@
         <form ng-submit="filterResults()" >
           <input id="pac-input" class="search" type="text" ng-model="mapFilters.address"
                  placeholder="{{searchPlaceholderText()}}"
-                 ng-enter='searchForAsset()' ng-init="googleMaps.init()">
+                 ng-enter='searchForAsset()' ng-init="googleMaps.init(); googleMaps.initMobile()">
         </form>
       </div>
       <div class='search-info'>

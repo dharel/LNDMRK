@@ -2,6 +2,13 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
   
   $scope.localizationSrv = localizationSrv;
 
+  $scope.assetNameByLocale = function (asset) {
+    if (localizationSrv.locale === 'he') {
+      return asset.name_heb;
+    }
+    return asset.name;
+  };
+
   $scope.init = function () {
     $scope.expanded = {
       isOpen: false,

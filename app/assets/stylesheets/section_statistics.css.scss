@@ -2,6 +2,10 @@
 //================================
 // statistics:
 //================================
+
+
+
+
 .statistics {
   height: 350px;
   overflow: hidden;
@@ -20,6 +24,7 @@
       flex-flow: column nowrap;
       align-items: center;
       justify-content: flex-start;
+
       .pie-area { position: relative;}
       h1 {
         color: $white;
@@ -56,7 +61,7 @@
         }
         &.income {
           top: 21px; 
-          right: -100px;
+          right: -105px;
           transform: rotate(156deg);
         }
         &.income-growth { 
@@ -78,11 +83,13 @@
         position: relative;
         display: block;
         letter-spacing: 2.5px;
+        width: 145px;
         &.growth {
-          top: 22px; right: 79px;
+          top: 22px; right: 99px;
         }
         &.income {
-          top: 24px; left: 183px;
+          top: 34px;
+          left: 235px;
         }
         &.income-growth {
           top: 195px; 
