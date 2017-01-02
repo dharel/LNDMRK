@@ -72,7 +72,7 @@
           <div class='graph-container' id='yield'>
             <div class='left-text'><span translate>max_appreciation</span></div>
             <div class='graph'>9%</div>
-            <div class='right-text'><span translate>max_dividends</span></div>
+            <div class='right-text yeild'><span translate>max_dividends</span></div>
           </div>
           
         </div>        
@@ -126,8 +126,8 @@
             <div class='row-data' 
                  ng-click='toggleExpanded(property)' 
                  ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
-              <div class='data name' ng-class='property.class' translate style='width: 25%'>{{property.name}}</div>
-              <div class='data yield' style='width: 25%'>{{ calcAvarage('yield', property.assets) }}%</div>
+              <div class='data name' ng-class='property.class' translate style='width: 27%'>{{property.name}}</div>
+              <div class='data yield' style='width: 23%'>{{ calcAvarage('yield', property.assets) }}%</div>
               <div class='data owned' style='width: 25%'>{{ sumProperty('value', property.assets) | currency }}</div>
               <div class='data value' style='width: 25%'>{{ sumProperty('value', property.assets) | currency}}</div>
             </div>
@@ -160,7 +160,7 @@
             <div class='header price'  style='width: 20%' translate>avarage_price_m</div>
             <div class='header yield'  style='width: 20%' translate>estimated_yield</div>
             <div class='header rating' style='width: 20%' translate>rating</div>
-            <div class='header placeholder' style='width: 20%'></div>
+            <div class='header placeholder' style='width: 15%'></div>
           </div>
           <div class='data-wrapper my-watchlist' 
               ng-repeat='asset in watched_data track by $index'>
@@ -169,12 +169,12 @@
             </div>
             <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
               <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
-              <div class='data name' style='width: 20%'>{{asset.name}}</div>
+              <div class='data name' style='width: 25%'>{{asset.name}}</div>
               <div class='partition'></div>
               <div class='data price'    style='width: 20%'>{{asset.price | currency }}</div>
               <div class='data yield'    style='width: 20%'>{{asset.yield}}%</div>
               <div class='data rating'   style='width: 20%'>{{asset.rating}}</div>
-              <a class='goto-asset-page' style='width: 20%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
+              <a class='goto-asset-page' style='width: 15%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>
             </div>
           </div>
         </div>
