@@ -614,10 +614,16 @@
     .image {
       width: calc(100% - 40px);
       height: 227px;
-      background-image: image-url('Artboard_2.png');
       background-repeat: no-repeat;
-      background-size: contain;
       margin: 0 auto;
+      background-image: image-url('logos-16_en.png');
+      background-size: 451px;
+      background-position: center;
+      &.hebrew {
+        background-image: image-url('Artboard_2.png');
+        background-size: contain;
+        background-position: center;
+      }
     }
   }
   .mobile-friends-who-invested {
