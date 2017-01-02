@@ -108,13 +108,13 @@
       justify-content: space-between;
 
       .menu-hamburger {
-        width: 48px;
-        height: 48px;
-        background-image: image-url('mobile-menu.png');
-        background-size: 50% 50%;
+        width: 32px;
+        height: 23px;
+        background-image: image-url('hamburger.png');
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        margin: 0 5px;
+        margin: auto 15px;
       }
 
       .logo {
