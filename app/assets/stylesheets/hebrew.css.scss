@@ -80,10 +80,6 @@
       }
     }
   }
-
-  .assets-carousel {
-    flex-flow: row-reverse nowrap;
-  }
 }
 
 .mobile {
@@ -111,6 +107,19 @@
           }
         }
       }
+    }
+
+    .carousel-directive {
+      .mobile-assets-carousel {
+        .moving-wrap {
+          flex-direction: row-reverse;
+          
+        }
+      } 
+    }
+
+    .filters-panel .header .back-button .arrow {
+      transform: rotateY(180deg)
     }
   }
 }

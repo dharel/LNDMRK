@@ -39,8 +39,7 @@
                 <div class="properties-button right" ng-class="{'properties-button-right-selected' : investment_type_buttons[2].checked}" ng-click="investment_type_buttons[2].checked = !investment_type_buttons[2].checked ; filterResults()" translate>max_dividends_appreciation</div>
               </div>
               <form ng-submit="filterResults()" id='searchForm'>
-                <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="Search address, city, state" ng-model="searchForm.address" ng-if='localizationSrv.locale === "en"'>
-                <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="חפש כתובת, עיר או מדינה" ng-model="searchForm.address" ng-if='localizationSrv.locale === "he"'>
+                <input id="pac-input" class="address-autocomplete-input" type="text" placeholder="{{placeholder}}" ng-model="searchForm.address">
               </form>
             </div>
           </div>

@@ -232,3 +232,5 @@ en:
     sell_part_1: "You just sold"
     sell_part_2: "in"
     sell_part_3: "for the price of"
+  cancel: "cancel"
+  apply: "apply"

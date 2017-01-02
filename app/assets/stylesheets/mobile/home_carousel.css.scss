@@ -20,6 +20,7 @@
       flex-flow: row nowrap;
       align-items: flex-end;
       justify-content: flex-start;
+      direction: ltr;
       
       left: 0; right: unset;
       transition-property: right, left;

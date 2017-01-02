@@ -108,6 +108,15 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       asset: null,
       type: null
     }
+
+    var locale = localStorage.getItem('locale') || navigator.language;
+    if (locale === 'he') {
+      $scope.toggleLocalization('he');
+    } else {
+      $scope.toggleLocalization('en');
+    }
+
+    $scope.mobileVisiblePanel = 'map';
   };
 
   $scope.sortResult = function (sort_option) {
@@ -214,8 +223,12 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.mobileFilterResults = function () {
-    $scope.market_type_checkboxes = $scope.mobile_market_type_checkboxes;
-    $scope.property_type_checkboxes = $scope.mobile_property_type_checkboxes;
+    _.forEach($scope.mobile_market_type_checkboxes, function (checkbox, index) {
+      $scope.market_type_checkboxes[index].checked = checkbox.checked;
+    });
+    _.forEach($scope.mobile_property_type_checkboxes, function (checkbox, index) {
+      $scope.property_type_checkboxes[index].checked = checkbox.checked;
+    });
     $scope.assets_results = _.intersection(
       $scope.assetsInFOV,      
       filterByInvestmentType(), 
@@ -223,11 +236,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       filterByPropertyType()
     );
     googleMaps.setAssetMarkersOnMap($scope.assets_results);
+    $scope.mobileVisiblePanel = 'map';
   };
 
   $scope.cancelFilters = function () {
     $scope.mobile_market_type_checkboxes = $scope.market_type_checkboxes;
     $scope.mobile_property_type_checkboxes = $scope.property_type_checkboxes;
+    $scope.mobileVisiblePanel = 'map';
   }
 
   $scope.clearSearch = function () {
@@ -274,6 +289,11 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
+    if (val === 'he') {
+      $scope.placeholder = 'חפש כתובת, עיר או מיקוד';
+    } else {
+      $scope.placeholder = 'Search address, city, state';      
+    }
   };
 
   //=================================
