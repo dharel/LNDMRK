@@ -23,7 +23,7 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
         "</div>" +
       "</div>" +
       "<div class='carousel-show' id='list-outer'>" +
-        "<div class='carousel-outer-wrap' id='list-inner' ng-style='calcedWidth'>" +
+        "<div class='carousel-outer-wrap' id='list-inner' ng-style='calcedWidth' ng-class='{\"hebrew\":isHebrew()}'>" +
           "<div class='carousel-inner-wrap' id='the-wrapper'>" +
             "<carousel-assets ng-repeat='asset in assets'" +
                              "asset='asset'" +
@@ -46,7 +46,10 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
 
       scope.$watch('localizationSrv.locale', function (newval, oldval){
         if (newval !== oldval) {
-          updateCss(scope.xOffset);
+          scope.firstShowed = 0;
+          scope.xOffset = 0;
+          updateCss(0);
+          // updateCss(scope.xOffset);
         }
       }, true);
       scope.isHebrew = function () {

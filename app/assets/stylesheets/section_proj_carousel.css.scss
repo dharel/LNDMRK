@@ -85,6 +85,7 @@
   box-sizing: border-box;
   padding: 0;
   overflow: hidden;
+  &.hebrew { direction: rtl;}
 }
 
 .carousel-inner-wrap {
