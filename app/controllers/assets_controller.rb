@@ -50,8 +50,8 @@ class AssetsController < ApplicationController
 
   def sell
     asset = Asset.find(params[:id])
-    asset.update(value: params[:value], user_owned: false) if params[:value].zero?
-    asset.update(value: params[:value]) unless params[:value].zero?
+    asset.update(value: params[:value])
+    asset.update(user_owned: false) if asset[:value].zero?
     render json: { status: 200 }
   rescue => e
     render json: { error: e.message }

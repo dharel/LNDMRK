@@ -16,20 +16,13 @@
 }
 .buy-popup {
   background-color: $white;
-  // overflow: hidden;
   width: 350px;
   height: 130px;
   box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
   position: absolute;
   z-index: 6;
-  
   top: 0;
   left: 0;
-  
-  // right: 0px;
-
-  // top: 182px;
-  // right: 213px;
   margin-top: -2px;
   @extend .flexbox-colum-between-center;
   padding: 7px;

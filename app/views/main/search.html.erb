@@ -122,7 +122,7 @@
       <div ng-if='popup_current_action' class='buy-popup'
            ng-class='{"hebrew": isHebrew()}'
            ng-style='{top: popupTopPos + "px", left: popupLeftPos + "px"}'>
-        <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, chosen_asset.value)'>
+        <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, meters_amount)'>
           <div class='first-row'>
             <label><span translate>popup_meters</span>
               <div class='input-wrap'>
@@ -132,7 +132,7 @@
                 </div>
                 <input required type='number'
                        class='buy-input'
-                       ng-model='chosen_asset.value'
+                       ng-model='meters_amount'
                        min='0' max='{{chosen_asset.total - chosen_asset.value}}' integer/>
               </div>
             </label>
@@ -152,7 +152,7 @@
     </div>
   </section>
   <div class='modal-container' ng-if="modal.open">
-    <div ng-if='modal.type === "buy"' class='modal'>
+    <div class='modal'>
       <div class='close' ng-click='closeModal()'>X</div>
       <div class='title-container'>
         <div class='logo'></div>
@@ -166,7 +166,7 @@
         <div class='close-button' ng-click='closeModal()' translate>modal.close</div>
       </div>
     </div>
-    <div ng-if='modal.type === "sell"' class='modal'>
+<!--     <div ng-if='modal.type === "sell"' class='modal'>
       <div class='close' ng-click='closeModal()'>X</div>
       <div class='title-container'>
         <div class='logo'></div>
@@ -179,6 +179,6 @@
         <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>close</div>
       </div>  
-    </div>
+    </div> -->
   </div>
 </div>

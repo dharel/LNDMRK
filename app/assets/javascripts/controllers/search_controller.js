@@ -276,7 +276,9 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $translate.use(val);
   };
 
+  //=================================
   // buy / sell popup
+  //=================================
   $scope.isHebrew = function () {
     return localizationSrv.locale === "he";
   };
@@ -292,7 +294,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.submit_text = "popup_sell";
     }
     $scope.chosen_asset = asset;
-
+    $scope.meters_amount = $scope.chosen_asset.value;
   };
 
   $scope.$root.$on('over-box',function(ev,data){
@@ -307,6 +309,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.closePopup = function () {
     $scope.popup_current_action = null;
     $scope.chosen_asset = null;
+    $scope.meters_amount = 0;
   };
 
   $scope.submitChosenAsset = function (currenty_action, asset_id, value) {
@@ -317,24 +320,29 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     }
   };
 
-  var onSucc_buy_asset = function (id, status) {
+  var onSucc_buy_asset = function (id, status, new_amount) {
     var asset = R.find(R.propEq('id', id))($scope.assets_results);
+    
     asset.user_owned = status;
+    asset.value = new_amount;
     $scope.modal.open = true;
     $scope.modal.type = 'buy';
     $scope.modal.asset = asset;
+    $scope.meters_amount = 0;
     function a (e) { }
     return a;
   };
   var onErr_buy_asset = function (err) {
     console.log('error fetching data: ', err);
   };
-  var onSucc_sell_asset = function (id, status) {
+  var onSucc_sell_asset = function (id, status, new_amount) {
     var asset = R.find(R.propEq('id', id))($scope.assets_results);
     asset.user_owned = status;
+    asset.value = new_amount;
     $scope.modal.open = true;
     $scope.modal.type = 'sell';
     $scope.modal.asset = asset;
+    $scope.meters_amount = 0;
     function a (e) { }
     return a;
   };
@@ -346,32 +354,50 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.modal.open = false;
     $scope.modal.type = null;
     $scope.modal.asset = null;
+    $scope.meters_amount = 0;
   };
 
   $scope.buyChosenAsset = function (asset_id, value) {
     if(value === 0) {return;}
-    AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: value}, onSucc_buy_asset(asset_id, true), onErr_change_watchlist);
+
+    var new_amount = Math.min($scope.chosen_asset.total, $scope.chosen_asset.value + value);
+
+    // debugger;
+    AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: new_amount}, onSucc_buy_asset(asset_id, true, new_amount), onErr_change_watchlist);
+    
+
     $scope.popup_current_action = null;
     // $scope.chosen_asset = null;
   };
 
   $scope.sellChosenAsset = function (asset_id, value) {
-    AjaxService.sendMsg('POST', '/asset_sell', {id: asset_id, value: value}, onSucc_sell_asset(asset_id, false), onErr_sell_asset);
+    if(value === 0) {return;}
+    var new_amount = Math.max(0, $scope.chosen_asset.value - value);
+
+    AjaxService.sendMsg('POST', '/asset_sell', {id: asset_id, value: new_amount}, onSucc_sell_asset(asset_id,new_amount === 0 ? false : true, new_amount), onErr_sell_asset);
     $scope.popup_current_action = null;
     // $scope.chosen_asset = null;
   };
 
   $scope.addMeters = function () {
-    if($scope.chosen_asset.value === $scope.chosen_asset.total) {return;}
-    $scope.chosen_asset.value += 1;
+    if($scope.meters_amount === $scope.chosen_asset.total) {return;} //max
+    // if($scope.meters_amount === $scope.chosen_asset.value) {return;} //min
+    // if($scope.chosen_asset.value === $scope.chosen_asset.total) {return;}
+    $scope.meters_amount += 1;
+    // $scope.chosen_asset.value += 1;
   };
 
   $scope.subMeters = function () {
-    if($scope.chosen_asset.value === $scope.chosen_asset.orig_val) {return;}
-    $scope.chosen_asset.value -= 1;
+    // if($scope.meters_amount === $scope.chosen_asset.value) {return;} //max
+    if($scope.meters_amount === 0) {return;} //min
+    // if($scope.chosen_asset.value === $scope.chosen_asset.orig_val) {return;}
+    $scope.meters_amount -= 1;
+    // $scope.chosen_asset.value -= 1;
   };
 
   $scope.asset_calced_price = function () {
+    // debugger;
     return Math.round($scope.chosen_asset.price * $scope.chosen_asset.value * 100) / 100 ;
+    // return Math.round($scope.chosen_asset.price * $scope.chosen_asset.value * 100) / 100 ;
   };
 }]);
