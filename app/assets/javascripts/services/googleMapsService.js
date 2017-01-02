@@ -58,7 +58,13 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     google.maps.event.addListener(marker, 'click', (function(marker, content, scope) {
       return function() {
           infoWindow.setContent(content);
-          infoWindow.open(window.map, this);
+          if (!infoWindow.isOpen) {
+            infoWindow.open(window.map, this);
+            infoWindow.isOpen = true;
+          } else {
+            infoWindow.close();
+            infoWindow.isOpen = false;
+          }
       };
     })(marker, $compile(content)($rootScope)[0]), $rootScope);
 
