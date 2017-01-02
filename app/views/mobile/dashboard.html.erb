@@ -135,7 +135,7 @@
                 ng-if='property.assets && property.assets.length > 0'
                 ng-show='expanded.id === property.id'>
               <div class='expanded-row-data' ng-repeat='asset in property.assets' ng-click='selectAsset(asset)'>
-                <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}' style='width: 25%'>{{asset.name}}</div>
+                <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}' style='width: 25%'>{{assetNameByLocale(asset)}}</div>
                 <div class='expanded-data' style='width: 25%'>{{asset.yield}}%</div>
                 <div class='expanded-data' style='width: 25%'>{{asset.value | currency}}</div>
                 <div class='expanded-data' style='width: 25%'>{{asset.value | currency }}</div>
@@ -173,7 +173,7 @@
             </div>
             <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
               <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
-              <div class='data name' style='width: 30.4%'>{{asset.name}}</div>
+              <div class='data name' style='width: 30.4%'>{{assetNameByLocale(asset)}}</div>
               <div class='partition'></div>
               <div class='data price'    style='width: 22%'>{{asset.price | currency }}</div>
               <div class='data yield'    style='width: 22%'>{{asset.yield}}%</div>
