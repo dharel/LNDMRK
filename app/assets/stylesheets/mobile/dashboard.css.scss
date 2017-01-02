@@ -135,7 +135,8 @@
         color: white;
         font-size: 10px; 
         font-weight: bold;
-        box-shadow: 0px 0px 3px 2px lightgray;
+        text-shadow:0 1.5px 4px rgba(25,70,107,.3);
+        box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.2);
         display: flex;
         flex-direction: column;
       }
@@ -189,8 +190,8 @@
 
       &#income-growth {
         .graph {
-          margin-top: 171px;
-          height: 55px;
+          margin-top: 151px;
+          height: 75px;
 
           .top {
             width: inherit;
@@ -223,14 +224,15 @@
 
 
     .gains, .yield {
-      width: 150px;
+      width: 48%;
+      min-width: 138px;
       height: 120px;
       box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
       display: flex;
       flex-direction: column;
-
+      position: relative;
       .title {
-        width: inherit;
+        width: 100%;
         text-align: center;
         color: #7DDBE0;
         font-weight: bold;
@@ -241,7 +243,7 @@
 
       .graph-container {
         position: relative;
-        width: inherit;
+        width: 43%;
         height: inherit;
         font-weight: bold;
         font-size: 12px;
@@ -249,10 +251,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
+        margin: 0 auto;
         &#gains {
           background-image: image-url('dash-graph-1.png');
-          background-size:45%;
+          background-size:contain;
           background-repeat: no-repeat;
           background-position: center center;
         }
@@ -260,15 +262,15 @@
 
         &#yield {
           background-image: image-url('dash-graph-2.png');
-          background-size: 45%;
+          background-size: contain;
           background-repeat: no-repeat;
           background-position: center center;
         }
 
         .left-text {
           position: absolute;
-          bottom: 0;
-          left: 5px;
+          bottom: 2px;
+          left: -34px;
           font-size: 10px;
           text-align: center;
           font-weight: normal;
@@ -279,21 +281,22 @@
 
         .right-text {
           position: absolute;
-          top: 0;
-          right: 11px;
+          top: 4px;
           font-weight: normal;
           font-size: 9px;
           text-align: center;
           text-transform: uppercase;
           width: 45px;
           span { font-weight: bold;}
+          right: -26px;
+          &.yeild {right: -32px;}
         }
       }
     }
   }
 
   .monthly-income {
-    margin: 15px 0;
+    margin: 0 0 15px;
     display: flex;
     box-shadow: 0 0.5px 8px -1px rgba(0,122,255,0.6);
     flex-direction: column;
@@ -301,6 +304,7 @@
     padding-top: 3px;
 
     .title {
+      margin-top: 5px;
       width: inherit;
       font-weight: bold;
       font-size: 15px;
@@ -611,20 +615,20 @@
 
           .remove-wrapper {
             height: 35px;
-            margin-top: 5px;
-            margin-bottom: 15px;
+            width: 20px;
+            margin: 5px 10px 15px 0;
             cursor: pointer;
             display: flex;
             justify-content: flex-start;
             align-items: center;
             overflow: hidden;
-
+          
             .remove-from-watchlist {
               height: 40px;
               width: 40px;
               background-repeat: no-repeat;
               background-position: center top;
-              background-size: contain;
+              background-size: cover;
               margin-top: 0;
               background-image: image-url('row_remove.png');
             }

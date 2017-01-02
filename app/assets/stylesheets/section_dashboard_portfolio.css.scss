@@ -186,9 +186,10 @@
               width: 100%;
               margin-top: 5px;
               color: white;
+              text-shadow:0 1.5px 4px rgba(25,70,107,.3);
               font-size: 10px; 
               font-weight: bold;
-              box-shadow: 0px 0px 3px 2px lightgray;
+              box-shadow: 0 0.5px 8px -1px rgba(0, 122, 255, 0.2);
             }
             .info {
               font-size: 10px;
@@ -235,8 +236,8 @@
 
             &#income-growth {
               .graph {
-                margin-top: 171px;
-                height: 55px;
+                margin-top: 151px;
+                height: 75px;
 
                 .top {
                   width: inherit;
