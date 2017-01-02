@@ -336,7 +336,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.closePopup = function () {
     $scope.popup_current_action = null;
     $scope.chosen_asset = null;
-    $scope.meters_amount = 0;
+    // $scope.meters_amount = 0;
   };
 
   $scope.submitChosenAsset = function (currenty_action, asset_id, value) {
@@ -355,7 +355,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.modal.open = true;
     $scope.modal.type = 'buy';
     $scope.modal.asset = asset;
-    $scope.meters_amount = 0;
     function a (e) { }
     return a;
   };
@@ -369,7 +368,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.modal.open = true;
     $scope.modal.type = 'sell';
     $scope.modal.asset = asset;
-    $scope.meters_amount = 0;
     function a (e) { }
     return a;
   };

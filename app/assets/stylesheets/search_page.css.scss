@@ -355,8 +355,10 @@
   z-index: 10;
 
   .modal {
-    width: 450px;
-    height: 320px;
+    min-width: 450px;
+    min-height: 320px;
+    width: auto;
+    height: auto;
     background-color: white;
     display: flex;
     flex-direction: column;
