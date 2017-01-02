@@ -10,15 +10,16 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       new google.maps.Point(0,0),
       new google.maps.Point(17, 34));
 
-     function propertyDetails () {
-      console.log(asset);
-      // localStorage.saveAsset = JSON.stringify(asset);
-      // $location.path('/property');
-    }
-
     var isHebrew = function () {
       return localStorage.locale === 'he';
     }
+
+    var assetName = function (asset) {
+      if (isHebrew()) {
+        return asset.name_heb;
+      }
+      return asset.name;
+    };
 
     var content = 
       '<div class="info-window">'+
