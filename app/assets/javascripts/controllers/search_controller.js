@@ -55,8 +55,8 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.init = function () {
     $scope.market_type_checkboxes = [
       {name: 'Primary', checked: true},
-      {name: 'Fringe', checked: true},
       {name: 'Secondary', checked: true},
+      {name: 'Other', checked: true},
     ];
 
     $scope.mobile_market_type_checkboxes = [

@@ -186,7 +186,7 @@ en:
     property_type: "property type"
     sort_by: "sort by"
   Primary: "primary"
-  Fringe: "fringe"
+  Other: "other"
   Secondary: "secondary"
   Residential: "residential"
   Facilities: "facilities"
