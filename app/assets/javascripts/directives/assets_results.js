@@ -21,13 +21,13 @@ angular.module('lndmrk').directive('assetsResults', ['$timeout', 'AjaxService','
           "<div class='right-col'>" +
             "<div class='risk-letter' ng-class='assignRiskClass(asset.rating[0].toLowerCase())'>{{asset.rating}}</div>" +
             "<div class='partition'></div>" +
-            "<div class='info-title'>Price per m&sup2;</div>" +
+            "<div class='info-title' translate>price_per_m</div>" +
             "<div class='info-data'>${{asset.price}}K</div>" +
             "<div class='partition'></div>" +
-            "<div class='info-title'>Income per m&sup2;</div>" +
+            "<div class='info-title' translate>income_per_m</div>" +
             "<div class='info-data'>${{asset.income}}</div>" +
             "<div class='partition'></div>" +
-            "<div class='info-title'>Yield</div>" +
+            "<div class='info-title' translate>yield</div>" +
             "<div class='info-data'>{{asset.yield}}%</div>" +
           "</div>" +
           "<div class='image-placer'>" +

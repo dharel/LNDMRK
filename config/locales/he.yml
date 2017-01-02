@@ -12,7 +12,7 @@ he:
   max_appreciation: "מקסימום עליית ערך"
   max_dividends_appreciation: "הכנסה ועליית ערך"
   search_placeholder: "Search address, city, state."
-  search: "חפש"
+  homepage_search: "חפש"
   search_properties: 
     title: "חפש נכסים"
     part_1: "הערך והשווה סיכון ותשואה בנכסים"

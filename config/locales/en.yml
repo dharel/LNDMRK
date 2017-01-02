@@ -32,7 +32,7 @@ en:
   max_appreciation: "max appreciation"
   max_dividends_appreciation: "dividends & appreciation"
   search_placeholder: "Search address, city, state."
-  search: "search"
+  homepage_search: "search"
   search_properties: 
     title: "search properties"
     part_1: "Evaluate and compare properties' <br> risk and return"

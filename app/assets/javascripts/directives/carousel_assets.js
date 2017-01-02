@@ -18,13 +18,13 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
           "<div class='right-col'>" +
             "<div class='risk-letter' ng-class='assignRiskClass(asset.rating)'>{{asset.rating}}</div>" +
             "<div class='partition'></div>" +
-            "<div class='info-title'>Price per m&sup2;</div>" +
+            "<div class='info-title' translate>price_per_m</div>" +
             "<div class='info-data'>${{asset.price}}K</div>" +
             "<div class='partition'></div>" +
-            "<div class='info-title'>Income per m&sup2;</div>" +
+            "<div class='info-title' translate>income_per_m</div>" +
             "<div class='info-data'>${{asset.income}}</div>" +
             "<div class='partition'></div>" +
-            "<div class='info-title'>Yeild</div>" +
+            "<div class='info-title' translate>yield</div>" +
             "<div class='info-data'>{{asset.yield}}%</div>" +
           "</div>" +
           "<div class='image-placer'>" +
