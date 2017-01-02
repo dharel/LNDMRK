@@ -47,6 +47,11 @@ angular.module('lndmrk').controller('MainController',
     localizationSrv.locale = val;
     localStorage.setItem('locale', val);
     $translate.use(val);
+    if (val === 'he') {
+      $scope.placeholder = 'חפש כתובת, עיר או מיקוד';
+    } else {
+      $scope.placeholder = 'Enter a location';      
+    }
   };
 
   $scope.toggleFilter = function (filter) {
