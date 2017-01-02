@@ -110,11 +110,12 @@
       .menu-hamburger {
         width: 32px;
         height: 23px;
-        background-image: image-url('hamburger.png');
-        background-size: cover;
+        background-image: image-url('burg2.svg');
+        background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
         margin: auto 15px;
+        &:focus{outline:0;}
       }
 
       .logo {
