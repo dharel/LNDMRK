@@ -88,14 +88,14 @@
     .total-portfolio {
       .left {
         .plus {
-          padding-right: 2px;
+          padding-right: 0;
           padding-left: unset;
         }
       }
       .right {
         .equals {
           left: unset;
-          right: -15px;
+          right: -13px;
         }
       }
     }
@@ -123,6 +123,8 @@
       transform: rotateY(180deg)
     }
 
-
+    .my-properties .properties-table .headers-wrap.my-watchlist .header-inner-wrap {
+      width: 100%;
+    }
   }
 }
