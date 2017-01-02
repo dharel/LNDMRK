@@ -56,7 +56,7 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
       };
 
       scope.prevAsset = function() {
-        if(scope.isFirst() === false) {
+        if(!scope.isFirst()) {
           scope.xOffset = scope.xOffset + 241;
           updateCss(scope.xOffset);
           
