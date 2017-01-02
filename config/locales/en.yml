@@ -141,6 +141,8 @@ en:
   assesment: "assesment"
   points: "points"
   
+  property_details: "Property Details"
+
   location: "location"
   market: "market"
   tenants_fin_stability: "tenants' financial stability"

@@ -16,22 +16,26 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       // $location.path('/property');
     }
 
+    var isHebrew = function () {
+      return localStorage.locale === 'he';
+    }
+
     var content = 
       '<div class="info-window">'+
         '<div class="border ' + asset.investment_type + '"></div>'+
           '<div class="content">'+
             '<div class="title">'+ asset.name +'</div>'+
             '<div class="address">'+ asset.address +'</div>'+
-            '<div class="button" id="btn">Property Details</div>'+
+            '<div class="button" id="btn" translate>property_details</div>'+
           '</div>'+
           '<div class="details">'+
             '<div class="yield">' +
-              '<div class="title">Yield</div>' + 
+              '<div class="title" translate>yield</div>' + 
               '<div class="data">' + asset.yield +'%</div>'+
             '</div>'+
             '<div class="divider"></div>'+
             '<div class="rating">' +
-              '<div class="title">Rating</div>' + 
+              '<div class="title" translate>Rating</div>' + 
               '<div class="data">'+ asset.rating +'</div>'+
             '</div>'+
           '</div>'+
