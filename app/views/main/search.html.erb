@@ -14,7 +14,7 @@
         <li ng-click='toggleLocalization("he")'><a class='link-5' ng-class='{"on": localizationSrv.locale === "he"}'>HE</a></li>
         <li><a class='notification'></a></li>
         <li><a class='user-image'></a></li>
-        <li><a class='user'>USER@LNDMRK.COM</a></li>
+        <li><a class='user'>LNDMRK User</a></li>
         <li class='logout'><a class='link' href='/#/' translate>logout</a></li>
       </ul>
     </div>
@@ -151,7 +151,7 @@
     </div>
   </section>
   <div class='modal-container' ng-if="modal.open">
-    <div class='modal'>
+    <div class='modal' ng-if='modal.type === "buy"' >
       <div class='close' ng-click='closeModal()'>X</div>
       <div class='title-container'>
         <div class='logo'></div>
@@ -160,12 +160,12 @@
       </div>
       <div class='data-wrapper'>
         <span class='part1'> <span translate> modal.buy_part_1 </span> {{modal.asset.value}} <span translate>modal.m_2</span></span>
-        <span class='part2'><span translate>modal.buy_part_2 </span> {{modal.asset.name}}</span>
+        <span class='part2'><span translate>modal.buy_part_2 </span> {{ nameByLocale(modal.asset) }}</span>
         <span class='part3' style="font-weight: bold;" translate>modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>modal.close</div>
       </div>
     </div>
-<!--     <div ng-if='modal.type === "sell"' class='modal'>
+     <div ng-if='modal.type === "sell"' class='modal'>
       <div class='close' ng-click='closeModal()'>X</div>
       <div class='title-container'>
         <div class='logo'></div>
@@ -174,10 +174,10 @@
       </div>
       <div class='data-wrapper'>
         <span class='part1'> <span translate>modal.sell_part_1</span> {{modal.asset.value}} <span translate>modal.m_2</span></span>
-        <span class='part2'><span translate>modal.sell_part_2</span> {{modal.asset.name}} <span translate> modal.sell_part_3 </span> ${{asset_calced_price()}}</span>
+        <span class='part2'><span translate>modal.sell_part_2</span> {{nameByLocale(modal.asset)}} <span translate> modal.sell_part_3 </span> ${{asset_calced_price()}}</span>
         <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>close</div>
       </div>  
-    </div> -->
+    </div> 
   </div>
 </div>

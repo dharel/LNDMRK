@@ -56,9 +56,13 @@
         flex-direction: row;
         justify-content: space-between;
         width: 35%;
-        color: $turquoise;
+        color: white;
         font-weight: bold;
         font-size: 17px;
+
+        &.active {
+          color: $turquoise;
+        }
       }
 
       .divider {

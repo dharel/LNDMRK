@@ -13,7 +13,7 @@
         <li ng-click='toggleLocalization("he")'><a class='link-5' ng-class='{"on": localizationSrv.locale === "he"}'>HE</a></li>
         <li><a class='notification'></a></li>
         <li><a class='user-image'></a></li>
-        <li><a class='user'>USER@LNDMRK.COM</a></li>
+        <li><a class='user'>LNDMRK User</a></li>
         <li class='logout'><a class='link' href='/#/' translate>logout</a></li>
       </ul>
     </div>
@@ -174,7 +174,7 @@
           <div class='row-data' ng-click='toggleExpanded(property)'
                ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
             <div class='data name' ng-class='property.class' translate>{{property.name}}</div>
-            <div class='data price' style='width: 11.1%'>{{ calcAvarage('price', property.assets) | currency }}</div>
+            <div class='data price' style='width: 11.1%'>{{ calcAvarage('price', property.assets) }}</div>
             <div class='data owned' style='width: 11.1%'>{{ sumProperty('value', property.assets) | currency}}</div>
             <div class='data value'>{{ sumProperty('value', property.assets) | currency}}</div>
             <div class='data yield' style='width: 11.1%'>{{ calcAvarage('yield', property.assets) }}%</div>
@@ -188,7 +188,7 @@
                ng-show='expanded.id === property.id'>
             <div class='expanded-row-data' ng-repeat='asset in property.assets' ng-click='selectAsset(asset)'>
               <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}'>{{assetNameByLocale(asset)}}</div>
-              <div class='expanded-data' style='width: 11.1%'>{{asset.price | currency }}</div>
+              <div class='expanded-data' style='width: 11.1%'>{{asset.price }}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.value | currency }}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.value | currency }}</div>
               <div class='expanded-data' style='width: 11.1%'>{{asset.yield}}%</div>
@@ -201,7 +201,7 @@
         </div>
         <div class='row-data sum' ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
           <div class='data name' translate>sum</div>
-          <div class='data' style='width: 11.1%'>{{sumAll('price') | currency }}</div>
+          <div class='data' style='width: 11.1%'>{{sumAll('price') }}</div>
           <div class='data' style='width: 11.1%'>{{sumAll('value') | currency}}</div>
           <div class='data' style='width: 11.1%'>{{sumAll('value') | currency}}</div>
           <div class='data' style='width: 11.1%'>{{sumAll('yield')}}%</div>

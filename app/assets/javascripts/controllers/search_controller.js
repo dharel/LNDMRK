@@ -4,6 +4,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.googleMaps = googleMaps;
   $scope.localizationSrv = localizationSrv;
 
+  $scope.nameByLocale = function (asset) {
+    if (localStorage.locale === 'he') {
+      return asset.name_heb;
+    }
+    return asset.name;
+  }
+
   var applyFilters = function (filters) {
     $scope.searchForm.address = filters.address;
     if (!filters.max_dividends && !filters.growth && !filters.max_dividends_growth) {

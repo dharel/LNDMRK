@@ -38,6 +38,8 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
           "</div>"+
         "</header>"+
       "</div>",
+
+      // ng-class={\"active\": localizationSrv.locale === \"en\"}
     controller: function ($scope) {
       $scope.init = function () {
         $('.body')[0].scrollIntoView();
