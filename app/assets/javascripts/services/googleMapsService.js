@@ -76,79 +76,89 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
         createMarker(asset, "214a91")
       }
     })(assets);
-  }
+  };
+
+  var initMobile = function () {
+    $(document).on({
+        'DOMNodeInserted': function() {
+          $('.pac-item').click(function (e) {
+            document.getElementById('pac-input').value = e.target.parentElement.innerText;
+            $('.pac-container').hide();
+            document.getElementById('pac-input').blur();
+            manualSearch(e.target.innerText);
+          });
+        }
+    }, '.pac-container');
+  };
 
   var init = function (assets) {
-    $document.ready(function () {
+    var input = document.getElementById('pac-input'); 
+    var searchBox = new google.maps.places.SearchBox(input);
 
-      var input = document.getElementById('pac-input'); 
-      var searchBox = new google.maps.places.SearchBox(input);
+    var map = document.getElementById('map');
+    if (map) {
+      window.map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 2.811371, lng: 1.757813},
+        zoom: 2,
+        mapTypeId: 'roadmap'
+      });
 
-      var map = document.getElementById('map');
-      if (map) {
-        window.map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 2.811371, lng: 1.757813},
-          zoom: 2,
-          mapTypeId: 'roadmap'
+      window.map.setOptions({ minZoom: 2, maxZoom: 17 });
+
+      window.map.addListener('bounds_changed', function() {
+        searchBox.setBounds(window.map.getBounds());
+        markersInFOV = [];
+        R.forEach(function (marker) {
+          if (window.map.getBounds().contains(marker.getPosition())){
+            markersInFOV.push(marker);
+          }
+        })(initialMarkers);
+        $rootScope.$broadcast('bounds_changed', markersInFOV);
+      });
+      
+      searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+          return;
+        }
+        markers.forEach(function(marker) {
+          marker.setMap(null);
         });
-
-        window.map.setOptions({ minZoom: 2, maxZoom: 17 });
-
-        window.map.addListener('bounds_changed', function() {
-          searchBox.setBounds(window.map.getBounds());
-          markersInFOV = [];
-          R.forEach(function (marker) {
-            if (window.map.getBounds().contains(marker.getPosition())){
-              markersInFOV.push(marker);
-            }
-          })(initialMarkers);
-          $rootScope.$broadcast('bounds_changed', markersInFOV);
-        });
-        
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
-
-          if (places.length == 0) {
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+          if (!place.geometry) {
+            console.log("Returned place contains no geometry");
             return;
           }
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
-            var pinColor = "102447";
-            var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-                new google.maps.Size(71, 71),
-                new google.maps.Point(0,0),
-                new google.maps.Point(17, 34));
+          var pinColor = "102447";
+          var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+              new google.maps.Size(71, 71),
+              new google.maps.Point(0,0),
+              new google.maps.Point(17, 34));
 
-            markers.push(new google.maps.Marker({
-              map: window.map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
+          markers.push(new google.maps.Marker({
+            map: window.map,
+            icon: icon,
+            title: place.name,
+            position: place.geometry.location
+          }));
 
-            if (place.geometry.viewport) {
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-              window.map.setZoom(17);
-            }
-          });
-          window.map.fitBounds(bounds);
+          if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+            window.map.setZoom(17);
+          }
         });
-      }
+        window.map.fitBounds(bounds);
+      });
+    }
 
 
-      if (!assets) return;
-      initMarkers(assets);
-      initialMarkers = markers;
-    });
+    if (!assets) return;
+    initMarkers(assets);
+    initialMarkers = markers;
   };
 
   var initStreetView = function (asset) {
@@ -205,7 +215,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
 
   var centerMap = function () {
     window.map.setOptions(
-      { center: {lat: 2.811371, lng: 1.757813}, zoom: 2, mapTypeId: 'roadmap' }
+      { center: { lat: 2.811371, lng: 1.757813 }, zoom: 2, mapTypeId: 'roadmap' }
     );
   };
 
@@ -214,6 +224,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     geocoder = new google.maps.Geocoder();
     var _places = null;
     geocoder.geocode({address: location}, function (places) {
+      if (places.length === 0) return;
       _places = places;
       var LatLon = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
       var pinColor = "102447";
@@ -228,10 +239,11 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
         position: LatLon
       });
       markers.push(marker);
-      if (_places) {
+      var map = document.getElementById('map');
+      if (_places && map) {
         var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(_places[0].geometry.location.lat(), _places[0].geometry.location.lng()));
-        map.fitBounds(bounds);
-        map.setZoom(15);
+        window.map.fitBounds(bounds);
+        window.map.setZoom(15);
       }
     });
   };
@@ -241,7 +253,6 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       var index = R.findIndex(R.propEq('title', asset.name))(initialMarkers);
       initialMarkers[index] = createMarker(asset,"FE7569");
     });
-
   }
 
   var unhoverOverAsset = function (asset) {
@@ -253,6 +264,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
   
   return {
     init: init,
+    initMobile: initMobile,
     markers: markers,
     setAssetMarkersOnMap: setAssetMarkersOnMap,
     resetAssetMarkers: resetAssetMarkers,
