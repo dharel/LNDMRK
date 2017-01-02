@@ -424,7 +424,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
   $scope.asset_calced_price = function () {
     // debugger;
-    return Math.round($scope.chosen_asset.price * $scope.chosen_asset.value * 100) / 100 ;
+    return Math.round($scope.chosen_asset.price * $scope.meters_amount * 100) / 100 ;
     // return Math.round($scope.chosen_asset.price * $scope.chosen_asset.value * 100) / 100 ;
   };
 }]);
