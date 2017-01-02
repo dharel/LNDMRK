@@ -133,7 +133,7 @@
              ng-style='{top: popupTopPos + "px", left: popupLeftPos + "px"}'>
           <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, meters_amount)'>
             <div class='first-row'>
-              <label><span translate>popup_meters</span>
+              <label class="util-50"><span translate>popup_meters</span>
                 <div class='input-wrap'>
                   <div class='spinners'>
                     <div ng-click='addMeters()' class='up'></div>
@@ -150,11 +150,13 @@
                 <div class='price-box'>{{chosen_asset.price | currency}}</div>
               </div>
               <div class='equal-sign'>=</div>
-              <div class='total-amount'>
-                <h2 translate>popup_total</h2>
-                <div class='box'>${{asset_calced_price()}}</div>
-              </div>
             </div>
+            
+            <div class='total-amount'>
+              <h2 translate>popup_total</h2>
+              <div class='box'>${{asset_calced_price()}}</div>
+            </div>
+
             <button type='submit' class='submit' ng-class='{"hebrew": isHebrew()}' translate>{{submit_text}}</button>
           </form>
         </div>
@@ -175,7 +177,7 @@
         </div>
 
         <div class='button  map' 
-             ng-click="mobileVisiblePanel = 'map'; ; prevRoute = 'map'"
+             ng-click="mobileVisiblePanel = 'map'; prevRoute = 'map'"
              ng-class="{'active': mobileVisiblePanel === 'map'}">
           <div class='icon'></div>
           <div class='title ' translate>map</div>

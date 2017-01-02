@@ -11,7 +11,7 @@
   z-index: 5;
   &.mobile {
     position: fixed;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5); 
   }
 }
 
@@ -24,19 +24,12 @@
   height: 130px;
   box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
   z-index: 6;
-
-
-
   position: absolute;
-
-
-
-
   top: 0;
   left: 0;
   margin-top: -2px;
-  @extend .flexbox-colum-between-center;
   padding: 7px;
+  @extend .flexbox-colum-between-center;
   .submit {
     height: 35px;
     width: 320px;
@@ -60,9 +53,6 @@
     @extend .flexbox-row-between;
     height: 53px;
     margin: 10px;
-    &.mobile {
-      @extend .flexbox-wrap-row-start;
-    }
     h2, label span {
       text-transform: uppercase;
       font-size: 11px;
@@ -184,10 +174,6 @@
     .total-amount {
       h2 { color: $dark-blue;}
       width: 100px;
-      &.mobile {
-        width: 320px;
-        margin: 0 10px;
-      }
       .box {
         color: $white;
         font-size: 14px;
@@ -235,11 +221,51 @@
       right: unset; left: 0;
     }
   }
+}
+
+
+.buy-popup{
   &.mobile {
     position: fixed;
-    top: 125px;
-    width: calc(100vw - 60px);
-    height: 250px;
+    width: calc(100vw - 30px);
+    height: 203px;
+    top: 182px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    .first-row {
+      width: calc(100vw - 60px);
+      margin: 10px 0 10px;
+      .util-50 {
+        width: 50%;
+        .input-wrap { width: 100%;}
+      }
+      .price-per-m {width: 50%;}
+      .equal-sign { }
+    }
+
+    .total-amount {
+      width: calc(100vw - 60px);
+      h2 { color: $dark-blue;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2px;
+      }
+      .box {
+        color: $white;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        height: 40px;
+        background-color: $dark-blue;
+        @extend .flexbox-row-center-center;
+      }
+    }
+
+    .submit {
+      margin: 10px 0 0;
+      width: calc(100vw - 60px);
+    }
     &::before {
       bottom: -32px;
       border-right: 17px solid transparent;
