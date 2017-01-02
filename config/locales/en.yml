@@ -90,7 +90,7 @@ en:
   portfolio_management: "portfolio management"
   equity: "equity"
   debt: "debt"
-  total_portfolio_value: "total portfolio value"
+  total_portfolio_value: "total<br>portfolio value"
   total_portfolio: "total portfolio"
   total_gains: "total gains"
   unrealized: "unrealized"
