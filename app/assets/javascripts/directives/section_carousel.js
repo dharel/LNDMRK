@@ -51,7 +51,12 @@ angular.module('lndmrk').directive('sectionCarousel', ['$timeout','$window','$lo
 
       scope.firstShowed = 0;
       scope.xOffset = 0;
+      var isHebrew = function () {
+        return localStorage.locale === 'he';
+      }
+
       scope.carouselDiv.style.left = 0 + 'px';
+
       var updateCss = function(val){
         scope.carouselDiv = document.getElementById("the-wrapper");
         scope.carouselDiv.style.left = scope.xOffset + 'px';

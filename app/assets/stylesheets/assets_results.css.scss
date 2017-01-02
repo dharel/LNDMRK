@@ -88,8 +88,7 @@
   box-sizing: border-box;
   padding: 0;
   overflow-y: hidden;
-  // overflow-x: visible;
-  // overflow: visible;
+  direction: ltr;
 }
 
 .carousel-inner-wrap {
