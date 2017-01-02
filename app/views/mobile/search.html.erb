@@ -131,8 +131,8 @@
         <div ng-if='popup_current_action' class='buy-popup mobile'
              ng-class='{"hebrew": isHebrew()}'
              ng-style='{top: popupTopPos + "px", left: popupLeftPos + "px"}'>
-          <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, chosen_asset.value)'>
-            <div class='first-row mobile'>
+          <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, meters_amount)'>
+            <div class='first-row'>
               <label><span translate>popup_meters</span>
                 <div class='input-wrap'>
                   <div class='spinners'>
@@ -141,7 +141,7 @@
                   </div>
                   <input required type='number'
                          class='buy-input'
-                         ng-model='chosen_asset.value'
+                         value='{{meters_amount}}'
                          min='0' max='{{chosen_asset.total - chosen_asset.value}}' integer/>
                 </div>
               </label>
@@ -161,6 +161,8 @@
       </div>
 
     </div>
+
+    
 
     <div class='navigator' ng-show='mobileVisiblePanel !== "filters"'>
 
@@ -188,4 +190,36 @@
       </div>      
     </div>
   </div>
+
+  <div class='modal-container' ng-if="modal.open">
+    <div class='modal' ng-if='modal.type === "buy"' >
+      <div class='close' ng-click='closeModal()'>X</div>
+      <div class='title-container'>
+        <div class='logo'></div>
+        <div class='title' translate>modal.congratulations</div>
+        <div class='triangle'></div>
+      </div>
+      <div class='data-wrapper'>
+        <span class='part1'> <span translate> modal.buy_part_1 </span> {{modal.asset.value}} <span translate>modal.m_2</span></span>
+        <span class='part2'><span translate>modal.buy_part_2 </span> {{ nameByLocale(modal.asset) }}</span>
+        <span class='part3' style="font-weight: bold;" translate>modal.thank_you</span>
+        <div class='close-button' ng-click='closeModal()' translate>modal.close</div>
+      </div>
+    </div>
+     <div ng-if='modal.type === "sell"' class='modal'>
+      <div class='close' ng-click='closeModal()'>X</div>
+      <div class='title-container'>
+        <div class='logo'></div>
+        <div class='title' translate>modal.congratulations</div>
+        <div class='triangle'></div>
+      </div>
+      <div class='data-wrapper'>
+        <span class='part1'> <span translate>modal.sell_part_1</span> {{meters_amount}} <span translate>modal.m_2</span></span>
+        <span class='part2'><span translate>modal.sell_part_2</span> {{nameByLocale(modal.asset)}} <span translate> modal.sell_part_3 </span> ${{asset_calced_price()}}</span>
+        <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
+        <div class='close-button' ng-click='closeModal()' translate>close</div>
+      </div>  
+    </div> 
+  </div>
+
 </div>
