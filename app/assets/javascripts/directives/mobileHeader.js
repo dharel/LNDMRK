@@ -11,7 +11,7 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
             "<li><a href=\"/#/\" translate>learning</a></li>"+
           "</div>"+
           "<div class='bottom'>"+
-            "<li class='lang'><div ng-click='toggleLocalization(\"en\")'>EN</div> | <div ng-click='toggleLocalization(\"he\")'>HE</div></li>"+
+            "<li class='lang'><div ng-click='toggleLocalization(\"en\")' ng-class='{\"active\": localizationSrv.locale === \"en\"}'>EN</div> | <div ng-click='toggleLocalization(\"he\")' ng-class='{\"active\": localizationSrv.locale === \"he\"}'>HE</div></li>"+
             "<li class='divider'></li>"+
             "<a href=\"/#/dashboard\">"+
               "<li class='user-image'></li>"+
@@ -41,6 +41,8 @@ angular.module('lndmrk').directive('mobileHeader', ['$translate','$mdSidenav','l
 
       // ng-class={\"active\": localizationSrv.locale === \"en\"}
     controller: function ($scope) {
+      
+      
       $scope.init = function () {
         $('.body')[0].scrollIntoView();
         var locale = localStorage.getItem('locale') || navigator.language;

@@ -60,9 +60,9 @@
         font-weight: bold;
         font-size: 17px;
 
-        &.active {
-          color: $turquoise;
-        }
+      }
+      .active {
+        color: $turquoise;
       }
 
       .divider {
