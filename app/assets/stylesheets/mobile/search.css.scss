@@ -1,6 +1,7 @@
 @import "../_base.css.scss";
 
 .mobile {
+  overflow: hidden;
   outline: none;
   
   .body {
@@ -426,6 +427,7 @@
       max-height: 100vh;
       padding: 0;
       z-index: 2;
+      overflow: hidden;
 
       .search-results-data {
         position: relative;
