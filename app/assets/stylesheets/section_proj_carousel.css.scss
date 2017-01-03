@@ -73,13 +73,15 @@
   height:100%;
   margin: 0;
   padding: 0;
-  width: 1212px;
+  width: 1200px;
+  // width: 1212px;
   flex: 1 1 auto;
   overflow: hidden;
   order: 2;
 }
 
 .carousel-outer-wrap {
+  width: 1200px;
   height:100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -110,7 +112,8 @@ carousel-assets {
 .asset-block {
   cursor: default;
   height: calc(100% - 39px);
-  width: auto;
+  width: 190px;
+  // width: auto;
   padding: 0;
   text-align: center;
 
@@ -145,7 +148,8 @@ carousel-assets {
   .box-wrap {
     cursor: pointer;
     height: 220px;
-    width: inherit;
+    width: 190px;
+    // width: inherit;
     margin: 0 auto;
     box-shadow: 0 0 9px -1px rgba(0, 0, 0, .4);
 
@@ -189,9 +193,9 @@ carousel-assets {
       height: calc(220px - 26px);
       box-shadow: 0 0 9px -1px rgba(0, 0, 0, .4);
       pointer-events: none;
-
+      background-color: $white;
       .right-col {
-        width: calc(187px - 124px);
+        width: calc(190px - 124px);
         order: 2;
         background-color: $white;
         padding: 9px 0 18px;

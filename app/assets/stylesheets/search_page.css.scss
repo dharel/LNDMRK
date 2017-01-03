@@ -23,6 +23,7 @@
       .search-results-right-panel-wrapper {
         width: 190px;
         margin: 0 auto;
+
         .sort-by {
           @extend .flexbox-row-center-bottom;
           .sort-by-icon {
@@ -111,6 +112,7 @@
         }
         .search-results-data {
           margin-top: 10px;
+          padding-bottom: 80px;
         }
       }
     }
