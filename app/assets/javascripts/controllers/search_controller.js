@@ -339,7 +339,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   $scope.closePopup = function () {
     $scope.popup_current_action = null;
     $scope.chosen_asset = null;
-    // $scope.meters_amount = 0;
   };
 
   $scope.submitChosenAsset = function (currenty_action, asset_id, value) {
@@ -382,7 +381,6 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.modal.open = false;
     $scope.modal.type = null;
     $scope.modal.asset = null;
-    $scope.meters_amount.value = 0;
   };
 
   $scope.buyChosenAsset = function (asset_id, value) {
@@ -390,12 +388,10 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
     var new_amount = Math.min($scope.chosen_asset.total, $scope.chosen_asset.value + value);
 
-    // debugger;
     AjaxService.sendMsg('POST', '/asset_buy', {id: asset_id, value: new_amount}, onSucc_buy_asset(asset_id, true, new_amount), onErr_change_watchlist);
     
 
     $scope.popup_current_action = null;
-    // $scope.chosen_asset = null;
   };
 
   $scope.sellChosenAsset = function (asset_id, value) {
@@ -404,28 +400,19 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
 
     AjaxService.sendMsg('POST', '/asset_sell', {id: asset_id, value: new_amount}, onSucc_sell_asset(asset_id,new_amount === 0 ? false : true, new_amount), onErr_sell_asset);
     $scope.popup_current_action = null;
-    // $scope.chosen_asset = null;
   };
 
   $scope.addMeters = function () {
     if($scope.meters_amount.value === $scope.chosen_asset.total) {return;} //max
-    // if($scope.meters_amount === $scope.chosen_asset.value) {return;} //min
-    // if($scope.chosen_asset.value === $scope.chosen_asset.total) {return;}
     $scope.meters_amount.value += 1;
-    // $scope.chosen_asset.value += 1;
   };
 
   $scope.subMeters = function () {
-    // if($scope.meters_amount === $scope.chosen_asset.value) {return;} //max
     if($scope.meters_amount.value === 0) {return;} //min
-    // if($scope.chosen_asset.value === $scope.chosen_asset.orig_val) {return;}
     $scope.meters_amount.value -= 1;
-    // $scope.chosen_asset.value -= 1;
   };
 
   $scope.asset_calced_price = function () {
-    // debugger;
     return Math.round($scope.chosen_asset.price * $scope.meters_amount.value * 100) / 100 ;
-    // return Math.round($scope.chosen_asset.price * $scope.chosen_asset.value * 100) / 100 ;
   };
 }]);

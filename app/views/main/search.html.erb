@@ -131,8 +131,8 @@
                 </div>
                 <input required type='number'
                        class='buy-input'
-                       value='{{meters_amount.value}}'
-                       min='0' max='{{chosen_asset.total - chosen_asset.value}}' integer/>
+                       ng-model='meters_amount.value'
+                       min='0' max='{{chosen_asset.total - chosen_asset.value}}' integer></input>
               </div>
             </label>
             <div class='price-per-m' ng-class='{"hebrew": isHebrew()}'>
