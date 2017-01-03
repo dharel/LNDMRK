@@ -210,16 +210,13 @@
       width: 100vw;
       position: relative;
       height: 66px;
-      padding: 0 15px;
-      &.flex-around {
-        @extend .flexbox-row-wrap-around;
-        padding: 0 60px;
-        .attribute { margin: 0;}
-      }
+      padding: 0 30px 0 15px;
+      &.first { &.hebrew {padding: 0 15px 0 30px;}}
+      &.second {padding: 0 55px;}
     }
     .section-title {
       @extend .flexbox-row-center-center;
-      width: 72px;
+      width: 82px;
       height: 74px;
       bottom: -4px;
       position: absolute;
@@ -229,18 +226,24 @@
       text-transform: uppercase;
       text-align: center;
       box-shadow: 0 1.5px 8px 0 rgba(25,70,107,.3);
+      text-shadow: 0 1.5px 4px rgba(25, 70, 107, 0.3);
       padding: 0 10px;
-      background-color: $yello;
-      &.type-yello { background-color: $yello; color: $dark-blue;}
+      background-color: $yello2;
+      &.type-yello { background-color: $yello2; }
       &.type-purple { background-color: $purple; }
       &.type-cyan { background-color: $medium-blue; }
+    }
+    .spacefiller {
+      width: 82px;
+      height: 66px;
     }
     .attribute {
       @extend .flexbox-colum-to-top-center;
       height: 66px;
       min-width: 40px;
-      margin-left: 15px; margin-right:unset;
-      &.hebrew { margin-left: unset; margin-right: 15px;}
+      // margin-left: 15px; margin-right:unset;
+      // &.hebrew { margin-left: unset; margin-right: 15px;}
+      margin: 0;
       &.util-margin {
         margin-left: 91px; margin-right: unset;
         &.hebrew { margin-left: unset; margin-right: 91px;}
@@ -254,7 +257,10 @@
         margin-top: 15px;
         margin-bottom: 10px;
         text-align: center;
-        &.util-high {margin-top: 10px;}
+        &.util-high {
+          margin-top: 10px;
+          &.income {&.hebrew {margin: 5px 0 2px;}}
+        }
       }
       h1 {
         text-transform: uppercase;

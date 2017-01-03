@@ -41,28 +41,30 @@
     </div>
 
     <div class='mobile-numbers-strips'>
-      <div class='turquoise-strip'>
+      <div class='turquoise-strip first' ng-class='{"hebrew": isHebrew()}'>
         <div class='section-title' ng-class='getInvTypeClr(asset.investment_type)'>
           <span ng-if='!isHebrew()'>{{asset.investment_type_short}}</span>
           <span ng-if='isHebrew()'>{{asset.investment_type_short_heb}}</span>
         </div>
        
-          <div class='attribute util-margin' ng-class='{"hebrew": isHebrew()}'>
-            <span translate>rank</span>
-            <h1 ng-class='getRatingColor(asset.rating)' style='direction: ltr;'>{{asset.rating}}</h1>
-          </div>
-          <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
-            <span translate class='util-high'>price_per_m_2l</span>
-            <h2>${{asset.price * 1000}}</h2>
-          </div>
-          <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
-            <span translate class='util-high' translate>income_per_m_2l</span>
-            <h2>${{asset.income}}</h2>
-          </div>
+       <div class="spacefiller"></div>
+
+        <div class='attribute ' ng-class='{"hebrew": isHebrew()}'>
+          <span translate class='util-high'>rank</span>
+          <h1 ng-class='getRatingColor(asset.rating)' style='direction: ltr;'>{{asset.rating}}</h1>
+        </div>
+        <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+          <span translate class='util-high'>price_per_m_2l</span>
+          <h2>${{asset.price * 1000}}</h2>
+        </div>
+        <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
+          <span translate class='util-high income' ng-class='{"hebrew": isHebrew()}' translate>income_per_m_2l</span>
+          <h2>${{asset.income}}</h2>
+        </div>
 
       </div>
 
-      <div class='turquoise-strip'>
+      <div class='turquoise-strip second'>
         <div class='attribute' ng-class='{"hebrew": isHebrew()}'>
           <span translate>yeild</span>
           <h2>{{asset.yield}}%</h2>
