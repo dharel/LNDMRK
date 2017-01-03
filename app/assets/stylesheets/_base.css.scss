@@ -97,6 +97,13 @@ a {
   flex-flow: row nowrap; 
 }
 
+.flexbox-row-center-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-flow: row nowrap; 
+}
+
 .flexbox-row-start-top {
   display: flex;
   flex-flow: row nowrap; 

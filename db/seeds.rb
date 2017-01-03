@@ -213,7 +213,7 @@ Asset.create(
     },
     {
       name: 'Azrieli Towers, TLV',
-      name_heb: 'טייפה מגדלי עזריאלי',
+      name_heb: 'מגדלי עזריאלי',
       address: 'Derech Menachem Begin 132, Tel Aviv-Yafo',
       total: '412500',
       description: 'Azrieli Center is a complex of skyscrapers in Tel Aviv. At the base of the center lies a large shopping mall. The center was originally designed by Israeli-American architect Eli Attia, and after he fell out with the developer of the center David Azrieli (after whom it is named), completion of the design was passed on to the Tel Aviv firm of Moore Yaski Sivan Architects.',
@@ -276,8 +276,8 @@ Asset.create(
       value: '500',
       debt: '0',
       gains: '1503',
-      image: '/investment_assets/07_Azrieli_Center_2_260-400.jpg',
-      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
+      image: '/investment_assets/toyota1.jpg',
+      banner_images: ['/investment_assets/toyota2.png']
     },
     {
       name: 'Sears Tower, Chicago, Illinois, United States',
@@ -310,8 +310,8 @@ Asset.create(
       value: '204',
       debt: '0',
       gains: '342',
-      image: '/investment_assets/07_Azrieli_Center_2_260-400.jpg',
-      banner_images: ['/investment_assets/07_Azrieli_Center_1.jpg']
+      image: '/investment_assets/Sears_Towers_1.jpg',
+      banner_images: ['/investment_assets/Sears_Towers_2.jpg']
     },
     {
       name: 'The Shard, London',
@@ -791,7 +791,7 @@ Asset.create(
     },
     {
       name: 'Ukraine farmland',
-      name_heb: 'חווה',
+      name_heb: 'החווה האוקראינית',
       address: 'М19, Holoby, Volyns\'ka oblast, Ukraine, 45071',
       total: '21000000',
       description: 'Barley ,Sun Flower, Rapeseed',
