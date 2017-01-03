@@ -1,7 +1,8 @@
 <div ng-controller="SearchController"  class='mobile' ng-init='init()' ng-class='{"hebrew": localizationSrv.locale === "he"}'>
   <mobile-header></mobile-header>
 
-  <div class='body' ng-init='showFilters = false; prevRoute = "map"' style="height: calc(100vh - 90px)">
+  <div class='body search-mobile' ng-init='showFilters = false; prevRoute = "map"'
+       style="height: calc(100vh - 90px)" ng-class="{'stuck': popup_current_action}">
 
     <div class='filters-panel nga-default nga-slide-left nga-fast' ng-show="mobileVisiblePanel === 'filters'">
       <div class='header'>
@@ -115,20 +116,26 @@
           </div>
         </div>
       </div>
-      <div class='search-results-data'>
+      <div class='search-results-data mobile'>
         <div ng-repeat='asset in assets_results track by $index' id='asset{{asset.id}}'
-            ng-mouseenter='googleMaps.hoverOverAsset(asset)' 
-            ng-mouseleave='googleMaps.unhoverOverAsset(asset)'>
+             ng-class='anchor-for-popup'
+             ng-mouseenter='googleMaps.hoverOverAsset(asset)' 
+             ng-mouseleave='googleMaps.unhoverOverAsset(asset)'>
           <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'
                           addtowatchlist='addToWatchlist(asset_id)'
+                          open-popup='openPopup(asset, popup_type)'
+                          popupcuraction=''
                           removefromwatchlist='removeFromWatchlist(asset_id)'></assets-results>
         </div>
+
+        
       </div>
 
     </div>
 
-    <div class='navigator' ng-show='mobileVisiblePanel !== "filters"'>
+    
 
+    <div class='navigator' ng-show='mobileVisiblePanel !== "filters"'>
       <div class='map-prop-container'> 
         <div class='button properties' 
              ng-click="mobileVisiblePanel = 'properties'; prevRoute = 'properties'"
@@ -138,7 +145,7 @@
         </div>
 
         <div class='button  map' 
-             ng-click="mobileVisiblePanel = 'map'; ; prevRoute = 'map'"
+             ng-click="mobileVisiblePanel = 'map'; prevRoute = 'map'"
              ng-class="{'active': mobileVisiblePanel === 'map'}">
           <div class='icon'></div>
           <div class='title ' translate>map</div>
@@ -153,4 +160,73 @@
       </div>      
     </div>
   </div>
+
+  <div ng-if='popup_current_action' class='buy-popup-shadow mobile'>
+    <div class="close-shadow" ng-click='closePopup()'></div>
+    <div ng-if='popup_current_action' class='buy-popup mobile'
+         ng-class='{"hebrew": isHebrew()}'
+         ng-style='{top: popupTopPos + "px", left: popupLeftPos + "px"}'>
+      <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, meters_amount)'>
+        <div class='first-row'>
+          <label class="util-50"><span translate>popup_meters</span>
+            <div class='input-wrap'>
+              <div class='spinners'>
+                <div ng-click='addMeters()' class='up'></div>
+                <div ng-click='subMeters()' class='down'></div>
+              </div>
+              <input required type='number'
+                     class='buy-input'
+                     value='{{meters_amount}}'
+                     min='0' max='{{chosen_asset.total - chosen_asset.value}}' integer/>
+            </div>
+          </label>
+          <div class='price-per-m' ng-class='{"hebrew": isHebrew()}'>
+            <h2 translate>popup_price_per_meter</h2>
+            <div class='price-box'>{{chosen_asset.price | currency}}</div>
+          </div>
+          <div class='equal-sign'>=</div>
+        </div>
+        
+        <div class='total-amount'>
+          <h2 translate>popup_total</h2>
+          <div class='box'>${{asset_calced_price()}}</div>
+        </div>
+
+        <button type='submit' class='submit' ng-class='{"hebrew": isHebrew()}' translate>{{submit_text}}</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <div class='modal-container' ng-if="modal.open">
+    <div class='modal mobile' ng-if='modal.type === "buy"' >
+      <div class='close' ng-click='closeModal()'>X</div>
+      <div class='title-container'>
+        <div class='logo'></div>
+        <div class='title' translate>modal.congratulations</div>
+        <div class='triangle mobile'></div>
+      </div>
+      <div class='data-wrapper'>
+        <span class='part1'> <span translate> modal.buy_part_1 </span> {{modal.asset.value}} <span translate>modal.m_2</span></span>
+        <span class='part2'><span translate>modal.buy_part_2 </span> {{ nameByLocale(modal.asset) }}</span>
+        <span class='part3' style="font-weight: bold;" translate>modal.thank_you</span>
+        <div class='close-button' ng-click='closeModal()' translate>modal.close</div>
+      </div>
+    </div>
+    <div ng-if='modal.type === "sell"' class='modal mobile'>
+      <div class='close' ng-click='closeModal()'>X</div>
+      <div class='title-container'>
+        <div class='logo'></div>
+        <div class='title' translate>modal.congratulations</div>
+        <div class='triangle mobile'></div>
+      </div>
+      <div class='data-wrapper'>
+        <span class='part1'> <span translate>modal.sell_part_1</span> {{meters_amount}} <span translate>modal.m_2</span></span>
+        <span class='part2'><span translate>modal.sell_part_2</span> {{nameByLocale(modal.asset)}} <span translate> modal.sell_part_3 </span> ${{asset_calced_price()}}</span>
+        <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
+        <div class='close-button' ng-click='closeModal()' translate>close</div>
+      </div>  
+    </div> 
+  </div>
+
 </div>

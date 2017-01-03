@@ -3,12 +3,26 @@
 // buy / sell popup:
 //================================
 
+.body {
+  &.search-mobile {
+    &.stuck {
+      overflow: hidden;
+    }
+  }
+}
+
 .buy-popup-shadow {
   background-color: transparent;
   position: absolute;
   overflow: hidden;
   top:0; right:0; bottom:0; left:0;
   z-index: 5;
+  &.mobile {
+    position: fixed;
+    // background-color: rgba(0,0,0,0.5);
+    top:0; right:0; bottom:0; left:0;
+    z-index: 900;
+  }
 }
 
 .anchor-for-popup {
@@ -19,13 +33,13 @@
   width: 350px;
   height: 130px;
   box-shadow: 0 0.5px 8px -1px rgba(0,122,255,.6);
-  position: absolute;
   z-index: 6;
+  position: absolute;
   top: 0;
   left: 0;
   margin-top: -2px;
-  @extend .flexbox-colum-between-center;
   padding: 7px;
+  @extend .flexbox-colum-between-center;
   .submit {
     height: 35px;
     width: 320px;
@@ -185,14 +199,16 @@
     content: "";
     width: 0;
     height: 0;
+    
+    bottom: 33px;
     border-top: 17px solid transparent;
     border-bottom: 17px solid transparent;
-    position: absolute;
-    transform: translateY(-50%);
-    bottom: 33px;
-    filter: drop-shadow(0 0.5px 2px rgba(0,122,255,.6));
     border-left: 17px solid $white;
     border-right: none;
+
+    position: absolute;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0.5px 2px rgba(0,122,255,.6));
     left: 99%; right: unset;
   }
   &::after {
@@ -213,6 +229,77 @@
     }
     &::after {
       right: unset; left: 0;
+    }
+  }
+}
+
+.close-shadow {
+  position: absolute;
+  top:0; right:0; bottom:0; left:0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 905;
+}
+.buy-popup{
+  &.mobile {
+    // position: fixed;
+    position: absolute;
+    width: calc(100vw - 30px);
+    height: 203px;
+    top: 182px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 910;
+    
+    .first-row {
+      width: calc(100vw - 60px);
+      margin: 10px 0 10px;
+      .util-50 {
+        width: 50%;
+        .input-wrap { width: 100%;}
+      }
+      .price-per-m {width: 50%;}
+      .equal-sign { }
+    }
+
+    .total-amount {
+      width: calc(100vw - 60px);
+      h2 { color: $dark-blue;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2px;
+      }
+      .box {
+        color: $white;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        height: 40px;
+        background-color: $dark-blue;
+        @extend .flexbox-row-center-center;
+      }
+    }
+
+    .submit {
+      margin: 10px 0 0;
+      width: calc(100vw - 60px);
+    }
+    &::before {
+      bottom: -32px;
+      border-right: 17px solid transparent;
+      border-top: 17px solid $white;
+      border-left: 17px solid transparent;
+
+      transform: translateY(0);
+      left: 50%;
+      transform: translateX(-50%);
+
+    }
+    &::after {
+      width: 36px;
+      height: 9px;
+      top: unset; bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
