@@ -66,6 +66,7 @@
         flex-direction: column;
         justify-content: space-around;
 
+
         .filters {
           width: inherit;
           height: auto;
@@ -239,6 +240,10 @@
               margin: 5px 0;
               font-weight: 700;
               text-transform: capitalize;
+
+              input[type='radio'] {
+                outline: none;
+              }
             }
 
           }
