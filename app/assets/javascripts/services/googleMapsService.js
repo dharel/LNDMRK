@@ -78,13 +78,16 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     })(assets);
   };
 
-  var initMobile = function () {
+  var initMobile = function (value) {
     $(document).on({
         'DOMNodeInserted': function() {
           $('.pac-item').click(function (e) {
             document.getElementById('pac-input').value = _.words(e.target.parentElement.innerText).join(' ');
             $('.pac-container').hide();
             document.getElementById('pac-input').blur();
+            if (value) {
+              manualSearch(_.words(e.target.parentElement.innerText).join(' '));
+            }
           });
         }
     }, '.pac-container');
