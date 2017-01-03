@@ -16,7 +16,7 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
     link: function (scope, element, attrs) {
       scope.carouselDiv = document.getElementById("the-wrapper");
 
-      var w = angular.element($window);
+      // var w = angular.element($window);
 
       scope.localizationSrv = localizationSrv;
 
@@ -37,7 +37,8 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
       };
 
       scope.assetFocused = 0;
-      scope.xOffset = 65;
+      scope.xOffset = ($window.outerWidth-240)/2;
+
       scope.carouselDiv.style[scope.isHebrew() ? 'right' : 'left'] = scope.xOffset + 'px';
       var updateCss = function(val){
         scope.carouselDiv = document.getElementById("the-wrapper");
