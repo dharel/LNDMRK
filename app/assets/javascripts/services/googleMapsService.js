@@ -1,5 +1,5 @@
 angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$rootScope','$document','$compile','dataManagerService', function ($location, $anchorScroll, $rootScope, $document, $compile, dataManagerService) {
-  var initialMarkers = [], markers = [], markersInFOV = [];
+  var initialMarkers = [], markers = [], markersInFOV = [], prev_infowindow = null;
 
   var createMarker = function (asset, pinColor) {
     var lat = Number(asset.gps.split(',')[0]);
@@ -48,13 +48,19 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     google.maps.event.addListener(marker, 'click', (function(marker, content, scope) {
       return function() {
           infoWindow.setContent(content);
-          if (!infoWindow.isOpen) {
-            infoWindow.open(window.map, this);
-            infoWindow.isOpen = true;
-          } else {
-            infoWindow.close();
-            infoWindow.isOpen = false;
+          if( prev_infowindow ) {
+            prev_infowindow.close();
           }
+
+          prev_infowindow = infoWindow;
+          infoWindow.open(window.map, marker);
+          // if (!infoWindow.isOpen) {
+          //   infoWindow.open(window.map, this);
+          //   infoWindow.isOpen = true;
+          // } else {
+          //   infoWindow.close();
+          //   infoWindow.isOpen = false;
+          // }
       };
     })(marker, $compile(content)($rootScope)[0]), $rootScope);
 
