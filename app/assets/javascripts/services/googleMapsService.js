@@ -82,14 +82,20 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     $(document).on({
         'DOMNodeInserted': function() {
           $('.pac-item').click(function (e) {
-            document.getElementById('pac-input').value = e.target.parentElement.innerText;
+            document.getElementById('pac-input').value = _.words(e.target.parentElement.innerText).join(' ');
             $('.pac-container').hide();
             document.getElementById('pac-input').blur();
-            manualSearch(e.target.innerText);
           });
         }
     }, '.pac-container');
   };
+
+  var initSearchBox = function () {
+    $document.ready(function () {
+      var input = document.getElementById('pac-input'); 
+      var searchBox = new google.maps.places.Autocomplete(input);
+    })
+  }
 
   var init = function (assets) {
     var input = document.getElementById('pac-input'); 
@@ -99,8 +105,8 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     if (window.map) {
       window.map = null;
     }
-    if (map) {
 
+    if (map) {
       window.map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 2.811371, lng: 1.757813},
         zoom: 2,
@@ -228,26 +234,27 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     geocoder = new google.maps.Geocoder();
     var _places = null;
     geocoder.geocode({address: location}, function (places) {
-      if (places.length === 0) return;
-      _places = places;
-      var LatLon = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
-      var pinColor = "102447";
-      var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-        new google.maps.Size(71, 71),
-        new google.maps.Point(0,0),
-        new google.maps.Point(17, 34));
-      var marker = new google.maps.Marker({
-        map: window.map,
-        icon: icon,
-        title: location,
-        position: LatLon
-      });
-      markers.push(marker);
-      var map = document.getElementById('map');
-      if (_places && map) {
-        var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(_places[0].geometry.location.lat(), _places[0].geometry.location.lng()));
-        window.map.fitBounds(bounds);
-        window.map.setZoom(15);
+      if (places) {
+        _places = places;
+        var LatLon = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
+        var pinColor = "102447";
+        var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+          new google.maps.Size(71, 71),
+          new google.maps.Point(0,0),
+          new google.maps.Point(17, 34));
+        var marker = new google.maps.Marker({
+          map: window.map,
+          icon: icon,
+          title: location,
+          position: LatLon
+        });
+        markers.push(marker);
+        var map = document.getElementById('map');
+        if (_places && map) {
+          var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(_places[0].geometry.location.lat(), _places[0].geometry.location.lng()));
+          window.map.fitBounds(bounds);
+          window.map.setZoom(15);
+        }
       }
     });
   };
@@ -277,6 +284,7 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     hoverOverAsset: hoverOverAsset,
     unhoverOverAsset: unhoverOverAsset,
     initStreetView: initStreetView,
-    initSimpleMap: initSimpleMap
+    initSimpleMap: initSimpleMap,
+    initSearchBox: initSearchBox
   };
 }]);
