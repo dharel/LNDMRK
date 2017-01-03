@@ -91,7 +91,6 @@
 .carousel-inner-wrap {
   height:100%;
   width: 1680px;
-  // width: 2600px;
   padding: 0;
   box-sizing: border-box;  
   text-align: left;
@@ -107,10 +106,11 @@
 .asset-block {
   cursor: default;
   height: calc(100% - 39px);
-  width: 187px;
-  margin: 0 24px 20px 30px;
-  padding:0;
+  width: auto;
+  padding: 0;
   text-align: center;
+
+
   h3 {
     cursor: pointer;
     font-size: 11px;
@@ -118,9 +118,10 @@
     color: $white;
     font-weight: 600;
     letter-spacing: 1.5px;
-    margin: 42px auto 5px;
+    margin: 20px auto 5px;
     position: relative;
     z-index: 1;
+    width: inherit;
   }
   h4 {
     cursor: pointer;
@@ -140,19 +141,18 @@
   }
   .box-wrap {
     cursor: pointer;
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
     height: 220px;
-    width: 187px;
+    width: inherit;
     margin: 0 auto;
     box-shadow: 0 0 9px -1px rgba(0, 0, 0, .4);
+
     .bottom-row {
       height: 26px;
-      width: 187px;
+      width: auto;
       overflow: hidden;
       position: relative;
       pointer-events: none;
+
       .shadow {
         box-shadow: inset 0 5px 25px -6px rgba(41,41,41,.56);
         width: 210px;
@@ -161,6 +161,7 @@
         height: 34px;
         pointer-events: none;
       }
+
       .investment-type {
         color: $white;
         text-transform: uppercase;
@@ -182,22 +183,17 @@
       pointer-events: none;
     }
     .row {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
       height: calc(220px - 26px);
       box-shadow: 0 0 9px -1px rgba(0, 0, 0, .4);
       pointer-events: none;
+
       .right-col {
         width: calc(187px - 124px);
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-between;
-        align-items: center;
         order: 2;
         background-color: $white;
         padding: 9px 0 18px;
         pointer-events: none;
+
         .partition {
           border-bottom: 1px solid $light-grey;
           width: 34px;
@@ -206,6 +202,7 @@
           margin: 8px auto 10px;
           pointer-events: none;
         }
+
         .risk-letter {
           text-transform: uppercase;
           font-size: 12px;

@@ -1,0 +1,14 @@
+<section class='mobile-assets-carousel'>
+  <div class='moving-wrap' id='the-wrapper' 
+  md-swipe-left='onSwipeLeft()' 
+  md-swipe-right='onSwipeRight()'>
+    <carousel-assets 
+      ng-repeat='asset in assets'
+      asset='asset'
+      pagination='pagination'
+      id='myCarousel'
+      ng-click='toggleObject($index)'
+      ng-class='{ chosen: chosenAsset === asset }'>
+    </carousel-assets>
+  </div>
+</section>

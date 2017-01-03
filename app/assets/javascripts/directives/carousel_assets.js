@@ -9,7 +9,6 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
     },
     template:
     "<div class='asset-block'>" +
-      "<a href='#'>" +
       "<h3>{{i18nTransalteName(asset)}}</h3>" +
       "<div class='asset-box-shadow' ng-show='isAssetHovered(asset.id)'></div>" +
       "<div class='box-wrap' ng-mouseenter='hoverAsset(asset.id)' ng-mouseleave='unhoverAsset(asset.id)'>" +
@@ -45,7 +44,6 @@ angular.module('lndmrk').directive('carouselAssets', ['$timeout', function ($tim
         "</div>" +
         "<div class='image-border'></div>" +
       "</div>" +
-      "</a>" +
     "</div>",
     link: function (scope, element, attrs) {
       scope.hovered_asset = '';

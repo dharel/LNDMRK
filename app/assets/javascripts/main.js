@@ -49,4 +49,8 @@ app.run(['$templateCache', '$anchorScroll', function ($templateCache, $anchorScr
    $anchorScroll.yOffset = 100;
   var address_autocomplete = 'address_autocomplete';
   $templateCache.put('address_autocomplete', JST[address_autocomplete]());
+  $templateCache.put('carousel', JST['carousel']());
+  $templateCache.put('carousel_ios', JST['carousel_ios']());
+  
+  
 }]);

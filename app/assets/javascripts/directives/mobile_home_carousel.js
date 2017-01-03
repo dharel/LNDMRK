@@ -3,30 +3,19 @@ angular.module('lndmrk').directive('mobileHomeCarousel',
   function ($timeout, $window, $location, dataManagerService, localizationSrv, $swipe){
   'use strict';
 
+  var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   return {
     restrict: 'E',
     scope: {
       assets: '=',
       pagination: '@'
     },
-
-    template:
-    "<section class='mobile-assets-carousel'>" +
-      "<div class='moving-wrap' id='the-wrapper'" +
-                     "ng-swipe-left='onSwipeLeft()' ng-swipe-right='onSwipeRight()'>" +
-        "<carousel-assets ng-repeat='asset in assets'" +
-                         "asset='asset'" +
-                         "pagination='pagination'" +
-                         "id='myCarousel'" +
-                         "ng-click='toggleObject($index)'" +
-                         "ng-class='{ chosen: chosenAsset === asset }'></carousel-assets>" +
-      "</div>" +
-    "</section>",
+    template: iOS ? JST['carousel_ios']() : JST['carousel'](),
     controller: function($scope) {
-      $scope.carouselDiv = document.getElementById("the-wrapper");
     },
     link: function (scope, element, attrs) {
-      // var carouselDiv = document.getElementById("the-wrapper"),
+      scope.carouselDiv = document.getElementById("the-wrapper");
+
       var w = angular.element($window);
 
       scope.localizationSrv = localizationSrv;

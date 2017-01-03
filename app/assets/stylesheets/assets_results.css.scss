@@ -93,7 +93,6 @@
 .carousel-inner-wrap {
   height:100%;
   width: 1680px;
-  // width: 2600px;
   padding: 0;
   box-sizing: border-box;  
   text-align: left;
@@ -111,10 +110,8 @@
   width: 100%;
 }
 .results-asset-block {
-  // cursor: default;
   height: calc(100% - 39px);
   width: 190px;
-  /*margin: 0 24px 0 30px;*/
   padding:0;
   text-align: center;
   padding-bottom: 13px;
@@ -125,10 +122,8 @@
   .bottom-row {
     height: 20px;
     width: 190px;
-    // overflow-y: hidden;
     overflow: visible;
     position: relative;
-    // pointer-events: none;
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
