@@ -301,6 +301,8 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     } else {
       $scope.placeholder = 'Search address, city, state';      
     }
+
+    googleMaps.init($scope.assets_results);
   };
 
   //=================================

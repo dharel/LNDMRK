@@ -10,22 +10,11 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
       new google.maps.Point(0,0),
       new google.maps.Point(17, 34));
 
-    var isHebrew = function () {
-      return localStorage.locale === 'he';
-    }
-
-    var assetName = function (asset) {
-      if (isHebrew()) {
-        return asset.name_heb;
-      }
-      return asset.name;
-    };
-
     var content = 
       '<div class="info-window">'+
         '<div class="border ' + asset.investment_type + '"></div>'+
           '<div class="content">'+
-            '<div class="title">'+ asset.name +'</div>'+
+            '<div class="title">'+ (localStorage.locale === 'en' ? asset.name : asset.name_heb) +'</div>'+
             '<div class="address">'+ asset.address +'</div>'+
             '<div class="button" id="btn" translate>property_details</div>'+
           '</div>'+
@@ -107,7 +96,11 @@ angular.module('lndmrk').service('googleMaps', ['$location','$anchorScroll','$ro
     var searchBox = new google.maps.places.SearchBox(input);
 
     var map = document.getElementById('map');
+    if (window.map) {
+      window.map = null;
+    }
     if (map) {
+
       window.map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 2.811371, lng: 1.757813},
         zoom: 2,
