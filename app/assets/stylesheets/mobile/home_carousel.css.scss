@@ -19,17 +19,17 @@
       align-items: flex-end;
       justify-content: flex-start;
       direction: ltr;
-      
       left: 0; right: unset;
       transition-property: right, left;
       transition-duration: 0.6s;
       transition-timing-function: ease-out;
+
       &.hebrew {left: unset; right:0;}
 
       carousel-assets {
-        width: 250px;
+        width: 450px;
         height: auto;
-        margin-right: 65px;
+        margin: 0 10px;
       }
     }
   }
