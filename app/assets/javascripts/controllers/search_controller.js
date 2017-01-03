@@ -312,6 +312,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     return localizationSrv.locale === "he";
   };
 
+  $scope.meters_amount = {};
   $scope.openPopup = function (asset, popup_type) {
     if($scope.popup_current_action) {return;}
 
@@ -323,7 +324,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
       $scope.submit_text = "popup_sell";
     }
     $scope.chosen_asset = asset;
-    $scope.meters_amount = $scope.chosen_asset.value;
+    $scope.meters_amount.value = $scope.chosen_asset.value;
   };
 
   $scope.$root.$on('over-box',function(ev,data){
@@ -381,7 +382,7 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
     $scope.modal.open = false;
     $scope.modal.type = null;
     $scope.modal.asset = null;
-    $scope.meters_amount = 0;
+    $scope.meters_amount.value = 0;
   };
 
   $scope.buyChosenAsset = function (asset_id, value) {
@@ -407,24 +408,24 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.addMeters = function () {
-    if($scope.meters_amount === $scope.chosen_asset.total) {return;} //max
+    if($scope.meters_amount.value === $scope.chosen_asset.total) {return;} //max
     // if($scope.meters_amount === $scope.chosen_asset.value) {return;} //min
     // if($scope.chosen_asset.value === $scope.chosen_asset.total) {return;}
-    $scope.meters_amount += 1;
+    $scope.meters_amount.value += 1;
     // $scope.chosen_asset.value += 1;
   };
 
   $scope.subMeters = function () {
     // if($scope.meters_amount === $scope.chosen_asset.value) {return;} //max
-    if($scope.meters_amount === 0) {return;} //min
+    if($scope.meters_amount.value === 0) {return;} //min
     // if($scope.chosen_asset.value === $scope.chosen_asset.orig_val) {return;}
-    $scope.meters_amount -= 1;
+    $scope.meters_amount.value -= 1;
     // $scope.chosen_asset.value -= 1;
   };
 
   $scope.asset_calced_price = function () {
     // debugger;
-    return Math.round($scope.chosen_asset.price * $scope.meters_amount * 100) / 100 ;
+    return Math.round($scope.chosen_asset.price * $scope.meters_amount.value * 100) / 100 ;
     // return Math.round($scope.chosen_asset.price * $scope.chosen_asset.value * 100) / 100 ;
   };
 }]);

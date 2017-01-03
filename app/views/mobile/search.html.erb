@@ -164,9 +164,8 @@
   <div ng-if='popup_current_action' class='buy-popup-shadow mobile'>
     <div class="close-shadow" ng-click='closePopup()'></div>
     <div ng-if='popup_current_action' class='buy-popup mobile'
-         ng-class='{"hebrew": isHebrew()}'
-         ng-style='{top: popupTopPos + "px", left: popupLeftPos + "px"}'>
-      <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, meters_amount)'>
+         ng-class='{"hebrew": isHebrew()}'>
+      <form name='buy-popup' ng-submit='submitChosenAsset(popup_current_action, chosen_asset.id, meters_amount.value)'>
         <div class='first-row'>
           <label class="util-50"><span translate>popup_meters</span>
             <div class='input-wrap'>
@@ -176,7 +175,7 @@
               </div>
               <input required type='number'
                      class='buy-input'
-                     value='{{meters_amount}}'
+                     value='{{meters_amount.value}}'
                      min='0' max='{{chosen_asset.total - chosen_asset.value}}' integer/>
             </div>
           </label>
@@ -221,7 +220,7 @@
         <div class='triangle mobile'></div>
       </div>
       <div class='data-wrapper'>
-        <span class='part1'> <span translate>modal.sell_part_1</span> {{meters_amount}} <span translate>modal.m_2</span></span>
+        <span class='part1'> <span translate>modal.sell_part_1</span> {{meters_amount.value}} <span translate>modal.m_2</span></span>
         <span class='part2'><span translate>modal.sell_part_2</span> {{nameByLocale(modal.asset)}} <span translate> modal.sell_part_3 </span> ${{asset_calced_price()}}</span>
         <span class='part3' style="font-weight: bold;" translate >modal.thank_you</span>
         <div class='close-button' ng-click='closeModal()' translate>close</div>
