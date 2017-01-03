@@ -120,7 +120,7 @@
         <div ng-repeat='asset in assets_results track by $index' id='asset{{asset.id}}'
              ng-class='anchor-for-popup'
              ng-mouseenter='googleMaps.hoverOverAsset(asset)' 
-             ng-mouseleave='googleMaps.unhoverOverAsset(asset)'>
+             ng-mouseleave='googleMaps.unhoverOverAsset(asset)' style='margin: 20px; width: 200px; margin: 0 auto;'>
           <assets-results asset='asset' id='myCarousel' ng-class='{ chosen: chosenAsset === asset }'
                           addtowatchlist='addToWatchlist(asset_id)'
                           open-popup='openPopup(asset, popup_type)'
