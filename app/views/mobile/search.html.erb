@@ -176,6 +176,7 @@
               <input required type='number'
                      class='buy-input'
                      ng-model='meters_amount.value'
+                     readonly="true"
                      min='0' max='{{chosen_asset.total - chosen_asset.value}}' integer></input>
             </div>
           </label>
