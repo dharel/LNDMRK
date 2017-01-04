@@ -128,8 +128,8 @@
                  ng-class='{"empty-row": !property.assets || property.assets.length === 0}'>
               <div class='data name' ng-class='property.class' translate style='width: 27%'>{{property.name}}</div>
               <div class='data yield' style='width: 23%'>{{ calcAvarage('yield', property.assets) }}%</div>
-              <div class='data owned' style='width: 25%'>{{ sumProperty('value', property.assets) | currency }}</div>
-              <div class='data value' style='width: 25%'>{{ sumProperty('value', property.assets) | currency}}</div>
+              <div class='data owned' style='width: 25%'>{{ sumProperty('value', property.assets)}}</div>
+              <div class='data value' style='width: 25%'>{{ calcAvarage('price', property.assets) * sumProperty('value', property.assets) | currency }}</div>
             </div>
             <div class='expanded-data-wrap' 
                 ng-if='property.assets && property.assets.length > 0'
@@ -137,8 +137,8 @@
               <div class='expanded-row-data' ng-repeat='asset in property.assets' ng-click='selectAsset(asset)'>
                 <div class='expanded-data name' ng-class='property.class' title='{{asset.name}}' style='width: 25%'>{{assetNameByLocale(asset)}}</div>
                 <div class='expanded-data' style='width: 25%'>{{asset.yield}}%</div>
-                <div class='expanded-data' style='width: 25%'>{{asset.value | currency}}</div>
-                <div class='expanded-data' style='width: 25%'>{{asset.value | currency }}</div>
+                <div class='expanded-data' style='width: 25%'>{{asset.value}}</div>
+                <div class='expanded-data' style='width: 25%'>{{round2(asset.value * asset.price) | currency }}</div>
               </div>
             </div>
 
@@ -147,7 +147,7 @@
             <div class='data name' translate style='width: 25%'>sum</div>
             <div class='data' style='width: 25%'>{{sumAll('yield')}}%</div>
             <div class='data' style='width: 25%'>{{sumAll('value')}}</div>
-            <div class='data' style='width: 25%'>{{sumAll('value') | currency}}</div>
+            <div class='data' style='width: 25%'>{{sumAll('value') * sumAll('price') | currency }}</div>
           </div>
         </div>
       </div>
@@ -168,14 +168,14 @@
           </div>
           <div class='data-wrapper my-watchlist' 
               ng-repeat='asset in watched_data track by $index'>
-            <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)'>
+            <div class='remove-wrapper' ng-click='removeFromWatchlist(asset.id)' ng-class='{"hebrew":isHebrew()}'>
               <div class='remove-from-watchlist'></div>
             </div>
             <div class='row-data my-watchlist' ng-click='selectAsset(asset)'>
               <div class='data type' style='width: 0.6%' ng-class='asset.investment_type'></div>
               <div class='data name' style='width: 30.4%'>{{assetNameByLocale(asset)}}</div>
               <div class='partition'></div>
-              <div class='data price'    style='width: 22%'>{{asset.price }}</div>
+              <div class='data price'    style='width: 22%'>{{asset.price | currency }}</div>
               <div class='data yield'    style='width: 22%'>{{asset.yield}}%</div>
               <div class='data rating'   style='width: 15%'>{{asset.rating}}</div>
               <a class='goto-asset-page' style='width: 10%' href='/#/' ng-class='{"hebrew": localizationSrv.locale === "he"}'></a>

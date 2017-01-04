@@ -631,7 +631,7 @@
             justify-content: flex-start;
             align-items: center;
             overflow: hidden;
-          
+            &.hebrew {margin: 5px 0 15px 10px;}
             .remove-from-watchlist {
               height: 40px;
               width: 40px;

@@ -101,6 +101,10 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
     return sum.toFixed(2);
   };
 
+  $scope.round2 = function (float) {
+    return float.toFixed(2);
+  };
+
   $scope.toggleExpanded = function (property) {
     $scope.expanded.isOpen = !$scope.expanded.isOpen;
     $scope.expanded.id = $scope.expanded.id !== property.id ? property.id : null;
@@ -133,4 +137,8 @@ angular.module('lndmrk').controller('DashboardController', ['$scope', 'AjaxServi
       if (!assets || assets.length === 0) return '-';
       return R.sort(function (a, b) {return sort[b.rating] - sort[a.rating]})(assets)[0].rating;
   }
+
+  $scope.isHebrew = function () {
+    return localizationSrv.locale === "he";
+  };
 }]);
