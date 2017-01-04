@@ -408,11 +408,13 @@ angular.module('lndmrk').controller('SearchController', ['$scope','AjaxService',
   };
 
   $scope.subMeters = function () {
-    if($scope.meters_amount.value === 0) {return;} //min
+    if(!$scope.meters_amount.value || $scope.meters_amount.value === 0) {return;} //min
     $scope.meters_amount.value -= 1;
   };
 
   $scope.asset_calced_price = function () {
-    return Math.round($scope.chosen_asset.price * $scope.meters_amount.value * 100) / 100 ;
+    var val = $scope.meters_amount.value;
+    if(!val){val = 0;}
+    return Math.round($scope.chosen_asset.price * val * 100) / 100 ;
   };
 }]);
