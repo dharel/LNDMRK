@@ -12,7 +12,7 @@
 }
 
 .buy-popup-shadow {
-  position: relative;
+  position: absolute;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -20,6 +20,7 @@
   background-color: transparent;
   z-index: 5;
   @extend .flexbox-row-center-center;
+  &.mobile {position: relative;}
   .close-shadow {
     position: absolute;
     width: 100vw;
