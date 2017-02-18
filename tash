@@ -1,0 +1,12 @@
+[1mdiff --git a/app/assets/javascripts/services/googleMapsService.js b/app/assets/javascripts/services/googleMapsService.js[m
+[1mindex 96f84e7..adc43b5 100644[m
+[1m--- a/app/assets/javascripts/services/googleMapsService.js[m
+[1m+++ b/app/assets/javascripts/services/googleMapsService.js[m
+[36m@@ -11,6 +11,7 @@[m [mangular.module('lndmrk').service('googleMaps', [ function () {[m
+     var searchBox = new google.maps.places.SearchBox(input);[m
+     window.map.addListener('bounds_changed', function() {[m
+       searchBox.setBounds(window.map.getBounds());[m
+[32m+[m[32m      console.log('bounds_changd');[m
+     });[m
+ [m
+     var markers = [];[m
